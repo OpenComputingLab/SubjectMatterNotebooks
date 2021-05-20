@@ -93,7 +93,7 @@ For example, in the case of the above circuit, how do the various voltage levels
 import numpy as np
 
 t = np.linspace(0, 5, 1000)
-vr = cct.R2.v.evaluate(t)
+vr = netlist_cct.R2.v.evaluate(t)
 
 Let's see what voltage response looks like:
 
@@ -106,10 +106,10 @@ ax = fig.add_subplot(111, title='Resistor R2 voltage')
 ax.plot(t, vr, linewidth=2)
 
 # The input voltage, Vi
-ax.plot(t, cct.Vi.v.evaluate(t), linewidth=2, color='red')
+ax.plot(t, netlist_cct.Vi.v.evaluate(t), linewidth=2, color='red')
 
 # The voltage aceoss R1
-ax.plot(t, cct.R1.v.evaluate(t), linewidth=2, color='green')
+ax.plot(t, netlist_cct.R1.v.evaluate(t), linewidth=2, color='green')
 
 ax.set_xlabel('Time (s)')
 ax.set_ylabel('Resistor voltage (V)');

@@ -32,6 +32,8 @@ Many of the ideas suggested herein can be considered in terms of lean manufactur
 :caption: STEM
 
 astronomy/overview
+astronomy/fits-images
+astronomy/ephemeris-and-orbits
 chemistry/overview
 chemistry/compound_lookups
 chemistry/material_properties

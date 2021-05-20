@@ -1,0 +1,856 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Astronomy - Working with FITS Images &#8212; Subject Matter Authoring Using Jupyter Notebooks</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Astronomy — Ephemeris Data and Orbtial Calculations" href="ephemeris-and-orbits.html" />
+    <link rel="prev" title="Astronomy Overview" href="overview.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Subject Matter Authoring Using Jupyter Notebooks</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  STEM
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Astronomy Overview
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Astronomy - Working with FITS Images
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ephemeris-and-orbits.html">
+   Astronomy — Ephemeris Data and Orbtial Calculations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/overview.html">
+   Chemistry Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/compound_lookups.html">
+   Chemistry — Compound Lookups
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/material_properties.html">
+   Chemical Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/visualising-compounds.html">
+   Chemistry — Visualising Chemical Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/recipes.html">
+   Recipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../electronics/overview.html">
+   Electronics Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../electronics/worked-example.html">
+   Electronics Worked Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../engineering/overview.html">
+   Engineering Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/overview.html">
+   Maths Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Arts &amp; Humanities
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../art/overview.html">
+   Art Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linguistics/overview.html">
+   Linguistics Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../music/overview.html">
+   Music Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Map Generation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../geo/overview.html">
+   Geo Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Chart Generation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chart/overview.html">
+   Chart Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Diagram Generation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/overview.html">
+   Diagrams Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Image Generation and Manipulation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../image/overview.html">
+   Image Generation and Manipulation Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Audio Generation and Manipulation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../audio/overview.html">
+   Audio Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  LaTeX
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../latex/overview.html">
+   LaTeX Overview
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/astronomy/fits-images.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/astronomy/fits-images.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#astropy">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     astropy
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aplypy">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     aplypy
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#astroquery">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     astroquery
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#astrowidgets">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     astrowidgets
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sunpy">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     sunpy
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="astronomy-working-with-fits-images">
+<h1>Astronomy - Working with FITS Images<a class="headerlink" href="#astronomy-working-with-fits-images" title="Permalink to this headline">¶</a></h1>
+<p>FITS, the <a class="reference external" href="https://fits.gsfc.nasa.gov/">Flexible Image Transport System</a>, is an open standard digital file format widely used in astronomy for representing and working with 2D images.</p>
+<p>This section demonstrates a range of tools for accessing and working with FITS image data.</p>
+<div class="section" id="astropy">
+<h2><code class="docutils literal notranslate"><span class="pre">astropy</span></code><a class="headerlink" href="#astropy" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://www.astropy.org/"><code class="docutils literal notranslate"><span class="pre">astropy</span></code></a> package provides <em>“a common core package for Astronomy in Python”</em> with the intention of fostering <em>“an ecosystem of interoperable astronomy packages”</em>.</p>
+<p>Let’s start with an example of dowloading an image file in the FITS format from an known location:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.utils.data</span> <span class="kn">import</span> <span class="n">download_file</span>
+<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
+
+<span class="n">horsehead_url</span> <span class="o">=</span> <span class="s1">&#39;http://data.astropy.org/tutorials/FITS-images/HorseHead.fits&#39;</span>
+
+<span class="c1">#image_file is the path the downloaded and locally stashed file</span>
+<span class="n">image_file</span> <span class="o">=</span> <span class="n">download_file</span><span class="p">(</span><span class="n">horsehead_url</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span>
+<span class="n">image_file</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/Users/tonyhirst/.astropy/cache/download/url/ff6e0b93871033c68022ca026a956d87/contents&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hdu_list</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">image_file</span><span class="p">)</span>
+<span class="c1">#hdu_list.info()</span>
+
+<span class="c1">#save file under another name in the local directory: hh.fits</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">if</span> <span class="s1">&#39;hh.fits&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">():</span>
+    <span class="n">hdu_list</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="s1">&#39;hh.fits&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1">#Nice styling</span>
+<span class="kn">from</span> <span class="nn">astropy.visualization</span> <span class="kn">import</span> <span class="n">astropy_mpl_style</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">astropy_mpl_style</span><span class="p">)</span>
+
+<span class="n">image_data</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="s1">&#39;hh.fits&#39;</span><span class="p">)</span>
+
+<span class="c1">#Display the image</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/fits-images_6_0.png" src="../_images/fits-images_6_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="aplypy">
+<h2><code class="docutils literal notranslate"><span class="pre">aplypy</span></code><a class="headerlink" href="#aplypy" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://aplpy.github.io/"><code class="docutils literal notranslate"><span class="pre">aplypy</span></code></a>, the <a class="reference external" href="https://aplpy.github.io/"><em>Astronomical Plotting Library in Python</em></a>, is a Python module aimed at producing publication-quality plots of astronomical imaging data in FITS format using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
+<p>Import the package and render a local fits file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">aplpy</span>
+
+<span class="n">hh</span> <span class="o">=</span> <span class="n">aplpy</span><span class="o">.</span><span class="n">FITSFigure</span><span class="p">(</span><span class="s1">&#39;hh.fits&#39;</span><span class="p">)</span>
+<span class="n">hh</span><span class="o">.</span><span class="n">show_colorscale</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: Auto-setting vmin to  3.557e+03 [aplpy.core]
+INFO: Auto-setting vmax to  1.941e+04 [aplpy.core]
+</pre></div>
+</div>
+<img alt="../_images/fits-images_10_1.png" src="../_images/fits-images_10_1.png" />
+</div>
+</div>
+<p>We can also view the image in grayscale:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Close the previous image session</span>
+<span class="n">hh</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">hh</span> <span class="o">=</span> <span class="n">aplpy</span><span class="o">.</span><span class="n">FITSFigure</span><span class="p">(</span><span class="s1">&#39;hh.fits&#39;</span><span class="p">)</span>
+<span class="n">hh</span><span class="o">.</span><span class="n">show_grayscale</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: Auto-setting vmin to  3.596e+03 [aplpy.core]
+INFO: Auto-setting vmax to  1.969e+04 [aplpy.core]
+</pre></div>
+</div>
+<img alt="../_images/fits-images_12_1.png" src="../_images/fits-images_12_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hh</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">aplpy</span></code> package plays nicely with the <code class="docutils literal notranslate"><span class="pre">astropy</span></code> package. For example, we can render a graysclae image and then overlay it with a marker using coordinates obtained from a call to <code class="docutils literal notranslate"><span class="pre">astropy.coordinates</span></code> for the centroid of the <em>‘Horsehead Nebula’</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">coordinates</span>
+
+<span class="n">hh</span> <span class="o">=</span> <span class="n">aplpy</span><span class="o">.</span><span class="n">FITSFigure</span><span class="p">(</span><span class="s1">&#39;hh.fits&#39;</span><span class="p">)</span>
+<span class="n">hh</span><span class="o">.</span><span class="n">show_grayscale</span><span class="p">()</span>
+
+<span class="c1"># We can lookup data for astronomical objects by name</span>
+<span class="n">HORSEHEAD_NEBULA</span> <span class="o">=</span> <span class="s1">&#39;Horsehead Nebula&#39;</span>
+
+<span class="n">horsehead</span> <span class="o">=</span> <span class="n">coordinates</span><span class="o">.</span><span class="n">SkyCoord</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">HORSEHEAD_NEBULA</span><span class="p">)</span>
+<span class="n">hh</span><span class="o">.</span><span class="n">show_markers</span><span class="p">(</span><span class="n">horsehead</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">horsehead</span><span class="o">.</span><span class="n">dec</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: Auto-setting vmin to  3.665e+03 [aplpy.core]
+INFO: Auto-setting vmax to  1.967e+04 [aplpy.core]
+</pre></div>
+</div>
+<img alt="../_images/fits-images_15_1.png" src="../_images/fits-images_15_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hh</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="astroquery">
+<h2><code class="docutils literal notranslate"><span class="pre">astroquery</span></code><a class="headerlink" href="#astroquery" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://astroquery.readthedocs.io/en/latest/index.html"><code class="docutils literal notranslate"><span class="pre">astroquery</span></code></a> package provides a range of tools for querying astronomical data services and retrieving images from them:</p>
+<p>For example, we can look up a record by name on the <a class="reference external" href="http://simbad.u-strasbg.fr/simbad/">SIMBAD Astronomical Database</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astroquery.simbad</span> <span class="kn">import</span> <span class="n">Simbad</span>
+
+<span class="n">result_table</span> <span class="o">=</span> <span class="n">Simbad</span><span class="o">.</span><span class="n">query_object</span><span class="p">(</span><span class="s2">&quot;Horsehead nebula&quot;</span><span class="p">)</span>
+
+<span class="n">result_table</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>MAIN_ID</th>
+      <td>NAME Horsehead Nebula</td>
+    </tr>
+    <tr>
+      <th>RA</th>
+      <td>05 40 59.0</td>
+    </tr>
+    <tr>
+      <th>DEC</th>
+      <td>-02 27 30</td>
+    </tr>
+    <tr>
+      <th>RA_PREC</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>DEC_PREC</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>COO_ERR_MAJA</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>COO_ERR_MINA</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>COO_ERR_ANGLE</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>COO_QUAL</th>
+      <td>D</td>
+    </tr>
+    <tr>
+      <th>COO_WAVELENGTH</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>COO_BIBCODE</th>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Or we can download an image by name from the <a class="reference external" href="https://skyview.gsfc.nasa.gov/current/cgi/titlepage.pl">Skyview virtual observatory</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astroquery.skyview</span> <span class="kn">import</span> <span class="n">SkyView</span>
+
+<span class="n">hh2_images</span> <span class="o">=</span> <span class="n">SkyView</span><span class="o">.</span><span class="n">get_images</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="n">HORSEHEAD_NEBULA</span><span class="p">,</span>
+                                <span class="n">survey</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2MASS-K&#39;</span><span class="p">],</span> <span class="n">pixels</span><span class="o">=</span><span class="mi">1500</span><span class="p">)</span>
+
+<span class="n">hh2_images</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&lt;astropy.io.fits.hdu.image.PrimaryHDU object at 0x12b8aba90&gt;]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s save the file and then preview it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">out_file</span> <span class="o">=</span> <span class="s1">&#39;hh2.fits&#39;</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">out_file</span><span class="p">):</span>
+    <span class="n">hh2_images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="n">out_file</span><span class="p">)</span>
+
+<span class="n">hh2</span> <span class="o">=</span> <span class="n">aplpy</span><span class="o">.</span><span class="n">FITSFigure</span><span class="p">(</span><span class="n">out_file</span><span class="p">)</span>
+<span class="n">hh2</span><span class="o">.</span><span class="n">show_grayscale</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: Auto-setting vmin to  5.159e+02 [aplpy.core]
+INFO: Auto-setting vmax to  5.551e+02 [aplpy.core]
+</pre></div>
+</div>
+<img alt="../_images/fits-images_24_1.png" src="../_images/fits-images_24_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hh2</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="astrowidgets">
+<h2><code class="docutils literal notranslate"><span class="pre">astrowidgets</span></code><a class="headerlink" href="#astrowidgets" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://astrowidgets.readthedocs.io/en/latest/astrowidgets/index.html"><code class="docutils literal notranslate"><span class="pre">astrowidgets</span></code></a> pckage provivdes a scripable image viewing widget for exploring FITS images.</p>
+<p>For example, let’s load the widget:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astrowidgets</span> <span class="kn">import</span> <span class="n">ImageWidget</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">ImageWidget</span><span class="p">()</span>
+
+<span class="n">image</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "6c8537cceb484a8aafc5e6adfb0b39f1"}
+</script></div>
+</div>
+<p>And then load an image into that widget at a particular zoom level and a centered on location cordinates grabbed from a co-oordinate lookup:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">.</span><span class="n">load_fits</span><span class="p">(</span><span class="n">out_file</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="kn">import</span> <span class="n">SkyCoord</span>
+
+<span class="n">image</span><span class="o">.</span><span class="n">center_on</span><span class="p">(</span><span class="n">SkyCoord</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">HORSEHEAD_NEBULA</span><span class="p">))</span>
+<span class="n">image</span><span class="o">.</span><span class="n">zoom_level</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sunpy">
+<h2><code class="docutils literal notranslate"><span class="pre">sunpy</span></code><a class="headerlink" href="#sunpy" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://sunpy.org/"><code class="docutils literal notranslate"><span class="pre">sunpy</span></code></a> package provides a wide range of open source solar data analysis tools.</p>
+<p>Let’s try a quick demo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sunpy.data.sample</span>
+<span class="kn">import</span> <span class="nn">sunpy.map</span>
+
+<span class="n">aia</span> <span class="o">=</span> <span class="n">sunpy</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">sunpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">sample</span><span class="o">.</span><span class="n">AIA_171_IMAGE</span><span class="p">)</span>
+<span class="n">aia</span><span class="o">.</span><span class="n">peek</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/fits-images_35_0.png" src="../_images/fits-images_35_0.png" />
+</div>
+</div>
+<p>By default, we’re expected to use matplotlib to view images, so we’ll create a simple utility function to help us do that.</p>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">sunpy.map</span>
+
+<span class="k">def</span> <span class="nf">plot_image</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="n">limb</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Quick function to help display of solar images. &#39;&#39;&#39;</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    
+    <span class="k">if</span> <span class="n">imagefile</span> <span class="ow">in</span> <span class="n">demo_files</span><span class="p">:</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">sunpy</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">demo_files</span><span class="p">[</span><span class="n">imagefile</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">sunpy</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">imagefile</span><span class="p">)</span>
+    <span class="c1">#ax = plt.subplot(111, projection=m)</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+    
+    <span class="k">if</span> <span class="n">limb</span><span class="p">:</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">draw_limb</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">grid</span><span class="p">:</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">draw_grid</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">colorbar</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="o">=</span><span class="kc">None</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s use our convenience function to render a demo image:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_image</span><span class="p">(</span><span class="n">sunpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">sample</span><span class="o">.</span><span class="n">AIA_171_IMAGE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">22</span><span class="o">-</span><span class="mi">39</span><span class="n">fd9919cab8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">plot_image</span><span class="p">(</span><span class="n">sunpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">sample</span><span class="o">.</span><span class="n">AIA_171_IMAGE</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-21-df23d8394ff1&gt;</span> in <span class="ni">plot_image</span><span class="nt">(imagefile, limb, grid, colorbar)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+<span class="ne">----&gt; </span><span class="mi">9</span>     <span class="k">if</span> <span class="n">imagefile</span> <span class="ow">in</span> <span class="n">demo_files</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>         <span class="n">m</span> <span class="o">=</span> <span class="n">sunpy</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">demo_files</span><span class="p">[</span><span class="n">imagefile</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">NameError</span>: name &#39;demo_files&#39; is not defined
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 576x432 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can remove the grid and colorbars if required:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_image</span><span class="p">(</span><span class="n">sunpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">sample</span><span class="o">.</span><span class="n">AIA_193_CUTOUT01_IMAGE</span><span class="p">,</span>
+           <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/fits-images_41_0.png" src="../_images/fits-images_41_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./astronomy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="overview.html" title="previous page">Astronomy Overview</a>
+    <a class='right-next' id="next-link" href="ephemeris-and-orbits.html" title="next page">Astronomy — Ephemeris Data and Orbtial Calculations</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

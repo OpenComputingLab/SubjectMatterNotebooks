@@ -58,7 +58,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chemistry Overview" href="../chemistry/overview.html" />
+    <link rel="next" title="Astronomy - Working with FITS Images" href="fits-images.html" />
     <link rel="prev" title="Introduction" href="../intro.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -103,6 +103,16 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Astronomy Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="fits-images.html">
+   Astronomy - Working with FITS Images
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ephemeris-and-orbits.html">
+   Astronomy — Ephemeris Data and Orbtial Calculations
   </a>
  </li>
  <li class="toctree-l1">
@@ -326,25 +336,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#astropy">
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     astropy
-    </span>
-   </code>
-  </a>
- </li>
-</ul>
-
-        </nav>
-        
         </div>
     </div>
 </div>
@@ -357,69 +348,10 @@
 <h1>Astronomy Overview<a class="headerlink" href="#astronomy-overview" title="Permalink to this headline">¶</a></h1>
 <p>A wide range of tools are available for obtaining and working with a huge variety of astronomy related images and datasets, as well as performing astronomical calculations.</p>
 <p>The complex and exact nature of the subject matter means that being able to script the generation and inclusion of assets into our teaching materials as part of a one piece production workflow is likely to reduce chances of mismatches when assembling publication ready documents.</p>
-<div class="section" id="astropy">
-<h2><code class="docutils literal notranslate"><span class="pre">astropy</span></code><a class="headerlink" href="#astropy" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference external" href="https://www.astropy.org/"><code class="docutils literal notranslate"><span class="pre">astropy</span></code></a> package provides <em>“a common core package for Astronomy in Python”</em> with the intention of fostering <em>“an ecosystem of interoperable astronomy packages”</em>.</p>
-<p>Let’s start with an example of dowloading an image file in the FITS format from an known location:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.utils.data</span> <span class="kn">import</span> <span class="n">download_file</span>
-<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
-
-<span class="n">horsehead_url</span> <span class="o">=</span> <span class="s1">&#39;http://data.astropy.org/tutorials/FITS-images/HorseHead.fits&#39;</span>
-
-<span class="c1">#image_file is the path the downloaded and locally stashed file</span>
-<span class="n">image_file</span> <span class="o">=</span> <span class="n">download_file</span><span class="p">(</span><span class="n">horsehead_url</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span>
-<span class="n">image_file</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/Users/tonyhirst/.astropy/cache/download/url/ff6e0b93871033c68022ca026a956d87/contents&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>FITS, the <a class="reference external" href="https://fits.gsfc.nasa.gov/">Flexible Image Transport System</a>, is an open standard digital file format widely used in astronomy for representing and working with 2D images.</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hdu_list</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">image_file</span><span class="p">)</span>
-<span class="c1">#hdu_list.info()</span>
-
-<span class="c1">#save file under another name in the local directory: hh.fits</span>
-<span class="kn">import</span> <span class="nn">os</span>
-
-<span class="k">if</span> <span class="s1">&#39;hh.fits&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">():</span>
-    <span class="n">hdu_list</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="s1">&#39;hh.fits&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="c1">#Nice styling</span>
-<span class="kn">from</span> <span class="nn">astropy.visualization</span> <span class="kn">import</span> <span class="n">astropy_mpl_style</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">astropy_mpl_style</span><span class="p">)</span>
-
-
-<span class="n">image_data</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="s1">&#39;hh.fits&#39;</span><span class="p">)</span>
-
-<span class="c1">#Display the image</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">();</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/overview_7_0.png" src="../_images/overview_7_0.png" />
-</div>
-</div>
-</div>
+<p>Example use cases will include:</p>
+<ul class="simple">
+<li><p>accessing, downloading, rendering and manipulating FITS image data;</p></li>
+</ul>
 </div>
 
     <script type="text/x-thebe-config">
@@ -448,7 +380,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">Introduction</a>
-    <a class='right-next' id="next-link" href="../chemistry/overview.html" title="next page">Chemistry Overview</a>
+    <a class='right-next' id="next-link" href="fits-images.html" title="next page">Astronomy - Working with FITS Images</a>
 
         </div>
         
