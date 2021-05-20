@@ -186,10 +186,7 @@ def plot_image(imagefile, limb=False, grid=True, colorbar=True):
     ''' Quick function to help display of solar images. '''
     fig = plt.figure()
     
-    if imagefile in demo_files:
-        m = sunpy.map.Map(demo_files[imagefile])
-    else:
-        m = sunpy.map.Map(imagefile)
+    m = sunpy.map.Map(imagefile)
     #ax = plt.subplot(111, projection=m)
     m.plot()
     
