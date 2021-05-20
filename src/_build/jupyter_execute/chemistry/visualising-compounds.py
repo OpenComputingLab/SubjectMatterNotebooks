@@ -13,13 +13,13 @@ For example ?SMILES
 The [`rdkit`](https://rdkit.org/docs/index.html) package, an open source toolkit for cheminformatics, provides a wide range of tools for working with chemical representations.
 
 #%pip install rdkit-pypi
-# TO DO link to issue
 #import rdkit
 
 from rdkit import Chem
 m = Chem.MolFromSmiles("C1=NC2=C(N1)C(=NC=N2)N")
 m
 
+from rdkit import AllChem
 m = AllChem.AddHs(m)
 m
 

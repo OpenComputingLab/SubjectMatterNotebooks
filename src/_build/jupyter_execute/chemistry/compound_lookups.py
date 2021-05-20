@@ -97,7 +97,7 @@ html_formatter.for_type(Compound, pcp_compound_properties);
 
 That code can easily be added to a package or included and hidden within source document.
 
-Now if we call the compound we get a prettfied, custom output for it:
+Now if we call the compound we get a prettified, custom output for it:
 
 compound
 

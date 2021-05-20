@@ -1,5 +1,17 @@
 {
   "chemistry/overview": {
+    "compound": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "compound",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "'ethanol'"
+      }
+    },
     "compound_latex": {
       "output_type": "display_data",
       "metadata": {
@@ -11,18 +23,6 @@
       "data": {
         "application/papermill.record/text/plain": "<IPython.core.display.Latex object>",
         "application/papermill.record/text/latex": "$\\ce{C2H6O}$"
-      }
-    },
-    "compound": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "compound",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "'ethanol'"
       }
     }
   }

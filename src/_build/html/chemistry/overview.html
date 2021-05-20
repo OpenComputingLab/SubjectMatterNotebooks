@@ -137,7 +137,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../electronics/worked-example.html">
-   Worked Example
+   Electronics Worked Example
   </a>
  </li>
  <li class="toctree-l1">
@@ -405,8 +405,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="3dmolviewer_1621517330718077"  style="position: relative; width: 640px; height: 480px">
-        <p id="3dmolwarning_1621517330718077" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
+<div class="output text_html"><div id="3dmolviewer_162152533903851"  style="position: relative; width: 640px; height: 480px">
+        <p id="3dmolwarning_162152533903851" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
         <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
         </div>
 <script>
@@ -429,17 +429,17 @@ $3Dmolpromise = null;
   $3Dmolpromise = loadScriptAsync('https://3dmol.org/build/3Dmol.js');
 }
 
-var viewer_1621517330718077 = null;
-var warn = document.getElementById("3dmolwarning_1621517330718077");
+var viewer_162152533903851 = null;
+var warn = document.getElementById("3dmolwarning_162152533903851");
 if(warn) {
     warn.parentNode.removeChild(warn);
 }
 $3Dmolpromise.then(function() {
-viewer_1621517330718077 = $3Dmol.createViewer($("#3dmolviewer_1621517330718077"),{backgroundColor:"white"});
-$3Dmol.download("cid:702", viewer_1621517330718077, {}, function() {
-viewer_1621517330718077.zoomTo();
-	viewer_1621517330718077.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.25}});
-viewer_1621517330718077.render();
+viewer_162152533903851 = $3Dmol.createViewer($("#3dmolviewer_162152533903851"),{backgroundColor:"white"});
+$3Dmol.download("cid:702", viewer_162152533903851, {}, function() {
+viewer_162152533903851.zoomTo();
+	viewer_162152533903851.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.25}});
+viewer_162152533903851.render();
 })
 });
 </script></div></div>

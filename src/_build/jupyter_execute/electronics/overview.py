@@ -20,10 +20,7 @@ As described elsewhere, [`lcapy`](https://github.com/mph-/lcapy) is a linear cir
 `lcapy` use a circuit description that can be used to generate an circuit diagram as the basis for a wide range of analyses. For example, lcapy can be used to describe equivalent circuits (such as Thevenin or Norton equivalent circuits), or generate Bode plots.
 
 from lcapy import Circuit
- 
-# The things to the right of the semicolon on each line
-# are the optional layout elements
-# They are not *required* when defining the circuit
+
 cct = Circuit()
 cct.add("""
 Vi 1 0_1 step 20; down
@@ -85,9 +82,9 @@ with open(fn, "w") as text_file:
     text_file.write(sch)
 
 # Create a circuit from a netlist file
-cct = Circuit(fn)
+netlist_cct = Circuit(fn)
 
-cct.draw()
+netlist_cct.draw()
 
 The ability to create – and share – circuit diagrams in a Python context that plays nicely with Jupyter notebooks is handy, but the `lcapy` approach becomes really useful if we want to produce other assets around the circuit we’ve just created.
 
@@ -147,8 +144,9 @@ def response(R=1):
     
     cct.draw()
 
-Using the network description of a circuit, it only takes a couple of lines to define a circuit and then get the transient response to step function for it:
+Using the network description of a circuit, it only takes a couple of lines to define a circuit and then get the transient response to a step function for it:
 
+from lcapy import Vstep, R, C, L
 from numpy import linspace
 
 underDampedRLC = Vstep(10) + R(0.1) + L(0.2, 0)+ C(0.4, 0)
@@ -159,9 +157,6 @@ t = linspace(0, 10, 1000)
 underDampedRLC.Isc.transient_response().plot(t);
 
 Or a frequncy response:
-
-from numpy import logspace, linspace
-from lcapy import Vstep, R, C, L
 
 n = Vstep(20) + R(5) + C(10)
 n.draw()
@@ -208,10 +203,17 @@ parallelC.simplify().C
 We can fudge the creation of text around this representation:
 
 from IPython.display import Latex
+# Hmmm, could we make some cell block magic for this
 
-Latex(f"The overall resistance value simplifies to: {parallelR.simplify().R._repr_latex_()}")
+txt = f"The overall resistance value simplifies to: {parallelR.simplify().R._repr_latex_()}"
+
+display( Latex(txt))
 
 Some other elementary transformations we can apply – providing expressions for the an input voltage in the time or Laplace/s domain:
+
+### Domain Transformations and Transfer Functions
+
+We can represent voltages across components in out circuit in the time domain:
 
 from lcapy import Vac, t, s, pi
 
@@ -219,10 +221,20 @@ from lcapy import Vac, t, s, pi
 #Vac(amplitude, phase)
 Vac(20, pi/2).Voc(t)
 
-We also have access to the s domain:
+We can also view s-domain representations of components in a circuit:
 
 #Representation of AC voltage source in s domain
 Vac(20).Voc(s)
+
+For example, for a simple circuit:
+
+cct.draw()
+
+f'{cct[0].V.s}, {cct[1].V.s}, {cct[2].V.s}'
+
+cct[1].name
+
+### Pole-Zero Plots
 
 Pole-zero plots can be created quite straightforwardly, directly from an expression in the s-domain:
 
@@ -230,7 +242,88 @@ Pole-zero plots can be created quite straightforwardly, directly from an express
 from lcapy import s, j, transfer
 from matplotlib.pyplot import savefig, show
 
-H_ = transfer((s - 2) * (s + 3) / (s * (s - 2 * j) * (s + 2 * j)))
-H_.plot();
+H = transfer((s - 2) * (s + 3) / (s * (s - 2 * j) * (s + 2 * j)))
+H.plot();
+
+View the transfer function:
+
+H
 
 When trying to plot things like pole zero charts, where it is important that the chart matches a particular s-domain expression, we can guarantee that the chart is correct by deriving it directly from the s-domain expression, and then rendering that expression in pretty LaTeX equation form in the materials.
+
+### Bode Plots
+
+We can generate Bode plots given a particular transfer function. For example:
+
+from lcapy import s, j, pi, f, transfer
+
+from numpy import logspace
+import matplotlib.pyplot as plt
+
+H = transfer((s - 2) * (s + 3) / (s * (s - 2 * j) * (s + 2 * j)))
+
+We can transform representations:
+
+H(s), H(f), H(j * 2 * pi * f)
+
+Now generate the Bode plot:
+
+fv = logspace(-1, 3, 400)
+
+# db vs frequency
+H(f).dB.plot(fv, log_scale=True)
+
+# Phase
+H(f).phase_degrees.plot(fv,log_scale=True);
+
+## `control` Package
+
+The [`control`](https://python-control.readthedocs.io/en/0.9.0/) package provides a range of tools to support the analysis and design of feedback control system. The API provides compatibility with the MATLAB Control Systems Toolbox.
+
+#%pip install control slycot
+import control
+import slycot # Makes for more efficent computation
+
+A transfer function can be created by passing in the numerator and denominator values for the polynomial coefficients of the transfer function:
+
+control.tf([1,2,3], [4,5,6])
+
+We can define a system based on its transfer function from matrices defining the transfer functions between inputs and outputs.
+
+For example, suppose the transfer function from the 2nd input to the 1st output is $\frac{3s + 4}{6s^2 + 5s + 4}$.
+
+
+num = [[[1., 2.], [3., 4.]], [[5., 6.], [7., 8.]]]
+den = [[[9., 8., 7.], [6., 5., 4.]], [[3., 2., 1.], [-1., -2., -3.]]]
+sys1 = control.tf(num, den)
+
+sys1
+
+The `StateSpace` class is used to represent state-space realizations of linear time-invariant (LTI) systems
+
+A simple system defined as `ss(A, B, C, D)` provides a state space definition using a matrix to represent its state and output equations:
+
+$$
+\dot x = A.x + B.u \\
+y = C.x + D.u
+$$
+
+for input $u$, output $y$ and state $x$.
+
+#State space system definition
+sys = control.ss("1. -2; 3. -4", "5.; 7", "6. 8", "9.")
+
+sys
+
+We can access this directly as a numpy array if required:
+
+sys.A
+
+Generate a Nyquist diagram for the system:
+
+control.nyquist_plot(sys, omega=None, plot=True, color='b');
+
+Generate a Bode plot for the system:
+
+mag, phase, omega = control.bode(sys)
+

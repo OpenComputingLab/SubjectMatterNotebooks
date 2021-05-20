@@ -58,7 +58,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Worked Example" href="worked-example.html" />
+    <link rel="next" title="Electronics Worked Example" href="worked-example.html" />
     <link rel="prev" title="Recipes" href="../chemistry/recipes.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -137,7 +137,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="worked-example.html">
-   Worked Example
+   Electronics Worked Example
   </a>
  </li>
  <li class="toctree-l1">
@@ -340,6 +340,23 @@
     </span>
    </code>
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#domain-transformations-and-transfer-functions">
+     Domain Transformations and Transfer Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pole-zero-plots">
+     Pole-Zero Plots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bode-plots">
+     Bode Plots
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -372,10 +389,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lcapy</span> <span class="kn">import</span> <span class="n">Circuit</span>
- 
-<span class="c1"># The things to the right of the semicolon on each line</span>
-<span class="c1"># are the optional layout elements</span>
-<span class="c1"># They are not *required* when defining the circuit</span>
+
 <span class="n">cct</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">()</span>
 <span class="n">cct</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">Vi 1 0_1 step 20; down</span>
@@ -476,9 +490,9 @@ W 3 0; right=0.5
     <span class="n">text_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">sch</span><span class="p">)</span>
 
 <span class="c1"># Create a circuit from a netlist file</span>
-<span class="n">cct</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+<span class="n">netlist_cct</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
 
-<span class="n">cct</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="n">netlist_cct</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -494,6 +508,32 @@ W 3 0; right=0.5
 
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">vr</span> <span class="o">=</span> <span class="n">cct</span><span class="o">.</span><span class="n">R2</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mi">6</span><span class="n">cea92272690</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">vr</span> <span class="o">=</span> <span class="n">cct</span><span class="o">.</span><span class="n">R2</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.9/site-packages/lcapy/netlistmixin.py</span> in <span class="ni">__getattr__</span><span class="nt">(self, attr)</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>         <span class="ow">and</span> <span class="n">checks</span> <span class="k">for</span> <span class="n">an</span> <span class="n">exception</span><span class="o">.</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span><span class="s2"> </span>
+<span class="ne">---&gt; </span><span class="mi">77</span><span class="s2">         return self.__getitem__(attr)</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span><span class="s2">     def __repr__(self):</span>
+
+<span class="nn">/usr/local/lib/python3.9/site-packages/lcapy/netlistmixin.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, name)</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span><span class="s2">             return self.namespaces[name]</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span><span class="s2"> </span>
+<span class="ne">---&gt; </span><span class="mi">67</span><span class="s2">         raise AttributeError(&#39;Unknown element or node name </span><span class="si">%s</span><span class="s2">&#39; % name)</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span><span class="s2">     def __getattr__(self, attr):</span>
+
+<span class="ne">AttributeError</span>: Unknown element or node name R2
 </pre></div>
 </div>
 </div>
@@ -558,13 +598,14 @@ W 3 0; right=0.5
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "c215fc46a9744a108e25e8622deafb38"}
+{"model_id": "53e83de4b03d4928a0629e748d3f4ea7", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
-<p>Using the network description of a circuit, it only takes a couple of lines to define a circuit and then get the transient response to step function for it:</p>
+<p>Using the network description of a circuit, it only takes a couple of lines to define a circuit and then get the transient response to a step function for it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linspace</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lcapy</span> <span class="kn">import</span> <span class="n">Vstep</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">L</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linspace</span>
 
 <span class="n">underDampedRLC</span> <span class="o">=</span> <span class="n">Vstep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="n">R</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">+</span> <span class="n">L</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">+</span> <span class="n">C</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">underDampedRLC</span><span class="o">.</span><span class="n">draw</span><span class="p">();</span>
@@ -576,27 +617,14 @@ W 3 0; right=0.5
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="n">f69b89bdcc62</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linspace</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">underDampedRLC</span> <span class="o">=</span> <span class="n">Vstep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="n">R</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">+</span> <span class="n">L</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">+</span> <span class="n">C</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">underDampedRLC</span><span class="o">.</span><span class="n">draw</span><span class="p">();</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-
-<span class="ne">NameError</span>: name &#39;Vstep&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/overview_20_0.png" src="../_images/overview_20_0.png" />
+<img alt="../_images/overview_20_1.png" src="../_images/overview_20_1.png" />
 </div>
 </div>
 <p>Or a frequncy response:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">logspace</span><span class="p">,</span> <span class="n">linspace</span>
-<span class="kn">from</span> <span class="nn">lcapy</span> <span class="kn">import</span> <span class="n">Vstep</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">L</span>
-
-<span class="n">n</span> <span class="o">=</span> <span class="n">Vstep</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">+</span> <span class="n">R</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">C</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">Vstep</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">+</span> <span class="n">R</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">C</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">n</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 
 <span class="n">vf</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4000</span><span class="p">)</span>
@@ -679,8 +707,11 @@ W 3 0; right=0.5
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Latex</span>
+<span class="c1"># Hmmm, could we make some cell block magic for this</span>
 
-<span class="n">Latex</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The overall resistance value simplifies to: </span><span class="si">{</span><span class="n">parallelR</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span><span class="o">.</span><span class="n">R</span><span class="o">.</span><span class="n">_repr_latex_</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The overall resistance value simplifies to: </span><span class="si">{</span><span class="n">parallelR</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span><span class="o">.</span><span class="n">R</span><span class="o">.</span><span class="n">_repr_latex_</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">display</span><span class="p">(</span> <span class="n">Latex</span><span class="p">(</span><span class="n">txt</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -690,6 +721,9 @@ W 3 0; right=0.5
 </div>
 </div>
 <p>Some other elementary transformations we can apply – providing expressions for the an input voltage in the time or Laplace/s domain:</p>
+<div class="section" id="domain-transformations-and-transfer-functions">
+<h3>Domain Transformations and Transfer Functions<a class="headerlink" href="#domain-transformations-and-transfer-functions" title="Permalink to this headline">¶</a></h3>
+<p>We can represent voltages across components in out circuit in the time domain:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lcapy</span> <span class="kn">import</span> <span class="n">Vac</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">pi</span>
@@ -701,10 +735,10 @@ W 3 0; right=0.5
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_35_0.png" src="../_images/overview_35_0.png" />
+<img alt="../_images/overview_36_0.png" src="../_images/overview_36_0.png" />
 </div>
 </div>
-<p>We also have access to the s domain:</p>
+<p>We can also view s-domain representations of components in a circuit:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Representation of AC voltage source in s domain</span>
@@ -713,9 +747,40 @@ W 3 0; right=0.5
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_37_0.png" src="../_images/overview_37_0.png" />
+<img alt="../_images/overview_38_0.png" src="../_images/overview_38_0.png" />
 </div>
 </div>
+<p>For example, for a simple circuit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cct</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+
+<span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">cct</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">V</span><span class="o">.</span><span class="n">s</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">cct</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">V</span><span class="o">.</span><span class="n">s</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">cct</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">V</span><span class="o">.</span><span class="n">s</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_40_0.png" src="../_images/overview_40_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0, 20/s, 20/(s + 1/(C*R))&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cct</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pole-zero-plots">
+<h3>Pole-Zero Plots<a class="headerlink" href="#pole-zero-plots" title="Permalink to this headline">¶</a></h3>
 <p>Pole-zero plots can be created quite straightforwardly, directly from an expression in the s-domain:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -723,16 +788,179 @@ W 3 0; right=0.5
 <span class="kn">from</span> <span class="nn">lcapy</span> <span class="kn">import</span> <span class="n">s</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">transfer</span>
 <span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="n">savefig</span><span class="p">,</span> <span class="n">show</span>
 
-<span class="n">H_</span> <span class="o">=</span> <span class="n">transfer</span><span class="p">((</span><span class="n">s</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">)))</span>
-<span class="n">H_</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">transfer</span><span class="p">((</span><span class="n">s</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">)))</span>
+<span class="n">H</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_39_0.png" src="../_images/overview_39_0.png" />
+<img alt="../_images/overview_43_0.png" src="../_images/overview_43_0.png" />
+</div>
+</div>
+<p>View the transfer function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_45_0.png" src="../_images/overview_45_0.png" />
 </div>
 </div>
 <p>When trying to plot things like pole zero charts, where it is important that the chart matches a particular s-domain expression, we can guarantee that the chart is correct by deriving it directly from the s-domain expression, and then rendering that expression in pretty LaTeX equation form in the materials.</p>
+</div>
+<div class="section" id="bode-plots">
+<h3>Bode Plots<a class="headerlink" href="#bode-plots" title="Permalink to this headline">¶</a></h3>
+<p>We can generate Bode plots given a particular transfer function. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lcapy</span> <span class="kn">import</span> <span class="n">s</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">transfer</span>
+
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">logspace</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">H</span> <span class="o">=</span> <span class="n">transfer</span><span class="p">((</span><span class="n">s</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can transform representations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">H</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">H</span><span class="p">(</span><span class="n">j</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_50_0.png" src="../_images/overview_50_0.png" />
+</div>
+</div>
+<p>Now generate the Bode plot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fv</span> <span class="o">=</span> <span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+
+<span class="c1"># db vs frequency</span>
+<span class="n">H</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">dB</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fv</span><span class="p">,</span> <span class="n">log_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Phase</span>
+<span class="n">H</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">phase_degrees</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fv</span><span class="p">,</span><span class="n">log_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_52_0.png" src="../_images/overview_52_0.png" />
+<img alt="../_images/overview_52_1.png" src="../_images/overview_52_1.png" />
+</div>
+</div>
+<p>## <code class="docutils literal notranslate"><span class="pre">control</span></code> Package</p>
+<p>The <a class="reference external" href="https://python-control.readthedocs.io/en/0.9.0/"><code class="docutils literal notranslate"><span class="pre">control</span></code></a> package provides a range of tools to support the analysis and design of feedback control system. The API provides compatibility with the MATLAB Control Systems Toolbox.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%pip install control slycot</span>
+<span class="kn">import</span> <span class="nn">control</span>
+<span class="kn">import</span> <span class="nn">slycot</span> <span class="c1"># Makes for more efficent computation</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A transfer function can be created by passing in the numerator and denominator values for the polynomial coefficients of the transfer function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">control</span><span class="o">.</span><span class="n">tf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\frac{s^2 + 2 s + 3}{4 s^2 + 5 s + 6}\]</div>
+</div>
+</div>
+<p>We can define a system based on its transfer function from matrices defining the transfer functions between inputs and outputs.</p>
+<p>For example, suppose the transfer function from the 2nd input to the 1st output is <span class="math notranslate nohighlight">\(\frac{3s + 4}{6s^2 + 5s + 4}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="p">[[[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">]],</span> <span class="p">[[</span><span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">],</span> <span class="p">[</span><span class="mf">7.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">]]]</span>
+<span class="n">den</span> <span class="o">=</span> <span class="p">[[[</span><span class="mf">9.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">],</span> <span class="p">[</span><span class="mf">6.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">]],</span> <span class="p">[[</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.</span><span class="p">]]]</span>
+<span class="n">sys1</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">den</span><span class="p">)</span>
+
+<span class="n">sys1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}\frac{s + 2}{9 s^2 + 8 s + 7}&amp;\frac{3 s + 4}{6 s^2 + 5 s + 4}\\\frac{5 s + 6}{3 s^2 + 2 s + 1}&amp;\frac{7 s + 8}{-s^2 - 2 s - 3}\\ \end{bmatrix}\end{split}\]</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">StateSpace</span></code> class is used to represent state-space realizations of linear time-invariant (LTI) systems</p>
+<p>A simple system defined as <code class="docutils literal notranslate"><span class="pre">ss(A,</span> <span class="pre">B,</span> <span class="pre">C,</span> <span class="pre">D)</span></code> provides a state space definition using a matrix to represent its state and output equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\dot x = A.x + B.u \\
+y = C.x + D.u
+\end{split}\]</div>
+<p>for input <span class="math notranslate nohighlight">\(u\)</span>, output <span class="math notranslate nohighlight">\(y\)</span> and state <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#State space system definition</span>
+<span class="n">sys</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="s2">&quot;1. -2; 3. -4&quot;</span><span class="p">,</span> <span class="s2">&quot;5.; 7&quot;</span><span class="p">,</span> <span class="s2">&quot;6. 8&quot;</span><span class="p">,</span> <span class="s2">&quot;9.&quot;</span><span class="p">)</span>
+
+<span class="n">sys</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}
+\left(
+\begin{array}{rllrll|rll}
+1\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}&amp;-2\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}&amp;5\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}\\
+3\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}&amp;-4\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}&amp;7\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}\\
+\hline
+6\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}&amp;8\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}&amp;9\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}\\
+\end{array}\right)
+\end{split}\]</div>
+</div>
+</div>
+<p>We can access this directly as a numpy array if required:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1., -2.],
+       [ 3., -4.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Generate a Nyquist diagram for the system:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">control</span><span class="o">.</span><span class="n">nyquist_plot</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_64_0.png" src="../_images/overview_64_0.png" />
+</div>
+</div>
+<p>Generate a Bode plot for the system:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mag</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">omega</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">bode</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_66_0.png" src="../_images/overview_66_0.png" />
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -762,7 +990,7 @@ W 3 0; right=0.5
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="../chemistry/recipes.html" title="previous page">Recipes</a>
-    <a class='right-next' id="next-link" href="worked-example.html" title="next page">Worked Example</a>
+    <a class='right-next' id="next-link" href="worked-example.html" title="next page">Electronics Worked Example</a>
 
         </div>
         

@@ -1,4 +1,4 @@
-# Worked Example
+# Electronics Worked Example
 
 This notebook starts to explore a worked example of how we can use a package like `lcapy` to support the production of technical eductional materials in a way that guarantees correctness and provides opportunities to developing self-text activities.
 
