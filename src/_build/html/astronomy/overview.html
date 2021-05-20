@@ -326,6 +326,25 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#astropy">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     astropy
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -336,13 +355,12 @@
                 
   <div class="section" id="astronomy-overview">
 <h1>Astronomy Overview<a class="headerlink" href="#astronomy-overview" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%pip install astropy</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>A wide range of tools are available for obtaining and working with a huge variety of astronomy related images and datasets, as well as performing astronomical calculations.</p>
+<p>The complex and exact nature of the subject matter means that being able to script the generation and inclusion of assets into our teaching materials as part of a one piece production workflow is likely to reduce chances of mismatches when assembling publication ready documents.</p>
+<div class="section" id="astropy">
+<h2><code class="docutils literal notranslate"><span class="pre">astropy</span></code><a class="headerlink" href="#astropy" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://www.astropy.org/"><code class="docutils literal notranslate"><span class="pre">astropy</span></code></a> package provides <em>“a common core package for Astronomy in Python”</em> with the intention of fostering <em>“an ecosystem of interoperable astronomy packages”</em>.</p>
+<p>Let’s start with an example of dowloading an image file in the FITS format from an known location:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.utils.data</span> <span class="kn">import</span> <span class="n">download_file</span>
@@ -361,6 +379,10 @@
 </pre></div>
 </div>
 </div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>FITS, the <a class="reference external" href="https://fits.gsfc.nasa.gov/">Flexible Image Transport System</a>, is an open standard digital file format widely used in astronomy for representing and working with 2D images.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -394,7 +416,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_4_0.png" src="../_images/overview_4_0.png" />
+<img alt="../_images/overview_7_0.png" src="../_images/overview_7_0.png" />
+</div>
 </div>
 </div>
 </div>

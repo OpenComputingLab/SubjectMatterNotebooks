@@ -19,12 +19,11 @@ from rdkit import Chem
 m = Chem.MolFromSmiles("C1=NC2=C(N1)C(=NC=N2)N")
 m
 
-from rdkit import AllChem
-m = AllChem.AddHs(m)
+m = Chem.AddHs(m)
 m
 
 def smilesH(m):
-    return AllChem.AddHs(Chem.MolFromSmiles(m))
+    return Chem.AddHs(Chem.MolFromSmiles(m))
 
 bromomethane = smilesH('CBr')
 bromoethane = smilesH('CCBr')
@@ -49,11 +48,11 @@ m
 
 #Following is needed to render molecule structure views in Jupyter notebook
 from rdkit.Chem.Draw import IPythonConsole
+from rdkit.Chem import rdChemReactions
+
 IPythonConsole.ipython_useSVG=True  
 
-AllChem.ReactionFromSmarts("C=CCBr>>C=CCI")
-
-
+rdChemReactions.ReactionFromSmarts("C=CCBr>>C=CCI");
 
 ### `openbabel` and `pybel`
 

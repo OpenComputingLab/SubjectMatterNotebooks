@@ -10,7 +10,12 @@ Packages can also work with tiles served from a personally hosted map tile serve
 
 The [`ipyleaflet`](https://ipyleaflet.readthedocs.io/en/latest/) package supports the creation of embedded, interactive maps as an `ipywidget` using the [`leaflet.js`](https://leafletjs.com/) Javascript package.
 
-#%pip install ipyleaflet
+%%capture
+try:
+    import ipyleaflet
+except:
+    %pip install ipyleaflet
+
 import ipyleaflet as lflt
 
 m = lflt.Map(center=[52.0250, -0.7084], zoom=14)
@@ -19,6 +24,12 @@ m
 ## `folium`
 
 The [`folium`](https://python-visualization.github.io/folium/) package supports the creation and embedding of interactive maps using `leaflet.js` although in this case the embedded map is *not* wrapped as an `ipywidget`.
+
+%%capture
+try:
+    import folium
+except:
+    %pip install folium
 
 import folium
 
@@ -52,7 +63,13 @@ m
 
 ### Choropleth Maps
 
-We can easily create a chorpoleth map from a tabular dataset that shares keys with a shapefile.
+We can easily create a choropleth map from a tabular dataset that shares keys with a shapefile.
+
+%%capture
+try:
+    import pandas
+except:
+    %pip install pandas
 
 import pandas as pd
 
@@ -61,7 +78,13 @@ turnout.head()
 
 Various tools exist that allow us to read and process geojson files in a convenient way.
 
-For example, use `fiona` to read in a geojson file, parse the extennt of the shape file and find the mid-point:
+For example, use `fiona` to read in a geojson file, parse the extent of the shape file and find the mid-point:
+
+%%capture
+try:
+    import fiona
+except:
+    %pip install fiona
 
 import fiona
 

@@ -17,18 +17,30 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from rdkit import AllChem
-m = AllChem.AddHs(m)
-m
+def smilesH(m):
+    return Chem.AddHs(Chem.MolFromSmiles(m))
+
+bromomethane = smilesH('CBr')
+bromoethane = smilesH('CCBr')
+_2_bromopropane =  smilesH('CC(Br)C')
+_2_bromo_2_methylpropane = smilesH('CC(Br)(C)C')
+
+my_molecules = [bromomethane, 
+                bromoethane,
+                _2_bromopropane,
+                _2_bromo_2_methylpropane,
+               ]
+
+Draw.MolsToGridImage(my_molecules, useSVG=True)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mImportError[0m                               Traceback (most recent call last)
-[0;32m<ipython-input-3-7862a90e6a7d>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0;32mfrom[0m [0mrdkit[0m [0;32mimport[0m [0mAllChem[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      2[0m [0mm[0m [0;34m=[0m [0mAllChem[0m[0;34m.[0m[0mAddHs[0m[0;34m([0m[0mm[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0mm[0m[0;34m[0m[0;34m[0m[0m
-
-[0;31mImportError[0m: cannot import name 'AllChem' from 'rdkit' (/usr/local/lib/python3.9/site-packages/rdkit/__init__.py)
-ImportError: cannot import name 'AllChem' from 'rdkit' (/usr/local/lib/python3.9/site-packages/rdkit/__init__.py)
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-736648198be4>[0m in [0;36m<module>[0;34m[0m
+[1;32m     13[0m                ]
+[1;32m     14[0m [0;34m[0m[0m
+[0;32m---> 15[0;31m [0mDraw[0m[0;34m.[0m[0mMolsToGridImage[0m[0;34m([0m[0mmy_molecules[0m[0;34m,[0m [0museSVG[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'Draw' is not defined
+NameError: name 'Draw' is not defined
 
