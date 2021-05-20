@@ -34,6 +34,7 @@ Many of the ideas suggested herein can be considered in terms of lean manufactur
 astronomy/overview
 astronomy/fits-images
 astronomy/ephemeris-and-orbits
+astronomy/interactive-astronomy-viewers
 chemistry/overview
 chemistry/compound_lookups
 chemistry/material_properties

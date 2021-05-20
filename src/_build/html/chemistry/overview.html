@@ -59,7 +59,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Chemistry — Compound Lookups" href="compound_lookups.html" />
-    <link rel="prev" title="Astronomy — Ephemeris Data and Orbtial Calculations" href="../astronomy/ephemeris-and-orbits.html" />
+    <link rel="prev" title="Astronomy — Interactive Viewers" href="../astronomy/interactive-astronomy-viewers.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -113,6 +113,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../astronomy/ephemeris-and-orbits.html">
    Astronomy — Ephemeris Data and Orbtial Calculations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/interactive-astronomy-viewers.html">
+   Astronomy — Interactive Viewers
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -415,8 +420,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="3dmolviewer_1621538258699014"  style="position: relative; width: 640px; height: 480px">
-        <p id="3dmolwarning_1621538258699014" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
+<div class="output text_html"><div id="3dmolviewer_1621547832490877"  style="position: relative; width: 640px; height: 480px">
+        <p id="3dmolwarning_1621547832490877" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
         <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
         </div>
 <script>
@@ -439,17 +444,17 @@ $3Dmolpromise = null;
   $3Dmolpromise = loadScriptAsync('https://3dmol.org/build/3Dmol.js');
 }
 
-var viewer_1621538258699014 = null;
-var warn = document.getElementById("3dmolwarning_1621538258699014");
+var viewer_1621547832490877 = null;
+var warn = document.getElementById("3dmolwarning_1621547832490877");
 if(warn) {
     warn.parentNode.removeChild(warn);
 }
 $3Dmolpromise.then(function() {
-viewer_1621538258699014 = $3Dmol.createViewer($("#3dmolviewer_1621538258699014"),{backgroundColor:"white"});
-$3Dmol.download("cid:702", viewer_1621538258699014, {}, function() {
-viewer_1621538258699014.zoomTo();
-	viewer_1621538258699014.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.25}});
-viewer_1621538258699014.render();
+viewer_1621547832490877 = $3Dmol.createViewer($("#3dmolviewer_1621547832490877"),{backgroundColor:"white"});
+$3Dmol.download("cid:702", viewer_1621547832490877, {}, function() {
+viewer_1621547832490877.zoomTo();
+	viewer_1621547832490877.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.25}});
+viewer_1621547832490877.render();
 })
 });
 </script></div></div>
@@ -486,7 +491,7 @@ viewer_1621538258699014.render();
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../astronomy/ephemeris-and-orbits.html" title="previous page">Astronomy — Ephemeris Data and Orbtial Calculations</a>
+    <a class='left-prev' id="prev-link" href="../astronomy/interactive-astronomy-viewers.html" title="previous page">Astronomy — Interactive Viewers</a>
     <a class='right-next' id="next-link" href="compound_lookups.html" title="next page">Chemistry — Compound Lookups</a>
 
         </div>

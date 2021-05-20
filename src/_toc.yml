@@ -4,7 +4,8 @@
   chapters:
     - file: astronomy/overview
     - file: astronomy/fits-images
-    - file: astronomy/ephemeris-and-orbits  
+    - file: astronomy/ephemeris-and-orbits
+    - file: astronomy/interactive-astronomy-viewers
     - file: chemistry/overview
     - file: chemistry/compound_lookups
     - file: chemistry/material_properties
