@@ -2,6 +2,14 @@
 
 This notebook starts to explore a worked example of how we can use a package like `lcapy` to support the production of technical eductional materials in a way that guarantees correctness and provides opportunities to developing self-text activities.
 
+The aim is to be able to generate a set of materials where all the equations and all the calculations are rendered mechanically from a original circuit description. This would then guarantee their correctness relative to the original circuit.
+
+From an original circuit description, we can generate:
+
+- a rendered circuit diagram;
+- symbolic expressions derived from simple automated analysis of the circuit;
+- automatically generated problem solutions for calculations based around particular component values and voltages etc.
+
 ## `lcapy`
 
 As described elsewhere, `lcapy` is a linear circuit analysis package that can be used to describe, display and analyse the behaviour of a wide range of linear analogue electrical circuits.
@@ -372,9 +380,13 @@ def cct1(V='24',R1='100',R2='100'):
 
 We can render the circuit simply by calling the function:
 
-cct1()
+_ = cct1()
 
-It's trivial to make an interactive widget built around the previous function that will create a diagram for us with components labeled according to values specified by input sliders:
+It's trivial to make an interactive widget built around the previous function that will create a diagram for us with components labeled according to values specified by input sliders.
+
+```{note}
+In a live Jupyter backed UI, the following example will render several interactive widgets that allow component values to be specified; once selected, the circuit will be drawn and a missing value calculated automatically.
+```
 
 from ipywidgets import interact_manual
 cct_w = None
@@ -386,6 +398,8 @@ def i_cct1(V='24', R1='', R2='100'):
     
 #We could then select R and V values and extend the function
 # to calculate V_out automatically
+
+i_cct1()
 
 # We could also plot V_out vs R_1 for given V_S and R_2?
 

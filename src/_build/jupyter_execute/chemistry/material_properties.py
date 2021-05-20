@@ -2,13 +2,17 @@
 
 Several packages exist that allow us to automatically retrieve material properties of particlar elments and compounds as well as relating them to the periodic table.
 
-#%pip install  chemlib
-
 ## `chemlib`
 
 [`chemlib`](https://chemlib.readthedocs.io/en/latest/) is a Python package providing a wide range of functions for looking up simple chemical properties and working with simple reactions.
 
 Reference: *H. R. Ambethkar, chemlib - A Python chemistry library , 2020-- . Available at: https://github.com/harirakul/chemlib.*
+
+%%capture
+try:
+    import chemlib
+except:
+    %pip install chemlib
 
 from chemlib import Element
 
@@ -30,7 +34,6 @@ water.get_amounts(molecules = 2e+24), \
 water.molar_mass(), water.occurences, water.percentage_by_mass('H')
 
 #Get the empirical formula of a compound that is composed of 80.6% C, and 19.4% H by mass:
-
 
 from chemlib import empirical_formula_by_percent_comp as efbpc
 efbpc(C = 80.6, H = 19.4)
@@ -57,8 +60,9 @@ c.formula, c.is_balanced
 
 c.formula, c.is_balanced
 
-from chemlib import Galvanic_Cell
-g = Galvanic_Cell("Pb", "Zn")
+#Currently broken
+#from chemlib import Galvanic_Cell
+#g = Galvanic_Cell("Pb", "Zn")
 
 ## `pymatgen`
 
@@ -66,7 +70,12 @@ The [`pymatgen`](https://pymatgen.org/) (*Python Materials Genomics)* provides a
 
 Let's begin by importing the package:
 
-#%pip install --no-cache-dir pymatgen
+%%capture
+try:
+    import pymatgen
+except:
+    %pip install pymatgen
+
 import pymatgen.core as mgc
 
 We can look up various properties of an individual element directly:
@@ -122,9 +131,14 @@ mgc.Element.from_row_and_group(3, 14)
 
 The [`mendeleev`](https://mendeleev.readthedocs.io/en/stable/tutorials.html#jupyter-notebooks) package TO DO
 
-#%pip install mendeleev
+%%capture
+try:
+    import mendeleev
+except:
+    %pip install mendeleev
 
 from mendeleev import Si, Fe, O
+
 print("Si's name: ", Si.name)
 print("Fe's atomic number:", Fe.atomic_number)
 print("O's atomic weight: ", O.atomic_weight)
@@ -137,7 +151,12 @@ for iso in Fe.isotopes:
     print('{0:4d} {1:4d} {2:10.5f} {3:8.2e} {4:6.2f} {5:}'.format(
         iso.atomic_number, iso.mass_number, iso.mass, iso.mass_uncertainty, iso.abundance * 100.0, iso.is_radioactive))
 
-#%pip install bokeh
+%%capture
+try:
+    import bokeh
+except:
+    %pip install bokeh
+
 from bokeh.plotting import output_notebook, output_file
 output_notebook()
 
@@ -167,11 +186,13 @@ The [`widget_periodictable`](https://github.com/osscar-org/widget-periodictable/
 
 As such, wthe widget could form part of a simple end user application for looking up properties of selected elements, or highlighting elements within the table based on an analysis of a simple compound.
 
+%%capture
+try:
+    import widget_periodictable
+except:
+    %pip install widget_periodictable
+    !jupyter nbextension enable --py widget_periodictable
 
-
-#%pip install widget_periodictable
-#
-#!jupyter nbextension enable --py widget_periodictable
 from widget_periodictable import PTableWidget
 
 widget = PTableWidget(states = 3, selected_elements = {"C": 0, "Si": 1, "Ge": 2}, 
@@ -187,7 +208,14 @@ We can also use code to control which elements in the table are highlighted, we 
 widget.selected_elements = {"La": 0, "Ce": 1, "Pr": 2}
 # Does this all work if we eg pop the periodic table out into a floating widget?
 
-#%pip install pypdb
+## `pydb`
+
+%%capture
+try:
+    import pypdb
+except:
+    %pip install pypdb
+
 #https://github.com/williamgilpin/pypdb/blob/master/demos/demos.ipynb
 #A Python 3 toolkit for performing searches with the RCSB Protein Data Bank (PDB). 
 import pypdb

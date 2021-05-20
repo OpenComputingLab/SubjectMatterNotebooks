@@ -9,6 +9,7 @@ try:
     import ipyaladin
 except:
     %pip install ipyaladin
+    %pip install astroquery
     !jupyter nbextension enable --py widgetsnbextension
     !jupyter nbextension enable --py --sys-prefix ipyaladin
 
@@ -38,7 +39,7 @@ Enable the layers control in the widget:
 
 aladin.show_layers_control=True
 
-Set a layer explcitly:
+Set a layer explicitly:
 
 aladin.survey = 'P/2MASS/color'
 
