@@ -1,0 +1,1043 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Worked Example &#8212; Subject Matter Authoring Using Jupyter Notebooks</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Engineering Overview" href="../engineering/overview.html" />
+    <link rel="prev" title="Electronics Overview" href="overview.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Subject Matter Authoring Using Jupyter Notebooks</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  STEM
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/overview.html">
+   Astronomy Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/overview.html">
+   Chemistry Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/compound_lookups.html">
+   Chemistry — Compound Lookups
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/material_properties.html">
+   Chemical Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/visualising-compounds.html">
+   Chemistry — Visualising Chemical Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/recipes.html">
+   Recipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Electronics Overview
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Worked Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../engineering/overview.html">
+   Engineering Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/overview.html">
+   Maths Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Arts &amp; Humanities
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../art/overview.html">
+   Art Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linguistics/overview.html">
+   Linguistics Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../music/overview.html">
+   Music Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Map Generation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../geo/overview.html">
+   Geo Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Chart Generation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chart/overview.html">
+   Chart Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Diagram Generation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/overview.html">
+   Diagrams Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Image Generation and Manipulation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../image/overview.html">
+   Image Generation and Manipulation Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Audio Generation and Manipulation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../audio/overview.html">
+   Audio Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  LaTeX
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../latex/overview.html">
+   LaTeX Overview
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/electronics/worked-example.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/electronics/worked-example.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lcapy">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     lcapy
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-production-workflow">
+   Example Production Workflow
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#voltage-divider">
+     Voltage Divider
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exercise">
+       Exercise
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#answer">
+       Answer
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="worked-example">
+<h1>Worked Example<a class="headerlink" href="#worked-example" title="Permalink to this headline">¶</a></h1>
+<p>This notebook starts to explore a worked example of how we can use a package like <code class="docutils literal notranslate"><span class="pre">lcapy</span></code> to support the production of technical eductional materials in a way that guarantees correctness and provides opportunities to developing self-text activities.</p>
+<div class="section" id="lcapy">
+<h2><code class="docutils literal notranslate"><span class="pre">lcapy</span></code><a class="headerlink" href="#lcapy" title="Permalink to this headline">¶</a></h2>
+<p>As described elsewhere, <code class="docutils literal notranslate"><span class="pre">lcapy</span></code> is a linear circuit analysis package that can be used to describe, display and analyse the behaviour of a wide range of linear analogue electrical circuits.</p>
+<p><code class="docutils literal notranslate"><span class="pre">lcapy</span></code> use a circuit description that can be used to generate an circuit diagram as the basis for a wide range of analyses.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">lcapy</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">lcapy</span>
+    
+<span class="c1">#  https://github.com/dawbarton/pdf2svg</span>
+<span class="c1">#!brew install pdf2svg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Circuits are defined by generating a graph that connects numbered nodes with edges representating a particular component. Layout instructions describe the orientation of the edge, and labels can be added as required.</p>
+<p>In actual use, it would make sense to build up a lirary of comment circuit blocks that can be visually reviewed, and then the corresponding definition copited and reused, with modification as required.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lcapy</span> <span class="kn">import</span> <span class="n">Circuit</span>
+
+<span class="n">cct</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">V1 1 0; down</span>
+<span class="s2">R1 1 2; left=2, i=I_1, v=V_</span><span class="si">{R_1}</span><span class="s2"></span>
+<span class="s2">R2 1 3; right=2, i=I_2, v=V_</span><span class="si">{R_2}</span><span class="s2"></span>
+<span class="s2">L1 2 0_1; down, i=I_1, v=V_</span><span class="si">{L_1}</span><span class="s2"></span>
+<span class="s2">L2 3 0_3; down, i=I_1, v=V_</span><span class="si">{L_2}</span><span class="s2"></span>
+<span class="s2">W 0 0_3; right</span>
+<span class="s2">W 0 0_1; left&quot;&quot;&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Render the circuit</span>
+<span class="n">cct</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># We can also save a generated circuit diagram to an image file</span>
+<span class="c1">#cct.draw(scale=3, filename=&#39;circuit_diagram.svg&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_4_0.png" src="../_images/worked-example_4_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="example-production-workflow">
+<h2>Example Production Workflow<a class="headerlink" href="#example-production-workflow" title="Permalink to this headline">¶</a></h2>
+<p>To provide an example of how we might use <code class="docutils literal notranslate"><span class="pre">lcapy</span></code> consider the following teaching example taken from <em>The following section is a reworking of <a class="reference external" href="http://www.open.edu/openlearn/science-maths-technology/introduction-electronics/content-section-3.1">http://www.open.edu/openlearn/science-maths-technology/introduction-electronics/content-section-3.1</a> .</em></p>
+<div class="section" id="voltage-divider">
+<h3>Voltage Divider<a class="headerlink" href="#voltage-divider" title="Permalink to this headline">¶</a></h3>
+<p>Voltage dividers are widely used in electronic circuits to create a reference voltage, or to reduce the amplitude of a signal. The figure below shows a voltage divider. The value of <span class="math notranslate nohighlight">\(V_{out}\)</span> can be calculated from the values of <span class="math notranslate nohighlight">\(V_S\)</span>, <span class="math notranslate nohighlight">\(R_1\)</span> and <span class="math notranslate nohighlight">\(R_2\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lcapy</span>
+<span class="kn">from</span> <span class="nn">lcapy</span> <span class="kn">import</span> <span class="n">Circuit</span>
+
+<span class="c1">#We can create a schematic for the voltage divider using lcapy</span>
+<span class="c1">#This has the advantage that circuit description is also a model </span>
+<span class="c1">#The model can be analysed and used to calculate voltages and currents, for example,</span>
+<span class="c1">#  across components if component values and the source voltage are defined</span>
+
+<span class="c1">#Figure:  A voltage divider circuit</span>
+<span class="n">sch</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">VS 1 0 ; down</span>
+<span class="s1">W 1 2 ;  right, size=2</span>
+<span class="s1">R1 2 3 ; down</span>
+<span class="s1">R2 3 4; down</span>
+<span class="s1">W 3 5; right</span>
+<span class="s1">P1 5 6; down,v=V_</span><span class="si">{out}</span><span class="s1"></span>
+<span class="s1">W 4 6; right</span>
+<span class="s1">W 4 0; left</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="c1">#Demonstrate thate we can write the descriptioon to a file </span>
+<span class="n">fn</span><span class="o">=</span><span class="s2">&quot;voltageDivider.sch&quot;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">text_file</span><span class="p">:</span>
+    <span class="n">text_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">sch</span><span class="p">)</span>
+
+<span class="c1">#  and then create the circuit model from the (persisted) file    </span>
+<span class="n">cct</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The schema is also retrievable from the circuit object:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cct</span><span class="o">.</span><span class="n">sch</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VS 1 0 ; down
+W 1 2 ;  right, size=2
+R1 2 3 ; down
+R2 3 4; down
+W 3 5; right
+P1 5 6; down,v=V_{out}
+W 4 6; right
+W 4 0; left
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Draw the circuit diagram that corresponds to the schematic description</span>
+<span class="n">cct</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;american&#39;</span><span class="p">,</span> <span class="n">draw_nodes</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">label_nodes</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#american, british, european</span>
+<span class="c1">#Draw function is defined in https://github.com/mph-/lcapy/blob/master/lcapy/schematic.py</span>
+<span class="c1">#The styles need tweaking to suit OU convention - this requires a minor patch to lcapy</span>
+<span class="c1">#Styles defined in https://github.com/mph-/lcapy/blob/master/lcapy/schematic.py#Schematic.tikz_draw</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_10_0.png" src="../_images/worked-example_10_0.png" />
+</div>
+</div>
+<p>In the first instance, let’s assume that  is not connected to anything (for voltage dividers it is always assumed that negligible current flows through ). This means that, according to Kirchhoff’s first law, the current flowing through  is the same as the current flowing through . Ohm’s law allows you to calculate the current through <span class="math notranslate nohighlight">\(R_1\)</span>. It is the potential difference across that resistor, divided by its resistance. Since the voltage  is distributed over two resistors, the potential drop over <span class="math notranslate nohighlight">\(R_1\)</span> is <span class="math notranslate nohighlight">\(V_{R_1}=V_S - V_{out}\)</span>.</p>
+<p>The equation at the end of the last paragraph is written explicitly as LateX.</p>
+<p>But we can also analyse the circuit using <code class="docutils literal notranslate"><span class="pre">lcapy</span></code> to see what the equation <em>should</em> be by deriving it automatically:</p>
+<p>The voltage across <span class="math notranslate nohighlight">\(R_2\)</span>, <span class="math notranslate nohighlight">\(V_{out}\)</span>, is given as:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cct</span><span class="o">.</span><span class="n">R1</span><span class="o">.</span><span class="n">v</span>
+
+<span class="c1">#We can&#39;t do anything about the order of the variables in the output expression, unfortunately</span>
+<span class="c1">#It would be neater if sympy sorted fractional terms last but it doesn&#39;t...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_14_0.png" src="../_images/worked-example_14_0.png" />
+</div>
+</div>
+<p>We can get an expression for the output voltage, <span class="math notranslate nohighlight">\(V_{out}\)</span>, or its calculated value in a couple of ways:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The circuit’s node numbers can be displayed on the schematic if required: simply set <code class="docutils literal notranslate"><span class="pre">label_nodes=True</span></code> in the <code class="docutils literal notranslate"><span class="pre">draw()</span></code> statement.</p>
+</div>
+<p>For example, we can find the voltage across the appropriately numbered nodes by getting the open circuit voltage across nodes 3 and 4 (that is, across R2).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cct</span><span class="o">.</span><span class="n">Voc</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_16_0.png" src="../_images/worked-example_16_0.png" />
+</div>
+</div>
+<p>The output voltage can also be obtained by direct reference to the appropriate component:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cct</span><span class="o">.</span><span class="n">R2</span><span class="o">.</span><span class="n">v</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_18_0.png" src="../_images/worked-example_18_0.png" />
+</div>
+</div>
+<p>We can create a reference for our voltages as symbolic elements.</p>
+<p>For example, we can get an expression for <span class="math notranslate nohighlight">\(V_{out}\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#sympy is a symbolic maths package</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">Symbol</span><span class="p">,</span> <span class="n">Eq</span>
+
+<span class="c1">#If we add .expr to the voltages, we can get the sympy representation of voltage and current equations</span>
+<span class="c1"># that are automatically derived from the model.</span>
+<span class="n">vout_expr</span> <span class="o">=</span> <span class="n">cct</span><span class="o">.</span><span class="n">R2</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">expr</span>
+
+<span class="n">vout_expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_20_0.png" src="../_images/worked-example_20_0.png" />
+</div>
+</div>
+<p>We can also reference this value via a string:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out_component</span> <span class="o">=</span> <span class="s1">&#39;R2&#39;</span>
+
+<span class="n">cct</span><span class="p">[</span><span class="n">out_component</span><span class="p">]</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_22_0.png" src="../_images/worked-example_22_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cct</span><span class="o">.</span><span class="n">R2</span><span class="o">.</span><span class="n">relname</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;R2&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>And an expression for the voltage across <span class="math notranslate nohighlight">\(R_1\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v_r1_expr</span> <span class="o">=</span> <span class="n">cct</span><span class="o">.</span><span class="n">R1</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">expr</span>
+
+<span class="n">v_r1_expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_25_0.png" src="../_images/worked-example_25_0.png" />
+</div>
+</div>
+<p>Working with sympy symbols, we can perform a substitution if expressions match exactly.</p>
+<p>In this case, we can swap in <span class="math notranslate nohighlight">\(V_{out}\)</span> for the expression returned from the analysis to give us an expression in the form we want for <span class="math notranslate nohighlight">\(R_1\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vout</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;V_out&#39;</span><span class="p">)</span>
+
+<span class="n">v_r1_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">vout_expr</span><span class="p">,</span> <span class="n">vout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_27_0.png" src="../_images/worked-example_27_0.png" />
+</div>
+</div>
+<p>We can now create an equation to declare the relationship between a symbol for <span class="math notranslate nohighlight">\(R_1\)</span> and the expression that defines its value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#I don&#39;t know how to get the symbols from the circuit as sympy symbols</span>
+<span class="c1"># so create them explicitly</span>
+
+<span class="n">v_r1</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;V_</span><span class="si">{R_1}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define the equation</span>
+<span class="n">Eq</span><span class="p">(</span> <span class="n">v_r1</span><span class="p">,</span> <span class="n">v_r1_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">vout_expr</span><span class="p">,</span> <span class="n">vout</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_29_0.png" src="../_images/worked-example_29_0.png" />
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In a traditional set of teaching materials, we might work through the derivations of various formulae describing how to calculate particulalr quantities.</p>
+<p>In order to render symbols correctly, we might author our document using LaTeX. Jupyter notebooks are quite comfortable with rendering LaTeX inline, or as part of a multiline block, so let’s create an example of the sort of proof we might see in a traditionally authored text.</p>
+<p><em>The following expressions are hand written using LaTeX</em></p>
+</div>
+<p>The current through <span class="math notranslate nohighlight">\(R_1\)</span> (<span class="math notranslate nohighlight">\(I_{R_1}\)</span>) is given by <span class="math notranslate nohighlight">\(I_{R_1}=\displaystyle\frac{(V_S-V_{out})}{R_1}\)</span></p>
+<p>Similarly, the current through <span class="math notranslate nohighlight">\(R_2\)</span> is given by <span class="math notranslate nohighlight">\(I_{R_2}=\displaystyle\frac{V_{out}}{R_2}\)</span></p>
+<p>Kirchoff’s first law tells you that <span class="math notranslate nohighlight">\(I_{R_1}=I_{R_2}=\)</span>, and therefore</p>
+<p><span class="math notranslate nohighlight">\(\displaystyle\frac{V_{out}}{V_{R_2}}=\frac{(V_S-V_{out})}{R_1}\)</span></p>
+<p>Multiplying both sides by <span class="math notranslate nohighlight">\(R_1\)</span> and by <span class="math notranslate nohighlight">\(R_2\)</span> gives</p>
+<p><span class="math notranslate nohighlight">\(R_1V_{out}=R_2(V_S-V_{out})\)</span></p>
+<p>Then multiplying out the brackets on the right-hand side gives</p>
+<p><span class="math notranslate nohighlight">\(R_1V_{out}=R_2V_S-R_2V_{out}\)</span></p>
+<p>This can be rearranged to</p>
+<p><span class="math notranslate nohighlight">\(R_1V_{out}+R_2V_{out}=R_2V_S\)</span></p>
+<p>giving</p>
+<p><span class="math notranslate nohighlight">\((R_1+R_2)V_{out}=R_2V_S\)</span></p>
+<p>and therefore the fundamental result is obtained:</p>
+<p><span class="math notranslate nohighlight">\(V_{out}=\displaystyle\frac{R_2V_S}{(R_1+R_2)}\)</span></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>One thing we might note at this point is that by authoring in the proof in the same document as the circuit diagram, we reduce the “distance” between the circuit diagram and the derivation that purports to relate to it but there is still the potential for error.</p>
+<p>The distance between the image and the derivation also means that if we change the labeling on the diagram, for example, the derivation will no longer properly describe the components as labeled in the diagram.</p>
+</div>
+<p>From our symbolic expressions, we can render an equation for <span class="math notranslate nohighlight">\(V_{out}\)</span> very straightforwardly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#We can find this from quantities we have derived through analysis of the presented circuit</span>
+<span class="n">Eq</span><span class="p">(</span><span class="n">vout</span><span class="p">,</span> <span class="n">vout_expr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_34_0.png" src="../_images/worked-example_34_0.png" />
+</div>
+</div>
+<p>Recall that the expression <code class="docutils literal notranslate"><span class="pre">vout_expr</span></code> was calculated automatically from the original circuit representation, which was also used to render the circuit diagram. The expression is guaranteed to be correct for the circuit we have defined, although it may not be presented in the order of the form we would like it to be in.</p>
+<p>As well as accessing the voltage across a component, we can also access and expression for the current flowing through a component.</p>
+<p>For example, let’s get the expression for the current flowing through <span class="math notranslate nohighlight">\(R_1\)</span> and assign it to an appropriate symbol:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Eq</span><span class="p">(</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;I_</span><span class="si">{R_1}</span><span class="s1">&#39;</span><span class="p">),</span> <span class="n">cct</span><span class="o">.</span><span class="n">R1</span><span class="o">.</span><span class="n">i</span><span class="o">.</span><span class="n">expr</span><span class="p">)</span>
+
+<span class="c1"># The following equation is generated by the symbolic analysis...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_37_0.png" src="../_images/worked-example_37_0.png" />
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is still distance in each of these uses of <code class="docutils literal notranslate"><span class="pre">Eq()</span></code>, where we “casually” state the equivalence of left and right hand components. Could we derive the symbol for the left hand side automatically, somehow?</p>
+</div>
+<p>We can also get an expression for the current through <span class="math notranslate nohighlight">\(R_2\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#We get the following from the circuit analysis, as above...</span>
+<span class="n">cct</span><span class="o">.</span><span class="n">R2</span><span class="o">.</span><span class="n">i</span><span class="o">.</span><span class="n">expr</span>
+
+<span class="c1"># We note that the circuit analysis returns equal expressions for I_R_1 and I_R_2</span>
+<span class="c1"># which gives some sort of reinforcement to the idea of Kirchoff&#39;s Law...</span>
+
+<span class="c1"># The following equation is generated by the symbolic analysis...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_39_0.png" src="../_images/worked-example_39_0.png" />
+</div>
+</div>
+<p>Being able to render expressions that describe the values of particular quantities in algebraic terms means we may be able to create derivations that are “necessarily” true.</p>
+<p>But we can do more than that, and also start to insert numbers into the expressions.</p>
+<p>Consider the following exercise:</p>
+<div class="section" id="exercise">
+<h4>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h4>
+<p>Suppose  <span class="math notranslate nohighlight">\(V_S= 24 V\)</span> and <span class="math notranslate nohighlight">\(R_2 = 100\Omega\)</span>. You want <span class="math notranslate nohighlight">\(V_{out} = 6 V\)</span>. What value of <span class="math notranslate nohighlight">\(R_1\)</span> do you need?</p>
+</div>
+<div class="section" id="answer">
+<h4>Answer<a class="headerlink" href="#answer" title="Permalink to this headline">¶</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In a traditional set of materials, we are likely to write out the steps to the solution manually (a process which is subject to error and likely to need checking for correctness as well as sense) and then manually substitute in the required values and perform the calculation (which requires more checking).</p>
+</div>
+<p>Rearranging the equation for <span class="math notranslate nohighlight">\(V_{out}\)</span> gives</p>
+<p><span class="math notranslate nohighlight">\(V_{out}(R_1+R_2)=R_2V_S\)</span></p>
+<p>and therefore:</p>
+<p><span class="math notranslate nohighlight">\((R_1+R_2)=\displaystyle\frac{R_2V_S}{V_{out}}\)</span></p>
+<p>which means the equation for <span class="math notranslate nohighlight">\(R_1\)</span> is:</p>
+<p><span class="math notranslate nohighlight">\(R_1=\displaystyle\frac{R_2V_S}{V_{out}}-R_2\)</span></p>
+<p>Substituting in the values given and performing the calculation gives us the required solution:</p>
+<p><span class="math notranslate nohighlight">\(R_1=\displaystyle\frac{100\Omega \times 24V}{6V}-100\Omega = 400\Omega-100\Omega=300\Omega\)</span></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Once again, all the above steps are manuually derived and presented using hand crafted LaTex.</p>
+</div>
+<p>How might we set about creating an equivalent solution, but guaranteed to be correct?</p>
+<p>We essentially want to solve for <span class="math notranslate nohighlight">\(R_1\)</span> in the following expression (which was automatically derived by analysis of the presented circuit representation):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Eq</span><span class="p">(</span><span class="n">vout</span><span class="p">,</span> <span class="n">vout_expr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_44_0.png" src="../_images/worked-example_44_0.png" />
+</div>
+</div>
+<p>The steps we need to take are a simplification of the expression, with value substitution:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">sympify</span>
+
+<span class="c1">#This is clunky - is there a proper way of substituting values into lcapy expressions?</span>
+<span class="n">Eq</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">sympify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">vout_expr</span><span class="p">))</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="s1">&#39;VS&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;R2&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_46_0.png" src="../_images/worked-example_46_0.png" />
+</div>
+</div>
+<p>Rearranging, we need to solve the following for <span class="math notranslate nohighlight">\(R_1\)</span>, generated the output expression automatically through symbolic analysis:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Eq</span><span class="p">(</span><span class="n">vout_expr</span> <span class="o">-</span> <span class="n">vout</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_48_0.png" src="../_images/worked-example_48_0.png" />
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sympy</span></code> can solve such equations for us directly, so let’s see how it solves things symbolically for <span class="math notranslate nohighlight">\(R_1\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">solve</span>
+
+<span class="n">Eq</span><span class="p">(</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;R1&#39;</span><span class="p">),</span><span class="n">solve</span><span class="p">(</span><span class="n">sympify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">vout_expr</span><span class="o">-</span><span class="n">vout</span><span class="p">)),</span><span class="s1">&#39;R1&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1">#The following equation is generated by the symbolic analysis...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_50_0.png" src="../_images/worked-example_50_0.png" />
+</div>
+</div>
+<p>To solve the equation numerically, we can substitute values into the <code class="docutils literal notranslate"><span class="pre">sympy</span></code> expression as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solve</span><span class="p">(</span><span class="n">sympify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">vout_expr</span><span class="o">-</span><span class="n">vout</span><span class="p">))</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="s1">&#39;VS&#39;</span><span class="p">,</span><span class="mi">24</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;R2&#39;</span><span class="p">,</span><span class="mi">100</span><span class="p">),(</span><span class="s1">&#39;V_out&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">)]),</span><span class="s1">&#39;R1&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_52_0.png" src="../_images/worked-example_52_0.png" />
+</div>
+</div>
+<p>We can craft an equation to display the solution for us:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">VALUES</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;VS&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span>
+          <span class="p">(</span><span class="s1">&#39;R2&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+          <span class="p">(</span><span class="s1">&#39;V_out&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span>
+
+<span class="n">SOLVE_FOR</span> <span class="o">=</span> <span class="s1">&#39;R1&#39;</span>
+
+<span class="n">Eq</span><span class="p">(</span><span class="n">Symbol</span><span class="p">(</span><span class="n">SOLVE_FOR</span><span class="p">),</span> <span class="n">solve</span><span class="p">(</span><span class="n">sympify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">vout_expr</span><span class="o">-</span><span class="n">vout</span><span class="p">)),</span> <span class="n">SOLVE_FOR</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">VALUES</span><span class="p">))</span>
+
+<span class="c1">#The following result is calculated by the symbolic analysis...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_54_0.png" src="../_images/worked-example_54_0.png" />
+</div>
+</div>
+<p>A key point about this is that we can script in different component values and display the correct output.</p>
+<p>We can also do partial solutions which might be useful if we want to build up the steps to a solution, with partial substitution of values along the way:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Vs</span><span class="o">=</span><span class="mi">20</span><span class="p">;</span> <span class="n">Vout</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">R1</span><span class="o">=</span><span class="n">solve</span><span class="p">(</span><span class="n">sympify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">vout_expr</span><span class="o">-</span><span class="n">vout</span><span class="p">)),</span><span class="s1">&#39;R1&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="s1">&#39;VS&#39;</span><span class="p">,</span><span class="n">Vs</span><span class="p">),(</span><span class="s1">&#39;V_out&#39;</span><span class="p">,</span><span class="n">Vout</span><span class="p">)])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;For V_S=</span><span class="si">{Vs}</span><span class="s1">V and V_out=</span><span class="si">{Vout}</span><span class="s1">V, we need R1=</span><span class="si">{R1}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Vs</span><span class="o">=</span><span class="n">Vs</span><span class="p">,</span><span class="n">Vout</span><span class="o">=</span><span class="n">Vout</span><span class="p">,</span><span class="n">R1</span><span class="o">=</span><span class="n">R1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For V_S=20V and V_out=5V, we need R1=3*R2.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, we can create a function to solve for any single missing value.</p>
+<p>The following will calculate the relevant solution:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">soln</span><span class="p">(</span><span class="n">cct</span><span class="p">,</span> <span class="n">out_component</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">values</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">values</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;VS&#39;</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span> <span class="s1">&#39;R1&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;R2&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;V_out&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">}</span>
+    <span class="n">outval</span><span class="o">=</span><span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">values</span><span class="p">[</span><span class="n">v</span><span class="p">]]</span>
+    <span class="n">invals</span><span class="o">=</span><span class="p">[(</span><span class="n">v</span><span class="p">,</span> <span class="n">values</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span> <span class="k">if</span> <span class="n">values</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">outval</span><span class="p">)</span><span class="o">!=</span><span class="mi">1</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">invals</span><span class="p">)</span><span class="o">!=</span><span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;oops&#39;</span>
+    
+    <span class="n">outval</span> <span class="o">=</span> <span class="n">outval</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">out_component</span> <span class="o">=</span> <span class="n">out_component</span> <span class="k">if</span> <span class="n">out_component</span> <span class="k">else</span> <span class="n">outval</span>
+    <span class="n">vout_expr</span> <span class="o">=</span> <span class="n">cct</span><span class="p">[</span><span class="n">out_component</span><span class="p">]</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">expr</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">vout_expr</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">invals</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">&#39;Value of </span><span class="si">{}</span><span class="s1"> is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">outval</span><span class="p">,</span>
+                                      <span class="n">solve</span><span class="p">(</span><span class="n">sympify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">vout_expr</span><span class="o">-</span><span class="n">vout</span><span class="p">))</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">invals</span><span class="p">),</span> <span class="n">outval</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For example, using the default values baked into the function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soln</span><span class="p">(</span><span class="n">cct</span><span class="p">,</span> <span class="s1">&#39;R2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2*VS/(R1 + R2)
+[(&#39;VS&#39;, 24), (&#39;R2&#39;, 100), (&#39;V_out&#39;, 6)]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Value of R1 is 300&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or using values we pass in:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soln</span><span class="p">(</span><span class="n">cct</span><span class="p">,</span> <span class="s1">&#39;R2&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;VS&#39;</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span> <span class="s1">&#39;R2&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;R1&#39;</span><span class="p">:</span><span class="mi">300</span><span class="p">,</span> <span class="s1">&#39;V_out&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2*VS/(R1 + R2)
+[(&#39;VS&#39;, 24), (&#39;R1&#39;, 300), (&#39;V_out&#39;, 6)]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Value of R2 is 100&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>With these pieces in place, we can also consider how we might automatically generate circuit diagrams with specifed component values, and then perform, or check, calculations against them.</p>
+<p>For example, the following function wraps a specific circuit definition and allows specific component values to be passed in:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#We can also explore a simple thing to check the value from a circuit analysis</span>
+<span class="k">def</span> <span class="nf">cct1</span><span class="p">(</span><span class="n">V</span><span class="o">=</span><span class="s1">&#39;24&#39;</span><span class="p">,</span><span class="n">R1</span><span class="o">=</span><span class="s1">&#39;100&#39;</span><span class="p">,</span><span class="n">R2</span><span class="o">=</span><span class="s1">&#39;100&#39;</span><span class="p">):</span>
+    <span class="n">R1</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">R1</span> <span class="ow">and</span> <span class="nb">float</span><span class="p">(</span><span class="n">R1</span><span class="p">)</span> <span class="o">&lt;=</span><span class="mi">0</span> <span class="k">else</span> <span class="n">R1</span>
+    <span class="n">sch</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">    VS 1 0 </span><span class="si">{V}</span><span class="s1">; down</span>
+<span class="s1">    W 1 2 ;  right, size=2</span>
+<span class="s1">    R1 2 3 </span><span class="si">{R1}</span><span class="s1">; down</span>
+<span class="s1">    R2 3 4 </span><span class="si">{R2}</span><span class="s1">; down</span>
+<span class="s1">    W 3 5; right, size=2</span>
+<span class="s1">    P1 5 6; down,v=V_{{out}}</span>
+<span class="s1">    W 4 6; right, size=2</span>
+<span class="s1">    W 4 0; left</span>
+<span class="s1">    &#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V</span><span class="o">=</span><span class="n">V</span><span class="p">,</span><span class="n">R1</span><span class="o">=</span><span class="n">R1</span><span class="p">,</span><span class="n">R2</span><span class="o">=</span><span class="n">R2</span><span class="p">)</span>
+    
+    <span class="n">cct</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">()</span>
+    <span class="n">cct</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sch</span><span class="p">)</span>
+    <span class="n">cct</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">label_nodes</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="c1">#The output voltage, V_out is the voltage across R2</span>
+    <span class="n">txt</span><span class="o">=</span><span class="s1">&#39;The output voltage, $V_{{out}}$ across $R_2$ is </span><span class="si">{}</span><span class="s1">V.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cct</span><span class="o">.</span><span class="n">R2</span><span class="o">.</span><span class="n">v</span> <span class="k">if</span> <span class="n">R1</span> <span class="k">else</span> <span class="n">V</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cct</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can render the circuit simply by calling the function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cct1</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/worked-example_67_0.png" src="../_images/worked-example_67_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VS 1 0 24; down
+W 1 2 ;  right, size=2
+R1 2 3 100; down
+R2 3 4 100; down
+W 3 5; right, size=2
+P1 5 6; down,v=V_{out}
+W 4 6; right, size=2
+W 4 0; left
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s trivial to make an interactive widget built around the previous function that will create a diagram for us with components labeled according to values specified by input sliders:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact_manual</span>
+<span class="n">cct_w</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="nd">@interact_manual</span>
+<span class="k">def</span> <span class="nf">i_cct1</span><span class="p">(</span><span class="n">V</span><span class="o">=</span><span class="s1">&#39;24&#39;</span><span class="p">,</span> <span class="n">R1</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">R2</span><span class="o">=</span><span class="s1">&#39;100&#39;</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">cct_w</span>
+    <span class="n">cct_w</span> <span class="o">=</span> <span class="n">cct1</span><span class="p">(</span><span class="n">V</span><span class="o">=</span><span class="n">V</span><span class="p">,</span><span class="n">R1</span><span class="o">=</span><span class="n">R1</span><span class="p">,</span><span class="n">R2</span><span class="o">=</span><span class="n">R2</span><span class="p">)</span>
+    
+<span class="c1">#We could then select R and V values and extend the function</span>
+<span class="c1"># to calculate V_out automatically</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "2f4e4d8faed54f3aa22e3ee2ce0a495d"}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We could also plot V_out vs R_1 for given V_S and R_2?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cct_w</span><span class="o">.</span><span class="n">sch</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">32</span><span class="o">-</span><span class="n">b07e4450c0c6</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cct_w</span><span class="o">.</span><span class="n">sch</span>
+
+<span class="ne">AttributeError</span>: &#39;NoneType&#39; object has no attribute &#39;sch&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./electronics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="overview.html" title="previous page">Electronics Overview</a>
+    <a class='right-next' id="next-link" href="../engineering/overview.html" title="next page">Engineering Overview</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

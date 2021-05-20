@@ -1,0 +1,39 @@
+- file: intro
+  numbered: false 
+- part: STEM
+  chapters:
+    - file: astronomy/overview
+    - file: chemistry/overview
+    - file: chemistry/compound_lookups
+    - file: chemistry/material_properties
+    - file: chemistry/visualising-compounds
+    - file: chemistry/recipes
+    - file: electronics/overview
+    - file: electronics/worked-example
+    - file: engineering/overview
+    - file: maths/overview
+- part: Arts & Humanities
+  chapters: 
+    - file: art/overview
+    - file: linguistics/overview
+    - file: music/overview
+- part: Map Generation
+  chapters:
+    - file: geo/overview
+- part: Chart Generation
+  chapters:
+    - file: chart/overview
+- part: Diagram Generation
+  chapters:
+    - file: diagram/overview
+- part: Image Generation and Manipulation
+  chapters:
+    - file: image/overview
+- part: Audio Generation and Manipulation
+  chapters:
+    - file: audio/overview
+- part: LaTeX
+  chapters:
+    - file: latex/overview
+
+    

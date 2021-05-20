@@ -1,0 +1,1035 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chemistry — Visualising Chemical Structures &#8212; Subject Matter Authoring Using Jupyter Notebooks</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Recipes" href="recipes.html" />
+    <link rel="prev" title="Chemical Properties" href="material_properties.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Subject Matter Authoring Using Jupyter Notebooks</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  STEM
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/overview.html">
+   Astronomy Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Chemistry Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="compound_lookups.html">
+   Chemistry — Compound Lookups
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="material_properties.html">
+   Chemical Properties
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Chemistry — Visualising Chemical Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="recipes.html">
+   Recipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../electronics/overview.html">
+   Electronics Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../electronics/worked-example.html">
+   Worked Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../engineering/overview.html">
+   Engineering Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/overview.html">
+   Maths Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Arts &amp; Humanities
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../art/overview.html">
+   Art Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linguistics/overview.html">
+   Linguistics Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../music/overview.html">
+   Music Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Map Generation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../geo/overview.html">
+   Geo Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Chart Generation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chart/overview.html">
+   Chart Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Diagram Generation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/overview.html">
+   Diagrams Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Image Generation and Manipulation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../image/overview.html">
+   Image Generation and Manipulation Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Audio Generation and Manipulation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../audio/overview.html">
+   Audio Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  LaTeX
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../latex/overview.html">
+   LaTeX Overview
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chemistry/visualising-compounds.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/chemistry/visualising-compounds.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#d-visualisations">
+   2D visualisations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rdkit">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       rdkit
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#openbabel-and-pybel">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       openbabel
+      </span>
+     </code>
+     and
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       pybel
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#d-visualisations-py3dmol-demo">
+   3D visualisations —
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     py3dmol
+    </span>
+   </code>
+   demo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nglview">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     nglview
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="chemistry-visualising-chemical-structures">
+<h1>Chemistry — Visualising Chemical Structures<a class="headerlink" href="#chemistry-visualising-chemical-structures" title="Permalink to this headline">¶</a></h1>
+<p>Various tools exist for visualising various chemical structures using static images as well as interactive 3d representations.</p>
+<div class="section" id="d-visualisations">
+<h2>2D visualisations<a class="headerlink" href="#d-visualisations" title="Permalink to this headline">¶</a></h2>
+<p>A wide range of packages are available for depicting two dimensional representations of chemical structures defined in conventional ways.</p>
+<p>For example ?SMILES</p>
+<div class="section" id="rdkit">
+<h3><code class="docutils literal notranslate"><span class="pre">rdkit</span></code><a class="headerlink" href="#rdkit" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://rdkit.org/docs/index.html"><code class="docutils literal notranslate"><span class="pre">rdkit</span></code></a> package, an open source toolkit for cheminformatics, provides a wide range of tools for working with chemical representations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%pip install rdkit-pypi</span>
+<span class="c1"># TO DO link to issue</span>
+<span class="c1">#import rdkit</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s2">&quot;C1=NC2=C(N1)C(=NC=N2)N&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualising-compounds_4_0.png" src="../_images/visualising-compounds_4_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">AllChem</span><span class="o">.</span><span class="n">AddHs</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">1</span><span class="n">ba753bf1619</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">m</span> <span class="o">=</span> <span class="n">AllChem</span><span class="o">.</span><span class="n">AddHs</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">m</span>
+
+<span class="ne">NameError</span>: name &#39;AllChem&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">smilesH</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">AllChem</span><span class="o">.</span><span class="n">AddHs</span><span class="p">(</span><span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+
+<span class="n">bromomethane</span> <span class="o">=</span> <span class="n">smilesH</span><span class="p">(</span><span class="s1">&#39;CBr&#39;</span><span class="p">)</span>
+<span class="n">bromoethane</span> <span class="o">=</span> <span class="n">smilesH</span><span class="p">(</span><span class="s1">&#39;CCBr&#39;</span><span class="p">)</span>
+<span class="n">_2_bromopropane</span> <span class="o">=</span>  <span class="n">smilesH</span><span class="p">(</span><span class="s1">&#39;CC(Br)C&#39;</span><span class="p">)</span>
+<span class="n">_2_bromo_2_methylpropane</span> <span class="o">=</span> <span class="n">smilesH</span><span class="p">(</span><span class="s1">&#39;CC(Br)(C)C&#39;</span><span class="p">)</span>
+
+<span class="n">my_molecules</span> <span class="o">=</span> <span class="p">[</span><span class="n">bromomethane</span><span class="p">,</span> 
+                <span class="n">bromoethane</span><span class="p">,</span>
+                <span class="n">_2_bromopropane</span><span class="p">,</span>
+                <span class="n">_2_bromo_2_methylpropane</span><span class="p">,</span>
+               <span class="p">]</span>
+
+<span class="n">Draw</span><span class="o">.</span><span class="n">MolsToGridImage</span><span class="p">(</span><span class="n">my_molecules</span><span class="p">,</span> <span class="n">useSVG</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">RemoveHs</span>
+
+<span class="n">RemoveHs</span><span class="p">(</span><span class="n">_2_bromo_2_methylpropane</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Highlight a substructure</span>
+<span class="n">m</span><span class="o">.</span><span class="n">GetSubstructMatch</span><span class="p">(</span><span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;C(N)&#39;</span><span class="p">))</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Following is needed to render molecule structure views in Jupyter notebook</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem.Draw</span> <span class="kn">import</span> <span class="n">IPythonConsole</span>
+<span class="n">IPythonConsole</span><span class="o">.</span><span class="n">ipython_useSVG</span><span class="o">=</span><span class="kc">True</span>  
+
+<span class="n">AllChem</span><span class="o">.</span><span class="n">ReactionFromSmarts</span><span class="p">(</span><span class="s2">&quot;C=CCBr&gt;&gt;C=CCI&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="openbabel-and-pybel">
+<h3><code class="docutils literal notranslate"><span class="pre">openbabel</span></code> and <code class="docutils literal notranslate"><span class="pre">pybel</span></code><a class="headerlink" href="#openbabel-and-pybel" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://openbabel.org/wiki/Main_Page"><code class="docutils literal notranslate"><span class="pre">openbabel</span></code></a>, an open source chemistry toolbox, provides a wide range of tools for searching for and converting between various chemistry related representations.</p>
+<p>A key part of the <em>openbabel</em> Python API is the <code class="docutils literal notranslate"><span class="pre">pybel</span></code> package which supports chemical structure parsing, format conversion, and display.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##!brew install open-babel</span>
+<span class="c1">#%pip install --upgrade  openbabel-wheel</span>
+
+<span class="kn">from</span> <span class="nn">openbabel</span> <span class="kn">import</span> <span class="n">pybel</span>
+
+<span class="n">mol</span> <span class="o">=</span> <span class="n">pybel</span><span class="o">.</span><span class="n">readstring</span><span class="p">(</span> <span class="s2">&quot;smi&quot;</span><span class="p">,</span><span class="s2">&quot;C1=NC2=C(N1)C(=NC=N2)N&quot;</span> <span class="p">)</span>
+
+<span class="c1">#Add hydrogens</span>
+<span class="n">mol</span><span class="o">.</span><span class="n">addh</span><span class="p">()</span>
+
+<span class="c1">#By default, we preview a small SVG output graphic</span>
+<span class="n">mol</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Better preview</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">SVG</span>
+<span class="n">SVG</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;svg&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;smi&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+
+<span class="k">def</span> <span class="nf">smilesSVG</span><span class="p">(</span><span class="n">smi</span><span class="p">,</span> <span class="n">addH</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bw</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Render molecule structure from SMILES string as SVG. &#39;&#39;&#39;</span>
+    
+    <span class="n">mol</span> <span class="o">=</span> <span class="n">pybel</span><span class="o">.</span><span class="n">readstring</span><span class="p">(</span> <span class="s2">&quot;smi&quot;</span><span class="p">,</span><span class="n">smi</span> <span class="p">)</span>
+    <span class="k">if</span> <span class="n">addH</span><span class="p">:</span> <span class="n">mol</span><span class="o">.</span><span class="n">addh</span><span class="p">()</span>
+    <span class="n">conv</span> <span class="o">=</span> <span class="n">pybel</span><span class="o">.</span><span class="n">ob</span><span class="o">.</span><span class="n">OBConversion</span><span class="p">()</span>
+    <span class="n">conv</span><span class="o">.</span><span class="n">SetOutFormat</span><span class="p">(</span><span class="s2">&quot;svg&quot;</span><span class="p">)</span>
+    <span class="c1">#Optonally, set black and white output</span>
+    <span class="c1">#The openbabel SVG export formatter has an -xu option which we can pass</span>
+    <span class="c1">#Via: https://github.com/openbabel/openbabel/issues/1879#issuecomment-411830813</span>
+    <span class="k">if</span> <span class="n">bw</span><span class="p">:</span>
+        <span class="n">conv</span><span class="o">.</span><span class="n">SetOptions</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="n">conv</span><span class="o">.</span><span class="n">OUTOPTIONS</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">SVG</span><span class="p">(</span><span class="n">conv</span><span class="o">.</span><span class="n">WriteString</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">OBMol</span><span class="p">)))</span>
+    <span class="c1">#display(SVG(mol.write(&quot;svg&quot;)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smilesSVG</span><span class="p">(</span> <span class="s2">&quot;C1=NC2=C(N1)C(=NC=N2)N&quot;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smilesSVG</span><span class="p">(</span> <span class="s2">&quot;C1=NC2=C(N1)C(=NC=N2)N&quot;</span><span class="p">,</span> <span class="n">addH</span><span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smilesSVG</span><span class="p">(</span> <span class="s2">&quot;C1=NC2=C(N1)C(=NC=N2)N&quot;</span><span class="p">,</span> <span class="n">addH</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bw</span><span class="o">=</span><span class="kc">True</span> <span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="d-visualisations-py3dmol-demo">
+<h2>3D visualisations — <code class="docutils literal notranslate"><span class="pre">py3dmol</span></code> demo<a class="headerlink" href="#d-visualisations-py3dmol-demo" title="Permalink to this headline">¶</a></h2>
+<p>We can embed interactive 3D widget visualisations of molecules into a page using the <code class="docutils literal notranslate"><span class="pre">py3dmol</span></code> widget:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">py3Dmol</span>
+
+<span class="c1"># Lookup a molecule using its CID (PubChem Compound Identification) code</span>
+<span class="n">p</span><span class="o">=</span><span class="n">py3Dmol</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="s1">&#39;cid:702&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set the render style</span>
+<span class="n">p</span><span class="o">.</span><span class="n">setStyle</span><span class="p">({</span><span class="s1">&#39;stick&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;radius&#39;</span><span class="p">:</span> <span class="mf">.1</span><span class="p">},</span> <span class="s1">&#39;sphere&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;scale&#39;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">}})</span>
+<span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="3dmolviewer_1621090878587975"  style="position: relative; width: 640px; height: 480px">
+        <p id="3dmolwarning_1621090878587975" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
+        <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+      resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://3dmol.org/build/3Dmol.js');
+}
+
+var viewer_1621090878587975 = null;
+var warn = document.getElementById("3dmolwarning_1621090878587975");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_1621090878587975 = $3Dmol.createViewer($("#3dmolviewer_1621090878587975"),{backgroundColor:"white"});
+$3Dmol.download("cid:702", viewer_1621090878587975, {}, function() {
+viewer_1621090878587975.zoomTo();
+	viewer_1621090878587975.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.25}});
+viewer_1621090878587975.render();
+})
+});
+</script></div></div>
+</div>
+<p><em>Various lookup codes: <a class="reference external" href="https://pubchem.ncbi.nlm.nih.gov/search/help_search.html">https://pubchem.ncbi.nlm.nih.gov/search/help_search.html</a></em></p>
+<p>SMILES/SMARTS Input
+SMILES – Simplified Molecular Input Line Entry System,</p>
+<p>Protein Data Bank (PDB)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">py3Dmol</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="s1">&#39;pdb:1ycr&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">setStyle</span><span class="p">({</span><span class="s1">&#39;stick&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;radius&#39;</span><span class="p">:</span> <span class="mf">.1</span><span class="p">},</span> <span class="s1">&#39;sphere&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;scale&#39;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">}})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="3dmolviewer_1621090953528356"  style="position: relative; width: 640px; height: 480px">
+        <p id="3dmolwarning_1621090953528356" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
+        <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+      resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://3dmol.org/build/3Dmol.js');
+}
+
+var viewer_1621090953528356 = null;
+var warn = document.getElementById("3dmolwarning_1621090953528356");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_1621090953528356 = $3Dmol.createViewer($("#3dmolviewer_1621090953528356"),{backgroundColor:"white"});
+$3Dmol.download("pdb:1ycr", viewer_1621090953528356, {}, function() {
+viewer_1621090953528356.zoomTo();
+	viewer_1621090953528356.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.25}});
+viewer_1621090953528356.render();
+})
+});
+</script></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;py3Dmol.view at 0x1035a17f0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">setStyle</span><span class="p">({</span><span class="s1">&#39;cartoon&#39;</span><span class="p">:{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;spectrum&#39;</span><span class="p">}})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="3dmolviewer_1621091031804404"  style="position: relative; width: 640px; height: 480px">
+        <p id="3dmolwarning_1621091031804404" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
+        <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+      resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://3dmol.org/build/3Dmol.js');
+}
+
+var viewer_1621091031804404 = null;
+var warn = document.getElementById("3dmolwarning_1621091031804404");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_1621091031804404 = $3Dmol.createViewer($("#3dmolviewer_1621091031804404"),{backgroundColor:"white"});
+$3Dmol.download("pdb:1ycr", viewer_1621091031804404, {}, function() {
+viewer_1621091031804404.zoomTo();
+	viewer_1621091031804404.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.25}});
+	viewer_1621091031804404.setStyle({"cartoon": {"color": "spectrum"}});
+viewer_1621091031804404.render();
+})
+});
+</script></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;py3Dmol.view at 0x1035a17f0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="nglview">
+<h2><code class="docutils literal notranslate"><span class="pre">nglview</span></code><a class="headerlink" href="#nglview" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%pip install nglview</span>
+<span class="c1">#!jupyter-nbextension enable nglview --py --sys-prefix</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting nglview
+  Downloading nglview-3.0.1.tar.gz (5.7 MB)
+     |████████████████████████████████| 5.7 MB 1.9 MB/s eta 0:00:01
+?25h  Installing build dependencies ... ?25ldone
+?25h  Getting requirements to build wheel ... ?25ldone
+?25h    Preparing wheel metadata ... ?25ldone
+?25hRequirement already satisfied: ipywidgets&gt;=7 in /usr/local/lib/python3.9/site-packages (from nglview) (7.6.3)
+Requirement already satisfied: jupyterlab-widgets in /usr/local/lib/python3.9/site-packages (from nglview) (1.0.0)
+Requirement already satisfied: numpy in /usr/local/lib/python3.9/site-packages (from nglview) (1.20.3)
+Requirement already satisfied: widgetsnbextension~=3.5.0 in /usr/local/lib/python3.9/site-packages (from ipywidgets&gt;=7-&gt;nglview) (3.5.1)
+Requirement already satisfied: ipykernel&gt;=4.5.1 in /usr/local/lib/python3.9/site-packages (from ipywidgets&gt;=7-&gt;nglview) (5.4.3)
+Requirement already satisfied: ipython&gt;=4.0.0 in /usr/local/lib/python3.9/site-packages (from ipywidgets&gt;=7-&gt;nglview) (7.19.0)
+Requirement already satisfied: traitlets&gt;=4.3.1 in /usr/local/lib/python3.9/site-packages (from ipywidgets&gt;=7-&gt;nglview) (5.0.5)
+Requirement already satisfied: nbformat&gt;=4.2.0 in /usr/local/lib/python3.9/site-packages (from ipywidgets&gt;=7-&gt;nglview) (5.1.2)
+Requirement already satisfied: appnope in /usr/local/lib/python3.9/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7-&gt;nglview) (0.1.2)
+Requirement already satisfied: jupyter-client in /usr/local/lib/python3.9/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7-&gt;nglview) (6.1.11)
+Requirement already satisfied: tornado&gt;=4.2 in /usr/local/lib/python3.9/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7-&gt;nglview) (6.1)
+Requirement already satisfied: setuptools&gt;=18.5 in /usr/local/lib/python3.9/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7-&gt;nglview) (56.0.0)
+Requirement already satisfied: pexpect&gt;4.3 in /usr/local/lib/python3.9/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7-&gt;nglview) (4.8.0)
+Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in /usr/local/lib/python3.9/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7-&gt;nglview) (3.0.18)
+Requirement already satisfied: decorator in /usr/local/lib/python3.9/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7-&gt;nglview) (4.4.2)
+Requirement already satisfied: jedi&gt;=0.10 in /usr/local/lib/python3.9/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.18.0)
+Requirement already satisfied: pygments in /usr/local/lib/python3.9/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7-&gt;nglview) (2.9.0)
+Requirement already satisfied: pickleshare in /usr/local/lib/python3.9/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.7.5)
+Requirement already satisfied: backcall in /usr/local/lib/python3.9/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.2.0)
+Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in /usr/local/lib/python3.9/site-packages (from jedi&gt;=0.10-&gt;ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.8.1)
+Requirement already satisfied: ipython-genutils in /usr/local/lib/python3.9/site-packages (from nbformat&gt;=4.2.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.2.0)
+Requirement already satisfied: jsonschema!=2.5.0,&gt;=2.4 in /usr/local/lib/python3.9/site-packages (from nbformat&gt;=4.2.0-&gt;ipywidgets&gt;=7-&gt;nglview) (3.2.0)
+Requirement already satisfied: jupyter-core in /usr/local/lib/python3.9/site-packages (from nbformat&gt;=4.2.0-&gt;ipywidgets&gt;=7-&gt;nglview) (4.7.0)
+Requirement already satisfied: six&gt;=1.11.0 in /usr/local/Cellar/protobuf/3.15.8/libexec/lib/python3.9/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets&gt;=7-&gt;nglview) (1.15.0)
+Requirement already satisfied: attrs&gt;=17.4.0 in /usr/local/lib/python3.9/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets&gt;=7-&gt;nglview) (20.3.0)
+Requirement already satisfied: pyrsistent&gt;=0.14.0 in /usr/local/lib/python3.9/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.17.3)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /usr/local/lib/python3.9/site-packages (from pexpect&gt;4.3-&gt;ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.7.0)
+Requirement already satisfied: wcwidth in /usr/local/lib/python3.9/site-packages (from prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0-&gt;ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.2.5)
+Requirement already satisfied: notebook&gt;=4.4.1 in /usr/local/lib/python3.9/site-packages (from widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (6.3.0)
+Requirement already satisfied: terminado&gt;=0.8.3 in /usr/local/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.9.2)
+Requirement already satisfied: nbconvert in /usr/local/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (5.6.1)
+Requirement already satisfied: jinja2 in /usr/local/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (2.11.2)
+Requirement already satisfied: prometheus-client in /usr/local/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.9.0)
+Requirement already satisfied: pyzmq&gt;=17 in /usr/local/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (22.0.0)
+Requirement already satisfied: Send2Trash&gt;=1.5.0 in /usr/local/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (1.5.0)
+Requirement already satisfied: argon2-cffi in /usr/local/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (20.1.0)
+Requirement already satisfied: python-dateutil&gt;=2.1 in /usr/local/lib/python3.9/site-packages (from jupyter-client-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7-&gt;nglview) (2.8.1)
+Requirement already satisfied: cffi&gt;=1.0.0 in /usr/local/lib/python3.9/site-packages (from argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (1.14.4)
+Requirement already satisfied: pycparser in /usr/local/lib/python3.9/site-packages (from cffi&gt;=1.0.0-&gt;argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (2.20)
+Requirement already satisfied: MarkupSafe&gt;=0.23 in /usr/local/lib/python3.9/site-packages (from jinja2-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (1.1.1)
+Requirement already satisfied: testpath in /usr/local/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.4.4)
+Requirement already satisfied: bleach in /usr/local/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (3.2.3)
+Requirement already satisfied: defusedxml in /usr/local/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.6.0)
+Requirement already satisfied: entrypoints&gt;=0.2.2 in /usr/local/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.3)
+Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in /usr/local/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.8.4)
+Requirement already satisfied: pandocfilters&gt;=1.4.1 in /usr/local/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (1.4.3)
+Requirement already satisfied: packaging in /usr/local/lib/python3.9/site-packages (from bleach-&gt;nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (20.8)
+Requirement already satisfied: webencodings in /usr/local/lib/python3.9/site-packages (from bleach-&gt;nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.5.1)
+Requirement already satisfied: pyparsing&gt;=2.0.2 in /usr/local/lib/python3.9/site-packages (from packaging-&gt;bleach-&gt;nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (2.4.7)
+Building wheels for collected packages: nglview
+  Building wheel for nglview (PEP 517) ... ?25ldone
+?25h  Created wheel for nglview: filename=nglview-3.0.1-py3-none-any.whl size=8057497 sha256=654914115affafa6328d1bf4720d97c5dcd841f38b3ba01c471cfe36adf8e3a0
+  Stored in directory: /Users/tonyhirst/Library/Caches/pip/wheels/85/fa/7d/aebfbc104d39106fb30a34947fd1128e28c5e44954c7dadf03
+Successfully built nglview
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: nglview
+Successfully installed nglview-3.0.1
+Note: you may need to restart the kernel to use updated packages.
+Enabling notebook extension nglview-js-widgets/extension...
+      - Validating: <span class=" -Color -Color-Green">OK</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="nn">nv</span>
+
+<span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_structure_file</span><span class="p">(</span><span class="n">nv</span><span class="o">.</span><span class="n">datafiles</span><span class="o">.</span><span class="n">PDB</span><span class="p">)</span>
+<span class="n">view</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "0ae97a756043420eb28b0443e664a878", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Useful to pop out in Jupyter notebook context?</span>
+<span class="n">view</span><span class="o">.</span><span class="n">clear_representations</span><span class="p">()</span>
+<span class="n">view</span><span class="o">.</span><span class="n">add_licorice</span><span class="p">(</span><span class="s1">&#39;not hydrogen&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualising-compounds_27_0.png" src="../_images/visualising-compounds_27_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">clear_representations</span><span class="p">()</span>
+<span class="n">view</span><span class="o">.</span><span class="n">add_cartoon</span><span class="p">()</span>
+<span class="n">view</span><span class="o">.</span><span class="n">add_surface</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="c1"># Force render here but the original is also updated?</span>
+<span class="n">view</span><span class="o">.</span><span class="n">render_image</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "6f19f443f1d444dd85b60304604e467b", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">download_image</span><span class="p">(</span><span class="s2">&quot;test.png&quot;</span><span class="p">)</span>
+
+<span class="c1"># Downloads to download dir</span>
+<span class="c1">#from IPython.display import Image</span>
+<span class="c1">#Image(&quot;test.png&quot;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">/usr/local/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1292</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1293</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1294</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: a bytes-like object is required, not &#39;str&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">/usr/local/lib/python3.9/site-packages/IPython/core/formatters.py</span> in <span class="ni">__call__</span><span class="nt">(self, obj, include, exclude)</span>
+<span class="g g-Whitespace">    </span><span class="mi">968</span> 
+<span class="g g-Whitespace">    </span><span class="mi">969</span>             <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">970</span>                 <span class="k">return</span> <span class="n">method</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">include</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">971</span>             <span class="k">return</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">972</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">/usr/local/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_repr_mimebundle_</span><span class="nt">(self, include, exclude)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1281</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1282</span>             <span class="n">mimetype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mimetype</span>
+<span class="ne">-&gt; </span><span class="mi">1283</span>             <span class="n">data</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_and_metadata</span><span class="p">(</span><span class="n">always_both</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1284</span>             <span class="k">if</span> <span class="n">metadata</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1285</span>                 <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="n">mimetype</span><span class="p">:</span> <span class="n">metadata</span><span class="p">}</span>
+
+<span class="nn">/usr/local/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1293</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1294</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1295</span>             <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1296</span>                 <span class="s2">&quot;No such file or directory: &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1297</span>         <span class="n">md</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="ne">FileNotFoundError</span>: No such file or directory: &#39;test.png&#39;
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">/usr/local/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1292</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1293</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1294</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: a bytes-like object is required, not &#39;str&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">/usr/local/lib/python3.9/site-packages/IPython/core/formatters.py</span> in <span class="ni">__call__</span><span class="nt">(self, obj)</span>
+<span class="g g-Whitespace">    </span><span class="mi">343</span>             <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">344</span>             <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">345</span>                 <span class="k">return</span> <span class="n">method</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span>             <span class="k">return</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">347</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">/usr/local/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_repr_png_</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1311</span>     <span class="k">def</span> <span class="nf">_repr_png_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1312</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_FMT_PNG</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1313</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_and_metadata</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1314</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1315</span>     <span class="k">def</span> <span class="nf">_repr_jpeg_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">/usr/local/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1293</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1294</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1295</span>             <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1296</span>                 <span class="s2">&quot;No such file or directory: &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1297</span>         <span class="n">md</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="ne">FileNotFoundError</span>: No such file or directory: &#39;test.png&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Image object&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "977d087b653647ae889c8a2ac48707de", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/Users/tonyhirst/Documents/GitHub/SubjectMatterNotebooks/src/chemistry&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chemistry"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="material_properties.html" title="previous page">Chemical Properties</a>
+    <a class='right-next' id="next-link" href="recipes.html" title="next page">Recipes</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

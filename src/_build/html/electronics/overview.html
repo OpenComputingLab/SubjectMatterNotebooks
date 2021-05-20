@@ -1,0 +1,793 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Electronics Overview &#8212; Subject Matter Authoring Using Jupyter Notebooks</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Worked Example" href="worked-example.html" />
+    <link rel="prev" title="Recipes" href="../chemistry/recipes.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Subject Matter Authoring Using Jupyter Notebooks</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  STEM
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/overview.html">
+   Astronomy Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/overview.html">
+   Chemistry Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/compound_lookups.html">
+   Chemistry — Compound Lookups
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/material_properties.html">
+   Chemical Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/visualising-compounds.html">
+   Chemistry — Visualising Chemical Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/recipes.html">
+   Recipes
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Electronics Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="worked-example.html">
+   Worked Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../engineering/overview.html">
+   Engineering Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/overview.html">
+   Maths Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Arts &amp; Humanities
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../art/overview.html">
+   Art Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linguistics/overview.html">
+   Linguistics Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../music/overview.html">
+   Music Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Map Generation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../geo/overview.html">
+   Geo Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Chart Generation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chart/overview.html">
+   Chart Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Diagram Generation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/overview.html">
+   Diagrams Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Image Generation and Manipulation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../image/overview.html">
+   Image Generation and Manipulation Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Audio Generation and Manipulation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../audio/overview.html">
+   Audio Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  LaTeX
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../latex/overview.html">
+   LaTeX Overview
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/electronics/overview.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/electronics/overview.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lcapy">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     lcapy
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="electronics-overview">
+<h1>Electronics Overview<a class="headerlink" href="#electronics-overview" title="Permalink to this headline">¶</a></h1>
+<p>The electronics area provides a rich canvas for one piece flow production techniques.</p>
+<p>Circuit analysis is often performed on graph based representations of a circuit which are easily modelled and then rendered as circuit diagrams or treated analytically.</p>
+<p>This notebook demonstrates how we can use a range of techniques to script the creation of electrical circuit diagrams, as well as creating models of circuits that can be rendered as a schematic circuit diagram and analysed as a computational model. This means we can:</p>
+<ul class="simple">
+<li><p>create a model of a circuit as a computational object through a simple description language;</p></li>
+<li><p>render a schematic diagram of the circuit from the model;</p></li>
+<li><p>display analytic equations describing the model that represent particular quantities such as currents and voltages as a function of component variables;</p></li>
+<li><p>automatically calculate the values of voltages and currents from the model based on provided component values.</p></li>
+</ul>
+<p>The resulting document is self-standing in terms of creating the media assets that are displayed from within the document itself. In addition, analytic treatments and exact calculations can be performed on the same model, which means that diagrams, analyses and calculations will always be consistent, automatically derived as they are from the same source. This compares to a traditional production route where the different components of the document may be created independently of each other.</p>
+<div class="section" id="lcapy">
+<h2><code class="docutils literal notranslate"><span class="pre">lcapy</span></code><a class="headerlink" href="#lcapy" title="Permalink to this headline">¶</a></h2>
+<p>As described elsewhere, <a class="reference external" href="https://github.com/mph-/lcapy"><code class="docutils literal notranslate"><span class="pre">lcapy</span></code></a> is a linear circuit analysis package that can be used to describe, display and analyse the behaviour of a wide range of linear analogue electrical circuits. <code class="docutils literal notranslate"><span class="pre">lcapy</span></code> supports numerical analysis of described circuits in terms of response in time and frequency domains, the charting of the results of the analysis and various forms of symbolic analysis of circuit descriptions in various domains.</p>
+<p><code class="docutils literal notranslate"><span class="pre">lcapy</span></code> use a circuit description that can be used to generate an circuit diagram as the basis for a wide range of analyses. For example, lcapy can be used to describe equivalent circuits (such as Thevenin or Norton equivalent circuits), or generate Bode plots.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lcapy</span> <span class="kn">import</span> <span class="n">Circuit</span>
+ 
+<span class="c1"># The things to the right of the semicolon on each line</span>
+<span class="c1"># are the optional layout elements</span>
+<span class="c1"># They are not *required* when defining the circuit</span>
+<span class="n">cct</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">()</span>
+<span class="n">cct</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Vi 1 0_1 step 20; down</span>
+<span class="s2">C 1 2; right, size=1.5</span>
+<span class="s2">R 2 0; down</span>
+<span class="s2">W 0_1 0; right</span>
+<span class="s2">W 0 0_2; right, size=0.5</span>
+<span class="s2">P1 2_2 0_2; down</span>
+<span class="s2">W 2 2_2;right, size=0.5&quot;&quot;&quot;</span><span class="p">)</span>
+ 
+<span class="n">cct</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;american&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_2_0.png" src="../_images/overview_2_0.png" />
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">lcapy/schematic.py</span></code> package describes the various stylings and could be easily extended to support a named house style, or perhaps accommodate a regionalisation passed in as an explicit argument value:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">style</span> <span class="o">==</span> <span class="s1">&#39;american&#39;</span><span class="p">:</span>
+    <span class="n">style_args</span> <span class="o">=</span> <span class="s1">&#39;american currents, american voltages&#39;</span>
+<span class="k">elif</span> <span class="n">style</span> <span class="o">==</span> <span class="s1">&#39;british&#39;</span><span class="p">:</span>
+    <span class="n">style_args</span> <span class="o">=</span> <span class="s1">&#39;american currents, european voltages&#39;</span>
+<span class="k">elif</span> <span class="n">style</span> <span class="o">==</span> <span class="s1">&#39;european&#39;</span><span class="p">:</span>
+    <span class="n">style_args</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;european currents, european voltages, european inductors, european resistors&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As well as constructing circuits from netlist descriptions, we can also create them from network style descriptions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lcapy</span> <span class="kn">import</span> <span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">L</span>
+ 
+<span class="n">cct2</span> <span class="o">=</span> <span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="mf">1e6</span><span class="p">)</span> <span class="o">+</span> <span class="n">L</span><span class="p">(</span><span class="mf">2e-3</span><span class="p">))</span> <span class="o">|</span> <span class="n">C</span><span class="p">(</span><span class="mf">3e-6</span><span class="p">)</span>
+
+<span class="n">cct2</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_5_0.png" src="../_images/overview_5_0.png" />
+</div>
+</div>
+<p>We can lookup a netlist description from the circuit object directly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cct2</span><span class="o">.</span><span class="n">sch</span><span class="p">()</span>
+
+<span class="c1"># Or as a string: cct2.netlist()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>W 1 2; right=0.5
+W 2 4; up=0.4
+W 3 5; up=0.4
+R1 4 6 1000000.0; right
+W 6 7; right=0.5
+L1 7 5 0.002; right
+W 2 8; down=0.4
+W 3 9; down=0.4
+C1 8 9 3e-06; right
+W 3 0; right=0.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>The diagrams generated from networks are open linear circuits rather than loops, which may not be quite what we want. But these circuits are quicker to write, so we can use them to draft netlists for us that we may then want to tidy up a bit further.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cct2</span><span class="o">.</span><span class="n">netlist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;W 1 2; right=0.5\nW 2 4; up=0.4\nW 3 5; up=0.4\nR1 4 6 1000000.0; right\nW 6 7; right=0.5\nL1 7 5 0.002; right\nW 2 8; down=0.4\nW 3 9; down=0.4\nC1 8 9 3e-06; right\nW 3 0; right=0.5&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Circuit descriptions can also be loaded in from a named text file, which is handy for course material maintenance as well as reuse of circuits across materials: it’s easy enough to imagine a library of circuit descriptions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lcapy</span> <span class="kn">import</span> <span class="n">Circuit</span>
+
+<span class="c1"># Create a file containing a circuit netlist</span>
+<span class="n">sch</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">Vi 1 0_1 {sin(t)}; down</span>
+<span class="s1">R1 1 2 22e3; right, size=1.5</span>
+<span class="s1">R2 2 0 1e3; down</span>
+<span class="s1">P1 2_2 0_2; down, v=V_</span><span class="si">{o}</span><span class="s1"></span>
+<span class="s1">W 2 2_2; right, size=1.5</span>
+<span class="s1">W 0_1 0; right</span>
+<span class="s1">W 0 0_2; right</span>
+<span class="s1">&#39;&#39;&#39;</span>
+ 
+<span class="n">fn</span><span class="o">=</span><span class="s2">&quot;voltageDivider.sch&quot;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">text_file</span><span class="p">:</span>
+    <span class="n">text_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">sch</span><span class="p">)</span>
+
+<span class="c1"># Create a circuit from a netlist file</span>
+<span class="n">cct</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+
+<span class="n">cct</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_11_0.png" src="../_images/overview_11_0.png" />
+</div>
+</div>
+<p>The ability to create – and share – circuit diagrams in a Python context that plays nicely with Jupyter notebooks is handy, but the <code class="docutils literal notranslate"><span class="pre">lcapy</span></code> approach becomes really useful if we want to produce other assets around the circuit we’ve just created.</p>
+<p>For example, in the case of the above circuit, how do the various voltage levels across the resistors respond when we switch on the sinusoidal source?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">vr</span> <span class="o">=</span> <span class="n">cct</span><span class="o">.</span><span class="n">R2</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see what voltage response looks like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">savefig</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Resistor R2 voltage&#39;</span><span class="p">)</span>
+
+<span class="c1"># The response voltage across R2</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">vr</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># The input voltage, Vi</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">cct</span><span class="o">.</span><span class="n">Vi</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+<span class="c1"># The voltage aceoss R1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">cct</span><span class="o">.</span><span class="n">R1</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Resistor voltage (V)&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_15_0.png" src="../_images/overview_15_0.png" />
+</div>
+</div>
+<p>Not the best example, admittedly, but you get the idea! Being a matplotlib chart, we can style it as we would any matplotlb chart. Or use a different plotting library altogether, such as <code class="docutils literal notranslate"><span class="pre">plotly</span></code>, to create interactive HTML charts.</p>
+<p>Here’s another example, where I’ve created a simple interactive to let me see the effect of changing one of the component values on the response of a circuit to a step input:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
+
+<span class="nd">@interact</span><span class="p">(</span><span class="n">R</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">response</span><span class="p">(</span><span class="n">R</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">cct</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">()</span>
+
+    <span class="n">cct</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;V 0_1 0 step 10;down&#39;</span><span class="p">)</span>
+    <span class="n">cct</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;L 0_1 0_2 1e-3;right&#39;</span><span class="p">)</span>
+    <span class="n">cct</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;C 0_2 1 1e-4;right&#39;</span><span class="p">)</span>
+    <span class="n">cct</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;R 1 0_4 </span><span class="si">{R}</span><span class="s1">;down&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">R</span><span class="o">=</span><span class="n">R</span><span class="p">))</span>
+    <span class="n">cct</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;W 0_4 0; left&#39;</span><span class="p">)</span>
+
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="n">vr</span> <span class="o">=</span> <span class="n">cct</span><span class="o">.</span><span class="n">R</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+    <span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">savefig</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">figure</span><span class="p">()</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Resistor voltage (R=</span><span class="si">{}</span><span class="s1">$\Omega$)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">R</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">vr</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Resistor voltage (V)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">cct</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "c215fc46a9744a108e25e8622deafb38"}
+</script></div>
+</div>
+<p>Using the network description of a circuit, it only takes a couple of lines to define a circuit and then get the transient response to step function for it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linspace</span>
+
+<span class="n">underDampedRLC</span> <span class="o">=</span> <span class="n">Vstep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="n">R</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">+</span> <span class="n">L</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">+</span> <span class="n">C</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">underDampedRLC</span><span class="o">.</span><span class="n">draw</span><span class="p">();</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">underDampedRLC</span><span class="o">.</span><span class="n">Isc</span><span class="o">.</span><span class="n">transient_response</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="n">f69b89bdcc62</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linspace</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">underDampedRLC</span> <span class="o">=</span> <span class="n">Vstep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="n">R</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">+</span> <span class="n">L</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">+</span> <span class="n">C</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">underDampedRLC</span><span class="o">.</span><span class="n">draw</span><span class="p">();</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">NameError</span>: name &#39;Vstep&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or a frequncy response:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">logspace</span><span class="p">,</span> <span class="n">linspace</span>
+<span class="kn">from</span> <span class="nn">lcapy</span> <span class="kn">import</span> <span class="n">Vstep</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">L</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="n">Vstep</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">+</span> <span class="n">R</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">C</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">n</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+
+<span class="n">vf</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4000</span><span class="p">)</span>
+<span class="n">n</span><span class="o">.</span><span class="n">Isc</span><span class="o">.</span><span class="n">frequency_response</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vf</span><span class="p">,</span> <span class="n">log_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_22_0.png" src="../_images/overview_22_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Should convert current expression to time-domain first
+</pre></div>
+</div>
+<img alt="../_images/overview_22_2.png" src="../_images/overview_22_2.png" />
+</div>
+</div>
+<p>It’s trivial to make an end user application around a function that lets us select component values and explore the effect they have on the damping.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This will only work interactively within a notebook or via a Thebe enabled code cell hooked up to a Jupyter kernel somewhere.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@interact</span><span class="p">(</span><span class="n">R1</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span><span class="n">L1</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span><span class="n">C1</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">damping</span><span class="p">(</span><span class="n">R1</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">L1</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">C1</span><span class="o">=</span><span class="mf">0.4</span><span class="p">):</span>
+    <span class="n">underDampedRLC</span> <span class="o">=</span> <span class="n">Vstep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="n">R</span><span class="p">(</span><span class="n">R1</span><span class="p">)</span> <span class="o">+</span> <span class="n">L</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span><span class="o">+</span> <span class="n">C</span><span class="p">(</span><span class="n">C1</span><span class="p">)</span>
+    <span class="n">underDampedRLC</span><span class="o">.</span><span class="n">draw</span><span class="p">();</span>
+
+    <span class="n">t</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+    <span class="n">underDampedRLC</span><span class="o">.</span><span class="n">Isc</span><span class="o">.</span><span class="n">transient_response</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "d93593ae9b7d48d4bf50a835f3f47a72", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<p>As well as the numerical analysis, <code class="docutils literal notranslate"><span class="pre">lcapy</span></code> also supports a range of symbolic analysis functions. For example, consider a parallel resistor circuit, defined using a network description:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parallelR</span> <span class="o">=</span> <span class="n">R</span><span class="p">(</span><span class="s1">&#39;R_1&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="n">R</span><span class="p">(</span><span class="s1">&#39;R_2&#39;</span><span class="p">)</span>
+<span class="n">parallelR</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_26_0.png" src="../_images/overview_26_0.png" />
+<img alt="../_images/overview_26_1.png" src="../_images/overview_26_1.png" />
+</div>
+</div>
+<p>We can find the overall resistance in simplest terms:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parallelR</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span><span class="o">.</span><span class="n">R</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The ability to simplify expressions  – as in the example of the simplified expressions for overall capacitance or resistance in the parallel circuit examples above – directly from a circuit description whilst at the same time using that circuit description to render the circuit diagram, also reduces the amount of separation between those two outputs to zero – they are both generated from the self-same source item.</p>
+</div>
+<p>We can do a similar thing for parallel capacitors:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parallelC</span> <span class="o">=</span> <span class="n">C</span><span class="p">(</span><span class="s1">&#39;C_1&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="n">C</span><span class="p">(</span><span class="s1">&#39;C_2&#39;</span><span class="p">)</span>
+<span class="n">parallelC</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+
+<span class="n">parallelC</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span><span class="o">.</span><span class="n">C</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_31_0.png" src="../_images/overview_31_0.png" />
+<img alt="../_images/overview_31_1.png" src="../_images/overview_31_1.png" />
+</div>
+</div>
+<p>We can fudge the creation of text around this representation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Latex</span>
+
+<span class="n">Latex</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The overall resistance value simplifies to: </span><span class="si">{</span><span class="n">parallelR</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span><span class="o">.</span><span class="n">R</span><span class="o">.</span><span class="n">_repr_latex_</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[The overall resistance value simplifies to: $$\frac{R_{1} R_{2}}{R_{1} + R_{2}}$$\]</div>
+</div>
+</div>
+<p>Some other elementary transformations we can apply – providing expressions for the an input voltage in the time or Laplace/s domain:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lcapy</span> <span class="kn">import</span> <span class="n">Vac</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">pi</span>
+
+<span class="c1">#Representation of AC voltage source in time domain</span>
+<span class="c1">#Vac(amplitude, phase)</span>
+<span class="n">Vac</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">Voc</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_35_0.png" src="../_images/overview_35_0.png" />
+</div>
+</div>
+<p>We also have access to the s domain:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Representation of AC voltage source in s domain</span>
+<span class="n">Vac</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">Voc</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_37_0.png" src="../_images/overview_37_0.png" />
+</div>
+</div>
+<p>Pole-zero plots can be created quite straightforwardly, directly from an expression in the s-domain:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#pole-zero plot</span>
+<span class="kn">from</span> <span class="nn">lcapy</span> <span class="kn">import</span> <span class="n">s</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">transfer</span>
+<span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="n">savefig</span><span class="p">,</span> <span class="n">show</span>
+
+<span class="n">H_</span> <span class="o">=</span> <span class="n">transfer</span><span class="p">((</span><span class="n">s</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">)))</span>
+<span class="n">H_</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_39_0.png" src="../_images/overview_39_0.png" />
+</div>
+</div>
+<p>When trying to plot things like pole zero charts, where it is important that the chart matches a particular s-domain expression, we can guarantee that the chart is correct by deriving it directly from the s-domain expression, and then rendering that expression in pretty LaTeX equation form in the materials.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./electronics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../chemistry/recipes.html" title="previous page">Recipes</a>
+    <a class='right-next' id="next-link" href="worked-example.html" title="next page">Worked Example</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

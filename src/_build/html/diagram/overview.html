@@ -1,0 +1,574 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diagrams Overview &#8212; Subject Matter Authoring Using Jupyter Notebooks</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Image Generation and Manipulation Overview" href="../image/overview.html" />
+    <link rel="prev" title="Chart Overview" href="../chart/overview.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Subject Matter Authoring Using Jupyter Notebooks</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  STEM
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/overview.html">
+   Astronomy Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/overview.html">
+   Chemistry Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/compound_lookups.html">
+   Chemistry — Compound Lookups
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/material_properties.html">
+   Chemical Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/visualising-compounds.html">
+   Chemistry — Visualising Chemical Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/recipes.html">
+   Recipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../electronics/overview.html">
+   Electronics Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../electronics/worked-example.html">
+   Worked Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../engineering/overview.html">
+   Engineering Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/overview.html">
+   Maths Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Arts &amp; Humanities
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../art/overview.html">
+   Art Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linguistics/overview.html">
+   Linguistics Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../music/overview.html">
+   Music Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Map Generation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../geo/overview.html">
+   Geo Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Chart Generation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chart/overview.html">
+   Chart Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Diagram Generation
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Diagrams Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Image Generation and Manipulation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../image/overview.html">
+   Image Generation and Manipulation Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Audio Generation and Manipulation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../audio/overview.html">
+   Audio Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  LaTeX
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../latex/overview.html">
+   LaTeX Overview
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/diagram/overview.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/diagram/overview.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#blockdiag-package-diagrams">
+   Blockdiag Package Diagrams
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#block-diagrams">
+     Block Diagrams
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#network-diagrams">
+     Network Diagrams
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-js-diagramming-tools">
+   Other js Diagramming Tools
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="diagrams-overview">
+<h1>Diagrams Overview<a class="headerlink" href="#diagrams-overview" title="Permalink to this headline">¶</a></h1>
+<p>Several package exists that support the generation of diagrams from simple text descriptions of them. Through the creation of simple magics, we can use cell block magic to configure a code cell to accept these various description types and then render diagrams directly from them.</p>
+<p>By including the the textual generator script in the source document, output assets can be generated in situ. Updating or maintaining the inages takes place in the context within which the asset is used, minimising opportunities for the asset and the surrounding text context to become disjointed.</p>
+<p>The availability of simple text descriptions of a diagram, from which diagrams are typically rendered according to a fixed convention (although layout algorithms may determine the specific location of diagram components within a particular diagram) might also be used as mimimally sufficient text description of many key features of the diagram.</p>
+<p>Currently, meaningful human readable “long description” text descriptions to support accessibility are <em>not</em> generated from the original generative text descritptions, but the potential is there for such development if the will is there to exploit it.</p>
+<div class="section" id="blockdiag-package-diagrams">
+<h2>Blockdiag Package Diagrams<a class="headerlink" href="#blockdiag-package-diagrams" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="http://blockdiag.com/en/"><code class="docutils literal notranslate"><span class="pre">blockdiag</span></code></a> package provides tools for generating several types of diagram, from simple box and arrows diagrams to various disgrams familiar to communications and system engineers.</p>
+<p>The diagrams are defined using simple text structures. Various IPython block magics allow these descriptions to be entered direclty in to a magicked code cell, and the diagram generated diectly therefrom.</p>
+<p>The diagrams are generated by default as SVG diagrams and can be saved to a named file if requierd; <code class="docutils literal notranslate"><span class="pre">.png</span> </code>format images may also be created.</p>
+<p>All the magics are enabled from a single load command:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> blockdiag_magic
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="block-diagrams">
+<h3>Block Diagrams<a class="headerlink" href="#block-diagrams" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">blockdiag</span>
+A -&gt; B -&gt; C;
+B -&gt; D;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_4_0.svg" src="../_images/overview_4_0.svg" /></div>
+</div>
+</div>
+<div class="section" id="network-diagrams">
+<h3>Network Diagrams<a class="headerlink" href="#network-diagrams" title="Permalink to this headline">¶</a></h3>
+<p>TO DO</p>
+<p>In the following diagram, we save the SVG image to an explicit file as an additional output. (The direct output is hidden using a publishing system tag in the original soruce document.)</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">nwdiag</span> --outfile demo1.svg
+{
+  network dmz {
+      address = &quot;210.x.x.x/24&quot;
+
+      web01 [address = &quot;210.x.x.1&quot;];
+      web02 [address = &quot;210.x.x.2&quot;];
+  }
+  network internal {
+      address = &quot;172.x.x.x/24&quot;;
+
+      web01 [address = &quot;172.x.x.1&quot;];
+      db01;
+      app01;
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_7_0.svg" src="../_images/overview_7_0.svg" /></div>
+</div>
+<p>We can then explictly render the image, from the saved file, as required:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">SVG</span>
+<span class="n">SVG</span><span class="p">(</span><span class="s1">&#39;demo1.svg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_9_0.svg" src="../_images/overview_9_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## </span>
+
+<span class="c1">#%pip install git+https://github.com/innovationOUtside/flowchart_js_jp_proxy_widget</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Import the <code class="docutils literal notranslate"><span class="pre">jp_flowchartjs</span></code> package, which automatically registers the magic:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jp_flowchartjs.jp_flowchartjs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now create simpe description of the flow chart and render it directly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">flowchart_magic</span>
+
+st=&gt;start: Start
+e=&gt;end: End
+op1=&gt;operation: Generate
+op2=&gt;parallel: Evaluate
+st(right)-&gt;op1(right)-&gt;op2
+op2(path1, top)-&gt;op1
+op2(path2, right)-&gt;e
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "33b0220cd6c840549b4c9d510825823b"}
+</script></div>
+</div>
+<p>We can also create more complext flowcharts:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">flowchart_magic</span>
+st=&gt;start: Start
+e=&gt;end: End
+op1=&gt;operation: Set counter to 0
+op2=&gt;operation: Draw side code
+op3=&gt;operation: Turn ninety degrees code
+op4=&gt;operation: Add 1 to counter
+cond=&gt;condition: Is counter &lt; 4?
+st(right)-&gt;op1(right)-&gt;op2-&gt;op3-&gt;cond
+cond(yes, right)-&gt;op2
+cond(no, bottom)-&gt;e
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "2374d9d504cf419dbb3d85ce017d4b70"}
+</script></div>
+</div>
+</div>
+</div>
+<div class="section" id="other-js-diagramming-tools">
+<h2>Other js Diagramming Tools<a class="headerlink" href="#other-js-diagramming-tools" title="Permalink to this headline">¶</a></h2>
+<p>A variety of javascript based text to diagram tools exist that are not currently natively supported by Jupyer notebook extensions or magics. However, if the will were there, it should not be too hard to make them play nicely with Jupyer notebooks in a similar way to the examples provided above.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://bramp.github.io/js-sequence-diagrams/"><code class="docutils literal notranslate"><span class="pre">js-sequence-diagrams</span></code></a>;</p></li>
+<li><p><a class="reference external" href="https://mermaid-js.github.io/mermaid/#/"><code class="docutils literal notranslate"><span class="pre">mermaid.js</span></code></a></p></li>
+<li><p><a class="reference external" href="https://wavedrom.com/">timing diagrams</a></p></li>
+<li><p>supporting diagramming generation via markdown fenced code blocks using <a class="reference external" href="https://shd101wyy.github.io/markdown-preview-enhanced/#/"><em>Markdown preview enhancdd</em></a> VS Code extension.</p></li>
+</ul>
+</div>
+</div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"ea209486afa44f8d961ae81ea547e4fb": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "33b0220cd6c840549b4c9d510825823b": {"model_name": "JSProxyModel", "model_module": "jp_proxy_widget", "model_module_version": "^1.0.8", "state": {"_dom_classes": [], "_model_module": "jp_proxy_widget", "_model_module_version": "^1.0.8", "_model_name": "JSProxyModel", "_send_counter": 0, "_view_count": null, "_view_module": "jp_proxy_widget", "_view_module_version": "^1.0.8", "_view_name": "JSProxyView", "error_msg": "No error", "layout": "IPY_MODEL_ea209486afa44f8d961ae81ea547e4fb", "rendered": false, "status": "deferring flush until render"}}, "a7d1fd3390114bc18d83473b994668a3": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "2374d9d504cf419dbb3d85ce017d4b70": {"model_name": "JSProxyModel", "model_module": "jp_proxy_widget", "model_module_version": "^1.0.8", "state": {"_dom_classes": [], "_model_module": "jp_proxy_widget", "_model_module_version": "^1.0.8", "_model_name": "JSProxyModel", "_send_counter": 0, "_view_count": null, "_view_module": "jp_proxy_widget", "_view_module_version": "^1.0.8", "_view_name": "JSProxyView", "error_msg": "No error", "layout": "IPY_MODEL_a7d1fd3390114bc18d83473b994668a3", "rendered": false, "status": "deferring flush until render"}}}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./diagram"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../chart/overview.html" title="previous page">Chart Overview</a>
+    <a class='right-next' id="next-link" href="../image/overview.html" title="next page">Image Generation and Manipulation Overview</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
