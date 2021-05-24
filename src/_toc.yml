@@ -1,24 +1,30 @@
 - file: intro
   numbered: false 
-- part: STEM
+- part: Astronomy
   chapters:
     - file: astronomy/overview
     - file: astronomy/fits-images
     - file: astronomy/ephemeris-and-orbits
     - file: astronomy/interactive-astronomy-viewers
+- part: Chemistry
+  chapters:
     - file: chemistry/overview
     - file: chemistry/compound_lookups
     - file: chemistry/material_properties
     - file: chemistry/visualising-compounds
-    - file: chemistry/recipes
+- part: Electronics
+  chapters:
     - file: electronics/overview
     - file: electronics/worked-example
+- part: Other STEM
+  chapters:
     - file: engineering/overview
     - file: maths/overview
 - part: Arts & Humanities
   chapters: 
     - file: art/overview
     - file: linguistics/overview
+    - file: linguistics/classics
     - file: music/overview
 - part: Map Generation
   chapters:

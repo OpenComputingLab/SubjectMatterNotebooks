@@ -1,4 +1,8 @@
 title: Subject Matter Authoring Using Jupyter Notebooks
+author: Tony Hirst
+copyright: "2018-2021" 
 only_build_toc_files: true
 execute:
   execute_notebooks: force
+parse:
+  myst_dmath_double_inline: true

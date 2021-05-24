@@ -1,6 +1,12 @@
-# Astronomy — Ephemeris Data and Orbtial Calculations
+# Astronomy — Ephemeris Data and Orbital Calculations
 
 Several packages exist that help us work out where things are in the sky, or how to calculate their orbits, or plot trajectories between them.
+
+We can also generate interactive 3D plots showing how different orbital planes relate to each other.
+
+For creating educational resources, the ability to look-up reference data for planetary bodies and include it materials, as well as generating image assets associated the motion of those bodies, reduces the potential for errors.
+
+For learners working in an interactive notebook, having access to the tools of production allows learners to create and explore their own visual assets and check their understanding or many physical problems in a visual way.
 
 ## `poliastro`
 
@@ -119,13 +125,24 @@ sol.compute(obs)
 print(obs.next_setting(sol, use_center=True))
 print(obs.next_rising(sol, use_center=True))
 
+As with many packages, if the function we want is not evailable, we can create it once and start using it immediately, potentially iterating it and packaging it ourselves, or even contribyting it back to the original package if appropriate.
+
+```{note}
+As well as creating code for use in supporting the creation of media assets or to support custom calculations, many useful functions may also be developed a line of a code at a time to show the development of a "functional argument" that goes from raw data to a perhaps more meaningful re-presentation of it.
+
+In many cases, it may also be possible to demonstrate the steps involved in a particular function created to support asset production as part of a worked exercise.
+```
+
+For example, how might we plot the altitude of a body above the horizon over a 24 hour period from a set of ephemeris data?
+
 #Plotting the altitude
 
-#This sort of things could be easily reworked as the basis of an exercise
-#  where students plot the altitude of various bodies relative to various
-#  locations on various dates
-#It could then provide the basis for a sweep where you try to optimise
-#  something about the altitude from a particular location over a range of dates?
+# For example, this could perhaps be used as a the basis for a student exercise
+# in which students learn how to plot the altitude of various bodies relative to various
+# locations on various dates
+# Other flavours of exercise are also possible.
+# For example, a parameter sweep where you try to optimise or learn something about
+# the altitude of a body from a particular location over a range of dates?
 import matplotlib.pyplot as plt
 
 def plotAltitude(obs, obj):
@@ -145,8 +162,12 @@ def plotAltitude(obs, obj):
     plt.gca().set_xticklabels([ephem.localtime(d).strftime("%H:%M") for d in datelist][::int(1/resolution)])
     plt.grid()
     plt.show()
-    
+
+Let's use the above function to plot the motion of the sun:
+
 plotAltitude(obs, sol)
+
+Or how about the motion of the moon?
 
 moon = ephem.Moon()
 plotAltitude(obs, moon)
