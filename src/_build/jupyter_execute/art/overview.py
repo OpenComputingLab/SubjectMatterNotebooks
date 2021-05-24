@@ -1,7 +1,3 @@
-### `skimage`
-
-The [`skimage` (scikit-image)](https://scikit-image.org/docs/stable/overview.html) Python package provides a wide range of image processing tools.
-
 # Art Overview
 
 At first glance, it might appear unusual to think that interactive computing and single piece generative document workflows might have anything to offer to courses in art and art history.
@@ -14,6 +10,10 @@ Build Your Own Learning Tools (BYOT)*](https://blog.ouseful.info/2018/09/06/buil
 ```
 
 See also the section on *images* for more examples of image processing tools.
+
+### `skimage`
+
+The [`skimage` (scikit-image)](https://scikit-image.org/docs/stable/overview.html) Python package provides a wide range of image processing tools.
 
 %%capture
 try:
@@ -227,7 +227,7 @@ palettiser1(orange_image_file, 5)
 
 ### `colorthief`
 
-THe `colorthief` package provides a range of tools for extracting the dominant colour from an image.
+The `colorthief` package provides a range of tools for extracting the dominant colour from an image.
 
 For example, how does it see our first image?
 

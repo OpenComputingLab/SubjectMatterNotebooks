@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>skimage &#8212; Subject Matter Authoring Using Jupyter Notebooks</title>
+    <title>Art Overview &#8212; Subject Matter Authoring Using Jupyter Notebooks</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -190,15 +190,6 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     skimage
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#art-overview">
    Art Overview
   </a>
  </li>
@@ -386,8 +377,8 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#skimage">
    <code class="docutils literal notranslate">
     <span class="pre">
      skimage
@@ -395,26 +386,19 @@
    </code>
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#art-overview">
-   Art Overview
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finding-dominant-colour">
+   Finding Dominant Colour
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#finding-dominant-colour">
-     Finding Dominant Colour
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#colorthief">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       colorthief
+      </span>
+     </code>
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#colorthief">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         colorthief
-        </span>
-       </code>
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -430,11 +414,7 @@
         
               <div>
                 
-  <div class="section" id="skimage">
-<h1><code class="docutils literal notranslate"><span class="pre">skimage</span></code><a class="headerlink" href="#skimage" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference external" href="https://scikit-image.org/docs/stable/overview.html"><code class="docutils literal notranslate"><span class="pre">skimage</span></code> (scikit-image)</a> Python package provides a wide range of image processing tools.</p>
-</div>
-<div class="section" id="art-overview">
+  <div class="section" id="art-overview">
 <h1>Art Overview<a class="headerlink" href="#art-overview" title="Permalink to this headline">¶</a></h1>
 <p>At first glance, it might appear unusual to think that interactive computing and single piece generative document workflows might have anything to offer to courses in art and art history.</p>
 <p>But with a little bit of creative thought, we see how we can create a range of production related tools that provide flexibility in creating asssets that can be usefully discussed in a narrative context, as well as offering students to those same tools of production for use as independent curiosoty driven learning tools.</p>
@@ -444,6 +424,9 @@
 Build Your Own Learning Tools (BYOT)*</a>.</p>
 </div>
 <p>See also the section on <em>images</em> for more examples of image processing tools.</p>
+<div class="section" id="skimage">
+<h2><code class="docutils literal notranslate"><span class="pre">skimage</span></code><a class="headerlink" href="#skimage" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://scikit-image.org/docs/stable/overview.html"><code class="docutils literal notranslate"><span class="pre">skimage</span></code> (scikit-image)</a> Python package provides a wide range of image processing tools.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">skimage</span>
@@ -523,7 +506,7 @@ Build Your Own Learning Tools (BYOT)*</a>.</p>
 </div>
 </div>
 <p>We can now also try to create our own dynamically created colour wheel:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#If we&#39;re doing a reproducible thing, then let&#39;s create a color wheel...</span>
 <span class="c1">#https://rosettacode.org/wiki/Color_wheel</span>
@@ -611,6 +594,7 @@ Build Your Own Learning Tools (BYOT)*</a>.</p>
 <img alt="../_images/overview_18_0.png" src="../_images/overview_18_0.png" />
 </div>
 </div>
+</div>
 <div class="section" id="finding-dominant-colour">
 <h2>Finding Dominant Colour<a class="headerlink" href="#finding-dominant-colour" title="Permalink to this headline">¶</a></h2>
 <p>Perhaps more useful would be something that lets us extract the dominant colour from an image?</p>
@@ -619,7 +603,7 @@ Build Your Own Learning Tools (BYOT)*</a>.</p>
 <p>See also the <em>image</em> notebook for an alternative way of analysing these images in terms of colour and brightness.</p>
 </div>
 <p>A naive approach would be to simply calculate the “average” pixel colour value, but this loses the sense of the actual colours contained in a picture. Instead, we can use a clustering technique to try to identify colour values that appear most frequently in a picture.</p>
-<div class="cell tag_hide-code docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##https://code.likeagirl.io/finding-dominant-colour-on-an-image-b4e075f98097</span>
 <span class="kn">import</span> <span class="nn">cv2</span>
@@ -712,7 +696,7 @@ Build Your Own Learning Tools (BYOT)*</a>.</p>
 </div>
 <div class="section" id="colorthief">
 <h3><code class="docutils literal notranslate"><span class="pre">colorthief</span></code><a class="headerlink" href="#colorthief" title="Permalink to this headline">¶</a></h3>
-<p>THe <code class="docutils literal notranslate"><span class="pre">colorthief</span></code> package provides a range of tools for extracting the dominant colour from an image.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">colorthief</span></code> package provides a range of tools for extracting the dominant colour from an image.</p>
 <p>For example, how does it see our first image?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

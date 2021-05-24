@@ -190,15 +190,6 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../art/overview.html">
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     skimage
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../art/overview.html#art-overview">
    Art Overview
   </a>
  </li>
@@ -466,8 +457,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="3dmolviewer_16218843569592252"  style="position: relative; width: 640px; height: 480px">
-        <p id="3dmolwarning_16218843569592252" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
+<div class="output text_html"><div id="3dmolviewer_16218850973797061"  style="position: relative; width: 640px; height: 480px">
+        <p id="3dmolwarning_16218850973797061" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
         <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
         </div>
 <script>
@@ -490,17 +481,17 @@ $3Dmolpromise = null;
   $3Dmolpromise = loadScriptAsync('https://3dmol.org/build/3Dmol.js');
 }
 
-var viewer_16218843569592252 = null;
-var warn = document.getElementById("3dmolwarning_16218843569592252");
+var viewer_16218850973797061 = null;
+var warn = document.getElementById("3dmolwarning_16218850973797061");
 if(warn) {
     warn.parentNode.removeChild(warn);
 }
 $3Dmolpromise.then(function() {
-viewer_16218843569592252 = $3Dmol.createViewer($("#3dmolviewer_16218843569592252"),{backgroundColor:"white"});
-$3Dmol.download("cid:702", viewer_16218843569592252, {}, function() {
-viewer_16218843569592252.zoomTo();
-	viewer_16218843569592252.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.25}});
-viewer_16218843569592252.render();
+viewer_16218850973797061 = $3Dmol.createViewer($("#3dmolviewer_16218850973797061"),{backgroundColor:"white"});
+$3Dmol.download("cid:702", viewer_16218850973797061, {}, function() {
+viewer_16218850973797061.zoomTo();
+	viewer_16218850973797061.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.25}});
+viewer_16218850973797061.render();
 })
 });
 </script></div></div>
