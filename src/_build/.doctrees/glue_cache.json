@@ -1,4 +1,30 @@
 {
+  "chemistry/compound_lookups": {
+    "g_mol_formula": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "g_mol_formula",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "'C2H6O'"
+      }
+    },
+    "g_ethanol": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "g_ethanol",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "'ethanol'"
+      }
+    }
+  },
   "chemistry/overview": {
     "compound": {
       "output_type": "display_data",

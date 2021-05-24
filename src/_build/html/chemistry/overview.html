@@ -353,7 +353,10 @@
 <h1>Chemistry Overview<a class="headerlink" href="#chemistry-overview" title="Permalink to this headline">¶</a></h1>
 <p>A wide range of tools exist that support workflows in Chemistry, from looking up the structure and properties of a wide variety of elements and compounds, to visualising their structure using interactive HTML widgets.</p>
 <p>Using automation to help us generate the the lookup of compund structures from their names allows us to creative narratives where correctness is guaranteed when moving from one consideration, such as the formula for a particular compound given its common name, to the visualisation of that structure.</p>
+<div class="tip admonition">
+<p class="admonition-title">Hiding Code</p>
 <p>The following example includes the code inline to show how the automation proceeds. In a finished would the code could be hidden but revealable, for eample in collapsed code cells, or have all mention of the code removed from the final output document.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Provide the common name of a compound</span>
@@ -375,7 +378,6 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pubchempy</span> <span class="k">as</span> <span class="nn">pcp</span>
 
 <span class="n">_compound</span> <span class="o">=</span> <span class="n">pcp</span><span class="o">.</span><span class="n">get_compounds</span><span class="p">(</span><span class="n">compound_name</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">_compound</span><span class="o">.</span><span class="n">canonical_smiles</span>
 <span class="n">_compound_latex</span> <span class="o">=</span> <span class="s1">&#39;$\ce{&#39;</span><span class="o">+</span><span class="n">_compound</span><span class="o">.</span><span class="n">molecular_formula</span><span class="o">+</span><span class="s1">&#39;}$&#39;</span> 
 </pre></div>
 </div>
@@ -383,9 +385,11 @@
 </div>
 <div class="math notranslate nohighlight">
 \[\require{mhchem}\]</div>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">mhchem</span></code> MathJax package, we can add support for the rendering of chemical equations:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Latex</span>
+
 <span class="n">Latex</span><span class="p">(</span><span class="s1">&#39;$\ce{&#39;</span><span class="o">+</span><span class="n">_compound</span><span class="o">.</span><span class="n">molecular_formula</span><span class="o">+</span><span class="s1">&#39;}$&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -405,7 +409,10 @@
 </div>
 </div>
 <p>Let’s start with something simple: a rendering of the chemical equation for <span class="pasted-text">ethanol</span>:</p>
-<p><a href="#id1"><span class="problematic" id="id2">:glue:math:`compound_latex`</span></a></p>
+<div class="highlight-{glue:math}compound_latex notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>We can render a free standing HTML+JS 3D interactive version of the molecule into the page:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">py3Dmol</span>
@@ -420,8 +427,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="3dmolviewer_1621862596689821"  style="position: relative; width: 640px; height: 480px">
-        <p id="3dmolwarning_1621862596689821" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
+<div class="output text_html"><div id="3dmolviewer_162187496494326"  style="position: relative; width: 640px; height: 480px">
+        <p id="3dmolwarning_162187496494326" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
         <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
         </div>
 <script>
@@ -444,17 +451,17 @@ $3Dmolpromise = null;
   $3Dmolpromise = loadScriptAsync('https://3dmol.org/build/3Dmol.js');
 }
 
-var viewer_1621862596689821 = null;
-var warn = document.getElementById("3dmolwarning_1621862596689821");
+var viewer_162187496494326 = null;
+var warn = document.getElementById("3dmolwarning_162187496494326");
 if(warn) {
     warn.parentNode.removeChild(warn);
 }
 $3Dmolpromise.then(function() {
-viewer_1621862596689821 = $3Dmol.createViewer($("#3dmolviewer_1621862596689821"),{backgroundColor:"white"});
-$3Dmol.download("cid:702", viewer_1621862596689821, {}, function() {
-viewer_1621862596689821.zoomTo();
-	viewer_1621862596689821.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.25}});
-viewer_1621862596689821.render();
+viewer_162187496494326 = $3Dmol.createViewer($("#3dmolviewer_162187496494326"),{backgroundColor:"white"});
+$3Dmol.download("cid:702", viewer_162187496494326, {}, function() {
+viewer_162187496494326.zoomTo();
+	viewer_162187496494326.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.25}});
+viewer_162187496494326.render();
 })
 });
 </script></div></div>

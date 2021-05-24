@@ -23,7 +23,7 @@ aspirin['molecule_synonyms'][:5]
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-13-e16f6c08bea8>[0m in [0;36m<module>[0;34m[0m
+[0;32m<ipython-input-14-e16f6c08bea8>[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0maspirin[0m [0;34m=[0m [0;34m[[0m[0mr[0m [0;32mfor[0m [0mr[0m [0;32min[0m [0mres[0m [0;32mif[0m [0mr[0m[0;34m[[0m[0;34m'pref_name'[0m[0;34m][0m[0;34m==[0m[0;34m'ASPIRIN'[0m[0;34m][0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      2[0m [0maspirin[0m[0;34m[[0m[0;34m'molecule_synonyms'[0m[0;34m][0m[0;34m[[0m[0;34m:[0m[0;36m5[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
 

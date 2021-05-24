@@ -365,6 +365,15 @@
    </code>
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pypdb">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pypdb
+    </span>
+   </code>
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -380,17 +389,24 @@
   <div class="section" id="chemistry-compound-lookups">
 <h1>Chemistry — Compound Lookups<a class="headerlink" href="#chemistry-compound-lookups" title="Permalink to this headline">¶</a></h1>
 <p>Several Python packages exist that simplify the process of looking compounds and their chemical structure.</p>
-<p>For example, we can look-up compounds by name or structure, which allows us to create a readable sequence of steps that allows us obtain the structure of a compound, and various properties of it, simply by starting with its common name.</p>
+<p>This means that we can look-up compounds by name or structure and create a generative sequence of steps that allows us obtain the structure of a compound, and various properties of it, simply by starting with its common name.</p>
 <p>With a representation of the structure to hand, we can then visualise its structure as demonstrated in a later section.</p>
-<p>This allows us in part to create one-piece workflows where rich outputs are generated from (potentially hidden) generative scripts contained within the source document.</p>
+<p>This allows us in part to create one-piece generative document workflows where <em>information rich</em> outputs, as well as rich media outputs, can be generated from (potentially hidden) generative scripts contained within the source document.</p>
+<p>For creators of educational materials, this means we can create narratives where a compuns is identified by name, a lookup is made, and informational descriptions can then be generated from the looked up object.</p>
+<p>This means that the materials will be factually correct as the informational properties will be rendered directly from the retrieved object.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>One of the risks associated with generative documents is that if for some reason the generative code cannot be run or fails to execute as intended, the rendered document will be incomplete at best, meaningless at worst.</p>
+<p>It is therefor recommded that generative documents should be saved an archived all cells run.</p>
+</div>
 <p>Through being able to look up properties of materials, we can also generate factual statements about them or generate quizzes or opportunities for self-text activities around them.</p>
 <div class="section" id="pubchempy">
 <h2><code class="docutils literal notranslate"><span class="pre">pubchempy</span></code><a class="headerlink" href="#pubchempy" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference external" href="https://pubchempy.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">pubchempy</span></code></a> package provides a Python interface to <a class="reference external" href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a>, a  freely accessible chemical information lookup service that allows for the searching of chemicals by name, lookups of molecular formulas and structures using conventional representations such as a SMILES representation. (Chemicals can also be looked up via their SMILES string.)</p>
-<div class="highlight-{admonition}SMILES notranslate"><div class="highlight"><pre><span></span>SMILES ([*Simplified molecular-input line-entry system*](https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system)) is a simple text format for desctibing molecular structure.
-
-Related: [SMILES tutorial](https://www.epa.gov/sites/production/files/2015-05/documents/appendf.pdf(
-</pre></div>
+<p>The <a class="reference external" href="https://pubchempy.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">pubchempy</span></code></a> package provides a Python interface to <a class="reference external" href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a>, a  freely accessible chemical information lookup service. <em>PubChem</em> allows for the searching of chemicals by name, lookups of molecular formulas and structures using conventional representations such as a SMILES representation. (Chemicals can also be looked up via their SMILES string.)</p>
+<div class="tip admonition">
+<p class="admonition-title">SMILES</p>
+<p>SMILES (<a class="reference external" href="https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system"><em>Simplified molecular-input line-entry system</em></a>) is a simple text format for desctibing molecular structure.</p>
+<p>Related: [SMILES tutorial](<a class="reference external" href="https://www.epa.gov/sites/production/files/2015-05/documents/appendf.pdf">https://www.epa.gov/sites/production/files/2015-05/documents/appendf.pdf</a>(</p>
 </div>
 <p>Packages like <code class="docutils literal notranslate"><span class="pre">pubchempy</span></code> can be used in conjunction with visualisers such as <code class="docutils literal notranslate"><span class="pre">py3Dmol</span></code> to look up a molecule by name (using <code class="docutils literal notranslate"><span class="pre">pubchempy</span></code>) and then display its structure as an interactive 3D model (using <code class="docutils literal notranslate"><span class="pre">py3Dmol</span></code>).</p>
 <p>Import the base package:</p>
@@ -405,6 +421,7 @@ Related: [SMILES tutorial](https://www.epa.gov/sites/production/files/2015-05/do
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ethanol</span> <span class="o">=</span> <span class="n">pcp</span><span class="o">.</span><span class="n">get_compounds</span><span class="p">(</span><span class="s1">&#39;ethanol&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
 <span class="n">ethanol</span><span class="o">.</span><span class="n">canonical_smiles</span><span class="p">,</span> <span class="n">ethanol</span><span class="o">.</span><span class="n">isomeric_smiles</span>
 </pre></div>
 </div>
@@ -415,7 +432,24 @@ Related: [SMILES tutorial](https://www.epa.gov/sites/production/files/2015-05/do
 </div>
 </div>
 </div>
-<p>We can also look up compounds by formula. If required, responses from look-ups can be returned as <em>pandas</em> dataframes:</p>
+<p>If we create a reference to the <code class="docutils literal notranslate"><span class="pre">.iupac_name</span></code> of the compound, we can use that in a markdown field:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;g_ethanol&quot;</span><span class="p">,</span> <span class="n">ethanol</span><span class="o">.</span><span class="n">iupac_name</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>Such a references is embedded in this piece of text: <em>you looked up the compound <span class="pasted-text">ethanol</span></em>.</p>
+<p>We can also look up compounds by formula.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If required, responses from look-ups can be returned as <em>pandas</em> dataframes.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nitric_acid_df</span> <span class="o">=</span> <span class="n">pcp</span><span class="o">.</span><span class="n">get_compounds</span><span class="p">(</span><span class="s1">&#39;HNO3&#39;</span><span class="p">,</span> <span class="s1">&#39;formula&#39;</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">True</span><span class="p">)[:</span><span class="mi">3</span><span class="p">]</span>
@@ -482,7 +516,7 @@ Related: [SMILES tutorial](https://www.epa.gov/sites/production/files/2015-05/do
 </table>
 </div></div></div>
 </div>
-<p>Round tripping is possible by looking up a chemical using its SMILES representation and then displaying the name, for example.</p>
+<p>Round tripping of looking up a compound by name, obtaining its SMILES representation, looking the compound by SMILES representation, and displaying the name of the final object retrieved:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Look up by SMILES string</span>
@@ -497,7 +531,12 @@ Related: [SMILES tutorial](https://www.epa.gov/sites/production/files/2015-05/do
 </div>
 </div>
 </div>
-<p>We can also use other codes for the lookup:</p>
+<p>We can also use other chemcial reference codes for the lookup, such as an <code class="docutils literal notranslate"><span class="pre">InChI</span></code> identifier:</p>
+<div class="tip admonition">
+<p class="admonition-title">InChI</p>
+<p><code class="docutils literal notranslate"><span class="pre">InChI</span></code>, the IUPAC (<a class="reference external" href="https://en.wikipedia.org/wiki/International_Chemical_Identifier"><em>International Chemical Identifier</em></a>) is a  standardised textual identifier for chemical substances.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">InChIKey</span></code> reference scheme is a condensed 27 character hashed version of the full <code class="docutils literal notranslate"><span class="pre">InChI</span></code> identifier string.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pcp</span><span class="o">.</span><span class="n">get_compounds</span><span class="p">(</span><span class="s2">&quot;InChI=1S/HNO3/c2-1(3)4/h(H,2,3,4)&quot;</span><span class="p">,</span><span class="s2">&quot;inchi&quot;</span><span class="p">,</span>
@@ -511,11 +550,13 @@ Related: [SMILES tutorial](https://www.epa.gov/sites/production/files/2015-05/do
 </div>
 </div>
 </div>
-<p>The retrieved representation described a wide range of useful informational properties associated with the compound.</p>
+<p>The retrieved object stores a wide range of useful informational properties associated with the compound.</p>
 <p>For example, looking up the chemical formula (this is described as the <em>molecular formula</em> altough I think it’s actually the <em>empirical formula</em>?):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compound</span><span class="o">.</span><span class="n">molecular_formula</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glue</span><span class="p">(</span><span class="s2">&quot;g_mol_formula&quot;</span><span class="p">,</span> <span class="n">compound</span><span class="o">.</span><span class="n">molecular_formula</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">compound</span><span class="o">.</span><span class="n">molecular_formula</span>
 </pre></div>
 </div>
 </div>
@@ -533,8 +574,22 @@ Related: [SMILES tutorial](https://www.epa.gov/sites/production/files/2015-05/do
 </div>
 <div class="math notranslate nohighlight">
 \[\require{mhchem}\]</div>
-<p>For example: <span class="math notranslate nohighlight">\(\ce{C2H6O}\)</span></p>
+<p>For example: <span class="math notranslate nohighlight">\(\ce{C2H6O}\)</span> (literal embedding: <code class="docutils literal notranslate"><span class="pre">$\ce{C2H6O}$</span></code>)</p>
+<p>Can we embed the glue reference?</p>
+<p><a href="#id1"><span class="problematic" id="id2">:glue:math:`g_mol_formula`</span></a></p>
+<p>Simple?</p>
+<div class="highlight-{glue:math}compound_latex notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>Full?</p>
+<div class="highlight-{glue:math}compound_latex notranslate"><div class="highlight"><pre><span></span>:label: eq-sym
+</pre></div>
+</div>
 <p>We can also lookup various properties of the compound and use that as the basis of a custom display outputter for the <code class="docutils literal notranslate"><span class="pre">pubchempy.Compound</span></code> object.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remember, we always collapse or completely remove generator code elements included in the original source document from the rendered text.</p>
+</div>
 <div class="cell tag_hide-cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a function to display compound properties</span>
@@ -576,7 +631,7 @@ Related: [SMILES tutorial](https://www.epa.gov/sites/production/files/2015-05/do
 </div>
 <div class="section" id="chembl-webresource-client">
 <h2><code class="docutils literal notranslate"><span class="pre">chembl_webresource_client</span></code><a class="headerlink" href="#chembl-webresource-client" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference external" href="https://github.com/chembl/chembl_webresource_client"> <code class="docutils literal notranslate"><span class="pre">chembl_webresource_client</span></code></a> package provides a Python interface to <a class="reference external" href="https://www.ebi.ac.uk/chembl/">ChEMBL</a> to support the lookup of chemical compounds by common name.</p>
+<p>The <a class="reference external" href="https://github.com/chembl/chembl_webresource_client"> <code class="docutils literal notranslate"><span class="pre">chembl_webresource_client</span></code></a> package provides a Python interface to <a class="reference external" href="https://www.ebi.ac.uk/chembl/">ChEMBL</a>, a “<em>manually curated chemical database of bioactive molecules with drug-like properties maintained by the European Bioinformatics Institute (EBI), of the European Molecular Biology Laboratory (EMBL)</em>” to support the lookup of bioactive chemical compounds by common name.</p>
 <p>Import the package and create a reference for a molecule lookup:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -587,6 +642,7 @@ Related: [SMILES tutorial](https://www.epa.gov/sites/production/files/2015-05/do
 </div>
 </div>
 </div>
+<p>From this client, we can look up bioactive compounds in a variety of ways, including by popular name:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aspirin</span> <span class="o">=</span> <span class="n">molecule</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;aspirin&#39;</span><span class="p">)</span>
@@ -617,7 +673,7 @@ ASPIRIN DL-LYSINE
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="n">e16f6c08bea8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">14</span><span class="o">-</span><span class="n">e16f6c08bea8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">aspirin</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">res</span> <span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;pref_name&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;ASPIRIN&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">aspirin</span><span class="p">[</span><span class="s1">&#39;molecule_synonyms&#39;</span><span class="p">][:</span><span class="mi">5</span><span class="p">]</span>
 
@@ -626,7 +682,8 @@ ASPIRIN DL-LYSINE
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<p>As before, we can generae an <code class="docutils literal notranslate"><span class="pre">_repr_</span></code> method on the object to provide us with a summary output from the object in a form we desire:</p>
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
 
@@ -651,6 +708,7 @@ ASPIRIN DL-LYSINE
 </div>
 </div>
 </div>
+<p>If we call the object, we get a summary review of it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chembl_wrc_molecule_properties</span><span class="p">(</span><span class="n">aspirin</span><span class="p">)</span>
@@ -660,7 +718,7 @@ ASPIRIN DL-LYSINE
 <div class="cell_output docutils container">
 <div class="output text_html">Name: <strong>ASPIRIN</strong><br/>Common Wikipedia (common) name: <strong>Aspirin</strong><br/>Formula: <strong>C9H8O4</strong><br/>Species: <strong>ACID</strong><br/>SMILES: <strong>CC(=O)Oc1ccccc1C(=O)O</strong><br/>inchi:  <strong>InChI=1S/C9H8O4/c1-6(10)13-8-5-3-2-4-7(8)9(11)12/h2-5H,1H3,(H,11,12)</strong><br/>CHEMBL id:  <strong>CHEMBL25</strong><br/>Therapeutic flag: <strong>True</strong><br/>First approval: <strong>1950</strong></div></div>
 </div>
-<p>Lookup a molecule using SMILES:</p>
+<p>As ewll as looking up compunds by name, we can lookup a molecules more specifically from a SMILES string:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">chembl_webresource_client.new_client</span> <span class="kn">import</span> <span class="n">new_client</span>
@@ -675,6 +733,7 @@ ASPIRIN DL-LYSINE
 <div class="cell_output docutils container">
 <div class="output text_html">Name: <strong>ALCOHOL</strong><br/>Common Wikipedia (common) name: <strong>Ethanol</strong><br/>Formula: <strong>C2H6O</strong><br/>Species: <strong>NEUTRAL</strong><br/>SMILES: <strong>CCO</strong><br/>inchi:  <strong>InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3</strong><br/>CHEMBL id:  <strong>CHEMBL545</strong><br/>Therapeutic flag: <strong>False</strong><br/>First approval: <strong>None</strong></div></div>
 </div>
+<p>We can also start to visualise the structure of the compound:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">SVG</span>
@@ -687,44 +746,15 @@ ASPIRIN DL-LYSINE
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/compound_lookups_31_0.svg" src="../_images/compound_lookups_31_0.svg" /></div>
+<img alt="../_images/compound_lookups_38_0.svg" src="../_images/compound_lookups_38_0.svg" /></div>
 </div>
+</div>
+<div class="section" id="pypdb">
+<h2><code class="docutils literal notranslate"><span class="pre">pypdb</span></code><a class="headerlink" href="#pypdb" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://github.com/williamgilpin/pypdb"><code class="docutils literal notranslate"><span class="pre">pypdb</span></code></a> package provides simple Pyhton API for performing searches with the <em>RCSB (Research Collaboratory for Structural Bioinformatics) Protein Data Bank (PDB)</em> [<a class="reference external" href="https://www.rcsb.org/pages/about-us/index">about</a>].</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%pip install widget_periodictable</span>
-<span class="c1">#https://github.com/osscar-org/widget-periodictable/</span>
-<span class="c1">#!jupyter nbextension enable --py widget_periodictable</span>
-<span class="kn">from</span> <span class="nn">widget_periodictable</span> <span class="kn">import</span> <span class="n">PTableWidget</span>
-
-<span class="n">widget</span> <span class="o">=</span> <span class="n">PTableWidget</span><span class="p">(</span><span class="n">states</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">selected_elements</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Si&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Ge&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> 
-                      <span class="n">selected_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pink&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;lightblue&#39;</span><span class="p">],</span> 
-                      <span class="n">disabled_elements</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;Al&#39;</span><span class="p">,</span> <span class="s1">&#39;Ga&#39;</span><span class="p">],</span>
-                      <span class="n">unselected_color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">border_color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="s1">&#39;20px&#39;</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "b9fc49a5045b41dfaf6ae1041dd84a9b", "version_major": 2, "version_minor": 0}
-</script></div>
-</div>
-<p>The periodic table widget can return symbols for selected elements, which means we could use it as an interface element for an automated lookup of various properties of selected items.</p>
-<p>We can also use code to control which elements in the table are highlighted, we means we could also highlight elements in the table that may have been identified through some other lookup service. For example, highlight all the elements in the table contained in a particular compound.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">widget</span><span class="o">.</span><span class="n">selected_elements</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;La&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Ce&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Pr&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-<span class="c1"># Does this all work if we eg pop the periodic table out into a floating widget?</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%pip install pypdb</span>
-<span class="c1">#https://github.com/williamgilpin/pypdb/blob/master/demos/demos.ipynb</span>
-<span class="c1">#A Python 3 toolkit for performing searches with the RCSB Protein Data Bank (PDB). </span>
-<span class="kn">import</span> <span class="nn">pypdb</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pypdb</span>
 
 <span class="n">pypdb</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="s1">&#39;nitroglycerin&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
 </pre></div>

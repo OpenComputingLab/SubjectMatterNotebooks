@@ -4,6 +4,8 @@ One piece generate document workflows allow for the creation of materials contai
 
 Making changes to the diagram simply requires a change to the original text description of it. When the document is reflowed, the diagram will be directly updated. There is no distance between the source material and the rendered diagram. The source material contains the description of the diagram and rendered directly from it.
 
+By providing learners with tools of production related to diagram generation, we also make it easier for them to create their own diagrams and explore appropriate visual ways of supporting their own learning.
+
 Several package exists that support the generation of diagrams from simple text descriptions of them. Through the creation of simple magics, we can use cell block magic to configure a code cell to accept these various description types and then render diagrams directly from them.
 
 By including the the textual generator script in the source document, output assets can be generated in situ. Updating or maintaining the inages takes place in the context within which the asset is used, minimising opportunities for the asset and the surrounding text context to become disjointed.

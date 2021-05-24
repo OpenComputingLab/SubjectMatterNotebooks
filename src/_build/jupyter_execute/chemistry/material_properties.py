@@ -2,6 +2,12 @@
 
 Several packages exist that allow us to automatically retrieve material properties of particlar elments and compounds as well as relating them to the periodic table.
 
+Being able to look up the material properties of chemicals in a one piece generative document workflow allows creators of materials to generate factually correct statements directly from looked up object properties and present those as part of the materials.
+
+For learners in an interactive notebook, the ability to lookup and reference elements allows them to check their understanding and explore the properties of elements that have not been directly referenced in the materials.
+
+The availability of a Periodic Table display with scripted styling means that authors can easily create views over the periodic table that highlight specific concerns, and learners can visually explore properties and patterns of elements in the periodic table context for themselves.
+
 ## `chemlib`
 
 [`chemlib`](https://chemlib.readthedocs.io/en/latest/) is a Python package providing a wide range of functions for looking up simple chemical properties and working with simple reactions.
@@ -39,6 +45,7 @@ from chemlib import empirical_formula_by_percent_comp as efbpc
 efbpc(C = 80.6, H = 19.4)
 
 from chemlib import Compound, Reaction
+
 N2O5 = Compound("N2O5")
 H2O = Compound("H2O")
 HNO3 = Compound("HNO3")
@@ -54,6 +61,7 @@ r.product_formulas[0].translate(subscript)
 r.reactant_formulas, r.product_formulas
 
 from chemlib import Compound, Combustion
+
 methane = Compound('CH4')
 c = Combustion(methane)
 c.formula, c.is_balanced
@@ -127,59 +135,6 @@ We can also interrogate the periodic table structure, for example looking up ele
 
 mgc.Element.from_row_and_group(3, 14)
 
-## `mendeleev`
-
-The [`mendeleev`](https://mendeleev.readthedocs.io/en/stable/tutorials.html#jupyter-notebooks) package TO DO
-
-%%capture
-try:
-    import mendeleev
-except:
-    %pip install mendeleev
-
-from mendeleev import Si, Fe, O
-
-print("Si's name: ", Si.name)
-print("Fe's atomic number:", Fe.atomic_number)
-print("O's atomic weight: ", O.atomic_weight)
-
-from mendeleev import element
-si, al,o  = [element('Si'), element(13), element('Oxygen') ]
-si.name, al.name,o.name, al.oxistates
-
-for iso in Fe.isotopes:
-    print('{0:4d} {1:4d} {2:10.5f} {3:8.2e} {4:6.2f} {5:}'.format(
-        iso.atomic_number, iso.mass_number, iso.mass, iso.mass_uncertainty, iso.abundance * 100.0, iso.is_radioactive))
-
-%%capture
-try:
-    import bokeh
-except:
-    %pip install bokeh
-
-from bokeh.plotting import output_notebook, output_file
-output_notebook()
-
-from mendeleev.fetch import fetch_table
-from mendeleev.plotting import periodic_plot
-
-ptable = fetch_table('elements')
-periodic_plot(ptable)
-
-periodic_plot(ptable, colorby='jmol_color', title="JMol Colors", decimals=3)
-#periodic_plot(ptable, colorby='cpk_color', title='CPK Colors')
-#periodic_plot(ptable, colorby='molcas_gv_color', title='MOLCAS GV Colors')
-
-Custom colour map
-
-import seaborn as sns
-from matplotlib import colors
-blockcmap = {b : colors.rgb2hex(c) for b, c in zip(['s', 'p', 'd', 'f'], sns.color_palette('deep'))}
-ptable['block_color'] = ptable['block'].map(blockcmap)
-periodic_plot(ptable, colorby='block_color')
-
-periodic_plot(ptable, attribute='covalent_radius_pyykko', colorby='attribute', title="Covalent Radii of Pyykko")
-
 ## Periodic Table
 
 The [`widget_periodictable`](https://github.com/osscar-org/widget-periodictable/) is an interactive periodic table widget that allows particular elements to be highlighted and identifers for selected elements to be retrieved.
@@ -187,6 +142,7 @@ The [`widget_periodictable`](https://github.com/osscar-org/widget-periodictable/
 As such, wthe widget could form part of a simple end user application for looking up properties of selected elements, or highlighting elements within the table based on an analysis of a simple compound.
 
 %%capture
+#https://github.com/osscar-org/widget-periodictable/
 try:
     import widget_periodictable
 except:
@@ -205,20 +161,81 @@ The periodic table widget can return symbols for selected elements, which means 
 
 We can also use code to control which elements in the table are highlighted, we means we could also highlight elements in the table that may have been identified through some other lookup service. For example, highlight all the elements in the table contained in a particular compound.
 
-widget.selected_elements = {"La": 0, "Ce": 1, "Pr": 2}
-# Does this all work if we eg pop the periodic table out into a floating widget?
+## `mendeleev`
 
-## `pydb`
+The [`mendeleev`](https://mendeleev.readthedocs.io/en/stable/tutorials.html#jupyter-notebooks) package provides "*an API for accessing various properties of elements from the periodic table of elements*".
 
 %%capture
 try:
-    import pypdb
+    import mendeleev
 except:
-    %pip install pypdb
+    %pip install mendeleev
 
-#https://github.com/williamgilpin/pypdb/blob/master/demos/demos.ipynb
-#A Python 3 toolkit for performing searches with the RCSB Protein Data Bank (PDB). 
-import pypdb
+For example, we can retrieve key properties associated with the elements referenced by the chemical symbol:
 
-pypdb.Query('nitroglycerin').search()
+from mendeleev import Si, Fe, O
+
+print("Si's name: ", Si.name)
+print("Fe's atomic number:", Fe.atomic_number)
+print("O's atomic weight: ", O.atomic_weight)
+
+We can also reference elements by name and atomic number, as well as symbol:
+
+```{note}
+Note that we seem to get the American spelling of the name!
+```
+
+from mendeleev import element
+
+si, al,o  = [element('Si'), element(13), element('Oxygen') ]
+si.name, al.name,o.name, al.oxistates
+
+As well as the basic elements, we can also look up isotopes:
+
+for iso in Fe.isotopes:
+    print('{0:4d} {1:4d} {2:10.5f} {3:8.2e} {4:6.2f} {5:}'.format(
+        iso.atomic_number, iso.mass_number, iso.mass, iso.mass_uncertainty, iso.abundance * 100.0, iso.is_radioactive))
+
+In addition to the simple API, the `medeleev` package also provides a rich interactive periodic table widget.
+
+The widget has a depnedency on the Boken charting package, which must be loaded in and configured first:
+
+%%capture
+try:
+    import bokeh
+except:
+    %pip install bokeh
+
+from bokeh.plotting import output_notebook, output_file
+# Note that the periodic table widget will still render in a Jupyter Book display
+output_notebook()
+
+from mendeleev.fetch import fetch_table
+from mendeleev.plotting import periodic_plot
+
+ptable = fetch_table('elements')
+periodic_plot(ptable)
+
+We can also configure the periodic table display, for example, adding colour highlights:
+
+periodic_plot(ptable, colorby='jmol_color', title="JMol Colors", decimals=3, width=700)
+#periodic_plot(ptable, colorby='cpk_color', title='CPK Colors')
+#periodic_plot(ptable, colorby='molcas_gv_color', title='MOLCAS GV Colors')
+
+If required, custom colour maps can also be applied:
+
+import seaborn as sns
+from matplotlib import colors
+
+blockcmap = {b : colors.rgb2hex(c) for b, c in zip(['s', 'p', 'd', 'f'], sns.color_palette('deep'))}
+ptable['block_color'] = ptable['block'].map(blockcmap)
+
+periodic_plot(ptable, colorby='block_color',
+              width=700)
+
+Elements may also be styled in the table according the value of specific properties:
+
+periodic_plot(ptable, attribute='covalent_radius_pyykko',
+              colorby='attribute', title="Covalent Radii of Pyykko",
+              width=700)
 

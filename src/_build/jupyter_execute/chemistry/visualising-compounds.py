@@ -16,11 +16,14 @@ The [`rdkit`](https://rdkit.org/docs/index.html) package, an open source toolkit
 #import rdkit
 
 from rdkit import Chem
+
 m = Chem.MolFromSmiles("C1=NC2=C(N1)C(=NC=N2)N")
 m
 
 m = Chem.AddHs(m)
 m
+
+from rdkit.Chem import Draw
 
 def smilesH(m):
     return Chem.AddHs(Chem.MolFromSmiles(m))
@@ -60,8 +63,13 @@ rdChemReactions.ReactionFromSmarts("C=CCBr>>C=CCI");
 
 A key part of the *openbabel* Python API is the `pybel` package which supports chemical structure parsing, format conversion, and display.
 
-##!brew install open-babel
-#%pip install --upgrade  openbabel-wheel
+%%capture
+
+try:
+    import openbabel
+except:
+    %pip install openbabel-wheel
+    ##!brew install open-babel
 
 from openbabel import pybel
 
@@ -75,6 +83,7 @@ mol
 
 #  Better preview
 from IPython.display import SVG
+
 SVG(mol.write("svg"))
 
 mol.write("smi")
@@ -133,14 +142,18 @@ Protein Data Bank (PDB)
 p = py3Dmol.view(query='pdb:1ycr')
 p.setStyle({'stick': {'radius': .1}, 'sphere': {'scale': 0.25}})
 
-p.setStyle({'cartoon':{'color':'spectrum'}})
+p.setStyle({'cartoon':{'color':'spectrum'}});
 
 ## `nglview`
 
 
 
-#%pip install nglview
-#!jupyter-nbextension enable nglview --py --sys-prefix
+%%capture
+try:
+    import nglview
+except:
+    %pip install nglview
+    !jupyter-nbextension enable nglview --py --sys-prefix
 
 import nglview as nv
 
@@ -161,11 +174,7 @@ view.render_image()
 view.download_image("test.png")
 
 # Downloads to download dir
+# To specify a download path requires a workaround of working in a separate thread:
+# https://github.com/nglviewer/nglview/blob/master/docs/FAQ.md#how-to-make-nglview-view-object-write-png-file
 #from IPython.display import Image
-#Image("test.png")
-
-view
-
-import os
-os.getcwd()
-
+#Image(PATH_TO_IMAGE)

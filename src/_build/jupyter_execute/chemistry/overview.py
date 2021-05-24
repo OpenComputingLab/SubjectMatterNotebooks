@@ -4,7 +4,10 @@ A wide range of tools exist that support workflows in Chemistry, from looking up
 
 Using automation to help us generate the the lookup of compund structures from their names allows us to creative narratives where correctness is guaranteed when moving from one consideration, such as the formula for a particular compound given its common name, to the visualisation of that structure.
 
+:::{admonition} Hiding Code
+:class: tip
 The following example includes the code inline to show how the automation proceeds. In a finished would the code could be hidden but revealable, for eample in collapsed code cells, or have all mention of the code removed from the final output document.
+:::
 
 #Provide the common name of a compound
 compound_name = "ethanol"
@@ -19,19 +22,24 @@ Having declared the compound we want to investigate in code, we can refer to it 
 import pubchempy as pcp
 
 _compound = pcp.get_compounds(compound_name, 'name')[0]
-_compound.canonical_smiles
 _compound_latex = '$\ce{'+_compound.molecular_formula+'}$' 
 
-$$\require{mhchem}$$ 
+$$\require{mhchem}$$
+
+Using the `mhchem` MathJax package, we can add support for the rendering of chemical equations:
 
 from IPython.display import Latex
+
 Latex('$\ce{'+_compound.molecular_formula+'}$')
 
 glue("compound_latex", Latex('$\ce{'+_compound.molecular_formula+'}$'), display=False)
 
 Let's start with something simple: a rendering of the chemical equation for {glue:text}`compound`: 
 
-{glue:math}`compound_latex`
+```{glue:math}compound_latex
+```
+
+We can render a free standing HTML+JS 3D interactive version of the molecule into the page:
 
 import py3Dmol
 

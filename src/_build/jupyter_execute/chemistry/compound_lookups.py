@@ -2,23 +2,35 @@
 
 Several Python packages exist that simplify the process of looking compounds and their chemical structure.
 
-For example, we can look-up compounds by name or structure, which allows us to create a readable sequence of steps that allows us obtain the structure of a compound, and various properties of it, simply by starting with its common name.
+This means that we can look-up compounds by name or structure and create a generative sequence of steps that allows us obtain the structure of a compound, and various properties of it, simply by starting with its common name.
 
 With a representation of the structure to hand, we can then visualise its structure as demonstrated in a later section.
 
-This allows us in part to create one-piece workflows where rich outputs are generated from (potentially hidden) generative scripts contained within the source document.
+This allows us in part to create one-piece generative document workflows where *information rich* outputs, as well as rich media outputs, can be generated from (potentially hidden) generative scripts contained within the source document.
+
+For creators of educational materials, this means we can create narratives where a compuns is identified by name, a lookup is made, and informational descriptions can then be generated from the looked up object.
+
+This means that the materials will be factually correct as the informational properties will be rendered directly from the retrieved object.
+
+```{warning}
+One of the risks associated with generative documents is that if for some reason the generative code cannot be run or fails to execute as intended, the rendered document will be incomplete at best, meaningless at worst.
+
+It is therefor recommded that generative documents should be saved an archived all cells run.
+```
 
 Through being able to look up properties of materials, we can also generate factual statements about them or generate quizzes or opportunities for self-text activities around them.
 
 ## `pubchempy`
 
-The [`pubchempy`](https://pubchempy.readthedocs.io/en/latest/) package provides a Python interface to [PubChem](https://pubchem.ncbi.nlm.nih.gov/), a  freely accessible chemical information lookup service that allows for the searching of chemicals by name, lookups of molecular formulas and structures using conventional representations such as a SMILES representation. (Chemicals can also be looked up via their SMILES string.)
+The [`pubchempy`](https://pubchempy.readthedocs.io/en/latest/) package provides a Python interface to [PubChem](https://pubchem.ncbi.nlm.nih.gov/), a  freely accessible chemical information lookup service. *PubChem* allows for the searching of chemicals by name, lookups of molecular formulas and structures using conventional representations such as a SMILES representation. (Chemicals can also be looked up via their SMILES string.)
 
-```{admonition}SMILES
+
+:::{admonition} SMILES
+:class: tip
 SMILES ([*Simplified molecular-input line-entry system*](https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system)) is a simple text format for desctibing molecular structure.
 
 Related: [SMILES tutorial](https://www.epa.gov/sites/production/files/2015-05/documents/appendf.pdf(
-```
+:::
 
 Packages like `pubchempy` can be used in conjunction with visualisers such as `py3Dmol` to look up a molecule by name (using `pubchempy`) and then display its structure as an interactive 3D model (using `py3Dmol`).
 
@@ -35,28 +47,50 @@ import pubchempy as pcp
 We can look up a chemical by name, select the first result, and then generate the canonical or isomeric SMILES representation:
 
 ethanol = pcp.get_compounds('ethanol', 'name')[0]
+
 ethanol.canonical_smiles, ethanol.isomeric_smiles
 
-We can also look up compounds by formula. If required, responses from look-ups can be returned as *pandas* dataframes:
+If we create a reference to the `.iupac_name` of the compound, we can use that in a markdown field:
+
+from myst_nb import glue
+
+glue("g_ethanol", ethanol.iupac_name, display=False)
+
+Such a references is embedded in this piece of text: *you looked up the compound {glue:text}`g_ethanol`*.
+
+We can also look up compounds by formula.
+
+```{note}
+If required, responses from look-ups can be returned as *pandas* dataframes.
+```
 
 nitric_acid_df = pcp.get_compounds('HNO3', 'formula', as_dataframe=True)[:3]
 
 nitric_acid_df[['iupac_name', 'molecular_formula', 'canonical_smiles', 'inchi']]
 
-Round tripping is possible by looking up a chemical using its SMILES representation and then displaying the name, for example.
+Round tripping of looking up a compound by name, obtaining its SMILES representation, looking the compound by SMILES representation, and displaying the name of the final object retrieved:
 
 #Look up by SMILES string
 compound = pcp.get_compounds('CCO', 'smiles')[0]
 compound.iupac_name
 
-We can also use other codes for the lookup:
+We can also use other chemcial reference codes for the lookup, such as an `InChI` identifier:
+
+:::{admonition} InChI
+:class: tip
+`InChI`, the IUPAC ([*International Chemical Identifier*](https://en.wikipedia.org/wiki/International_Chemical_Identifier)) is a  standardised textual identifier for chemical substances. 
+
+The `InChIKey` reference scheme is a condensed 27 character hashed version of the full `InChI` identifier string.
+:::
 
 pcp.get_compounds("InChI=1S/HNO3/c2-1(3)4/h(H,2,3,4)","inchi",
                   as_dataframe=True).iloc[0]['iupac_name']
 
-The retrieved representation described a wide range of useful informational properties associated with the compound.
+The retrieved object stores a wide range of useful informational properties associated with the compound.
 
 For example, looking up the chemical formula (this is described as the *molecular formula* altough I think it's actually the *empirical formula*?):
+
+glue("g_mol_formula", compound.molecular_formula, display=False)
 
 compound.molecular_formula
 
@@ -69,9 +103,28 @@ Formulas can then be rendered using the an inline LaTeX invocation of the form `
 ```
 
 $$\require{mhchem}$$ 
-For example: $\ce{C2H6O}$
+For example: $\ce{C2H6O}$ (literal embedding: `$\ce{C2H6O}$`)
+
+Can we embed the glue reference?
+
+{glue:math}`g_mol_formula`
+
+Simple?
+
+```{glue:math}compound_latex
+```
+
+Full?
+
+```{glue:math}compound_latex
+:label: eq-sym
+```
 
 We can also lookup various properties of the compound and use that as the basis of a custom display outputter for the `pubchempy.Compound` object.
+
+```{note}
+Remember, we always collapse or completely remove generator code elements included in the original source document from the rendered text.
+```
 
 # Create a function to display compound properties
 def pcp_compound_properties(compound):
@@ -103,7 +156,7 @@ compound
 
 ## `chembl_webresource_client`
 
-The [ `chembl_webresource_client`](https://github.com/chembl/chembl_webresource_client) package provides a Python interface to [ChEMBL](https://www.ebi.ac.uk/chembl/) to support the lookup of chemical compounds by common name.
+The [ `chembl_webresource_client`](https://github.com/chembl/chembl_webresource_client) package provides a Python interface to [ChEMBL](https://www.ebi.ac.uk/chembl/), a "*manually curated chemical database of bioactive molecules with drug-like properties maintained by the European Bioinformatics Institute (EBI), of the European Molecular Biology Laboratory (EMBL)*" to support the lookup of bioactive chemical compounds by common name.
 
 %%capture
 try:
@@ -117,6 +170,8 @@ from chembl_webresource_client.new_client import new_client
 
 molecule = new_client.molecule
 
+From this client, we can look up bioactive compounds in a variety of ways, including by popular name:
+
 aspirin = molecule.search('aspirin')
 
 for r in aspirin:
@@ -128,6 +183,8 @@ We can also look-up syonyms of the compound, which might include trade names:
 
 aspirin = [r for r in res if r['pref_name']=='ASPIRIN'][0]
 aspirin['molecule_synonyms'][:5]
+
+As before, we can generae an `_repr_` method on the object to provide us with a summary output from the object in a form we desire:
 
 from IPython.display import HTML
 
@@ -149,9 +206,11 @@ def chembl_wrc_molecule_properties(molecule):
 
     return HTML('<br/>'.join(properties))
 
+If we call the object, we get a summary review of it:
+
 chembl_wrc_molecule_properties(aspirin)
 
-Lookup a molecule using SMILES:
+As ewll as looking up compunds by name, we can lookup a molecules more specifically from a SMILES string:
 
 from chembl_webresource_client.new_client import new_client
 
@@ -160,6 +219,8 @@ ethanol_chembl = molecule.get(ethanol.canonical_smiles)
 
 chembl_wrc_molecule_properties(ethanol_chembl)
 
+We can also start to visualise the structure of the compound:
+
 from IPython.display import SVG
 from chembl_webresource_client.utils import utils
 
@@ -167,28 +228,17 @@ chembl_smiles = ethanol_chembl["molecule_structures"]["canonical_smiles"]
 
 SVG(utils.smiles2svg(chembl_smiles))
 
-#%pip install widget_periodictable
-#https://github.com/osscar-org/widget-periodictable/
-#!jupyter nbextension enable --py widget_periodictable
-from widget_periodictable import PTableWidget
+## `pypdb`
 
-widget = PTableWidget(states = 3, selected_elements = {"C": 0, "Si": 1, "Ge": 2}, 
-                      selected_colors = ['pink', 'yellow', 'lightblue'], 
-                      disabled_elements = ['B', 'Al', 'Ga'],
-                      unselected_color='white', border_color = 'black', width = '20px')
-display(widget)
+The [`pypdb`](https://github.com/williamgilpin/pypdb) package provides simple Pyhton API for performing searches with the *RCSB (Research Collaboratory for Structural Bioinformatics) Protein Data Bank (PDB)* [[about](https://www.rcsb.org/pages/about-us/index)]. 
 
-The periodic table widget can return symbols for selected elements, which means we could use it as an interface element for an automated lookup of various properties of selected items.
-
-We can also use code to control which elements in the table are highlighted, we means we could also highlight elements in the table that may have been identified through some other lookup service. For example, highlight all the elements in the table contained in a particular compound.
-
-widget.selected_elements = {"La": 0, "Ce": 1, "Pr": 2}
-# Does this all work if we eg pop the periodic table out into a floating widget?
-
-#%pip install pypdb
+%%capture
 #https://github.com/williamgilpin/pypdb/blob/master/demos/demos.ipynb
-#A Python 3 toolkit for performing searches with the RCSB Protein Data Bank (PDB). 
+try:
+    import pypdb
+except:
+    %pip install pypdb
+
 import pypdb
 
 pypdb.Query('nitroglycerin').search()
-

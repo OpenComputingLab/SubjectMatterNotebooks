@@ -2,6 +2,11 @@
 
 Several interactive widgets are available that allow interactive exploration of various astronomical image collections.
 
+
+```{warning}
+Many interactive `ipywidgets` will only work in the context of a live notebook.
+```
+
 ## `ipyaladin`
 
 %%capture
