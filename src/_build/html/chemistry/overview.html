@@ -420,8 +420,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="3dmolviewer_1621551498781062"  style="position: relative; width: 640px; height: 480px">
-        <p id="3dmolwarning_1621551498781062" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
+<div class="output text_html"><div id="3dmolviewer_1621853160325377"  style="position: relative; width: 640px; height: 480px">
+        <p id="3dmolwarning_1621853160325377" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
         <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
         </div>
 <script>
@@ -444,17 +444,17 @@ $3Dmolpromise = null;
   $3Dmolpromise = loadScriptAsync('https://3dmol.org/build/3Dmol.js');
 }
 
-var viewer_1621551498781062 = null;
-var warn = document.getElementById("3dmolwarning_1621551498781062");
+var viewer_1621853160325377 = null;
+var warn = document.getElementById("3dmolwarning_1621853160325377");
 if(warn) {
     warn.parentNode.removeChild(warn);
 }
 $3Dmolpromise.then(function() {
-viewer_1621551498781062 = $3Dmol.createViewer($("#3dmolviewer_1621551498781062"),{backgroundColor:"white"});
-$3Dmol.download("cid:702", viewer_1621551498781062, {}, function() {
-viewer_1621551498781062.zoomTo();
-	viewer_1621551498781062.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.25}});
-viewer_1621551498781062.render();
+viewer_1621853160325377 = $3Dmol.createViewer($("#3dmolviewer_1621853160325377"),{backgroundColor:"white"});
+$3Dmol.download("cid:702", viewer_1621853160325377, {}, function() {
+viewer_1621853160325377.zoomTo();
+	viewer_1621853160325377.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.25}});
+viewer_1621853160325377.render();
 })
 });
 </script></div></div>

@@ -17,33 +17,16 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import numpy as np
+#https://github.com/akaihola/jupyter_abc
+%%capture
+try:
+    %load_ext jupyter_abc
+except:
+    %pip install git+https://github.com/akaihola/jupyter_abc.git
 
-t = np.linspace(0, 5, 1000)
-vr = cct.R2.v.evaluate(t)
+%reload_ext jupyter_abc
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mAttributeError[0m                            Traceback (most recent call last)
-[0;32m<ipython-input-6-6cea92272690>[0m in [0;36m<module>[0;34m[0m
-[1;32m      2[0m [0;34m[0m[0m
-[1;32m      3[0m [0mt[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mlinspace[0m[0;34m([0m[0;36m0[0m[0;34m,[0m [0;36m5[0m[0;34m,[0m [0;36m1000[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 4[0;31m [0mvr[0m [0;34m=[0m [0mcct[0m[0;34m.[0m[0mR2[0m[0;34m.[0m[0mv[0m[0;34m.[0m[0mevaluate[0m[0;34m([0m[0mt[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;32m/usr/local/lib/python3.9/site-packages/lcapy/netlistmixin.py[0m in [0;36m__getattr__[0;34m(self, attr)[0m
-[1;32m     75[0m         and checks for an exception."""
-[1;32m     76[0m [0;34m[0m[0m
-[0;32m---> 77[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m__getitem__[0m[0;34m([0m[0mattr[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     78[0m [0;34m[0m[0m
-[1;32m     79[0m     [0;32mdef[0m [0m__repr__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/usr/local/lib/python3.9/site-packages/lcapy/netlistmixin.py[0m in [0;36m__getitem__[0;34m(self, name)[0m
-[1;32m     65[0m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mnamespaces[0m[0;34m[[0m[0mname[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
-[1;32m     66[0m [0;34m[0m[0m
-[0;32m---> 67[0;31m         [0;32mraise[0m [0mAttributeError[0m[0;34m([0m[0;34m'Unknown element or node name %s'[0m [0;34m%[0m [0mname[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     68[0m [0;34m[0m[0m
-[1;32m     69[0m     [0;32mdef[0m [0m__getattr__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mattr[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-
-[0;31mAttributeError[0m: Unknown element or node name R2
-AttributeError: Unknown element or node name R2
+UsageError: Line magic function `%%capture` not found.
 
