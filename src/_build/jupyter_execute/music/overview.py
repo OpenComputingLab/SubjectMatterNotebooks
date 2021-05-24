@@ -1,8 +1,14 @@
 # Music Overview
 
-The *music* topic area is rich in opportunity for the creation of one piece production workflows. A computational representation of a piece of music can be created within the body of the document and then rendered as sheet music. The same musical object can be used to generate audio files that can be play the piece of music via an embedded audio player.
+The *music* topic area is rich in opportunity for the creation of one piece production workflows. A computational representation of a piece of music can be created within the body of the document and then rendered as sheet music. The same musical object can be used to generate audio files that can be play the piece of music via an embedded audio player. Corpuses exist where a wide variety of musical scores have be represented using standard document formats such as *MusicXML*. This ready availability of scores makes is relatively easy to create materials around well known pieces, particularly if they are in the public domain.
 
 If required, created audio files can be converted to waveforms that can be analysed using a variety of signal processing techniques.
+
+In terms of *creating* learning materials, the one-piece flow approach provides a straighforward way of discovering or creating pieces of music, viewing the sheet music display, creating various visualisations over the music (for example, looking at pitch over the duration the piece), and rendering an audio version of the music that we can embed in the output document and play back and listen to directly.
+
+Sheet music and the (embedded) audio files can be generated directly from the representation of a piece of music. As well as creating midi files, we can also create audio files (eg `.wav`.files). Using soundfounts, it is possible to create audio files using different instruments, where appropriate.
+
+In terms of creating *learning activities*, learners can listen to provided pieces of music, as well as edit them and listen to the changes. Learners can also create their own pieces of music, from which they can directly generate audio and visual representations. This opens up the possibility for a wide range of hands on music analysis tasks in a notebook setting, where learners can annotate the materials as well as creating and responding to their own musical creations in a self-narrated way.
 
 ## `music21`
 
@@ -16,6 +22,7 @@ except:
 
 Import packages from `music21`:
 
+import music21
 from music21 import *
 
 ### Create a simple score using *TinyNotation*
@@ -36,6 +43,12 @@ s.plot()
 Or analyse the key:
 
 s.plot('key')
+
+We can analyse the music in terms of pitch distribution:
+
+s.plot('histogram', 'pitchClass')
+
+### MIDI File Generation and Playback
 
 We can listen to the same piece of music creating a MIDI file from it and passing that file to an embedded audio player:
 
@@ -84,9 +97,7 @@ Metadata is associated with each piece that we can extract directly:
 
 p.metadata.title, p.metadata.composer
 
-We can load in a piece by known reference:
-
-
+We can load in a piece by specific reference:
 
 myBach = corpus.parse('bach/bwv57.8')
 alto = myBach.parts['Alto']
@@ -114,7 +125,39 @@ c[0].parse().show()
 
 c[0].show('midi')
 
-### Viewing Part of a Score
+### Searching Lyrics
+
+Many of the pieces of music in the `music21` corpus include lyrics. If we have a piece of musing with lyrics, we can search within it for particular search terms.
+
+For example, consider the following piece:
+
+#http://web.mit.edu/music21/doc/usersGuide/usersGuide_28_lyricSearcher.html
+
+luca = corpus.parse('luca/gloria')
+cantus = luca.parts[0]
+cantus.measures(1, 6).show()
+
+We can extract all the lyrics and then search that as we would any text string:
+
+music21.text.assembleLyrics(cantus)
+
+Or we can search the music and retrieve the location by measure:
+
+lyric_search = search.lyrics.LyricSearcher(cantus)
+
+domineResults = lyric_search.search("Domine")
+
+domineResults
+
+From the response, we see measure ranges associated with the occurrence of the reconstructed search term (as woul will see in the music, the search term is represented there split out over mutliple syllables):
+
+cantus.measures(domineResults[0].mStart, domineResults[0].mEnd).show()
+
+Let's look over the full range of the results:
+
+cantus.measures(24, 48).show()
+
+## Viewing Part of a Piece of Music
 
 When discussing a particular piece, we may want to focus on particular parts of it. We can reference into particular measures and just focus on those. For example, suppose we want to just inspect the opening measures of a piece:
 
@@ -203,9 +246,9 @@ plt.plot(data[:4000]);
 
 ### `abc.js`
 
-[`abc.js`](https://github.com/paulrosen/abcjs) is a simple notatin and Javascript rendered for working with music.
+[`abc.js`](https://github.com/paulrosen/abcjs) is a simple notation and Javascript rendered for working with music.
 
-We can use a simple IPython cell block magic to allow us to write and render `abc.js` scores:
+We can use a simple IPython cell block magic to allow us to write and render `abc.js` scores (*only works in live notebook? doesn't work in Jupyter Book?*):
 
 #https://github.com/akaihola/jupyter_abc
 %%capture
@@ -270,7 +313,7 @@ abc_fn = 'demo.abc'
 with open(abc_fn, 'w') as outfile:
     outfile.write(abcjs)
 
-Simply use the `music21.converter.parse()` function with the file name:
+Simply use the `music21.converter.parse()` function with the file name to create a `music21` object that we can use in the normal way (viewing the sheet music, creating an embedded audio version, etc.):
 
 converter.parse(abc_fn).show()
 
