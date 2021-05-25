@@ -181,7 +181,7 @@ for r in aspirin:
 
 We can also look-up syonyms of the compound, which might include trade names:
 
-aspirin = [r for r in res if r['pref_name']=='ASPIRIN'][0]
+aspirin = [r for r in aspirin if r['pref_name']=='ASPIRIN'][0]
 aspirin['molecule_synonyms'][:5]
 
 As before, we can generae an `_repr_` method on the object to provide us with a summary output from the object in a form we desire:
@@ -230,7 +230,7 @@ SVG(utils.smiles2svg(chembl_smiles))
 
 ## `pypdb`
 
-The [`pypdb`](https://github.com/williamgilpin/pypdb) package provides simple Pyhton API for performing searches with the *RCSB (Research Collaboratory for Structural Bioinformatics) Protein Data Bank (PDB)* [[about](https://www.rcsb.org/pages/about-us/index)]. 
+The [`pypdb`](https://github.com/williamgilpin/pypdb) package provides simple Python API for performing searches with the *RCSB (Research Collaboratory for Structural Bioinformatics) Protein Data Bank (PDB)* [[about](https://www.rcsb.org/pages/about-us/index)]. 
 
 %%capture
 #https://github.com/williamgilpin/pypdb/blob/master/demos/demos.ipynb

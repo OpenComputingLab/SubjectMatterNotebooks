@@ -171,6 +171,8 @@ def colHistRGB(image):
 
 Consider the following image:
 
+from matplotlib.pyplot import imread
+
 ##Image from https://www.open.edu/openlearn/history-the-arts/making-sense-art-history/content-section-5.6
 orange_image_file = 'plate10.jpg'
 

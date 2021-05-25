@@ -1,55 +1,55 @@
 {
   "chemistry/compound_lookups": {
     "g_ethanol": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "g_ethanol",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
       "data": {
         "application/papermill.record/text/plain": "'ethanol'"
-      }
-    },
-    "g_mol_formula": {
-      "output_type": "display_data",
+      },
       "metadata": {
         "scrapbook": {
-          "name": "g_mol_formula",
-          "mime_prefix": "application/papermill.record/"
+          "mime_prefix": "application/papermill.record/",
+          "name": "g_ethanol"
         }
       },
+      "output_type": "display_data"
+    },
+    "g_mol_formula": {
       "data": {
         "application/papermill.record/text/plain": "'C2H6O'"
-      }
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "g_mol_formula"
+        }
+      },
+      "output_type": "display_data"
     }
   },
   "chemistry/overview": {
     "compound": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "compound",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
       "data": {
         "application/papermill.record/text/plain": "'ethanol'"
-      }
-    },
-    "compound_latex": {
-      "output_type": "display_data",
+      },
       "metadata": {
         "scrapbook": {
-          "name": "compound_latex",
-          "mime_prefix": "application/papermill.record/"
+          "mime_prefix": "application/papermill.record/",
+          "name": "compound"
         }
       },
+      "output_type": "display_data"
+    },
+    "compound_latex": {
       "data": {
-        "application/papermill.record/text/plain": "<IPython.core.display.Latex object>",
-        "application/papermill.record/text/latex": "$\\ce{C2H6O}$"
-      }
+        "application/papermill.record/text/latex": "$\\ce{C2H6O}$",
+        "application/papermill.record/text/plain": "<IPython.core.display.Latex object>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "compound_latex"
+        }
+      },
+      "output_type": "display_data"
     }
   }
 }

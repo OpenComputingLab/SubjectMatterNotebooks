@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Classics — Grammar &#8212; Subject Matter Authoring Using Jupyter Notebooks</title>
+    <title>Classical Languages — Grammar &#8212; Subject Matter Authoring Using Jupyter Notebooks</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -210,7 +210,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Classics — Grammar
+   Classical Languages — Grammar
   </a>
  </li>
  <li class="toctree-l1">
@@ -384,8 +384,18 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lemmatizing-a-word">
+   Lemmatizing a Word
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#syllables">
    Syllables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pipeline-processing">
+   Pipeline processing
   </a>
  </li>
 </ul>
@@ -400,14 +410,12 @@
         
               <div>
                 
-  <div class="section" id="classics-grammar">
-<h1>Classics — Grammar<a class="headerlink" href="#classics-grammar" title="Permalink to this headline">¶</a></h1>
-<p>In term of guaranteeing correctnes, where the grammar is regular we can automate the production declensions of nouns and conjugations of verbs.</p>
-<p>This is useful in production for redusing opportunites for error. Where the means of production are shared with learners, the ability to check declensions and conjugations for arbitrary words provides an opportunity to support curiosty driven, self-directed learning.</p>
-<div class="section" id="inflection-patterns">
-<h2>Inflection Patterns<a class="headerlink" href="#inflection-patterns" title="Permalink to this headline">¶</a></h2>
-<p>Find the inflection (declension / conjugation) of a given word / lemma.</p>
-<p><em>(Lemma - “the canonical form of an inflected word”.)</em></p>
+  <div class="section" id="classical-languages-grammar">
+<h1>Classical Languages — Grammar<a class="headerlink" href="#classical-languages-grammar" title="Permalink to this headline">¶</a></h1>
+<p>When discussing and analysing texts in terms of grammar, a one piece generative document workflow provides us with a means for reducing the number of errors in terms of incorrectly presented matters of fact (for example, the analysis of a specific piece of text).</p>
+<p>For example, inflection patterns of arbitrary regular verbs and nouns can be generated directly for a particular root word (lemma), or when analysing the syllabic structure of a peice of text.</p>
+<p>Where the means of production are shared with learners, the ability to check declensions and conjugations for arbitrary words, or analyse a text for its syllabic structure, provides an opportunity to support curiosty driven, self-directed learning.</p>
+<p>To provide a few examples of what’s possible, let’s use the <code class="docutils literal notranslate"><span class="pre">cltk</span></code> package and expore some simple Latix texts.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.data.fetch</span> <span class="kn">import</span> <span class="n">FetchCorpus</span>
@@ -419,6 +427,10 @@
 </div>
 </div>
 </div>
+<div class="section" id="inflection-patterns">
+<h2>Inflection Patterns<a class="headerlink" href="#inflection-patterns" title="Permalink to this headline">¶</a></h2>
+<p>We can automatically generate the inflection (declension / conjugation) for a given word / lemma.</p>
+<p><em>(Lemma - “the canonical form of an inflected word”.)</em></p>
 <p>The morphological character of a word is encoded using a nine character code string (- is used as the null character):</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1: 	part of speech
 	n	noun
@@ -477,6 +489,7 @@
 </pre></div>
 </div>
 <p>Via: <a class="reference external" href="https://github.com/cltk/latin_treebank_perseus#readme">https://github.com/cltk/latin_treebank_perseus#readme</a></p>
+<p>Consider <em>amo</em>. How does it go?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.morphology.lat</span> <span class="kn">import</span> <span class="n">CollatinusDecliner</span>
@@ -511,6 +524,7 @@
 </div>
 </div>
 </div>
+<p>Or how anout <em>canis</em>?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">decliner</span><span class="o">.</span><span class="n">decline</span><span class="p">(</span><span class="s2">&quot;canis&quot;</span><span class="p">)</span>
@@ -623,8 +637,7 @@
 </div>
 </div>
 </div>
-<p>We can then decode the morphological data
-feature string:</p>
+<p>For example, how should we interpret the following morphological data feature string?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Example</span>
@@ -643,7 +656,7 @@ feature string:</p>
 </div>
 </div>
 </div>
-<p>Looking up words in the decliner provides a way of getting the morphological data for a word. For example, we could look up amabitis and get back something like <code class="docutils literal notranslate"><span class="pre">('amo',</span> <span class="pre">'v2pfia---')</span></code>:</p>
+<p>Looking up words in the decliner provides a way of getting the morphological data for a word. For example, we could look up <em>amabitis</em> and get back something like <code class="docutils literal notranslate"><span class="pre">('amo',</span> <span class="pre">'v2pfia---')</span></code>:</p>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#hacky way that assumes you know the root</span>
@@ -668,7 +681,7 @@ feature string:</p>
 <p>If we know the root, we can lookup the inflection:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lookupInflection</span><span class="p">(</span><span class="s1">&#39;amabitis&#39;</span><span class="p">,</span><span class="s1">&#39;amo&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lookupInflection</span><span class="p">(</span><span class="s1">&#39;amabitis&#39;</span><span class="p">,</span> <span class="s1">&#39;amo&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -678,69 +691,87 @@ feature string:</p>
 </div>
 </div>
 </div>
-<p>Let’s see if we can find the root of a word with a simple lemmatizer:</p>
+</div>
+<div class="section" id="lemmatizing-a-word">
+<h2>Lemmatizing a Word<a class="headerlink" href="#lemmatizing-a-word" title="Permalink to this headline">¶</a></h2>
+<p>Let’s see if we can find the root of a word with a simple lemmatizer. The lemmatizer works with tokens, so we need a recipe for generating tokens out of words:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Lemmatizer - find root of a word</span>
-<span class="kn">from</span> <span class="nn">cltk.stem.lemma</span> <span class="kn">import</span> <span class="n">LemmaReplacer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.tokenizers.lat.lat</span> <span class="kn">import</span> <span class="n">LatinWordTokenizer</span>
 
-<span class="kn">from</span> <span class="nn">cltk.stem.latin.j_v</span> <span class="kn">import</span> <span class="n">JVReplacer</span>
+<span class="n">latin_word_tokenizer</span> <span class="o">=</span> <span class="n">LatinWordTokenizer</span><span class="p">()</span>
 
-<span class="c1">#Lemmatizer requires the following</span>
-<span class="n">CorpusImporter</span><span class="p">(</span><span class="s1">&#39;latin&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">import_corpus</span><span class="p">(</span><span class="s1">&#39;latin_pos_lemmata_cltk&#39;</span><span class="p">)</span>
-<span class="n">CorpusImporter</span><span class="p">(</span><span class="s1">&#39;latin&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">import_corpus</span><span class="p">(</span><span class="s1">&#39;latin_models_cltk&#39;</span><span class="p">)</span>
-
-
-<span class="n">sentence</span> <span class="o">=</span> <span class="s1">&#39;Progeniem sed enim Troiano a sanguine duci audierat&#39;</span>
-
-<span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-
-<span class="n">lemmatizer</span> <span class="o">=</span> <span class="n">LemmaReplacer</span><span class="p">(</span><span class="s1">&#39;latin&#39;</span><span class="p">)</span>
-
-<span class="n">lemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+<span class="n">latin_word_tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s1">&#39;amabitis&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="mi">02294</span><span class="n">ae87891</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Lemmatizer - find root of a word</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">cltk.stem.lemma</span> <span class="kn">import</span> <span class="n">LemmaReplacer</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">cltk.stem.latin.j_v</span> <span class="kn">import</span> <span class="n">JVReplacer</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;cltk.stem.lemma&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;amabitis&#39;]
 </pre></div>
 </div>
 </div>
 </div>
+<p>If we create a lemmatizer:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.lemmatize.lat</span> <span class="kn">import</span> <span class="n">LatinBackoffLemmatizer</span>
 
-<span class="n">sentence</span> <span class="o">=</span> <span class="s1">&#39;Progeniem sed enim Troiano a sanguine duci audierat&#39;</span>
-
-<span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-
-<span class="n">LatinBackoffLemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+<span class="n">latin_lemmatizer</span> <span class="o">=</span> <span class="n">LatinBackoffLemmatizer</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can then see what it makes of <em>amabitis</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">latin_lemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">latin_word_tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s1">&#39;amabitis&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="mi">8</span><span class="n">be41a33cdd3</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">LatinBackoffLemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
-
-<span class="ne">TypeError</span>: lemmatize() missing 1 required positional argument: &#39;tokens&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;amabitis&#39;, &#39;amo&#39;)]
 </pre></div>
 </div>
 </div>
 </div>
+<p>We can also lemmatize all the words in a sentence.</p>
+<p>As before, we need to tokenize the words we present to the lemmatizer, so let’s convert our sentence to a list of separate (word) tokens:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s1">&#39;Progeniem sed enim Troiano a sanguine duci audierat&#39;</span>
+
+<span class="n">sentence_tokens</span> <span class="o">=</span> <span class="n">latin_word_tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+<span class="n">sentence_tokens</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;progeniem&#39;, &#39;sed&#39;, &#39;enim&#39;, &#39;troiano&#39;, &#39;a&#39;, &#39;sanguine&#39;, &#39;duci&#39;, &#39;audierat&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we can lemmatize those tokens:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">latin_lemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">sentence_tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;progeniem&#39;, &#39;progenies&#39;),
+ (&#39;sed&#39;, &#39;sed&#39;),
+ (&#39;enim&#39;, &#39;enim&#39;),
+ (&#39;troiano&#39;, &#39;troiano&#39;),
+ (&#39;a&#39;, &#39;ab&#39;),
+ (&#39;sanguine&#39;, &#39;sanguis&#39;),
+ (&#39;duci&#39;, &#39;duco&#39;),
+ (&#39;audierat&#39;, &#39;audio&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also lemmatize Roman numerals:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.lemmatize.lat</span> <span class="kn">import</span> <span class="n">RomanNumeralLemmatizer</span>
@@ -806,10 +837,7 @@ feature string:</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.tokenizers.lat.lat</span> <span class="kn">import</span> <span class="n">LatinWordTokenizer</span>
-<span class="kn">from</span> <span class="nn">nltk.text</span> <span class="kn">import</span> <span class="n">Text</span>
-
-<span class="n">latin_word_tokenizer</span> <span class="o">=</span> <span class="n">LatinWordTokenizer</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.text</span> <span class="kn">import</span> <span class="n">Text</span>
 
 <span class="n">tokens</span> <span class="o">=</span> <span class="n">latin_word_tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">aen1_clean</span><span class="p">)</span>
 <span class="n">textList</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
@@ -911,11 +939,15 @@ appellantur [&#39;ap&#39;, &#39;pel&#39;, &#39;lan&#39;, &#39;tur&#39;]
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="pipeline-processing">
+<h2>Pipeline processing<a class="headerlink" href="#pipeline-processing" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk</span> <span class="kn">import</span> <span class="n">NLP</span>
 <span class="n">cltk_nlp</span> <span class="o">=</span> <span class="n">NLP</span><span class="p">(</span><span class="n">language</span><span class="o">=</span><span class="s2">&quot;lat&quot;</span><span class="p">)</span>
 
+<span class="c1"># This can be slow</span>
 <span class="c1"># First run, prompts to allow download of Stanza NLP library models</span>
 <span class="c1"># to ~/stanza_resources/la/ (~250MB)</span>
 <span class="c1"># Also word embedding models from the Fasttext project to</span>
@@ -928,67 +960,9 @@ appellantur [&#39;ap&#39;, &#39;pel&#39;, &#39;lan&#39;, &#39;tur&#39;]
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>‎𐤀 CLTK version &#39;1.0.14&#39;.
 Pipeline for language &#39;Latin&#39; (ISO: &#39;lat&#39;): `LatinNormalizeProcess`, `LatinStanzaProcess`, `LatinEmbeddingsProcess`, `StopsProcess`, `LatinNERProcess`, `LatinLexiconProcess`.
-From `from_ud():` Number[psor]: Unrecognized UD feature name
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">cltk_doc</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__annotations__&#39;,
- &#39;__class__&#39;,
- &#39;__dataclass_fields__&#39;,
- &#39;__dataclass_params__&#39;,
- &#39;__delattr__&#39;,
- &#39;__dict__&#39;,
- &#39;__dir__&#39;,
- &#39;__doc__&#39;,
- &#39;__eq__&#39;,
- &#39;__format__&#39;,
- &#39;__ge__&#39;,
- &#39;__getattribute__&#39;,
- &#39;__getitem__&#39;,
- &#39;__gt__&#39;,
- &#39;__hash__&#39;,
- &#39;__init__&#39;,
- &#39;__init_subclass__&#39;,
- &#39;__le__&#39;,
- &#39;__lt__&#39;,
- &#39;__module__&#39;,
- &#39;__ne__&#39;,
- &#39;__new__&#39;,
- &#39;__reduce__&#39;,
- &#39;__reduce_ex__&#39;,
- &#39;__repr__&#39;,
- &#39;__setattr__&#39;,
- &#39;__sizeof__&#39;,
- &#39;__slotnames__&#39;,
- &#39;__str__&#39;,
- &#39;__subclasshook__&#39;,
- &#39;__weakref__&#39;,
- &#39;_get_words_attribute&#39;,
- &#39;embeddings&#39;,
- &#39;embeddings_model&#39;,
- &#39;language&#39;,
- &#39;lemmata&#39;,
- &#39;morphosyntactic_features&#39;,
- &#39;normalized_text&#39;,
- &#39;pipeline&#39;,
- &#39;pos&#39;,
- &#39;raw&#39;,
- &#39;sentences&#39;,
- &#39;sentences_strings&#39;,
- &#39;sentences_tokens&#39;,
- &#39;stanza_doc&#39;,
- &#39;stems&#39;,
- &#39;tokens&#39;,
- &#39;tokens_stops_filtered&#39;,
- &#39;words&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>From `from_ud():` Number[psor]: Unrecognized UD feature name
 </pre></div>
 </div>
 </div>

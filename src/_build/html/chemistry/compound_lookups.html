@@ -210,7 +210,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../linguistics/classics-grammar.html">
-   Classics — Grammar
+   Classical Languages — Grammar
   </a>
  </li>
  <li class="toctree-l1">
@@ -696,19 +696,27 @@ ASPIRIN DL-LYSINE
 <p>We can also look-up syonyms of the compound, which might include trade names:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aspirin</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">res</span> <span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;pref_name&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;ASPIRIN&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aspirin</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">aspirin</span> <span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;pref_name&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;ASPIRIN&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">aspirin</span><span class="p">[</span><span class="s1">&#39;molecule_synonyms&#39;</span><span class="p">][:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">14</span><span class="o">-</span><span class="n">e16f6c08bea8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">aspirin</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">res</span> <span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;pref_name&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;ASPIRIN&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">aspirin</span><span class="p">[</span><span class="s1">&#39;molecule_synonyms&#39;</span><span class="p">][:</span><span class="mi">5</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;res&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;molecule_synonym&#39;: &#39;8-hour bayer&#39;,
+  &#39;syn_type&#39;: &#39;TRADE_NAME&#39;,
+  &#39;synonyms&#39;: &#39;8-HOUR BAYER&#39;},
+ {&#39;molecule_synonym&#39;: &#39;Acetosalic Acid&#39;,
+  &#39;syn_type&#39;: &#39;TRADE_NAME&#39;,
+  &#39;synonyms&#39;: &#39;Acetosalic Acid&#39;},
+ {&#39;molecule_synonym&#39;: &#39;Acetylsalic acid&#39;,
+  &#39;syn_type&#39;: &#39;TRADE_NAME&#39;,
+  &#39;synonyms&#39;: &#39;ACETYLSALIC ACID&#39;},
+ {&#39;molecule_synonym&#39;: &#39;Acetylsalicylic Acid&#39;,
+  &#39;syn_type&#39;: &#39;INN&#39;,
+  &#39;synonyms&#39;: &#39;Acetylsalicylic Acid&#39;},
+ {&#39;molecule_synonym&#39;: &#39;Acetylsalicylic Acid&#39;,
+  &#39;syn_type&#39;: &#39;TRADE_NAME&#39;,
+  &#39;synonyms&#39;: &#39;Acetylsalicylic Acid&#39;}]
 </pre></div>
 </div>
 </div>
@@ -782,7 +790,7 @@ ASPIRIN DL-LYSINE
 </div>
 <div class="section" id="pypdb">
 <h2><code class="docutils literal notranslate"><span class="pre">pypdb</span></code><a class="headerlink" href="#pypdb" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference external" href="https://github.com/williamgilpin/pypdb"><code class="docutils literal notranslate"><span class="pre">pypdb</span></code></a> package provides simple Pyhton API for performing searches with the <em>RCSB (Research Collaboratory for Structural Bioinformatics) Protein Data Bank (PDB)</em> [<a class="reference external" href="https://www.rcsb.org/pages/about-us/index">about</a>].</p>
+<p>The <a class="reference external" href="https://github.com/williamgilpin/pypdb"><code class="docutils literal notranslate"><span class="pre">pypdb</span></code></a> package provides simple Python API for performing searches with the <em>RCSB (Research Collaboratory for Structural Bioinformatics) Protein Data Bank (PDB)</em> [<a class="reference external" href="https://www.rcsb.org/pages/about-us/index">about</a>].</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pypdb</span>
@@ -798,17 +806,17 @@ ASPIRIN DL-LYSINE
  &#39;2ONN&#39;,
  &#39;2ONP&#39;,
  &#39;2ONM&#39;,
- &#39;2LDU&#39;,
  &#39;5HDG&#39;,
  &#39;5D5V&#39;,
  &#39;5D5U&#39;,
+ &#39;2LDU&#39;,
  &#39;3INJ&#39;,
  &#39;3INL&#39;,
  &#39;5HDN&#39;,
  &#39;4PW8&#39;,
+ &#39;5TIA&#39;,
  &#39;6UD5&#39;,
  &#39;6VBN&#39;,
- &#39;5TIA&#39;,
  &#39;6PYZ&#39;,
  &#39;6PYY&#39;,
  &#39;6A4I&#39;,

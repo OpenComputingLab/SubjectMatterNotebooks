@@ -4,5 +4,6 @@ copyright: "2018-2021"
 only_build_toc_files: true
 execute:
   execute_notebooks: cache
+  timeout: 60  
 parse:
   myst_dmath_double_inline: true

@@ -1,20 +1,24 @@
-# Classics — Grammar
+# Classical Languages — Grammar
 
-In term of guaranteeing correctnes, where the grammar is regular we can automate the production declensions of nouns and conjugations of verbs.
+When discussing and analysing texts in terms of grammar, a one piece generative document workflow provides us with a means for reducing the number of errors in terms of incorrectly presented matters of fact (for example, the analysis of a specific piece of text).
 
-This is useful in production for redusing opportunites for error. Where the means of production are shared with learners, the ability to check declensions and conjugations for arbitrary words provides an opportunity to support curiosty driven, self-directed learning.
+For example, inflection patterns of arbitrary regular verbs and nouns can be generated directly for a particular root word (lemma), or when analysing the syllabic structure of a peice of text.
 
-## Inflection Patterns 
+Where the means of production are shared with learners, the ability to check declensions and conjugations for arbitrary words, or analyse a text for its syllabic structure, provides an opportunity to support curiosty driven, self-directed learning.
 
-Find the inflection (declension / conjugation) of a given word / lemma.
-
-*(Lemma - "the canonical form of an inflected word".)*
+To provide a few examples of what's possible, let's use the `cltk` package and expore some simple Latix texts.
 
 from cltk.data.fetch import FetchCorpus
 corpus_downloader = FetchCorpus('lat')
 path = '/Users/tonyhirst/cltk_data/lat/text/lat_text_latin_library'
 
 corpus_downloader.import_corpus('lat_models_cltk')
+
+## Inflection Patterns 
+
+We can automatically generate the inflection (declension / conjugation) for a given word / lemma.
+
+*(Lemma - "the canonical form of an inflected word".)*
 
 The morphological character of a word is encoded using a nine character code string (- is used as the null character):
 
@@ -75,10 +79,14 @@ The morphological character of a word is encoded using a nine character code str
  
 Via: https://github.com/cltk/latin_treebank_perseus#readme
 
+Consider *amo*. How does it go?
+
 from cltk.morphology.lat import CollatinusDecliner
 decliner = CollatinusDecliner()
 
 decliner.decline("amo")[:20]
+
+Or how anout *canis*?
 
 decliner.decline("canis")
 
@@ -167,13 +175,12 @@ def parse_features(features):
 
     return feats
 
-We can then decode the morphological data 
-feature string:
+For example, how should we interpret the following morphological data feature string?
 
 #Example
 parse_features('v3plia---')
 
-Looking up words in the decliner provides a way of getting the morphological data for a word. For example, we could look up amabitis and get back something like `('amo', 'v2pfia---')`:
+Looking up words in the decliner provides a way of getting the morphological data for a word. For example, we could look up *amabitis* and get back something like `('amo', 'v2pfia---')`:
 
 #hacky way that assumes you know the root
 def lookupInflection(word, lemma):
@@ -193,35 +200,42 @@ def lookupInflection(word, lemma):
 
 If we know the root, we can lookup the inflection:
 
-lookupInflection('amabitis','amo')
+lookupInflection('amabitis', 'amo')
 
-Let's see if we can find the root of a word with a simple lemmatizer:
+## Lemmatizing a Word
 
-#Lemmatizer - find root of a word
-from cltk.stem.lemma import LemmaReplacer
+Let's see if we can find the root of a word with a simple lemmatizer. The lemmatizer works with tokens, so we need a recipe for generating tokens out of words:
 
-from cltk.stem.latin.j_v import JVReplacer
+from cltk.tokenizers.lat.lat import LatinWordTokenizer
 
-#Lemmatizer requires the following
-CorpusImporter('latin').import_corpus('latin_pos_lemmata_cltk')
-CorpusImporter('latin').import_corpus('latin_models_cltk')
+latin_word_tokenizer = LatinWordTokenizer()
 
+latin_word_tokenizer.tokenize('amabitis')
 
-sentence = 'Progeniem sed enim Troiano a sanguine duci audierat'
-
-sentence = sentence.lower()
-
-lemmatizer = LemmaReplacer('latin')
-
-lemmatizer.lemmatize(sentence)
+If we create a lemmatizer:
 
 from cltk.lemmatize.lat import LatinBackoffLemmatizer
 
+latin_lemmatizer = LatinBackoffLemmatizer()
+
+We can then see what it makes of *amabitis*:
+
+latin_lemmatizer.lemmatize(latin_word_tokenizer.tokenize('amabitis'))
+
+We can also lemmatize all the words in a sentence.
+
+As before, we need to tokenize the words we present to the lemmatizer, so let's convert our sentence to a list of separate (word) tokens:
+
 sentence = 'Progeniem sed enim Troiano a sanguine duci audierat'
 
-sentence = sentence.lower()
+sentence_tokens = latin_word_tokenizer.tokenize(sentence.lower())
+sentence_tokens
 
-LatinBackoffLemmatizer.lemmatize(sentence)
+Then we can lemmatize those tokens:
+
+latin_lemmatizer.lemmatize(sentence_tokens)
+
+We can also lemmatize Roman numerals:
 
 from cltk.lemmatize.lat import RomanNumeralLemmatizer
 
@@ -245,10 +259,7 @@ aen1_clean = remove_non_ascii(aeneid_1)
 aen1_clean = remove_non_latin(aen1_clean)
 print(aen1_clean[:1000])
 
-from cltk.tokenizers.lat.lat import LatinWordTokenizer
 from nltk.text import Text
-
-latin_word_tokenizer = LatinWordTokenizer()
 
 tokens = latin_word_tokenizer.tokenize(aen1_clean)
 textList = Text(tokens)
@@ -278,17 +289,18 @@ for word in latin_word_tokenizer.tokenize(clean_sentence):
     syllables = syllabifier.syllabify(word)
     print(word, syllables)
 
+## Pipeline processing
+
 from cltk import NLP
 cltk_nlp = NLP(language="lat")
 
+# This can be slow
 # First run, prompts to allow download of Stanza NLP library models
 # to ~/stanza_resources/la/ (~250MB)
 # Also word embedding models from the Fasttext project to
 # ~/cltk_data/lat/embeddings/fasttext 365MB
 # Also Lewis's *An Elementary Latin Dictionary* (1890)
 cltk_doc = cltk_nlp.analyze(text=example_lat)
-
-dir(cltk_doc)
 
 cltk_doc.stanza_doc
 
