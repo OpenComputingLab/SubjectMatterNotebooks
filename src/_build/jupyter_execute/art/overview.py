@@ -5,8 +5,7 @@ At first glance, it might appear unusual to think that interactive computing and
 But with a little bit of creative thought, we see how we can create a range of production related tools that provide flexibility in creating asssets that can be usefully discussed in a narrative context, as well as offering students to those same tools of production for use as independent curiosoty driven learning tools.
 
 ```{note}
-Several of the tools presented in this notebook were first introduced in [*
-Build Your Own Learning Tools (BYOT)*](https://blog.ouseful.info/2018/09/06/build-your-own-learning-tools/).
+Several of the tools presented in this notebook were first introduced in [*Build Your Own Learning Tools (BYOT)*](https://blog.ouseful.info/2018/09/06/build-your-own-learning-tools/).
 ```
 
 See also the section on *images* for more examples of image processing tools.

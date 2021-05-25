@@ -207,7 +207,7 @@ from IPython.display import Latex
 
 txt = f"The overall resistance value simplifies to: {parallelR.simplify().R._repr_latex_()}"
 
-display( Latex(txt))
+Latex( txt)
 
 Some other elementary transformations we can apply – providing expressions for the an input voltage in the time or Laplace/s domain:
 

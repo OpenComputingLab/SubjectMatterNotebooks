@@ -1,0 +1,4239 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classics — Grammar &#8212; Subject Matter Authoring Using Jupyter Notebooks</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Music Overview" href="../music/overview.html" />
+    <link rel="prev" title="Classical Languages — Corpora" href="classics-corpora.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Subject Matter Authoring Using Jupyter Notebooks</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Astronomy
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/overview.html">
+   Astronomy Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/fits-images.html">
+   Astronomy - Working with FITS Images
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/ephemeris-and-orbits.html">
+   Astronomy — Ephemeris Data and Orbital Calculations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/interactive-astronomy-viewers.html">
+   Astronomy — Interactive Viewers
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Chemistry
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/overview.html">
+   Chemistry Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/compound_lookups.html">
+   Chemistry — Compound Lookups
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/material_properties.html">
+   Chemical Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/visualising-compounds.html">
+   Chemistry — Visualising Chemical Structures
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Electronics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../electronics/overview.html">
+   Electronics Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../electronics/worked-example.html">
+   Electronics Worked Example
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Other STEM
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../engineering/overview.html">
+   Engineering Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/overview.html">
+   Maths Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/networks-and-graphs.html">
+   Networks and Graphs
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Arts &amp; Humanities
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../art/overview.html">
+   Art Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Linguistics Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="classics-corpora.html">
+   Classical Languages — Corpora
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Classics — Grammar
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../music/overview.html">
+   Music Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Map Generation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../geo/overview.html">
+   Geo Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Chart Generation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chart/overview.html">
+   Chart Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Diagram Generation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/overview.html">
+   Diagrams Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Image Generation and Manipulation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../image/overview.html">
+   Image Generation and Manipulation Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Audio Generation and Manipulation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../audio/overview.html">
+   Audio Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  LaTeX
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../latex/overview.html">
+   LaTeX Overview
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/linguistics/classics-grammar.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/linguistics/classics-grammar.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inflection-patterns">
+   Inflection Patterns
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#syllables">
+   Syllables
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="classics-grammar">
+<h1>Classics — Grammar<a class="headerlink" href="#classics-grammar" title="Permalink to this headline">¶</a></h1>
+<p>In term of guaranteeing correctnes, where the grammar is regular we can automate the production declensions of nouns and conjugations of verbs.</p>
+<p>This is useful in production for redusing opportunites for error. Where the means of production are shared with learners, the ability to check declensions and conjugations for arbitrary words provides an opportunity to support curiosty driven, self-directed learning.</p>
+<div class="section" id="inflection-patterns">
+<h2>Inflection Patterns<a class="headerlink" href="#inflection-patterns" title="Permalink to this headline">¶</a></h2>
+<p>Find the inflection (declension / conjugation) of a given word / lemma.</p>
+<p><em>(Lemma - “the canonical form of an inflected word”.)</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.data.fetch</span> <span class="kn">import</span> <span class="n">FetchCorpus</span>
+<span class="n">corpus_downloader</span> <span class="o">=</span> <span class="n">FetchCorpus</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/Users/tonyhirst/cltk_data/lat/text/lat_text_latin_library&#39;</span>
+
+<span class="n">corpus_downloader</span><span class="o">.</span><span class="n">import_corpus</span><span class="p">(</span><span class="s1">&#39;lat_models_cltk&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The morphological character of a word is encoded using a nine character code string (- is used as the null character):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1: 	part of speech
+	n	noun
+	v	verb
+	t	participle
+	a	adjective
+	d	adverb
+	c	conjunction
+	r	preposition
+	p	pronoun
+	m	numeral
+	i	interjection
+	e	exclamation
+	u	punctuation
+2: 	person
+	1	first person
+	2	second person
+	3	third person
+3: 	number
+	s	singular
+	p	plural
+4: 	tense
+	p	present
+	i	imperfect
+	r	perfect
+	l	pluperfect
+	t	future perfect
+	f	future
+5: 	mood
+	i	indicative
+	s	subjunctive
+	n	infinitive
+	m	imperative
+	p	participle
+	d	gerund
+	g	gerundive
+	u	supine
+6: 	voice
+	a	active
+	p	passive
+7:	gender
+	m	masculine
+	f	feminine
+	n	neuter
+8: 	case
+	n	nominative
+	g	genitive
+	d	dative
+	a	accusative
+	b	ablative
+	v	vocative
+	l	locative
+9: 	degree
+	c	comparative
+	s	superlative
+</pre></div>
+</div>
+<p>Via: <a class="reference external" href="https://github.com/cltk/latin_treebank_perseus#readme">https://github.com/cltk/latin_treebank_perseus#readme</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.morphology.lat</span> <span class="kn">import</span> <span class="n">CollatinusDecliner</span>
+<span class="n">decliner</span> <span class="o">=</span> <span class="n">CollatinusDecliner</span><span class="p">()</span>
+
+<span class="n">decliner</span><span class="o">.</span><span class="n">decline</span><span class="p">(</span><span class="s2">&quot;amo&quot;</span><span class="p">)[:</span><span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;amo&#39;, &#39;v1spia---&#39;),
+ (&#39;amas&#39;, &#39;v2spia---&#39;),
+ (&#39;amat&#39;, &#39;v3spia---&#39;),
+ (&#39;amamus&#39;, &#39;v1ppia---&#39;),
+ (&#39;amatis&#39;, &#39;v2ppia---&#39;),
+ (&#39;amant&#39;, &#39;v3ppia---&#39;),
+ (&#39;amabam&#39;, &#39;v1siia---&#39;),
+ (&#39;amabas&#39;, &#39;v2siia---&#39;),
+ (&#39;amabat&#39;, &#39;v3siia---&#39;),
+ (&#39;amabamus&#39;, &#39;v1piia---&#39;),
+ (&#39;amabatis&#39;, &#39;v2piia---&#39;),
+ (&#39;amabant&#39;, &#39;v3piia---&#39;),
+ (&#39;amabo&#39;, &#39;v1sfia---&#39;),
+ (&#39;amabis&#39;, &#39;v2sfia---&#39;),
+ (&#39;amabit&#39;, &#39;v3sfia---&#39;),
+ (&#39;amabimus&#39;, &#39;v1pfia---&#39;),
+ (&#39;amabitis&#39;, &#39;v2pfia---&#39;),
+ (&#39;amabunt&#39;, &#39;v3pfia---&#39;),
+ (&#39;amavi&#39;, &#39;v1sria---&#39;),
+ (&#39;amavisti&#39;, &#39;v2sria---&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">decliner</span><span class="o">.</span><span class="n">decline</span><span class="p">(</span><span class="s2">&quot;canis&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;canis&#39;, &#39;--s----n-&#39;),
+ (&#39;canis&#39;, &#39;--s----v-&#39;),
+ (&#39;canem&#39;, &#39;--s----a-&#39;),
+ (&#39;canis&#39;, &#39;--s----g-&#39;),
+ (&#39;cani&#39;, &#39;--s----d-&#39;),
+ (&#39;cane&#39;, &#39;--s----b-&#39;),
+ (&#39;canes&#39;, &#39;--p----n-&#39;),
+ (&#39;canes&#39;, &#39;--p----v-&#39;),
+ (&#39;canes&#39;, &#39;--p----a-&#39;),
+ (&#39;canum&#39;, &#39;--p----g-&#39;),
+ (&#39;canibus&#39;, &#39;--p----d-&#39;),
+ (&#39;canibus&#39;, &#39;--p----b-&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can decode the strings to more easily describe the morphological character of a word.</p>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Taken from https://github.com/alpheios-project/pyperseus-treebank/blob/master/pyperseus_treebank/latin.py#L44#</span>
+<span class="c1">#Maybe use https://github.com/jazzband/inflect for natural language code2text description?</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Conversion table for CONLL</span>
+<span class="c1"># Thanks to @epageperron</span>
+<span class="c1">#??Some divergence from README?</span>
+<span class="n">_CONLL_LA_CONV_DICT</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;adjective&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="s2">&quot;conjunction&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="s2">&quot;adverb&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">:</span> <span class="s2">&quot;exclamation&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="s2">&quot;PART&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;i&quot;</span><span class="p">:</span> <span class="s2">&quot;interjection&quot;</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="p">:</span> <span class="s2">&quot;DET&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="s2">&quot;numeral&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="s2">&quot;noun&quot;</span><span class="p">,</span><span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="s2">&quot;pronoun&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="s2">&quot;preposition&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="s2">&quot;VERB&quot;</span><span class="p">,</span> <span class="s2">&quot;u&quot;</span><span class="p">:</span> <span class="s2">&quot;punctuation&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="s2">&quot;verb&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="s2">&quot;X&quot;</span> <span class="p">}</span>
+
+<span class="n">_NUMBER</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="s2">&quot;singular&quot;</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="s2">&quot;plural&quot;</span><span class="p">}</span>
+<span class="n">_TENSE</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="s2">&quot;present&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">:</span> <span class="s2">&quot;future&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="s2">&quot;perfect&quot;</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="p">:</span> <span class="s2">&quot;pluperfect&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;i&quot;</span><span class="p">:</span> <span class="s2">&quot;imperfect&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="s2">&quot;future perfect&quot;</span><span class="p">}</span>
+<span class="n">_MOOD</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;i&quot;</span><span class="p">:</span> <span class="s2">&quot;indicative&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="s2">&quot;subjunctive&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="s2">&quot;imperative&quot;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span><span class="s1">&#39;gerund&#39;</span><span class="p">,</span>
+         <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="s2">&quot;gerundive&quot;</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="s2">&quot;participle&quot;</span><span class="p">,</span> <span class="s2">&quot;u&quot;</span><span class="p">:</span> <span class="s2">&quot;supine&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="s2">&quot;infinitive&quot;</span><span class="p">}</span>
+<span class="n">_VOICE</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;active&quot;</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="s2">&quot;passive&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="s2">&quot;Dep&quot;</span><span class="p">}</span>
+<span class="n">_GENDER</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;f&quot;</span><span class="p">:</span> <span class="s2">&quot;feminine&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="s2">&quot;masculine&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="s2">&quot;neuter&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="s2">&quot;Com&quot;</span><span class="p">}</span>
+<span class="n">_CASE</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="s2">&quot;genitive&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="s2">&quot;dative&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;accusative&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="s2">&quot;vocative&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="s2">&quot;nominative&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="s2">&quot;ablative&quot;</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="p">:</span> <span class="s2">&quot;Ins&quot;</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="p">:</span> <span class="s2">&quot;locative&quot;</span><span class="p">}</span>
+<span class="n">_DEGREE</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="s2">&quot;Pos&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="s2">&quot;comparative&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="s2">&quot;superlative&quot;</span><span class="p">}</span>
+
+<span class="n">_PERSON</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;1&quot;</span><span class="p">:</span><span class="s1">&#39;first person&#39;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span><span class="s1">&#39;second person&#39;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">:</span><span class="s1">&#39;third person&#39;</span><span class="p">}</span>
+
+<span class="n">NOTWORD</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;^\W+$&quot;</span><span class="p">)</span>
+
+<span class="n">_NULL_CHAR</span><span class="o">=</span><span class="s2">&quot;-&quot;</span>
+
+<span class="k">def</span> <span class="nf">parse_features</span><span class="p">(</span><span class="n">features</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Parse features from the POSTAG of Perseus Latin XML</span>
+<span class="sd">    .. example :: self.parse_features(&quot;n-p---na-&quot;)</span>
+<span class="sd">    :param features: A string containing morphological informations</span>
+<span class="sd">    :type features: str</span>
+<span class="sd">    :return: Parsed features</span>
+<span class="sd">    :rtype: dict</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">features</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">features</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">==</span><span class="s1">&#39;unk&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{}</span>
+    
+    <span class="n">features</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    
+    <span class="n">feats</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">feats</span><span class="p">[</span><span class="s1">&#39;POS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_CONLL_LA_CONV_DICT</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+
+    <span class="c1"># Person handling : 3 possibilities</span>
+    <span class="k">if</span> <span class="n">features</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">_NULL_CHAR</span><span class="p">:</span>
+        <span class="n">feats</span><span class="p">[</span><span class="s2">&quot;Person&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_PERSON</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+
+    <span class="c1"># Number handling : two possibilities</span>
+    <span class="k">if</span> <span class="n">features</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">!=</span> <span class="n">_NULL_CHAR</span><span class="p">:</span>
+        <span class="n">feats</span><span class="p">[</span><span class="s2">&quot;Number&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_NUMBER</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+
+    <span class="c1"># Tense</span>
+    <span class="k">if</span> <span class="n">features</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">!=</span> <span class="n">_NULL_CHAR</span><span class="p">:</span>
+        <span class="n">feats</span><span class="p">[</span><span class="s2">&quot;Tense&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_TENSE</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span>
+
+    <span class="c1"># Mood</span>
+    <span class="k">if</span> <span class="n">features</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">!=</span> <span class="n">_NULL_CHAR</span><span class="p">:</span>
+        <span class="n">feats</span><span class="p">[</span><span class="s2">&quot;Mood&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_MOOD</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">4</span><span class="p">]]</span>
+
+    <span class="c1"># Voice</span>
+    <span class="k">if</span> <span class="n">features</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="n">_NULL_CHAR</span><span class="p">:</span>
+        <span class="n">feats</span><span class="p">[</span><span class="s2">&quot;Voice&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_VOICE</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">5</span><span class="p">]]</span>
+
+    <span class="c1"># Tense</span>
+    <span class="k">if</span> <span class="n">features</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">!=</span> <span class="n">_NULL_CHAR</span><span class="p">:</span>
+        <span class="n">feats</span><span class="p">[</span><span class="s2">&quot;Gender&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_GENDER</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">6</span><span class="p">]]</span>
+
+    <span class="c1"># Tense</span>
+    <span class="k">if</span> <span class="n">features</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">!=</span> <span class="n">_NULL_CHAR</span><span class="p">:</span>
+        <span class="n">feats</span><span class="p">[</span><span class="s2">&quot;Case&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_CASE</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">7</span><span class="p">]]</span>
+
+    <span class="c1"># Degree</span>
+    <span class="k">if</span> <span class="n">features</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">!=</span> <span class="n">_NULL_CHAR</span><span class="p">:</span>
+        <span class="n">feats</span><span class="p">[</span><span class="s2">&quot;Degree&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_DEGREE</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">8</span><span class="p">]]</span>
+
+    <span class="k">return</span> <span class="n">feats</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can then decode the morphological data
+feature string:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Example</span>
+<span class="n">parse_features</span><span class="p">(</span><span class="s1">&#39;v3plia---&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;POS&#39;: &#39;verb&#39;,
+ &#39;Person&#39;: &#39;third person&#39;,
+ &#39;Number&#39;: &#39;plural&#39;,
+ &#39;Tense&#39;: &#39;pluperfect&#39;,
+ &#39;Mood&#39;: &#39;indicative&#39;,
+ &#39;Voice&#39;: &#39;active&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looking up words in the decliner provides a way of getting the morphological data for a word. For example, we could look up amabitis and get back something like <code class="docutils literal notranslate"><span class="pre">('amo',</span> <span class="pre">'v2pfia---')</span></code>:</p>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#hacky way that assumes you know the root</span>
+<span class="k">def</span> <span class="nf">lookupInflection</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">lemma</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Find the inflection of a given word, given its lemma. &#39;&#39;&#39;</span>
+    <span class="n">result</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">if</span> <span class="n">lemma</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">result</span>
+    
+    <span class="n">lemma</span> <span class="o">=</span> <span class="p">[</span><span class="n">lemma</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lemma</span><span class="p">,</span><span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">lemma</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lemma</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">words</span> <span class="o">=</span> <span class="n">decliner</span><span class="o">.</span><span class="n">decline</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">([(</span><span class="n">w</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span><span class="o">==</span><span class="n">word</span><span class="p">])</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">l</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we know the root, we can lookup the inflection:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lookupInflection</span><span class="p">(</span><span class="s1">&#39;amabitis&#39;</span><span class="p">,</span><span class="s1">&#39;amo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[(&#39;amabitis&#39;, &#39;v2pfia---&#39;)]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see if we can find the root of a word with a simple lemmatizer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Lemmatizer - find root of a word</span>
+<span class="kn">from</span> <span class="nn">cltk.stem.lemma</span> <span class="kn">import</span> <span class="n">LemmaReplacer</span>
+
+<span class="kn">from</span> <span class="nn">cltk.stem.latin.j_v</span> <span class="kn">import</span> <span class="n">JVReplacer</span>
+
+<span class="c1">#Lemmatizer requires the following</span>
+<span class="n">CorpusImporter</span><span class="p">(</span><span class="s1">&#39;latin&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">import_corpus</span><span class="p">(</span><span class="s1">&#39;latin_pos_lemmata_cltk&#39;</span><span class="p">)</span>
+<span class="n">CorpusImporter</span><span class="p">(</span><span class="s1">&#39;latin&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">import_corpus</span><span class="p">(</span><span class="s1">&#39;latin_models_cltk&#39;</span><span class="p">)</span>
+
+
+<span class="n">sentence</span> <span class="o">=</span> <span class="s1">&#39;Progeniem sed enim Troiano a sanguine duci audierat&#39;</span>
+
+<span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+<span class="n">lemmatizer</span> <span class="o">=</span> <span class="n">LemmaReplacer</span><span class="p">(</span><span class="s1">&#39;latin&#39;</span><span class="p">)</span>
+
+<span class="n">lemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="mi">02294</span><span class="n">ae87891</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Lemmatizer - find root of a word</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">cltk.stem.lemma</span> <span class="kn">import</span> <span class="n">LemmaReplacer</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">cltk.stem.latin.j_v</span> <span class="kn">import</span> <span class="n">JVReplacer</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;cltk.stem.lemma&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.lemmatize.lat</span> <span class="kn">import</span> <span class="n">LatinBackoffLemmatizer</span>
+
+<span class="n">sentence</span> <span class="o">=</span> <span class="s1">&#39;Progeniem sed enim Troiano a sanguine duci audierat&#39;</span>
+
+<span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+<span class="n">LatinBackoffLemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="mi">8</span><span class="n">be41a33cdd3</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">LatinBackoffLemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: lemmatize() missing 1 required positional argument: &#39;tokens&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.lemmatize.lat</span> <span class="kn">import</span> <span class="n">RomanNumeralLemmatizer</span>
+
+<span class="c1">#Lemmatizer for identifying roman numerals in Latin text based on regex.</span>
+<span class="n">lemmatizer</span> <span class="o">=</span> <span class="n">RomanNumeralLemmatizer</span><span class="p">()</span>
+
+<span class="n">lemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;i ii iii iv v vi vii vii ix x xx xxx xl l lx c cc&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;i&#39;, &#39;NUM&#39;),
+ (&#39;ii&#39;, &#39;NUM&#39;),
+ (&#39;iii&#39;, &#39;NUM&#39;),
+ (&#39;iv&#39;, &#39;NUM&#39;),
+ (&#39;v&#39;, &#39;NUM&#39;),
+ (&#39;vi&#39;, &#39;NUM&#39;),
+ (&#39;vii&#39;, &#39;NUM&#39;),
+ (&#39;vii&#39;, &#39;NUM&#39;),
+ (&#39;ix&#39;, &#39;NUM&#39;),
+ (&#39;x&#39;, &#39;NUM&#39;),
+ (&#39;xx&#39;, &#39;NUM&#39;),
+ (&#39;xxx&#39;, &#39;NUM&#39;),
+ (&#39;xl&#39;, &#39;NUM&#39;),
+ (&#39;l&#39;, &#39;NUM&#39;),
+ (&#39;lx&#39;, &#39;NUM&#39;),
+ (&#39;c&#39;, &#39;NUM&#39;),
+ (&#39;cc&#39;, &#39;NUM&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="syllables">
+<h2>Syllables<a class="headerlink" href="#syllables" title="Permalink to this headline">¶</a></h2>
+<p>One way of helping students read a text is to split the syllables out.m</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s1">/vergil/aen1.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">aeneid_1</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Here&#39;s a manual way of doing a concordance, though we need to clean it for the tokeniser?</span>
+<span class="kn">from</span> <span class="nn">cltk.alphabet.text_normalization</span> <span class="kn">import</span> <span class="n">remove_non_ascii</span>
+<span class="kn">from</span> <span class="nn">cltk.alphabet.text_normalization</span> <span class="kn">import</span> <span class="n">remove_non_latin</span>
+
+<span class="n">aen1_clean</span> <span class="o">=</span> <span class="n">remove_non_ascii</span><span class="p">(</span><span class="n">aeneid_1</span><span class="p">)</span>
+<span class="n">aen1_clean</span> <span class="o">=</span> <span class="n">remove_non_latin</span><span class="p">(</span><span class="n">aen1_clean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">aen1_clean</span><span class="p">[:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vergil Aeneid I        P VERGILI MARONIS AENEIDOS LIBER PRIMVS  Arma virumque cano Troiae qui primus ab oris Italiam fato profugus Laviniaque venit litora multum ille et terris iactatus et alto vi superum saevae memorem Iunonis ob iram multa quoque et bello passus dum conderet urbem     inferretque deos Latio genus unde Latinum Albanique patres atque altae moenia Romae  Musa mihi causas memora quo numine laeso quidve dolens regina deum tot volvere casus insignem pietate virum tot adire labores     impulerit Tantaene animis caelestibus irae  Urbs antiqua fuit Tyrii tenuere coloni Karthago Italiam contra Tiberinaque longe ostia dives opum studiisque asperrima belli quam Iuno fertur terris magis omnibus unam     posthabita coluisse Samo hic illius arma hic currus fuit hoc regnum dea gentibus esse si qua fata sinant iam tum tenditque fovetque Progeniem sed enim Troiano a sanguine duci audierat Tyrias olim quae verteret arces     hinc populum late regem belloque superbum venturum excidio Li
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.tokenizers.lat.lat</span> <span class="kn">import</span> <span class="n">LatinWordTokenizer</span>
+<span class="kn">from</span> <span class="nn">nltk.text</span> <span class="kn">import</span> <span class="n">Text</span>
+
+<span class="n">latin_word_tokenizer</span> <span class="o">=</span> <span class="n">LatinWordTokenizer</span><span class="p">()</span>
+
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">latin_word_tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">aen1_clean</span><span class="p">)</span>
+<span class="n">textList</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+<span class="n">textList</span><span class="o">.</span><span class="n">concordance</span><span class="p">(</span><span class="s1">&#39;Libyae&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Displaying 7 of 7 matches:
+ello -que superbum venturum excidio Libyae sic volvere Parcas Id metuens veter
+a litora cursu contendunt petere et Libyae vertuntur ad oras Est in secessu lo
+ulos sic vertice caeli constitit et Libyae defixit lumina regnis Atque illum t
+e per aera magnum remigio alarum ac Libyae citus adstitit oris Et iam iussa fa
+o -que supersunt Ipse ignotus egens Libyae deserta peragro Europa atque Asia p
+e pater optime Teucrum pontus habet Libyae nec spes iam restat Iuli at freta S
+uidem per litora certos dimittam et Libyae lustrare extrema iubebo si quibus e
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.languages.example_texts</span> <span class="kn">import</span> <span class="n">get_example_text</span>
+
+<span class="n">example_lat</span> <span class="o">=</span> <span class="n">get_example_text</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">)</span>
+<span class="n">example_lat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Gallia est omnis divisa in partes tres, quarum unam incolunt Belgae, aliam Aquitani, tertiam qui ipsorum lingua Celtae, nostra Galli appellantur. Hi omnes lingua, institutis, legibus inter se differunt. Gallos ab Aquitanis Garumna flumen, a Belgis Matrona et Sequana dividit. Horum omnium fortissimi sunt Belgae, propterea quod a cultu atque humanitate provinciae longissime absunt, minimeque ad eos mercatores saepe commeant atque ea quae ad effeminandos animos pertinent important, proximique sunt Germanis, qui trans Rhenum incolunt, quibuscum continenter bellum gerunt. Qua de causa Helvetii quoque reliquos Gallos virtute praecedunt, quod fere cotidianis proeliis cum Germanis contendunt, cum aut suis finibus eos prohibent aut ipsi in eorum finibus bellum gerunt. Eorum una, pars, quam Gallos obtinere dictum est, initium capit a flumine Rhodano, continetur Garumna flumine, Oceano, finibus Belgarum, attingit etiam ab Sequanis et Helvetiis flumen Rhenum, vergit ad septentriones. Belgae ab extremis Galliae finibus oriuntur, pertinent ad inferiorem partem fluminis Rheni, spectant in septentrionem et orientem solem. Aquitania a Garumna flumine ad Pyrenaeos montes et eam partem Oceani quae est ad Hispaniam pertinet; spectat inter occasum solis et septentriones.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.sentence.lat</span> <span class="kn">import</span> <span class="n">LatinPunktSentenceTokenizer</span>
+
+<span class="n">latin_splitter</span> <span class="o">=</span> <span class="n">LatinPunktSentenceTokenizer</span><span class="p">()</span>
+
+<span class="n">sentences</span> <span class="o">=</span> <span class="n">latin_splitter</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">example_lat</span><span class="p">)</span>
+
+<span class="n">sentences</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Gallia est omnis divisa in partes tres, quarum unam incolunt Belgae, aliam Aquitani, tertiam qui ipsorum lingua Celtae, nostra Galli appellantur.&#39;,
+ &#39;Hi omnes lingua, institutis, legibus inter se differunt.&#39;,
+ &#39;Gallos ab Aquitanis Garumna flumen, a Belgis Matrona et Sequana dividit.&#39;,
+ &#39;Horum omnium fortissimi sunt Belgae, propterea quod a cultu atque humanitate provinciae longissime absunt, minimeque ad eos mercatores saepe commeant atque ea quae ad effeminandos animos pertinent important, proximique sunt Germanis, qui trans Rhenum incolunt, quibuscum continenter bellum gerunt.&#39;,
+ &#39;Qua de causa Helvetii quoque reliquos Gallos virtute praecedunt, quod fere cotidianis proeliis cum Germanis contendunt, cum aut suis finibus eos prohibent aut ipsi in eorum finibus bellum gerunt.&#39;,
+ &#39;Eorum una, pars, quam Gallos obtinere dictum est, initium capit a flumine Rhodano, continetur Garumna flumine, Oceano, finibus Belgarum, attingit etiam ab Sequanis et Helvetiis flumen Rhenum, vergit ad septentriones.&#39;,
+ &#39;Belgae ab extremis Galliae finibus oriuntur, pertinent ad inferiorem partem fluminis Rheni, spectant in septentrionem et orientem solem.&#39;,
+ &#39;Aquitania a Garumna flumine ad Pyrenaeos montes et eam partem Oceani quae est ad Hispaniam pertinet; spectat inter occasum solis et septentriones.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.prosody.lat.syllabifier</span> <span class="kn">import</span> <span class="n">Syllabifier</span>
+
+<span class="n">syllabifier</span> <span class="o">=</span> <span class="n">Syllabifier</span><span class="p">()</span>
+
+<span class="n">clean_sentence</span> <span class="o">=</span> <span class="n">remove_non_ascii</span><span class="p">(</span><span class="n">remove_non_latin</span><span class="p">(</span><span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+<span class="c1">#Extract syllables for each word</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">latin_word_tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">clean_sentence</span><span class="p">):</span>
+    <span class="n">syllables</span> <span class="o">=</span> <span class="n">syllabifier</span><span class="o">.</span><span class="n">syllabify</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">syllables</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gallia [&#39;gal&#39;, &#39;li&#39;, &#39;a&#39;]
+est [&#39;est&#39;]
+omnis [&#39;om&#39;, &#39;nis&#39;]
+divisa [&#39;di&#39;, &#39;vi&#39;, &#39;sa&#39;]
+in [&#39;in&#39;]
+partes [&#39;par&#39;, &#39;tes&#39;]
+tres [&#39;tres&#39;]
+quarum [&#39;qua&#39;, &#39;rum&#39;]
+unam [&#39;u&#39;, &#39;nam&#39;]
+incolunt [&#39;in&#39;, &#39;co&#39;, &#39;lunt&#39;]
+belgae [&#39;bel&#39;, &#39;gae&#39;]
+aliam [&#39;a&#39;, &#39;li&#39;, &#39;am&#39;]
+aquitani [&#39;a&#39;, &#39;qui&#39;, &#39;ta&#39;, &#39;ni&#39;]
+tertiam [&#39;ter&#39;, &#39;ti&#39;, &#39;am&#39;]
+qui [&#39;qui&#39;]
+ipsorum [&#39;ip&#39;, &#39;so&#39;, &#39;rum&#39;]
+lingua [&#39;lin&#39;, &#39;gua&#39;]
+celtae [&#39;cel&#39;, &#39;tae&#39;]
+nostra [&#39;nos&#39;, &#39;tra&#39;]
+galli [&#39;gal&#39;, &#39;li&#39;]
+appellantur [&#39;ap&#39;, &#39;pel&#39;, &#39;lan&#39;, &#39;tur&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk</span> <span class="kn">import</span> <span class="n">NLP</span>
+<span class="n">cltk_nlp</span> <span class="o">=</span> <span class="n">NLP</span><span class="p">(</span><span class="n">language</span><span class="o">=</span><span class="s2">&quot;lat&quot;</span><span class="p">)</span>
+
+<span class="c1"># First run, prompts to allow download of Stanza NLP library models</span>
+<span class="c1"># to ~/stanza_resources/la/ (~250MB)</span>
+<span class="c1"># Also word embedding models from the Fasttext project to</span>
+<span class="c1"># ~/cltk_data/lat/embeddings/fasttext 365MB</span>
+<span class="c1"># Also Lewis&#39;s *An Elementary Latin Dictionary* (1890)</span>
+<span class="n">cltk_doc</span> <span class="o">=</span> <span class="n">cltk_nlp</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">example_lat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>‎𐤀 CLTK version &#39;1.0.14&#39;.
+Pipeline for language &#39;Latin&#39; (ISO: &#39;lat&#39;): `LatinNormalizeProcess`, `LatinStanzaProcess`, `LatinEmbeddingsProcess`, `StopsProcess`, `LatinNERProcess`, `LatinLexiconProcess`.
+From `from_ud():` Number[psor]: Unrecognized UD feature name
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">cltk_doc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__annotations__&#39;,
+ &#39;__class__&#39;,
+ &#39;__dataclass_fields__&#39;,
+ &#39;__dataclass_params__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dict__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__getitem__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__le__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__module__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__slotnames__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;__weakref__&#39;,
+ &#39;_get_words_attribute&#39;,
+ &#39;embeddings&#39;,
+ &#39;embeddings_model&#39;,
+ &#39;language&#39;,
+ &#39;lemmata&#39;,
+ &#39;morphosyntactic_features&#39;,
+ &#39;normalized_text&#39;,
+ &#39;pipeline&#39;,
+ &#39;pos&#39;,
+ &#39;raw&#39;,
+ &#39;sentences&#39;,
+ &#39;sentences_strings&#39;,
+ &#39;sentences_tokens&#39;,
+ &#39;stanza_doc&#39;,
+ &#39;stems&#39;,
+ &#39;tokens&#39;,
+ &#39;tokens_stops_filtered&#39;,
+ &#39;words&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cltk_doc</span><span class="o">.</span><span class="n">stanza_doc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[
+  [
+    {
+      &quot;id&quot;: 1,
+      &quot;text&quot;: &quot;Gallia&quot;,
+      &quot;lemma&quot;: &quot;iallius&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casA|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Gender=Fem|Number=Sing&quot;,
+      &quot;head&quot;: 0,
+      &quot;deprel&quot;: &quot;root&quot;,
+      &quot;misc&quot;: &quot;start_char=0|end_char=6&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;text&quot;: &quot;est&quot;,
+      &quot;lemma&quot;: &quot;sum&quot;,
+      &quot;upos&quot;: &quot;AUX&quot;,
+      &quot;xpos&quot;: &quot;N3|modA|tem1|gen6&quot;,
+      &quot;feats&quot;: &quot;Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 1,
+      &quot;deprel&quot;: &quot;cop&quot;,
+      &quot;misc&quot;: &quot;start_char=7|end_char=10&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;text&quot;: &quot;omnis&quot;,
+      &quot;lemma&quot;: &quot;omnis&quot;,
+      &quot;upos&quot;: &quot;DET&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casA|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Gender=Fem|Number=Sing|PronType=Ind&quot;,
+      &quot;head&quot;: 1,
+      &quot;deprel&quot;: &quot;det&quot;,
+      &quot;misc&quot;: &quot;start_char=11|end_char=16&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;text&quot;: &quot;divisa&quot;,
+      &quot;lemma&quot;: &quot;digis&quot;,
+      &quot;upos&quot;: &quot;ADJ&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casA|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Pos|Gender=Fem|Number=Sing&quot;,
+      &quot;head&quot;: 1,
+      &quot;deprel&quot;: &quot;amod&quot;,
+      &quot;misc&quot;: &quot;start_char=17|end_char=23&quot;
+    },
+    {
+      &quot;id&quot;: 5,
+      &quot;text&quot;: &quot;in&quot;,
+      &quot;lemma&quot;: &quot;in&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 6,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=24|end_char=26&quot;
+    },
+    {
+      &quot;id&quot;: 6,
+      &quot;text&quot;: &quot;partes&quot;,
+      &quot;lemma&quot;: &quot;pars&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casM|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Gender=Fem|Number=Plur&quot;,
+      &quot;head&quot;: 4,
+      &quot;deprel&quot;: &quot;obl:arg&quot;,
+      &quot;misc&quot;: &quot;start_char=27|end_char=33&quot;
+    },
+    {
+      &quot;id&quot;: 7,
+      &quot;text&quot;: &quot;tres&quot;,
+      &quot;lemma&quot;: &quot;tres&quot;,
+      &quot;upos&quot;: &quot;NUM&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casM|gen2|vgr1&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Gender=Fem|NumType=Card|Number=Plur&quot;,
+      &quot;head&quot;: 6,
+      &quot;deprel&quot;: &quot;nummod&quot;,
+      &quot;misc&quot;: &quot;start_char=34|end_char=38&quot;
+    },
+    {
+      &quot;id&quot;: 8,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 11,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=38|end_char=39&quot;
+    },
+    {
+      &quot;id&quot;: 9,
+      &quot;text&quot;: &quot;quarum&quot;,
+      &quot;lemma&quot;: &quot;qui&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casK|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Gen|Gender=Fem|Number=Plur|PronType=Rel&quot;,
+      &quot;head&quot;: 10,
+      &quot;deprel&quot;: &quot;nmod&quot;,
+      &quot;misc&quot;: &quot;start_char=40|end_char=46&quot;
+    },
+    {
+      &quot;id&quot;: 10,
+      &quot;text&quot;: &quot;unam&quot;,
+      &quot;lemma&quot;: &quot;unus&quot;,
+      &quot;upos&quot;: &quot;NUM&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casD|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Gender=Fem|NumType=Card|Number=Sing&quot;,
+      &quot;head&quot;: 11,
+      &quot;deprel&quot;: &quot;obj&quot;,
+      &quot;misc&quot;: &quot;start_char=47|end_char=51&quot;
+    },
+    {
+      &quot;id&quot;: 11,
+      &quot;text&quot;: &quot;incolunt&quot;,
+      &quot;lemma&quot;: &quot;incolo&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;L3|modA|tem1|gen9&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 6,
+      &quot;deprel&quot;: &quot;acl:relcl&quot;,
+      &quot;misc&quot;: &quot;start_char=52|end_char=60&quot;
+    },
+    {
+      &quot;id&quot;: 12,
+      &quot;text&quot;: &quot;Belgae&quot;,
+      &quot;lemma&quot;: &quot;belgus&quot;,
+      &quot;upos&quot;: &quot;ADJ&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casJ|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Pos|Gender=Fem|Number=Plur&quot;,
+      &quot;head&quot;: 11,
+      &quot;deprel&quot;: &quot;nsubj&quot;,
+      &quot;misc&quot;: &quot;start_char=61|end_char=67&quot;
+    },
+    {
+      &quot;id&quot;: 13,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 14,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=67|end_char=68&quot;
+    },
+    {
+      &quot;id&quot;: 14,
+      &quot;text&quot;: &quot;aliam&quot;,
+      &quot;lemma&quot;: &quot;alius&quot;,
+      &quot;upos&quot;: &quot;DET&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casD|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Gender=Fem|Number=Sing|PronType=Ind&quot;,
+      &quot;head&quot;: 15,
+      &quot;deprel&quot;: &quot;det&quot;,
+      &quot;misc&quot;: &quot;start_char=69|end_char=74&quot;
+    },
+    {
+      &quot;id&quot;: 15,
+      &quot;text&quot;: &quot;Aquitani&quot;,
+      &quot;lemma&quot;: &quot;iquitanis&quot;,
+      &quot;upos&quot;: &quot;ADJ&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casJ|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Pos|Gender=Masc|Number=Plur&quot;,
+      &quot;head&quot;: 25,
+      &quot;deprel&quot;: &quot;nsubj:pass&quot;,
+      &quot;misc&quot;: &quot;start_char=75|end_char=83&quot;
+    },
+    {
+      &quot;id&quot;: 16,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 17,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=83|end_char=84&quot;
+    },
+    {
+      &quot;id&quot;: 17,
+      &quot;text&quot;: &quot;tertiam&quot;,
+      &quot;lemma&quot;: &quot;tertius&quot;,
+      &quot;upos&quot;: &quot;ADJ&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casD|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Fem|NumType=Ord|Number=Sing&quot;,
+      &quot;head&quot;: 25,
+      &quot;deprel&quot;: &quot;obj&quot;,
+      &quot;misc&quot;: &quot;start_char=85|end_char=92&quot;
+    },
+    {
+      &quot;id&quot;: 18,
+      &quot;text&quot;: &quot;qui&quot;,
+      &quot;lemma&quot;: &quot;qui&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casJ|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Gender=Masc|Number=Sing|PronType=Rel&quot;,
+      &quot;head&quot;: 25,
+      &quot;deprel&quot;: &quot;nsubj&quot;,
+      &quot;misc&quot;: &quot;start_char=93|end_char=96&quot;
+    },
+    {
+      &quot;id&quot;: 19,
+      &quot;text&quot;: &quot;ipsorum&quot;,
+      &quot;lemma&quot;: &quot;ipse&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casK|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Gen|Gender=Masc|Number=Plur|PronType=Dem,Prs&quot;,
+      &quot;head&quot;: 20,
+      &quot;deprel&quot;: &quot;nmod&quot;,
+      &quot;misc&quot;: &quot;start_char=97|end_char=104&quot;
+    },
+    {
+      &quot;id&quot;: 20,
+      &quot;text&quot;: &quot;lingua&quot;,
+      &quot;lemma&quot;: &quot;lingua&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casF|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Gender=Fem|Number=Sing&quot;,
+      &quot;head&quot;: 25,
+      &quot;deprel&quot;: &quot;obl&quot;,
+      &quot;misc&quot;: &quot;start_char=105|end_char=111&quot;
+    },
+    {
+      &quot;id&quot;: 21,
+      &quot;text&quot;: &quot;Celtae&quot;,
+      &quot;lemma&quot;: &quot;ieltus&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casJ|gen2|vgr1&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Gender=Fem|Number=Plur&quot;,
+      &quot;head&quot;: 25,
+      &quot;deprel&quot;: &quot;xcomp&quot;,
+      &quot;misc&quot;: &quot;start_char=112|end_char=118&quot;
+    },
+    {
+      &quot;id&quot;: 22,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 21,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=118|end_char=119&quot;
+    },
+    {
+      &quot;id&quot;: 23,
+      &quot;text&quot;: &quot;nostra&quot;,
+      &quot;lemma&quot;: &quot;noster&quot;,
+      &quot;upos&quot;: &quot;DET&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casJ|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Pos|Gender=Neut|Number=Plur|Number[psor]=Plur|Person=1|Poss=Yes|PronType=Prs&quot;,
+      &quot;head&quot;: 24,
+      &quot;deprel&quot;: &quot;det&quot;,
+      &quot;misc&quot;: &quot;start_char=120|end_char=126&quot;
+    },
+    {
+      &quot;id&quot;: 24,
+      &quot;text&quot;: &quot;Galli&quot;,
+      &quot;lemma&quot;: &quot;iallus&quot;,
+      &quot;upos&quot;: &quot;ADJ&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casJ|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Pos|Gender=Masc|Number=Plur&quot;,
+      &quot;head&quot;: 25,
+      &quot;deprel&quot;: &quot;nsubj:pass&quot;,
+      &quot;misc&quot;: &quot;start_char=127|end_char=132&quot;
+    },
+    {
+      &quot;id&quot;: 25,
+      &quot;text&quot;: &quot;appellantur&quot;,
+      &quot;lemma&quot;: &quot;appello&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;J3|modJ|tem1|gen9&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass&quot;,
+      &quot;head&quot;: 11,
+      &quot;deprel&quot;: &quot;conj&quot;,
+      &quot;misc&quot;: &quot;start_char=133|end_char=144&quot;
+    },
+    {
+      &quot;id&quot;: 26,
+      &quot;text&quot;: &quot;.&quot;,
+      &quot;lemma&quot;: &quot;.&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 1,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=144|end_char=145&quot;
+    }
+  ],
+  [
+    {
+      &quot;id&quot;: 1,
+      &quot;text&quot;: &quot;Hi&quot;,
+      &quot;lemma&quot;: &quot;is&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casJ|gen1|vgr1&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Pos|Gender=Masc|Number=Plur|PronType=Dem&quot;,
+      &quot;head&quot;: 10,
+      &quot;deprel&quot;: &quot;nsubj&quot;,
+      &quot;misc&quot;: &quot;start_char=146|end_char=148&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;text&quot;: &quot;omnes&quot;,
+      &quot;lemma&quot;: &quot;omnis&quot;,
+      &quot;upos&quot;: &quot;DET&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casJ|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Pos|Gender=Fem|Number=Plur|PronType=Ind&quot;,
+      &quot;head&quot;: 1,
+      &quot;deprel&quot;: &quot;det&quot;,
+      &quot;misc&quot;: &quot;start_char=149|end_char=154&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;text&quot;: &quot;lingua&quot;,
+      &quot;lemma&quot;: &quot;lingua&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casF|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Pos|Gender=Fem|Number=Sing&quot;,
+      &quot;head&quot;: 10,
+      &quot;deprel&quot;: &quot;obl&quot;,
+      &quot;misc&quot;: &quot;start_char=155|end_char=161&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 3,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=161|end_char=162&quot;
+    },
+    {
+      &quot;id&quot;: 5,
+      &quot;text&quot;: &quot;institutis&quot;,
+      &quot;lemma&quot;: &quot;instituo&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;L2|modM|tem4|grp1|casO|gen2&quot;,
+      &quot;feats&quot;: &quot;Aspect=Perf|Case=Abl|Degree=Pos|Gender=Fem|Number=Plur|Tense=Past|VerbForm=Part|Voice=Pass&quot;,
+      &quot;head&quot;: 10,
+      &quot;deprel&quot;: &quot;advcl&quot;,
+      &quot;misc&quot;: &quot;start_char=163|end_char=173&quot;
+    },
+    {
+      &quot;id&quot;: 6,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 5,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=173|end_char=174&quot;
+    },
+    {
+      &quot;id&quot;: 7,
+      &quot;text&quot;: &quot;legibus&quot;,
+      &quot;lemma&quot;: &quot;lex&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casO|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Fem|Number=Plur&quot;,
+      &quot;head&quot;: 10,
+      &quot;deprel&quot;: &quot;obl&quot;,
+      &quot;misc&quot;: &quot;start_char=175|end_char=182&quot;
+    },
+    {
+      &quot;id&quot;: 8,
+      &quot;text&quot;: &quot;inter&quot;,
+      &quot;lemma&quot;: &quot;inter&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 9,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=183|end_char=188&quot;
+    },
+    {
+      &quot;id&quot;: 9,
+      &quot;text&quot;: &quot;se&quot;,
+      &quot;lemma&quot;: &quot;se&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casM|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Fem|Number=Plur|PronType=Prs|Reflex=Yes&quot;,
+      &quot;head&quot;: 10,
+      &quot;deprel&quot;: &quot;obl&quot;,
+      &quot;misc&quot;: &quot;start_char=189|end_char=191&quot;
+    },
+    {
+      &quot;id&quot;: 10,
+      &quot;text&quot;: &quot;differunt&quot;,
+      &quot;lemma&quot;: &quot;differo&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;N3|modA|tem1|gen9&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 0,
+      &quot;deprel&quot;: &quot;root&quot;,
+      &quot;misc&quot;: &quot;start_char=192|end_char=201&quot;
+    },
+    {
+      &quot;id&quot;: 11,
+      &quot;text&quot;: &quot;.&quot;,
+      &quot;lemma&quot;: &quot;.&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 10,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=201|end_char=202&quot;
+    }
+  ],
+  [
+    {
+      &quot;id&quot;: 1,
+      &quot;text&quot;: &quot;Gallos&quot;,
+      &quot;lemma&quot;: &quot;iallus&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casM|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Masc|Number=Plur&quot;,
+      &quot;head&quot;: 12,
+      &quot;deprel&quot;: &quot;obj&quot;,
+      &quot;misc&quot;: &quot;start_char=203|end_char=209&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;text&quot;: &quot;ab&quot;,
+      &quot;lemma&quot;: &quot;ab&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4|vgr2&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 3,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=210|end_char=212&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;text&quot;: &quot;Aquitanis&quot;,
+      &quot;lemma&quot;: &quot;Aquitanis&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casO|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Masc|Number=Plur&quot;,
+      &quot;head&quot;: 1,
+      &quot;deprel&quot;: &quot;conj&quot;,
+      &quot;misc&quot;: &quot;start_char=213|end_char=222&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;text&quot;: &quot;Garumna&quot;,
+      &quot;lemma&quot;: &quot;iarumnus&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casF|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Masc|Number=Sing&quot;,
+      &quot;head&quot;: 3,
+      &quot;deprel&quot;: &quot;conj&quot;,
+      &quot;misc&quot;: &quot;start_char=223|end_char=230&quot;
+    },
+    {
+      &quot;id&quot;: 5,
+      &quot;text&quot;: &quot;flumen&quot;,
+      &quot;lemma&quot;: &quot;flumen&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casD|gen3&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Neut|Number=Sing&quot;,
+      &quot;head&quot;: 12,
+      &quot;deprel&quot;: &quot;obj&quot;,
+      &quot;misc&quot;: &quot;start_char=231|end_char=237&quot;
+    },
+    {
+      &quot;id&quot;: 6,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 12,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=237|end_char=238&quot;
+    },
+    {
+      &quot;id&quot;: 7,
+      &quot;text&quot;: &quot;a&quot;,
+      &quot;lemma&quot;: &quot;ab&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4|vgr1&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 8,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=239|end_char=240&quot;
+    },
+    {
+      &quot;id&quot;: 8,
+      &quot;text&quot;: &quot;Belgis&quot;,
+      &quot;lemma&quot;: &quot;belga&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casO|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Masc|Number=Plur&quot;,
+      &quot;head&quot;: 12,
+      &quot;deprel&quot;: &quot;obl:arg&quot;,
+      &quot;misc&quot;: &quot;start_char=241|end_char=247&quot;
+    },
+    {
+      &quot;id&quot;: 9,
+      &quot;text&quot;: &quot;Matrona&quot;,
+      &quot;lemma&quot;: &quot;Matrona&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casA|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Pos|Gender=Fem|Number=Sing&quot;,
+      &quot;head&quot;: 12,
+      &quot;deprel&quot;: &quot;nsubj&quot;,
+      &quot;misc&quot;: &quot;start_char=248|end_char=255&quot;
+    },
+    {
+      &quot;id&quot;: 10,
+      &quot;text&quot;: &quot;et&quot;,
+      &quot;lemma&quot;: &quot;et&quot;,
+      &quot;upos&quot;: &quot;CCONJ&quot;,
+      &quot;xpos&quot;: &quot;O4&quot;,
+      &quot;head&quot;: 11,
+      &quot;deprel&quot;: &quot;cc&quot;,
+      &quot;misc&quot;: &quot;start_char=256|end_char=258&quot;
+    },
+    {
+      &quot;id&quot;: 11,
+      &quot;text&quot;: &quot;Sequana&quot;,
+      &quot;lemma&quot;: &quot;iequanus&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casA|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Fem|Number=Sing&quot;,
+      &quot;head&quot;: 9,
+      &quot;deprel&quot;: &quot;conj&quot;,
+      &quot;misc&quot;: &quot;start_char=259|end_char=266&quot;
+    },
+    {
+      &quot;id&quot;: 12,
+      &quot;text&quot;: &quot;dividit&quot;,
+      &quot;lemma&quot;: &quot;dinido&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;L3|modA|tem1|gen6&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 0,
+      &quot;deprel&quot;: &quot;root&quot;,
+      &quot;misc&quot;: &quot;start_char=267|end_char=274&quot;
+    },
+    {
+      &quot;id&quot;: 13,
+      &quot;text&quot;: &quot;.&quot;,
+      &quot;lemma&quot;: &quot;.&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 12,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=274|end_char=275&quot;
+    }
+  ],
+  [
+    {
+      &quot;id&quot;: 1,
+      &quot;text&quot;: &quot;Horum&quot;,
+      &quot;lemma&quot;: &quot;is&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casK|gen3&quot;,
+      &quot;feats&quot;: &quot;Case=Gen|Degree=Pos|Gender=Neut|Number=Plur|PronType=Dem&quot;,
+      &quot;head&quot;: 3,
+      &quot;deprel&quot;: &quot;nmod&quot;,
+      &quot;misc&quot;: &quot;start_char=276|end_char=281&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;text&quot;: &quot;omnium&quot;,
+      &quot;lemma&quot;: &quot;omnis&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casK|gen3&quot;,
+      &quot;feats&quot;: &quot;Case=Gen|Degree=Pos|Gender=Neut|Number=Plur|PronType=Ind&quot;,
+      &quot;head&quot;: 1,
+      &quot;deprel&quot;: &quot;det&quot;,
+      &quot;misc&quot;: &quot;start_char=282|end_char=288&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;text&quot;: &quot;fortissimi&quot;,
+      &quot;lemma&quot;: &quot;fortis&quot;,
+      &quot;upos&quot;: &quot;ADJ&quot;,
+      &quot;xpos&quot;: &quot;B1|grn3|casJ|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Abs|Gender=Masc|Number=Plur&quot;,
+      &quot;head&quot;: 0,
+      &quot;deprel&quot;: &quot;root&quot;,
+      &quot;misc&quot;: &quot;start_char=289|end_char=299&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;text&quot;: &quot;sunt&quot;,
+      &quot;lemma&quot;: &quot;sum&quot;,
+      &quot;upos&quot;: &quot;AUX&quot;,
+      &quot;xpos&quot;: &quot;N3|modA|tem1|gen9&quot;,
+      &quot;feats&quot;: &quot;Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 3,
+      &quot;deprel&quot;: &quot;cop&quot;,
+      &quot;misc&quot;: &quot;start_char=300|end_char=304&quot;
+    },
+    {
+      &quot;id&quot;: 5,
+      &quot;text&quot;: &quot;Belgae&quot;,
+      &quot;lemma&quot;: &quot;belgus&quot;,
+      &quot;upos&quot;: &quot;ADJ&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casJ|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Pos|Gender=Fem|Number=Plur&quot;,
+      &quot;head&quot;: 3,
+      &quot;deprel&quot;: &quot;nsubj&quot;,
+      &quot;misc&quot;: &quot;start_char=305|end_char=311&quot;
+    },
+    {
+      &quot;id&quot;: 6,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 15,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=311|end_char=312&quot;
+    },
+    {
+      &quot;id&quot;: 7,
+      &quot;text&quot;: &quot;propterea&quot;,
+      &quot;lemma&quot;: &quot;propterea&quot;,
+      &quot;upos&quot;: &quot;ADV&quot;,
+      &quot;xpos&quot;: &quot;O4&quot;,
+      &quot;head&quot;: 15,
+      &quot;deprel&quot;: &quot;mark&quot;,
+      &quot;misc&quot;: &quot;start_char=313|end_char=322&quot;
+    },
+    {
+      &quot;id&quot;: 8,
+      &quot;text&quot;: &quot;quod&quot;,
+      &quot;lemma&quot;: &quot;quod&quot;,
+      &quot;upos&quot;: &quot;SCONJ&quot;,
+      &quot;xpos&quot;: &quot;O4&quot;,
+      &quot;head&quot;: 7,
+      &quot;deprel&quot;: &quot;fixed&quot;,
+      &quot;misc&quot;: &quot;start_char=323|end_char=327&quot;
+    },
+    {
+      &quot;id&quot;: 9,
+      &quot;text&quot;: &quot;a&quot;,
+      &quot;lemma&quot;: &quot;ab&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4|vgr1&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 10,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=328|end_char=329&quot;
+    },
+    {
+      &quot;id&quot;: 10,
+      &quot;text&quot;: &quot;cultu&quot;,
+      &quot;lemma&quot;: &quot;cultus&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;D1|grn1|casF|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Masc|Number=Sing&quot;,
+      &quot;head&quot;: 15,
+      &quot;deprel&quot;: &quot;obl:arg&quot;,
+      &quot;misc&quot;: &quot;start_char=330|end_char=335&quot;
+    },
+    {
+      &quot;id&quot;: 11,
+      &quot;text&quot;: &quot;atque&quot;,
+      &quot;lemma&quot;: &quot;atque&quot;,
+      &quot;upos&quot;: &quot;CCONJ&quot;,
+      &quot;xpos&quot;: &quot;O4&quot;,
+      &quot;head&quot;: 12,
+      &quot;deprel&quot;: &quot;cc&quot;,
+      &quot;misc&quot;: &quot;start_char=336|end_char=341&quot;
+    },
+    {
+      &quot;id&quot;: 12,
+      &quot;text&quot;: &quot;humanitate&quot;,
+      &quot;lemma&quot;: &quot;humanitas&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casF|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Fem|Number=Sing&quot;,
+      &quot;head&quot;: 10,
+      &quot;deprel&quot;: &quot;conj&quot;,
+      &quot;misc&quot;: &quot;start_char=342|end_char=352&quot;
+    },
+    {
+      &quot;id&quot;: 13,
+      &quot;text&quot;: &quot;provinciae&quot;,
+      &quot;lemma&quot;: &quot;proiincia&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casB|gen2|vgr1&quot;,
+      &quot;feats&quot;: &quot;Case=Gen|Degree=Pos|Gender=Fem|Number=Sing&quot;,
+      &quot;head&quot;: 10,
+      &quot;deprel&quot;: &quot;nmod&quot;,
+      &quot;misc&quot;: &quot;start_char=353|end_char=363&quot;
+    },
+    {
+      &quot;id&quot;: 14,
+      &quot;text&quot;: &quot;longissime&quot;,
+      &quot;lemma&quot;: &quot;long&quot;,
+      &quot;upos&quot;: &quot;ADV&quot;,
+      &quot;xpos&quot;: &quot;B1|grn3|casG&quot;,
+      &quot;feats&quot;: &quot;Degree=Abs&quot;,
+      &quot;head&quot;: 15,
+      &quot;deprel&quot;: &quot;advmod&quot;,
+      &quot;misc&quot;: &quot;start_char=364|end_char=374&quot;
+    },
+    {
+      &quot;id&quot;: 15,
+      &quot;text&quot;: &quot;absunt&quot;,
+      &quot;lemma&quot;: &quot;absum&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;N3|modA|tem1|gen9&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 22,
+      &quot;deprel&quot;: &quot;advcl&quot;,
+      &quot;misc&quot;: &quot;start_char=375|end_char=381&quot;
+    },
+    {
+      &quot;id&quot;: 16,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 15,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=381|end_char=382&quot;
+    },
+    {
+      &quot;id&quot;: 17,
+      &quot;text&quot;: &quot;minimeque&quot;,
+      &quot;lemma&quot;: &quot;minimeque&quot;,
+      &quot;upos&quot;: &quot;ADV&quot;,
+      &quot;xpos&quot;: &quot;B1|grn3|casG&quot;,
+      &quot;feats&quot;: &quot;Degree=Abs&quot;,
+      &quot;head&quot;: 22,
+      &quot;deprel&quot;: &quot;advmod&quot;,
+      &quot;misc&quot;: &quot;start_char=383|end_char=392&quot;
+    },
+    {
+      &quot;id&quot;: 18,
+      &quot;text&quot;: &quot;ad&quot;,
+      &quot;lemma&quot;: &quot;ad&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 19,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=393|end_char=395&quot;
+    },
+    {
+      &quot;id&quot;: 19,
+      &quot;text&quot;: &quot;eos&quot;,
+      &quot;lemma&quot;: &quot;is&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casM|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Masc|Number=Plur|PronType=Dem,Prs&quot;,
+      &quot;head&quot;: 22,
+      &quot;deprel&quot;: &quot;obl:arg&quot;,
+      &quot;misc&quot;: &quot;start_char=396|end_char=399&quot;
+    },
+    {
+      &quot;id&quot;: 20,
+      &quot;text&quot;: &quot;mercatores&quot;,
+      &quot;lemma&quot;: &quot;mercator&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casJ|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Pos|Gender=Masc|Number=Plur&quot;,
+      &quot;head&quot;: 22,
+      &quot;deprel&quot;: &quot;nsubj&quot;,
+      &quot;misc&quot;: &quot;start_char=400|end_char=410&quot;
+    },
+    {
+      &quot;id&quot;: 21,
+      &quot;text&quot;: &quot;saepe&quot;,
+      &quot;lemma&quot;: &quot;saepe&quot;,
+      &quot;upos&quot;: &quot;ADV&quot;,
+      &quot;xpos&quot;: &quot;O4&quot;,
+      &quot;head&quot;: 22,
+      &quot;deprel&quot;: &quot;advmod&quot;,
+      &quot;misc&quot;: &quot;start_char=411|end_char=416&quot;
+    },
+    {
+      &quot;id&quot;: 22,
+      &quot;text&quot;: &quot;commeant&quot;,
+      &quot;lemma&quot;: &quot;commeo&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;L3|modA|tem1|gen9&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 3,
+      &quot;deprel&quot;: &quot;advcl&quot;,
+      &quot;misc&quot;: &quot;start_char=417|end_char=425&quot;
+    },
+    {
+      &quot;id&quot;: 23,
+      &quot;text&quot;: &quot;atque&quot;,
+      &quot;lemma&quot;: &quot;atque&quot;,
+      &quot;upos&quot;: &quot;CCONJ&quot;,
+      &quot;xpos&quot;: &quot;O4&quot;,
+      &quot;head&quot;: 32,
+      &quot;deprel&quot;: &quot;cc&quot;,
+      &quot;misc&quot;: &quot;start_char=426|end_char=431&quot;
+    },
+    {
+      &quot;id&quot;: 24,
+      &quot;text&quot;: &quot;ea&quot;,
+      &quot;lemma&quot;: &quot;is&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casM|gen3&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Neut|Number=Plur|PronType=Dem,Prs&quot;,
+      &quot;head&quot;: 32,
+      &quot;deprel&quot;: &quot;nsubj&quot;,
+      &quot;misc&quot;: &quot;start_char=432|end_char=434&quot;
+    },
+    {
+      &quot;id&quot;: 25,
+      &quot;text&quot;: &quot;quae&quot;,
+      &quot;lemma&quot;: &quot;qui&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casJ|gen3|vgr1&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Pos|Gender=Neut|Number=Plur|PronType=Rel&quot;,
+      &quot;head&quot;: 29,
+      &quot;deprel&quot;: &quot;nsubj&quot;,
+      &quot;misc&quot;: &quot;start_char=435|end_char=439&quot;
+    },
+    {
+      &quot;id&quot;: 26,
+      &quot;text&quot;: &quot;ad&quot;,
+      &quot;lemma&quot;: &quot;ad&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 27,
+      &quot;deprel&quot;: &quot;mark&quot;,
+      &quot;misc&quot;: &quot;start_char=440|end_char=442&quot;
+    },
+    {
+      &quot;id&quot;: 27,
+      &quot;text&quot;: &quot;effeminandos&quot;,
+      &quot;lemma&quot;: &quot;effemino&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;L2|modO|grp1|casM|gen1&quot;,
+      &quot;feats&quot;: &quot;Aspect=Perf|Case=Acc|Degree=Pos|Gender=Masc|Number=Plur|VerbForm=Gdv|Voice=Pass&quot;,
+      &quot;head&quot;: 29,
+      &quot;deprel&quot;: &quot;ccomp&quot;,
+      &quot;misc&quot;: &quot;start_char=443|end_char=455&quot;
+    },
+    {
+      &quot;id&quot;: 28,
+      &quot;text&quot;: &quot;animos&quot;,
+      &quot;lemma&quot;: &quot;animus&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casM|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Masc|Number=Plur&quot;,
+      &quot;head&quot;: 27,
+      &quot;deprel&quot;: &quot;nsubj:pass&quot;,
+      &quot;misc&quot;: &quot;start_char=456|end_char=462&quot;
+    },
+    {
+      &quot;id&quot;: 29,
+      &quot;text&quot;: &quot;pertinent&quot;,
+      &quot;lemma&quot;: &quot;pertineo&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;K3|modA|tem1|gen9&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 24,
+      &quot;deprel&quot;: &quot;acl:relcl&quot;,
+      &quot;misc&quot;: &quot;start_char=463|end_char=472&quot;
+    },
+    {
+      &quot;id&quot;: 30,
+      &quot;text&quot;: &quot;important&quot;,
+      &quot;lemma&quot;: &quot;importo&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;J3|modA|tem1|gen9&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 24,
+      &quot;deprel&quot;: &quot;acl:relcl&quot;,
+      &quot;misc&quot;: &quot;start_char=473|end_char=482&quot;
+    },
+    {
+      &quot;id&quot;: 31,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 24,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=482|end_char=483&quot;
+    },
+    {
+      &quot;id&quot;: 32,
+      &quot;text&quot;: &quot;proximique&quot;,
+      &quot;lemma&quot;: &quot;proximusque&quot;,
+      &quot;upos&quot;: &quot;ADJ&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casJ|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Pos|Gender=Masc|Number=Plur&quot;,
+      &quot;head&quot;: 22,
+      &quot;deprel&quot;: &quot;conj&quot;,
+      &quot;misc&quot;: &quot;start_char=484|end_char=494&quot;
+    },
+    {
+      &quot;id&quot;: 33,
+      &quot;text&quot;: &quot;sunt&quot;,
+      &quot;lemma&quot;: &quot;sum&quot;,
+      &quot;upos&quot;: &quot;AUX&quot;,
+      &quot;xpos&quot;: &quot;N3|modA|tem1|gen9&quot;,
+      &quot;feats&quot;: &quot;Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 32,
+      &quot;deprel&quot;: &quot;cop&quot;,
+      &quot;misc&quot;: &quot;start_char=495|end_char=499&quot;
+    },
+    {
+      &quot;id&quot;: 34,
+      &quot;text&quot;: &quot;Germanis&quot;,
+      &quot;lemma&quot;: &quot;Germanis&quot;,
+      &quot;upos&quot;: &quot;ADJ&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casL|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Masc|Number=Plur&quot;,
+      &quot;head&quot;: 32,
+      &quot;deprel&quot;: &quot;nmod&quot;,
+      &quot;misc&quot;: &quot;start_char=500|end_char=508&quot;
+    },
+    {
+      &quot;id&quot;: 35,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 39,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=508|end_char=509&quot;
+    },
+    {
+      &quot;id&quot;: 36,
+      &quot;text&quot;: &quot;qui&quot;,
+      &quot;lemma&quot;: &quot;qui&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casJ|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Pos|Gender=Masc|Number=Plur|PronType=Rel&quot;,
+      &quot;head&quot;: 39,
+      &quot;deprel&quot;: &quot;nsubj&quot;,
+      &quot;misc&quot;: &quot;start_char=510|end_char=513&quot;
+    },
+    {
+      &quot;id&quot;: 37,
+      &quot;text&quot;: &quot;trans&quot;,
+      &quot;lemma&quot;: &quot;trans&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 38,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=514|end_char=519&quot;
+    },
+    {
+      &quot;id&quot;: 38,
+      &quot;text&quot;: &quot;Rhenum&quot;,
+      &quot;lemma&quot;: &quot;Rhenum&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casD|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Masc|Number=Sing&quot;,
+      &quot;head&quot;: 39,
+      &quot;deprel&quot;: &quot;obl&quot;,
+      &quot;misc&quot;: &quot;start_char=520|end_char=526&quot;
+    },
+    {
+      &quot;id&quot;: 39,
+      &quot;text&quot;: &quot;incolunt&quot;,
+      &quot;lemma&quot;: &quot;incolo&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;L3|modA|tem1|gen9&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 34,
+      &quot;deprel&quot;: &quot;acl:relcl&quot;,
+      &quot;misc&quot;: &quot;start_char=527|end_char=535&quot;
+    },
+    {
+      &quot;id&quot;: 40,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 44,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=535|end_char=536&quot;
+    },
+    {
+      &quot;id&quot;: 41,
+      &quot;text&quot;: &quot;quibuscum&quot;,
+      &quot;lemma&quot;: &quot;quicumque&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casJ|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Pos|Gender=Masc|Number=Plur|PronType=Rel&quot;,
+      &quot;head&quot;: 44,
+      &quot;deprel&quot;: &quot;nsubj&quot;,
+      &quot;misc&quot;: &quot;start_char=537|end_char=546&quot;
+    },
+    {
+      &quot;id&quot;: 42,
+      &quot;text&quot;: &quot;continenter&quot;,
+      &quot;lemma&quot;: &quot;continenter&quot;,
+      &quot;upos&quot;: &quot;ADV&quot;,
+      &quot;xpos&quot;: &quot;L2|modD|tem1|grp1|casG&quot;,
+      &quot;feats&quot;: &quot;Degree=Pos&quot;,
+      &quot;head&quot;: 44,
+      &quot;deprel&quot;: &quot;advmod&quot;,
+      &quot;misc&quot;: &quot;start_char=547|end_char=558&quot;
+    },
+    {
+      &quot;id&quot;: 43,
+      &quot;text&quot;: &quot;bellum&quot;,
+      &quot;lemma&quot;: &quot;bellum&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casD|gen3&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Neut|Number=Sing&quot;,
+      &quot;head&quot;: 44,
+      &quot;deprel&quot;: &quot;obj&quot;,
+      &quot;misc&quot;: &quot;start_char=559|end_char=565&quot;
+    },
+    {
+      &quot;id&quot;: 44,
+      &quot;text&quot;: &quot;gerunt&quot;,
+      &quot;lemma&quot;: &quot;gero&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;L3|modA|tem1|gen9&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 39,
+      &quot;deprel&quot;: &quot;advcl&quot;,
+      &quot;misc&quot;: &quot;start_char=566|end_char=572&quot;
+    },
+    {
+      &quot;id&quot;: 45,
+      &quot;text&quot;: &quot;.&quot;,
+      &quot;lemma&quot;: &quot;.&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 3,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=572|end_char=573&quot;
+    }
+  ],
+  [
+    {
+      &quot;id&quot;: 1,
+      &quot;text&quot;: &quot;Qua&quot;,
+      &quot;lemma&quot;: &quot;is&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casF|gen2|varA&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Fem|Number=Sing|PronType=Rel&quot;,
+      &quot;head&quot;: 9,
+      &quot;deprel&quot;: &quot;obl&quot;,
+      &quot;misc&quot;: &quot;start_char=574|end_char=577&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;text&quot;: &quot;de&quot;,
+      &quot;lemma&quot;: &quot;de&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 3,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=578|end_char=580&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;text&quot;: &quot;causa&quot;,
+      &quot;lemma&quot;: &quot;causa&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casF|gen2|vgr1&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Fem|Number=Sing&quot;,
+      &quot;head&quot;: 9,
+      &quot;deprel&quot;: &quot;obl&quot;,
+      &quot;misc&quot;: &quot;start_char=581|end_char=586&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;text&quot;: &quot;Helvetii&quot;,
+      &quot;lemma&quot;: &quot;ieleetium&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casB|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Gen|Degree=Pos|Gender=Masc|Number=Sing&quot;,
+      &quot;head&quot;: 3,
+      &quot;deprel&quot;: &quot;nmod&quot;,
+      &quot;misc&quot;: &quot;start_char=587|end_char=595&quot;
+    },
+    {
+      &quot;id&quot;: 5,
+      &quot;text&quot;: &quot;quoque&quot;,
+      &quot;lemma&quot;: &quot;quoque&quot;,
+      &quot;upos&quot;: &quot;ADV&quot;,
+      &quot;xpos&quot;: &quot;O4|comQ&quot;,
+      &quot;head&quot;: 9,
+      &quot;deprel&quot;: &quot;advmod&quot;,
+      &quot;misc&quot;: &quot;start_char=596|end_char=602&quot;
+    },
+    {
+      &quot;id&quot;: 6,
+      &quot;text&quot;: &quot;reliquos&quot;,
+      &quot;lemma&quot;: &quot;reliquus&quot;,
+      &quot;upos&quot;: &quot;DET&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casM|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Masc|Number=Plur|PronType=Ind&quot;,
+      &quot;head&quot;: 7,
+      &quot;deprel&quot;: &quot;det&quot;,
+      &quot;misc&quot;: &quot;start_char=603|end_char=611&quot;
+    },
+    {
+      &quot;id&quot;: 7,
+      &quot;text&quot;: &quot;Gallos&quot;,
+      &quot;lemma&quot;: &quot;iallus&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casM|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Masc|Number=Plur&quot;,
+      &quot;head&quot;: 9,
+      &quot;deprel&quot;: &quot;obj&quot;,
+      &quot;misc&quot;: &quot;start_char=612|end_char=618&quot;
+    },
+    {
+      &quot;id&quot;: 8,
+      &quot;text&quot;: &quot;virtute&quot;,
+      &quot;lemma&quot;: &quot;eirtus&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casF|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Fem|Number=Sing&quot;,
+      &quot;head&quot;: 9,
+      &quot;deprel&quot;: &quot;obl&quot;,
+      &quot;misc&quot;: &quot;start_char=619|end_char=626&quot;
+    },
+    {
+      &quot;id&quot;: 9,
+      &quot;text&quot;: &quot;praecedunt&quot;,
+      &quot;lemma&quot;: &quot;praecedo&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;L3|modA|tem1|gen9&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 0,
+      &quot;deprel&quot;: &quot;root&quot;,
+      &quot;misc&quot;: &quot;start_char=627|end_char=637&quot;
+    },
+    {
+      &quot;id&quot;: 10,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 17,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=637|end_char=638&quot;
+    },
+    {
+      &quot;id&quot;: 11,
+      &quot;text&quot;: &quot;quod&quot;,
+      &quot;lemma&quot;: &quot;quod&quot;,
+      &quot;upos&quot;: &quot;SCONJ&quot;,
+      &quot;xpos&quot;: &quot;O4&quot;,
+      &quot;head&quot;: 17,
+      &quot;deprel&quot;: &quot;mark&quot;,
+      &quot;misc&quot;: &quot;start_char=639|end_char=643&quot;
+    },
+    {
+      &quot;id&quot;: 12,
+      &quot;text&quot;: &quot;fere&quot;,
+      &quot;lemma&quot;: &quot;fere&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 14,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=644|end_char=648&quot;
+    },
+    {
+      &quot;id&quot;: 13,
+      &quot;text&quot;: &quot;cotidianis&quot;,
+      &quot;lemma&quot;: &quot;cotidianis&quot;,
+      &quot;upos&quot;: &quot;ADJ&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casO|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Fem|Number=Plur&quot;,
+      &quot;head&quot;: 14,
+      &quot;deprel&quot;: &quot;amod&quot;,
+      &quot;misc&quot;: &quot;start_char=649|end_char=659&quot;
+    },
+    {
+      &quot;id&quot;: 14,
+      &quot;text&quot;: &quot;proeliis&quot;,
+      &quot;lemma&quot;: &quot;proelium&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casO|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Fem|Number=Plur&quot;,
+      &quot;head&quot;: 17,
+      &quot;deprel&quot;: &quot;obl&quot;,
+      &quot;misc&quot;: &quot;start_char=660|end_char=668&quot;
+    },
+    {
+      &quot;id&quot;: 15,
+      &quot;text&quot;: &quot;cum&quot;,
+      &quot;lemma&quot;: &quot;cum&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4|vgr1&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 16,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=669|end_char=672&quot;
+    },
+    {
+      &quot;id&quot;: 16,
+      &quot;text&quot;: &quot;Germanis&quot;,
+      &quot;lemma&quot;: &quot;Germanis&quot;,
+      &quot;upos&quot;: &quot;ADJ&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casO|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Masc|Number=Plur&quot;,
+      &quot;head&quot;: 17,
+      &quot;deprel&quot;: &quot;obl&quot;,
+      &quot;misc&quot;: &quot;start_char=673|end_char=681&quot;
+    },
+    {
+      &quot;id&quot;: 17,
+      &quot;text&quot;: &quot;contendunt&quot;,
+      &quot;lemma&quot;: &quot;contendo&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;L3|modA|tem1|gen9&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 9,
+      &quot;deprel&quot;: &quot;advcl&quot;,
+      &quot;misc&quot;: &quot;start_char=682|end_char=692&quot;
+    },
+    {
+      &quot;id&quot;: 18,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 24,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=692|end_char=693&quot;
+    },
+    {
+      &quot;id&quot;: 19,
+      &quot;text&quot;: &quot;cum&quot;,
+      &quot;lemma&quot;: &quot;cum&quot;,
+      &quot;upos&quot;: &quot;SCONJ&quot;,
+      &quot;xpos&quot;: &quot;S4|vgr1&quot;,
+      &quot;head&quot;: 24,
+      &quot;deprel&quot;: &quot;mark&quot;,
+      &quot;misc&quot;: &quot;start_char=694|end_char=697&quot;
+    },
+    {
+      &quot;id&quot;: 20,
+      &quot;text&quot;: &quot;aut&quot;,
+      &quot;lemma&quot;: &quot;aut&quot;,
+      &quot;upos&quot;: &quot;ADV&quot;,
+      &quot;xpos&quot;: &quot;O4&quot;,
+      &quot;head&quot;: 22,
+      &quot;deprel&quot;: &quot;advmod:emph&quot;,
+      &quot;misc&quot;: &quot;start_char=698|end_char=701&quot;
+    },
+    {
+      &quot;id&quot;: 21,
+      &quot;text&quot;: &quot;suis&quot;,
+      &quot;lemma&quot;: &quot;suus&quot;,
+      &quot;upos&quot;: &quot;DET&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casO|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Masc|Number=Plur|Person=3|Poss=Yes|PronType=Prs|Reflex=Yes&quot;,
+      &quot;head&quot;: 22,
+      &quot;deprel&quot;: &quot;det&quot;,
+      &quot;misc&quot;: &quot;start_char=702|end_char=706&quot;
+    },
+    {
+      &quot;id&quot;: 22,
+      &quot;text&quot;: &quot;finibus&quot;,
+      &quot;lemma&quot;: &quot;finis&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casO|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Masc|Number=Plur&quot;,
+      &quot;head&quot;: 24,
+      &quot;deprel&quot;: &quot;obl&quot;,
+      &quot;misc&quot;: &quot;start_char=707|end_char=714&quot;
+    },
+    {
+      &quot;id&quot;: 23,
+      &quot;text&quot;: &quot;eos&quot;,
+      &quot;lemma&quot;: &quot;is&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casM|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Masc|Number=Plur|PronType=Dem,Prs&quot;,
+      &quot;head&quot;: 24,
+      &quot;deprel&quot;: &quot;obj&quot;,
+      &quot;misc&quot;: &quot;start_char=715|end_char=718&quot;
+    },
+    {
+      &quot;id&quot;: 24,
+      &quot;text&quot;: &quot;prohibent&quot;,
+      &quot;lemma&quot;: &quot;prohibeo&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;K3|modA|tem1|gen9&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 17,
+      &quot;deprel&quot;: &quot;advcl&quot;,
+      &quot;misc&quot;: &quot;start_char=719|end_char=728&quot;
+    },
+    {
+      &quot;id&quot;: 25,
+      &quot;text&quot;: &quot;aut&quot;,
+      &quot;lemma&quot;: &quot;aut&quot;,
+      &quot;upos&quot;: &quot;CCONJ&quot;,
+      &quot;xpos&quot;: &quot;O4&quot;,
+      &quot;head&quot;: 31,
+      &quot;deprel&quot;: &quot;cc&quot;,
+      &quot;misc&quot;: &quot;start_char=729|end_char=732&quot;
+    },
+    {
+      &quot;id&quot;: 26,
+      &quot;text&quot;: &quot;ipsi&quot;,
+      &quot;lemma&quot;: &quot;ipse&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casJ|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Pos|Gender=Masc|Number=Plur|PronType=Dem,Prs&quot;,
+      &quot;head&quot;: 31,
+      &quot;deprel&quot;: &quot;nsubj&quot;,
+      &quot;misc&quot;: &quot;start_char=733|end_char=737&quot;
+    },
+    {
+      &quot;id&quot;: 27,
+      &quot;text&quot;: &quot;in&quot;,
+      &quot;lemma&quot;: &quot;in&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 29,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=738|end_char=740&quot;
+    },
+    {
+      &quot;id&quot;: 28,
+      &quot;text&quot;: &quot;eorum&quot;,
+      &quot;lemma&quot;: &quot;is&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casK|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Gen|Degree=Pos|Gender=Masc|Number=Plur|PronType=Dem,Prs&quot;,
+      &quot;head&quot;: 29,
+      &quot;deprel&quot;: &quot;nmod&quot;,
+      &quot;misc&quot;: &quot;start_char=741|end_char=746&quot;
+    },
+    {
+      &quot;id&quot;: 29,
+      &quot;text&quot;: &quot;finibus&quot;,
+      &quot;lemma&quot;: &quot;finis&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casO|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Masc|Number=Plur&quot;,
+      &quot;head&quot;: 31,
+      &quot;deprel&quot;: &quot;obl&quot;,
+      &quot;misc&quot;: &quot;start_char=747|end_char=754&quot;
+    },
+    {
+      &quot;id&quot;: 30,
+      &quot;text&quot;: &quot;bellum&quot;,
+      &quot;lemma&quot;: &quot;bellum&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casD|gen3&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Neut|Number=Sing&quot;,
+      &quot;head&quot;: 31,
+      &quot;deprel&quot;: &quot;obj&quot;,
+      &quot;misc&quot;: &quot;start_char=755|end_char=761&quot;
+    },
+    {
+      &quot;id&quot;: 31,
+      &quot;text&quot;: &quot;gerunt&quot;,
+      &quot;lemma&quot;: &quot;gero&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;L3|modA|tem1|gen9&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 24,
+      &quot;deprel&quot;: &quot;conj&quot;,
+      &quot;misc&quot;: &quot;start_char=762|end_char=768&quot;
+    },
+    {
+      &quot;id&quot;: 32,
+      &quot;text&quot;: &quot;.&quot;,
+      &quot;lemma&quot;: &quot;.&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 9,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=768|end_char=769&quot;
+    }
+  ],
+  [
+    {
+      &quot;id&quot;: 1,
+      &quot;text&quot;: &quot;Eorum&quot;,
+      &quot;lemma&quot;: &quot;is&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casK|gen3&quot;,
+      &quot;feats&quot;: &quot;Case=Gen|Degree=Pos|Gender=Neut|Number=Plur|PronType=Dem,Prs&quot;,
+      &quot;head&quot;: 2,
+      &quot;deprel&quot;: &quot;nmod&quot;,
+      &quot;misc&quot;: &quot;start_char=770|end_char=775&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;text&quot;: &quot;una&quot;,
+      &quot;lemma&quot;: &quot;unus&quot;,
+      &quot;upos&quot;: &quot;NUM&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casA|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Pos|Gender=Fem|NumType=Card|Number=Sing&quot;,
+      &quot;head&quot;: 18,
+      &quot;deprel&quot;: &quot;nsubj:pass&quot;,
+      &quot;misc&quot;: &quot;start_char=776|end_char=779&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 4,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=779|end_char=780&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;text&quot;: &quot;pars&quot;,
+      &quot;lemma&quot;: &quot;pars&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casA|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Pos|Gender=Fem|Number=Sing&quot;,
+      &quot;head&quot;: 2,
+      &quot;deprel&quot;: &quot;conj&quot;,
+      &quot;misc&quot;: &quot;start_char=781|end_char=785&quot;
+    },
+    {
+      &quot;id&quot;: 5,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 9,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=785|end_char=786&quot;
+    },
+    {
+      &quot;id&quot;: 6,
+      &quot;text&quot;: &quot;quam&quot;,
+      &quot;lemma&quot;: &quot;qui&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casD|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Fem|Number=Sing|PronType=Rel&quot;,
+      &quot;head&quot;: 8,
+      &quot;deprel&quot;: &quot;obj&quot;,
+      &quot;misc&quot;: &quot;start_char=787|end_char=791&quot;
+    },
+    {
+      &quot;id&quot;: 7,
+      &quot;text&quot;: &quot;Gallos&quot;,
+      &quot;lemma&quot;: &quot;iallus&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casM|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Masc|Number=Plur&quot;,
+      &quot;head&quot;: 8,
+      &quot;deprel&quot;: &quot;obj&quot;,
+      &quot;misc&quot;: &quot;start_char=792|end_char=798&quot;
+    },
+    {
+      &quot;id&quot;: 8,
+      &quot;text&quot;: &quot;obtinere&quot;,
+      &quot;lemma&quot;: &quot;obtineo&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;K3|modH|tem1&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Tense=Pres|VerbForm=Inf|Voice=Act&quot;,
+      &quot;head&quot;: 9,
+      &quot;deprel&quot;: &quot;xcomp&quot;,
+      &quot;misc&quot;: &quot;start_char=799|end_char=807&quot;
+    },
+    {
+      &quot;id&quot;: 9,
+      &quot;text&quot;: &quot;dictum&quot;,
+      &quot;lemma&quot;: &quot;dico&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;N2|modM|tem4|grp1|casA|gen3&quot;,
+      &quot;feats&quot;: &quot;Aspect=Perf|Case=Nom|Degree=Pos|Gender=Neut|Number=Sing|Tense=Past|VerbForm=Part|Voice=Pass&quot;,
+      &quot;head&quot;: 4,
+      &quot;deprel&quot;: &quot;acl:relcl&quot;,
+      &quot;misc&quot;: &quot;start_char=808|end_char=814&quot;
+    },
+    {
+      &quot;id&quot;: 10,
+      &quot;text&quot;: &quot;est&quot;,
+      &quot;lemma&quot;: &quot;sum&quot;,
+      &quot;upos&quot;: &quot;AUX&quot;,
+      &quot;xpos&quot;: &quot;N3|modA|tem1|gen6&quot;,
+      &quot;feats&quot;: &quot;Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 9,
+      &quot;deprel&quot;: &quot;aux:pass&quot;,
+      &quot;misc&quot;: &quot;start_char=815|end_char=818&quot;
+    },
+    {
+      &quot;id&quot;: 11,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 13,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=818|end_char=819&quot;
+    },
+    {
+      &quot;id&quot;: 12,
+      &quot;text&quot;: &quot;initium&quot;,
+      &quot;lemma&quot;: &quot;initium&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casD|gen3&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Neut|Number=Sing&quot;,
+      &quot;head&quot;: 13,
+      &quot;deprel&quot;: &quot;obj&quot;,
+      &quot;misc&quot;: &quot;start_char=820|end_char=827&quot;
+    },
+    {
+      &quot;id&quot;: 13,
+      &quot;text&quot;: &quot;capit&quot;,
+      &quot;lemma&quot;: &quot;capio&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;L3|modA|tem1|gen6&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 9,
+      &quot;deprel&quot;: &quot;conj&quot;,
+      &quot;misc&quot;: &quot;start_char=828|end_char=833&quot;
+    },
+    {
+      &quot;id&quot;: 14,
+      &quot;text&quot;: &quot;a&quot;,
+      &quot;lemma&quot;: &quot;ab&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4|vgr1&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 15,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=834|end_char=835&quot;
+    },
+    {
+      &quot;id&quot;: 15,
+      &quot;text&quot;: &quot;flumine&quot;,
+      &quot;lemma&quot;: &quot;flumen&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casF|gen3&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Neut|Number=Sing&quot;,
+      &quot;head&quot;: 13,
+      &quot;deprel&quot;: &quot;obl:arg&quot;,
+      &quot;misc&quot;: &quot;start_char=836|end_char=843&quot;
+    },
+    {
+      &quot;id&quot;: 16,
+      &quot;text&quot;: &quot;Rhodano&quot;,
+      &quot;lemma&quot;: &quot;ihodanus&quot;,
+      &quot;upos&quot;: &quot;ADJ&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casF|gen3&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Neut|Number=Sing&quot;,
+      &quot;head&quot;: 15,
+      &quot;deprel&quot;: &quot;amod&quot;,
+      &quot;misc&quot;: &quot;start_char=844|end_char=851&quot;
+    },
+    {
+      &quot;id&quot;: 17,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 18,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=851|end_char=852&quot;
+    },
+    {
+      &quot;id&quot;: 18,
+      &quot;text&quot;: &quot;continetur&quot;,
+      &quot;lemma&quot;: &quot;contineo&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;K3|modJ|tem1|gen6&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass&quot;,
+      &quot;head&quot;: 0,
+      &quot;deprel&quot;: &quot;root&quot;,
+      &quot;misc&quot;: &quot;start_char=853|end_char=863&quot;
+    },
+    {
+      &quot;id&quot;: 19,
+      &quot;text&quot;: &quot;Garumna&quot;,
+      &quot;lemma&quot;: &quot;iarumnus&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casF|gen3&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Neut|Number=Sing&quot;,
+      &quot;head&quot;: 18,
+      &quot;deprel&quot;: &quot;obl&quot;,
+      &quot;misc&quot;: &quot;start_char=864|end_char=871&quot;
+    },
+    {
+      &quot;id&quot;: 20,
+      &quot;text&quot;: &quot;flumine&quot;,
+      &quot;lemma&quot;: &quot;flumen&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casF|gen3&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Neut|Number=Sing&quot;,
+      &quot;head&quot;: 18,
+      &quot;deprel&quot;: &quot;obl&quot;,
+      &quot;misc&quot;: &quot;start_char=872|end_char=879&quot;
+    },
+    {
+      &quot;id&quot;: 21,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 22,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=879|end_char=880&quot;
+    },
+    {
+      &quot;id&quot;: 22,
+      &quot;text&quot;: &quot;Oceano&quot;,
+      &quot;lemma&quot;: &quot;mceanum&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casF|gen3&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Neut|Number=Sing&quot;,
+      &quot;head&quot;: 20,
+      &quot;deprel&quot;: &quot;conj&quot;,
+      &quot;misc&quot;: &quot;start_char=881|end_char=887&quot;
+    },
+    {
+      &quot;id&quot;: 23,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 22,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=887|end_char=888&quot;
+    },
+    {
+      &quot;id&quot;: 24,
+      &quot;text&quot;: &quot;finibus&quot;,
+      &quot;lemma&quot;: &quot;finis&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casO|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Masc|Number=Plur&quot;,
+      &quot;head&quot;: 27,
+      &quot;deprel&quot;: &quot;obl&quot;,
+      &quot;misc&quot;: &quot;start_char=889|end_char=896&quot;
+    },
+    {
+      &quot;id&quot;: 25,
+      &quot;text&quot;: &quot;Belgarum&quot;,
+      &quot;lemma&quot;: &quot;Belgarum&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casK|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Gen|Degree=Pos|Gender=Fem|Number=Plur&quot;,
+      &quot;head&quot;: 24,
+      &quot;deprel&quot;: &quot;nmod&quot;,
+      &quot;misc&quot;: &quot;start_char=897|end_char=905&quot;
+    },
+    {
+      &quot;id&quot;: 26,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 24,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=905|end_char=906&quot;
+    },
+    {
+      &quot;id&quot;: 27,
+      &quot;text&quot;: &quot;attingit&quot;,
+      &quot;lemma&quot;: &quot;attingo&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;L3|modA|tem1|gen6&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 18,
+      &quot;deprel&quot;: &quot;conj&quot;,
+      &quot;misc&quot;: &quot;start_char=907|end_char=915&quot;
+    },
+    {
+      &quot;id&quot;: 28,
+      &quot;text&quot;: &quot;etiam&quot;,
+      &quot;lemma&quot;: &quot;etiam&quot;,
+      &quot;upos&quot;: &quot;ADV&quot;,
+      &quot;xpos&quot;: &quot;O4|vgr1&quot;,
+      &quot;head&quot;: 30,
+      &quot;deprel&quot;: &quot;advmod:emph&quot;,
+      &quot;misc&quot;: &quot;start_char=916|end_char=921&quot;
+    },
+    {
+      &quot;id&quot;: 29,
+      &quot;text&quot;: &quot;ab&quot;,
+      &quot;lemma&quot;: &quot;ab&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4|vgr2&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 30,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=922|end_char=924&quot;
+    },
+    {
+      &quot;id&quot;: 30,
+      &quot;text&quot;: &quot;Sequanis&quot;,
+      &quot;lemma&quot;: &quot;Sequanis&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casO|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Fem|Number=Plur&quot;,
+      &quot;head&quot;: 27,
+      &quot;deprel&quot;: &quot;obl:arg&quot;,
+      &quot;misc&quot;: &quot;start_char=925|end_char=933&quot;
+    },
+    {
+      &quot;id&quot;: 31,
+      &quot;text&quot;: &quot;et&quot;,
+      &quot;lemma&quot;: &quot;et&quot;,
+      &quot;upos&quot;: &quot;CCONJ&quot;,
+      &quot;xpos&quot;: &quot;O4&quot;,
+      &quot;head&quot;: 32,
+      &quot;deprel&quot;: &quot;cc&quot;,
+      &quot;misc&quot;: &quot;start_char=934|end_char=936&quot;
+    },
+    {
+      &quot;id&quot;: 32,
+      &quot;text&quot;: &quot;Helvetiis&quot;,
+      &quot;lemma&quot;: &quot;eeleetium&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casO|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Fem|Number=Plur&quot;,
+      &quot;head&quot;: 30,
+      &quot;deprel&quot;: &quot;conj&quot;,
+      &quot;misc&quot;: &quot;start_char=937|end_char=946&quot;
+    },
+    {
+      &quot;id&quot;: 33,
+      &quot;text&quot;: &quot;flumen&quot;,
+      &quot;lemma&quot;: &quot;flumen&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casD|gen3&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Neut|Number=Sing&quot;,
+      &quot;head&quot;: 27,
+      &quot;deprel&quot;: &quot;obj&quot;,
+      &quot;misc&quot;: &quot;start_char=947|end_char=953&quot;
+    },
+    {
+      &quot;id&quot;: 34,
+      &quot;text&quot;: &quot;Rhenum&quot;,
+      &quot;lemma&quot;: &quot;Rhenum&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casD|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Masc|Number=Sing&quot;,
+      &quot;head&quot;: 33,
+      &quot;deprel&quot;: &quot;amod&quot;,
+      &quot;misc&quot;: &quot;start_char=954|end_char=960&quot;
+    },
+    {
+      &quot;id&quot;: 35,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 36,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=960|end_char=961&quot;
+    },
+    {
+      &quot;id&quot;: 36,
+      &quot;text&quot;: &quot;vergit&quot;,
+      &quot;lemma&quot;: &quot;iergo&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;L3|modA|tem1|gen6&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 27,
+      &quot;deprel&quot;: &quot;conj&quot;,
+      &quot;misc&quot;: &quot;start_char=962|end_char=968&quot;
+    },
+    {
+      &quot;id&quot;: 37,
+      &quot;text&quot;: &quot;ad&quot;,
+      &quot;lemma&quot;: &quot;ad&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 38,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=969|end_char=971&quot;
+    },
+    {
+      &quot;id&quot;: 38,
+      &quot;text&quot;: &quot;septentriones&quot;,
+      &quot;lemma&quot;: &quot;septentrio&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casM|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Fem|Number=Plur&quot;,
+      &quot;head&quot;: 36,
+      &quot;deprel&quot;: &quot;obl:arg&quot;,
+      &quot;misc&quot;: &quot;start_char=972|end_char=985&quot;
+    },
+    {
+      &quot;id&quot;: 39,
+      &quot;text&quot;: &quot;.&quot;,
+      &quot;lemma&quot;: &quot;.&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 18,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=985|end_char=986&quot;
+    }
+  ],
+  [
+    {
+      &quot;id&quot;: 1,
+      &quot;text&quot;: &quot;Belgae&quot;,
+      &quot;lemma&quot;: &quot;belgus&quot;,
+      &quot;upos&quot;: &quot;ADJ&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casJ|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Degree=Pos|Gender=Fem|Number=Plur&quot;,
+      &quot;head&quot;: 6,
+      &quot;deprel&quot;: &quot;nsubj&quot;,
+      &quot;misc&quot;: &quot;start_char=987|end_char=993&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;text&quot;: &quot;ab&quot;,
+      &quot;lemma&quot;: &quot;ab&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4|vgr2&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 5,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=994|end_char=996&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;text&quot;: &quot;extremis&quot;,
+      &quot;lemma&quot;: &quot;exterior&quot;,
+      &quot;upos&quot;: &quot;ADJ&quot;,
+      &quot;xpos&quot;: &quot;B1|grn3|casO|gen3&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Abs|Gender=Fem|Number=Plur&quot;,
+      &quot;head&quot;: 5,
+      &quot;deprel&quot;: &quot;amod&quot;,
+      &quot;misc&quot;: &quot;start_char=997|end_char=1005&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;text&quot;: &quot;Galliae&quot;,
+      &quot;lemma&quot;: &quot;iallia&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casB|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Gen|Degree=Pos|Gender=Fem|Number=Plur&quot;,
+      &quot;head&quot;: 5,
+      &quot;deprel&quot;: &quot;nmod&quot;,
+      &quot;misc&quot;: &quot;start_char=1006|end_char=1013&quot;
+    },
+    {
+      &quot;id&quot;: 5,
+      &quot;text&quot;: &quot;finibus&quot;,
+      &quot;lemma&quot;: &quot;finis&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casO|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Degree=Pos|Gender=Masc|Number=Plur&quot;,
+      &quot;head&quot;: 6,
+      &quot;deprel&quot;: &quot;obl:arg&quot;,
+      &quot;misc&quot;: &quot;start_char=1014|end_char=1021&quot;
+    },
+    {
+      &quot;id&quot;: 6,
+      &quot;text&quot;: &quot;oriuntur&quot;,
+      &quot;lemma&quot;: &quot;orior&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;N3|modJ|tem1|gen9&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass&quot;,
+      &quot;head&quot;: 0,
+      &quot;deprel&quot;: &quot;root&quot;,
+      &quot;misc&quot;: &quot;start_char=1022|end_char=1030&quot;
+    },
+    {
+      &quot;id&quot;: 7,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 8,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=1030|end_char=1031&quot;
+    },
+    {
+      &quot;id&quot;: 8,
+      &quot;text&quot;: &quot;pertinent&quot;,
+      &quot;lemma&quot;: &quot;pertineo&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;K3|modA|tem1|gen9&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 6,
+      &quot;deprel&quot;: &quot;conj&quot;,
+      &quot;misc&quot;: &quot;start_char=1032|end_char=1041&quot;
+    },
+    {
+      &quot;id&quot;: 9,
+      &quot;text&quot;: &quot;ad&quot;,
+      &quot;lemma&quot;: &quot;ad&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 11,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=1042|end_char=1044&quot;
+    },
+    {
+      &quot;id&quot;: 10,
+      &quot;text&quot;: &quot;inferiorem&quot;,
+      &quot;lemma&quot;: &quot;inferus&quot;,
+      &quot;upos&quot;: &quot;ADJ&quot;,
+      &quot;xpos&quot;: &quot;C1|grn2|casD|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Cmp|Gender=Fem|Number=Sing&quot;,
+      &quot;head&quot;: 11,
+      &quot;deprel&quot;: &quot;amod&quot;,
+      &quot;misc&quot;: &quot;start_char=1045|end_char=1055&quot;
+    },
+    {
+      &quot;id&quot;: 11,
+      &quot;text&quot;: &quot;partem&quot;,
+      &quot;lemma&quot;: &quot;pars&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casD|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Fem|Number=Sing&quot;,
+      &quot;head&quot;: 8,
+      &quot;deprel&quot;: &quot;obl:arg&quot;,
+      &quot;misc&quot;: &quot;start_char=1056|end_char=1062&quot;
+    },
+    {
+      &quot;id&quot;: 12,
+      &quot;text&quot;: &quot;fluminis&quot;,
+      &quot;lemma&quot;: &quot;flumen&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casB|gen3&quot;,
+      &quot;feats&quot;: &quot;Case=Gen|Degree=Pos|Gender=Neut|Number=Sing&quot;,
+      &quot;head&quot;: 11,
+      &quot;deprel&quot;: &quot;nmod&quot;,
+      &quot;misc&quot;: &quot;start_char=1063|end_char=1071&quot;
+    },
+    {
+      &quot;id&quot;: 13,
+      &quot;text&quot;: &quot;Rheni&quot;,
+      &quot;lemma&quot;: &quot;ihenum&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casB|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Gen|Degree=Pos|Gender=Masc|Number=Sing&quot;,
+      &quot;head&quot;: 12,
+      &quot;deprel&quot;: &quot;nmod&quot;,
+      &quot;misc&quot;: &quot;start_char=1072|end_char=1077&quot;
+    },
+    {
+      &quot;id&quot;: 14,
+      &quot;text&quot;: &quot;,&quot;,
+      &quot;lemma&quot;: &quot;,&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 15,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=1077|end_char=1078&quot;
+    },
+    {
+      &quot;id&quot;: 15,
+      &quot;text&quot;: &quot;spectant&quot;,
+      &quot;lemma&quot;: &quot;specto&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;J3|modA|tem1|gen9&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 8,
+      &quot;deprel&quot;: &quot;conj&quot;,
+      &quot;misc&quot;: &quot;start_char=1079|end_char=1087&quot;
+    },
+    {
+      &quot;id&quot;: 16,
+      &quot;text&quot;: &quot;in&quot;,
+      &quot;lemma&quot;: &quot;in&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 17,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=1088|end_char=1090&quot;
+    },
+    {
+      &quot;id&quot;: 17,
+      &quot;text&quot;: &quot;septentrionem&quot;,
+      &quot;lemma&quot;: &quot;septentrio&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casD|gen2|vgr1&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Fem|Number=Sing&quot;,
+      &quot;head&quot;: 15,
+      &quot;deprel&quot;: &quot;obl:arg&quot;,
+      &quot;misc&quot;: &quot;start_char=1091|end_char=1104&quot;
+    },
+    {
+      &quot;id&quot;: 18,
+      &quot;text&quot;: &quot;et&quot;,
+      &quot;lemma&quot;: &quot;et&quot;,
+      &quot;upos&quot;: &quot;CCONJ&quot;,
+      &quot;xpos&quot;: &quot;O4&quot;,
+      &quot;head&quot;: 19,
+      &quot;deprel&quot;: &quot;cc&quot;,
+      &quot;misc&quot;: &quot;start_char=1105|end_char=1107&quot;
+    },
+    {
+      &quot;id&quot;: 19,
+      &quot;text&quot;: &quot;orientem&quot;,
+      &quot;lemma&quot;: &quot;orior&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;L2|modD|tem1|grp1|casD|gen1&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Case=Acc|Degree=Pos|Gender=Masc|Number=Sing|Tense=Pres|VerbForm=Part|Voice=Act&quot;,
+      &quot;head&quot;: 20,
+      &quot;deprel&quot;: &quot;acl&quot;,
+      &quot;misc&quot;: &quot;start_char=1108|end_char=1116&quot;
+    },
+    {
+      &quot;id&quot;: 20,
+      &quot;text&quot;: &quot;solem&quot;,
+      &quot;lemma&quot;: &quot;sol&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casD|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Masc|Number=Sing&quot;,
+      &quot;head&quot;: 15,
+      &quot;deprel&quot;: &quot;obj&quot;,
+      &quot;misc&quot;: &quot;start_char=1117|end_char=1122&quot;
+    },
+    {
+      &quot;id&quot;: 21,
+      &quot;text&quot;: &quot;.&quot;,
+      &quot;lemma&quot;: &quot;.&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 15,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=1122|end_char=1123&quot;
+    }
+  ],
+  [
+    {
+      &quot;id&quot;: 1,
+      &quot;text&quot;: &quot;Aquitania&quot;,
+      &quot;lemma&quot;: &quot;Aquitania&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casA|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Gender=Fem|Number=Sing&quot;,
+      &quot;head&quot;: 0,
+      &quot;deprel&quot;: &quot;root&quot;,
+      &quot;misc&quot;: &quot;start_char=1124|end_char=1133&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;text&quot;: &quot;a&quot;,
+      &quot;lemma&quot;: &quot;ab&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4|vgr1&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 3,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=1134|end_char=1135&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;text&quot;: &quot;Garumna&quot;,
+      &quot;lemma&quot;: &quot;iarumnus&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casF|gen3&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Gender=Neut|Number=Sing&quot;,
+      &quot;head&quot;: 1,
+      &quot;deprel&quot;: &quot;conj&quot;,
+      &quot;misc&quot;: &quot;start_char=1136|end_char=1143&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;text&quot;: &quot;flumine&quot;,
+      &quot;lemma&quot;: &quot;flumen&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casF|gen3&quot;,
+      &quot;feats&quot;: &quot;Case=Abl|Gender=Neut|Number=Sing&quot;,
+      &quot;head&quot;: 1,
+      &quot;deprel&quot;: &quot;conj&quot;,
+      &quot;misc&quot;: &quot;start_char=1144|end_char=1151&quot;
+    },
+    {
+      &quot;id&quot;: 5,
+      &quot;text&quot;: &quot;ad&quot;,
+      &quot;lemma&quot;: &quot;ad&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 7,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=1152|end_char=1154&quot;
+    },
+    {
+      &quot;id&quot;: 6,
+      &quot;text&quot;: &quot;Pyrenaeos&quot;,
+      &quot;lemma&quot;: &quot;iyrenaeus&quot;,
+      &quot;upos&quot;: &quot;ADJ&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casM|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Masc|Number=Plur&quot;,
+      &quot;head&quot;: 7,
+      &quot;deprel&quot;: &quot;amod&quot;,
+      &quot;misc&quot;: &quot;start_char=1155|end_char=1164&quot;
+    },
+    {
+      &quot;id&quot;: 7,
+      &quot;text&quot;: &quot;montes&quot;,
+      &quot;lemma&quot;: &quot;mons&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casM|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Gender=Masc|Number=Plur&quot;,
+      &quot;head&quot;: 1,
+      &quot;deprel&quot;: &quot;advcl&quot;,
+      &quot;misc&quot;: &quot;start_char=1165|end_char=1171&quot;
+    },
+    {
+      &quot;id&quot;: 8,
+      &quot;text&quot;: &quot;et&quot;,
+      &quot;lemma&quot;: &quot;et&quot;,
+      &quot;upos&quot;: &quot;CCONJ&quot;,
+      &quot;xpos&quot;: &quot;O4&quot;,
+      &quot;head&quot;: 10,
+      &quot;deprel&quot;: &quot;cc&quot;,
+      &quot;misc&quot;: &quot;start_char=1172|end_char=1174&quot;
+    },
+    {
+      &quot;id&quot;: 9,
+      &quot;text&quot;: &quot;eam&quot;,
+      &quot;lemma&quot;: &quot;is&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casD|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Gender=Fem|Number=Sing|PronType=Dem,Prs&quot;,
+      &quot;head&quot;: 10,
+      &quot;deprel&quot;: &quot;det&quot;,
+      &quot;misc&quot;: &quot;start_char=1175|end_char=1178&quot;
+    },
+    {
+      &quot;id&quot;: 10,
+      &quot;text&quot;: &quot;partem&quot;,
+      &quot;lemma&quot;: &quot;pars&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casD|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Gender=Fem|Number=Sing&quot;,
+      &quot;head&quot;: 7,
+      &quot;deprel&quot;: &quot;conj&quot;,
+      &quot;misc&quot;: &quot;start_char=1179|end_char=1185&quot;
+    },
+    {
+      &quot;id&quot;: 11,
+      &quot;text&quot;: &quot;Oceani&quot;,
+      &quot;lemma&quot;: &quot;zceanum&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;B1|grn1|casB|gen3&quot;,
+      &quot;feats&quot;: &quot;Case=Gen|Gender=Neut|Number=Sing&quot;,
+      &quot;head&quot;: 10,
+      &quot;deprel&quot;: &quot;nmod&quot;,
+      &quot;misc&quot;: &quot;start_char=1186|end_char=1192&quot;
+    },
+    {
+      &quot;id&quot;: 12,
+      &quot;text&quot;: &quot;quae&quot;,
+      &quot;lemma&quot;: &quot;qui&quot;,
+      &quot;upos&quot;: &quot;PRON&quot;,
+      &quot;xpos&quot;: &quot;F1|grn1|casA|gen2|vgr1&quot;,
+      &quot;feats&quot;: &quot;Case=Nom|Gender=Fem|Number=Sing|PronType=Rel&quot;,
+      &quot;head&quot;: 13,
+      &quot;deprel&quot;: &quot;nsubj&quot;,
+      &quot;misc&quot;: &quot;start_char=1193|end_char=1197&quot;
+    },
+    {
+      &quot;id&quot;: 13,
+      &quot;text&quot;: &quot;est&quot;,
+      &quot;lemma&quot;: &quot;sum&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;N3|modA|tem1|gen6&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 11,
+      &quot;deprel&quot;: &quot;acl:relcl&quot;,
+      &quot;misc&quot;: &quot;start_char=1198|end_char=1201&quot;
+    },
+    {
+      &quot;id&quot;: 14,
+      &quot;text&quot;: &quot;ad&quot;,
+      &quot;lemma&quot;: &quot;ad&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 15,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=1202|end_char=1204&quot;
+    },
+    {
+      &quot;id&quot;: 15,
+      &quot;text&quot;: &quot;Hispaniam&quot;,
+      &quot;lemma&quot;: &quot;iispania&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;A1|grn1|casD|gen2|vgr1&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Gender=Fem|Number=Sing&quot;,
+      &quot;head&quot;: 13,
+      &quot;deprel&quot;: &quot;obl&quot;,
+      &quot;misc&quot;: &quot;start_char=1205|end_char=1214&quot;
+    },
+    {
+      &quot;id&quot;: 16,
+      &quot;text&quot;: &quot;pertinet&quot;,
+      &quot;lemma&quot;: &quot;pertineo&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;K3|modA|tem1|gen6&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 11,
+      &quot;deprel&quot;: &quot;acl:relcl&quot;,
+      &quot;misc&quot;: &quot;start_char=1215|end_char=1223&quot;
+    },
+    {
+      &quot;id&quot;: 17,
+      &quot;text&quot;: &quot;;&quot;,
+      &quot;lemma&quot;: &quot;;&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 1,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=1223|end_char=1224&quot;
+    }
+  ],
+  [
+    {
+      &quot;id&quot;: 1,
+      &quot;text&quot;: &quot;spectat&quot;,
+      &quot;lemma&quot;: &quot;specto&quot;,
+      &quot;upos&quot;: &quot;VERB&quot;,
+      &quot;xpos&quot;: &quot;J3|modA|tem1|gen6&quot;,
+      &quot;feats&quot;: &quot;Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&quot;,
+      &quot;head&quot;: 0,
+      &quot;deprel&quot;: &quot;root&quot;,
+      &quot;misc&quot;: &quot;start_char=1225|end_char=1232&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;text&quot;: &quot;inter&quot;,
+      &quot;lemma&quot;: &quot;inter&quot;,
+      &quot;upos&quot;: &quot;ADP&quot;,
+      &quot;xpos&quot;: &quot;S4&quot;,
+      &quot;feats&quot;: &quot;AdpType=Prep&quot;,
+      &quot;head&quot;: 3,
+      &quot;deprel&quot;: &quot;case&quot;,
+      &quot;misc&quot;: &quot;start_char=1233|end_char=1238&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;text&quot;: &quot;occasum&quot;,
+      &quot;lemma&quot;: &quot;occasum&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;D1|grn1|casD|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Masc|Number=Sing&quot;,
+      &quot;head&quot;: 1,
+      &quot;deprel&quot;: &quot;obl&quot;,
+      &quot;misc&quot;: &quot;start_char=1239|end_char=1246&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;text&quot;: &quot;solis&quot;,
+      &quot;lemma&quot;: &quot;sol&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casB|gen1&quot;,
+      &quot;feats&quot;: &quot;Case=Gen|Degree=Pos|Gender=Masc|Number=Sing&quot;,
+      &quot;head&quot;: 3,
+      &quot;deprel&quot;: &quot;nmod&quot;,
+      &quot;misc&quot;: &quot;start_char=1247|end_char=1252&quot;
+    },
+    {
+      &quot;id&quot;: 5,
+      &quot;text&quot;: &quot;et&quot;,
+      &quot;lemma&quot;: &quot;et&quot;,
+      &quot;upos&quot;: &quot;CCONJ&quot;,
+      &quot;xpos&quot;: &quot;O4&quot;,
+      &quot;head&quot;: 6,
+      &quot;deprel&quot;: &quot;cc&quot;,
+      &quot;misc&quot;: &quot;start_char=1253|end_char=1255&quot;
+    },
+    {
+      &quot;id&quot;: 6,
+      &quot;text&quot;: &quot;septentriones&quot;,
+      &quot;lemma&quot;: &quot;septentrio&quot;,
+      &quot;upos&quot;: &quot;NOUN&quot;,
+      &quot;xpos&quot;: &quot;C1|grn1|casM|gen2&quot;,
+      &quot;feats&quot;: &quot;Case=Acc|Degree=Pos|Gender=Fem|Number=Plur&quot;,
+      &quot;head&quot;: 3,
+      &quot;deprel&quot;: &quot;conj&quot;,
+      &quot;misc&quot;: &quot;start_char=1256|end_char=1269&quot;
+    },
+    {
+      &quot;id&quot;: 7,
+      &quot;text&quot;: &quot;.&quot;,
+      &quot;lemma&quot;: &quot;.&quot;,
+      &quot;upos&quot;: &quot;PUNCT&quot;,
+      &quot;xpos&quot;: &quot;Punc&quot;,
+      &quot;head&quot;: 1,
+      &quot;deprel&quot;: &quot;punct&quot;,
+      &quot;misc&quot;: &quot;start_char=1269|end_char=1270&quot;
+    }
+  ]
+]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Also: cltk_doc.raw</span>
+<span class="n">cltk_doc</span><span class="o">.</span><span class="n">normalized_text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Gallia est omnis divisa in partes tres, quarum unam incolunt Belgae, aliam Aquitani, tertiam qui ipsorum lingua Celtae, nostra Galli appellantur. Hi omnes lingua, institutis, legibus inter se differunt. Gallos ab Aquitanis Garumna flumen, a Belgis Matrona et Sequana dividit. Horum omnium fortissimi sunt Belgae, propterea quod a cultu atque humanitate provinciae longissime absunt, minimeque ad eos mercatores saepe commeant atque ea quae ad effeminandos animos pertinent important, proximique sunt Germanis, qui trans Rhenum incolunt, quibuscum continenter bellum gerunt. Qua de causa Helvetii quoque reliquos Gallos virtute praecedunt, quod fere cotidianis proeliis cum Germanis contendunt, cum aut suis finibus eos prohibent aut ipsi in eorum finibus bellum gerunt. Eorum una, pars, quam Gallos obtinere dictum est, initium capit a flumine Rhodano, continetur Garumna flumine, Oceano, finibus Belgarum, attingit etiam ab Sequanis et Helvetiis flumen Rhenum, vergit ad septentriones. Belgae ab extremis Galliae finibus oriuntur, pertinent ad inferiorem partem fluminis Rheni, spectant in septentrionem et orientem solem. Aquitania a Garumna flumine ad Pyrenaeos montes et eam partem Oceani quae est ad Hispaniam pertinet; spectat inter occasum solis et septentriones.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cltk_doc</span><span class="o">.</span><span class="n">sentences_strings</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Gallia est omnis divisa in partes tres , quarum unam incolunt Belgae , aliam Aquitani , tertiam qui ipsorum lingua Celtae , nostra Galli appellantur .&#39;,
+ &#39;Hi omnes lingua , institutis , legibus inter se differunt .&#39;,
+ &#39;Gallos ab Aquitanis Garumna flumen , a Belgis Matrona et Sequana dividit .&#39;,
+ &#39;Horum omnium fortissimi sunt Belgae , propterea quod a cultu atque humanitate provinciae longissime absunt , minimeque ad eos mercatores saepe commeant atque ea quae ad effeminandos animos pertinent important , proximique sunt Germanis , qui trans Rhenum incolunt , quibuscum continenter bellum gerunt .&#39;,
+ &#39;Qua de causa Helvetii quoque reliquos Gallos virtute praecedunt , quod fere cotidianis proeliis cum Germanis contendunt , cum aut suis finibus eos prohibent aut ipsi in eorum finibus bellum gerunt .&#39;,
+ &#39;Eorum una , pars , quam Gallos obtinere dictum est , initium capit a flumine Rhodano , continetur Garumna flumine , Oceano , finibus Belgarum , attingit etiam ab Sequanis et Helvetiis flumen Rhenum , vergit ad septentriones .&#39;,
+ &#39;Belgae ab extremis Galliae finibus oriuntur , pertinent ad inferiorem partem fluminis Rheni , spectant in septentrionem et orientem solem .&#39;,
+ &#39;Aquitania a Garumna flumine ad Pyrenaeos montes et eam partem Oceani quae est ad Hispaniam pertinet ;&#39;,
+ &#39;spectat inter occasum solis et septentriones .&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cltk_doc</span><span class="o">.</span><span class="n">sentences_tokens</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;Gallia&#39;,
+  &#39;est&#39;,
+  &#39;omnis&#39;,
+  &#39;divisa&#39;,
+  &#39;in&#39;,
+  &#39;partes&#39;,
+  &#39;tres&#39;,
+  &#39;,&#39;,
+  &#39;quarum&#39;,
+  &#39;unam&#39;,
+  &#39;incolunt&#39;,
+  &#39;Belgae&#39;,
+  &#39;,&#39;,
+  &#39;aliam&#39;,
+  &#39;Aquitani&#39;,
+  &#39;,&#39;,
+  &#39;tertiam&#39;,
+  &#39;qui&#39;,
+  &#39;ipsorum&#39;,
+  &#39;lingua&#39;,
+  &#39;Celtae&#39;,
+  &#39;,&#39;,
+  &#39;nostra&#39;,
+  &#39;Galli&#39;,
+  &#39;appellantur&#39;,
+  &#39;.&#39;],
+ [&#39;Hi&#39;,
+  &#39;omnes&#39;,
+  &#39;lingua&#39;,
+  &#39;,&#39;,
+  &#39;institutis&#39;,
+  &#39;,&#39;,
+  &#39;legibus&#39;,
+  &#39;inter&#39;,
+  &#39;se&#39;,
+  &#39;differunt&#39;,
+  &#39;.&#39;],
+ [&#39;Gallos&#39;,
+  &#39;ab&#39;,
+  &#39;Aquitanis&#39;,
+  &#39;Garumna&#39;,
+  &#39;flumen&#39;,
+  &#39;,&#39;,
+  &#39;a&#39;,
+  &#39;Belgis&#39;,
+  &#39;Matrona&#39;,
+  &#39;et&#39;,
+  &#39;Sequana&#39;,
+  &#39;dividit&#39;,
+  &#39;.&#39;],
+ [&#39;Horum&#39;,
+  &#39;omnium&#39;,
+  &#39;fortissimi&#39;,
+  &#39;sunt&#39;,
+  &#39;Belgae&#39;,
+  &#39;,&#39;,
+  &#39;propterea&#39;,
+  &#39;quod&#39;,
+  &#39;a&#39;,
+  &#39;cultu&#39;,
+  &#39;atque&#39;,
+  &#39;humanitate&#39;,
+  &#39;provinciae&#39;,
+  &#39;longissime&#39;,
+  &#39;absunt&#39;,
+  &#39;,&#39;,
+  &#39;minimeque&#39;,
+  &#39;ad&#39;,
+  &#39;eos&#39;,
+  &#39;mercatores&#39;,
+  &#39;saepe&#39;,
+  &#39;commeant&#39;,
+  &#39;atque&#39;,
+  &#39;ea&#39;,
+  &#39;quae&#39;,
+  &#39;ad&#39;,
+  &#39;effeminandos&#39;,
+  &#39;animos&#39;,
+  &#39;pertinent&#39;,
+  &#39;important&#39;,
+  &#39;,&#39;,
+  &#39;proximique&#39;,
+  &#39;sunt&#39;,
+  &#39;Germanis&#39;,
+  &#39;,&#39;,
+  &#39;qui&#39;,
+  &#39;trans&#39;,
+  &#39;Rhenum&#39;,
+  &#39;incolunt&#39;,
+  &#39;,&#39;,
+  &#39;quibuscum&#39;,
+  &#39;continenter&#39;,
+  &#39;bellum&#39;,
+  &#39;gerunt&#39;,
+  &#39;.&#39;],
+ [&#39;Qua&#39;,
+  &#39;de&#39;,
+  &#39;causa&#39;,
+  &#39;Helvetii&#39;,
+  &#39;quoque&#39;,
+  &#39;reliquos&#39;,
+  &#39;Gallos&#39;,
+  &#39;virtute&#39;,
+  &#39;praecedunt&#39;,
+  &#39;,&#39;,
+  &#39;quod&#39;,
+  &#39;fere&#39;,
+  &#39;cotidianis&#39;,
+  &#39;proeliis&#39;,
+  &#39;cum&#39;,
+  &#39;Germanis&#39;,
+  &#39;contendunt&#39;,
+  &#39;,&#39;,
+  &#39;cum&#39;,
+  &#39;aut&#39;,
+  &#39;suis&#39;,
+  &#39;finibus&#39;,
+  &#39;eos&#39;,
+  &#39;prohibent&#39;,
+  &#39;aut&#39;,
+  &#39;ipsi&#39;,
+  &#39;in&#39;,
+  &#39;eorum&#39;,
+  &#39;finibus&#39;,
+  &#39;bellum&#39;,
+  &#39;gerunt&#39;,
+  &#39;.&#39;],
+ [&#39;Eorum&#39;,
+  &#39;una&#39;,
+  &#39;,&#39;,
+  &#39;pars&#39;,
+  &#39;,&#39;,
+  &#39;quam&#39;,
+  &#39;Gallos&#39;,
+  &#39;obtinere&#39;,
+  &#39;dictum&#39;,
+  &#39;est&#39;,
+  &#39;,&#39;,
+  &#39;initium&#39;,
+  &#39;capit&#39;,
+  &#39;a&#39;,
+  &#39;flumine&#39;,
+  &#39;Rhodano&#39;,
+  &#39;,&#39;,
+  &#39;continetur&#39;,
+  &#39;Garumna&#39;,
+  &#39;flumine&#39;,
+  &#39;,&#39;,
+  &#39;Oceano&#39;,
+  &#39;,&#39;,
+  &#39;finibus&#39;,
+  &#39;Belgarum&#39;,
+  &#39;,&#39;,
+  &#39;attingit&#39;,
+  &#39;etiam&#39;,
+  &#39;ab&#39;,
+  &#39;Sequanis&#39;,
+  &#39;et&#39;,
+  &#39;Helvetiis&#39;,
+  &#39;flumen&#39;,
+  &#39;Rhenum&#39;,
+  &#39;,&#39;,
+  &#39;vergit&#39;,
+  &#39;ad&#39;,
+  &#39;septentriones&#39;,
+  &#39;.&#39;],
+ [&#39;Belgae&#39;,
+  &#39;ab&#39;,
+  &#39;extremis&#39;,
+  &#39;Galliae&#39;,
+  &#39;finibus&#39;,
+  &#39;oriuntur&#39;,
+  &#39;,&#39;,
+  &#39;pertinent&#39;,
+  &#39;ad&#39;,
+  &#39;inferiorem&#39;,
+  &#39;partem&#39;,
+  &#39;fluminis&#39;,
+  &#39;Rheni&#39;,
+  &#39;,&#39;,
+  &#39;spectant&#39;,
+  &#39;in&#39;,
+  &#39;septentrionem&#39;,
+  &#39;et&#39;,
+  &#39;orientem&#39;,
+  &#39;solem&#39;,
+  &#39;.&#39;],
+ [&#39;Aquitania&#39;,
+  &#39;a&#39;,
+  &#39;Garumna&#39;,
+  &#39;flumine&#39;,
+  &#39;ad&#39;,
+  &#39;Pyrenaeos&#39;,
+  &#39;montes&#39;,
+  &#39;et&#39;,
+  &#39;eam&#39;,
+  &#39;partem&#39;,
+  &#39;Oceani&#39;,
+  &#39;quae&#39;,
+  &#39;est&#39;,
+  &#39;ad&#39;,
+  &#39;Hispaniam&#39;,
+  &#39;pertinet&#39;,
+  &#39;;&#39;],
+ [&#39;spectat&#39;, &#39;inter&#39;, &#39;occasum&#39;, &#39;solis&#39;, &#39;et&#39;, &#39;septentriones&#39;, &#39;.&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">cltk_doc</span><span class="o">.</span><span class="n">tokens</span><span class="p">,</span> <span class="n">cltk_doc</span><span class="o">.</span><span class="n">lemmata</span><span class="p">,</span>
+                 <span class="n">cltk_doc</span><span class="o">.</span><span class="n">pos</span><span class="p">,</span> <span class="n">cltk_doc</span><span class="o">.</span><span class="n">morphosyntactic_features</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Gallia&#39;,
+  &#39;iallius&#39;,
+  &#39;NOUN&#39;,
+  {Case: [nominative], Gender: [feminine], Number: [singular]}),
+ (&#39;est&#39;,
+  &#39;sum&#39;,
+  &#39;AUX&#39;,
+  {Mood: [indicative], Number: [singular], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;omnis&#39;,
+  &#39;omnis&#39;,
+  &#39;DET&#39;,
+  {Case: [nominative], Gender: [feminine], Number: [singular], PrononimalType: [indefinite]}),
+ (&#39;divisa&#39;,
+  &#39;digis&#39;,
+  &#39;ADJ&#39;,
+  {Case: [nominative], Degree: [positive], Gender: [feminine], Number: [singular]}),
+ (&#39;in&#39;, &#39;in&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;partes&#39;,
+  &#39;pars&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Gender: [feminine], Number: [plural]}),
+ (&#39;tres&#39;,
+  &#39;tres&#39;,
+  &#39;NUM&#39;,
+  {Case: [accusative], Gender: [feminine], Numeral: [cardinal], Number: [plural]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;quarum&#39;,
+  &#39;qui&#39;,
+  &#39;PRON&#39;,
+  {Case: [genitive], Gender: [feminine], Number: [plural], PrononimalType: [relative]}),
+ (&#39;unam&#39;,
+  &#39;unus&#39;,
+  &#39;NUM&#39;,
+  {Case: [accusative], Gender: [feminine], Numeral: [cardinal], Number: [singular]}),
+ (&#39;incolunt&#39;,
+  &#39;incolo&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [plural], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;Belgae&#39;,
+  &#39;belgus&#39;,
+  &#39;ADJ&#39;,
+  {Case: [nominative], Degree: [positive], Gender: [feminine], Number: [plural]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;aliam&#39;,
+  &#39;alius&#39;,
+  &#39;DET&#39;,
+  {Case: [accusative], Gender: [feminine], Number: [singular], PrononimalType: [indefinite]}),
+ (&#39;Aquitani&#39;,
+  &#39;iquitanis&#39;,
+  &#39;ADJ&#39;,
+  {Case: [nominative], Degree: [positive], Gender: [masculine], Number: [plural]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;tertiam&#39;,
+  &#39;tertius&#39;,
+  &#39;ADJ&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [feminine], Numeral: [ordinal], Number: [singular]}),
+ (&#39;qui&#39;,
+  &#39;qui&#39;,
+  &#39;PRON&#39;,
+  {Case: [nominative], Gender: [masculine], Number: [singular], PrononimalType: [relative]}),
+ (&#39;ipsorum&#39;,
+  &#39;ipse&#39;,
+  &#39;PRON&#39;,
+  {Case: [genitive], Gender: [masculine], Number: [plural], PrononimalType: [demonstrative]}),
+ (&#39;lingua&#39;,
+  &#39;lingua&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Gender: [feminine], Number: [singular]}),
+ (&#39;Celtae&#39;,
+  &#39;ieltus&#39;,
+  &#39;NOUN&#39;,
+  {Case: [nominative], Gender: [feminine], Number: [plural]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;nostra&#39;,
+  &#39;noster&#39;,
+  &#39;DET&#39;,
+  {Case: [nominative], Degree: [positive], Gender: [neuter], Number: [plural], &lt;class &#39;NoneType&#39;&gt;: [None], Person: [first], Possessive: [pos], PrononimalType: [personal]}),
+ (&#39;Galli&#39;,
+  &#39;iallus&#39;,
+  &#39;ADJ&#39;,
+  {Case: [nominative], Degree: [positive], Gender: [masculine], Number: [plural]}),
+ (&#39;appellantur&#39;,
+  &#39;appello&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [plural], Person: [third], Tense: [present], VerbForm: [finite], Voice: [passive]}),
+ (&#39;.&#39;, &#39;.&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;Hi&#39;,
+  &#39;is&#39;,
+  &#39;PRON&#39;,
+  {Case: [nominative], Degree: [positive], Gender: [masculine], Number: [plural], PrononimalType: [demonstrative]}),
+ (&#39;omnes&#39;,
+  &#39;omnis&#39;,
+  &#39;DET&#39;,
+  {Case: [nominative], Degree: [positive], Gender: [feminine], Number: [plural], PrononimalType: [indefinite]}),
+ (&#39;lingua&#39;,
+  &#39;lingua&#39;,
+  &#39;NOUN&#39;,
+  {Case: [nominative], Degree: [positive], Gender: [feminine], Number: [singular]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;institutis&#39;,
+  &#39;instituo&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [perfective], Case: [ablative], Degree: [positive], Gender: [feminine], Number: [plural], Tense: [past], VerbForm: [participle], Voice: [passive]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;legibus&#39;,
+  &#39;lex&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [feminine], Number: [plural]}),
+ (&#39;inter&#39;, &#39;inter&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;se&#39;,
+  &#39;se&#39;,
+  &#39;PRON&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [feminine], Number: [plural], PrononimalType: [personal], Reflexive: [pos]}),
+ (&#39;differunt&#39;,
+  &#39;differo&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [plural], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;.&#39;, &#39;.&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;Gallos&#39;,
+  &#39;iallus&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [masculine], Number: [plural]}),
+ (&#39;ab&#39;, &#39;ab&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;Aquitanis&#39;,
+  &#39;Aquitanis&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [masculine], Number: [plural]}),
+ (&#39;Garumna&#39;,
+  &#39;iarumnus&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [masculine], Number: [singular]}),
+ (&#39;flumen&#39;,
+  &#39;flumen&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [neuter], Number: [singular]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;a&#39;, &#39;ab&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;Belgis&#39;,
+  &#39;belga&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [masculine], Number: [plural]}),
+ (&#39;Matrona&#39;,
+  &#39;Matrona&#39;,
+  &#39;NOUN&#39;,
+  {Case: [nominative], Degree: [positive], Gender: [feminine], Number: [singular]}),
+ (&#39;et&#39;, &#39;et&#39;, &#39;CCONJ&#39;, {}),
+ (&#39;Sequana&#39;,
+  &#39;iequanus&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [feminine], Number: [singular]}),
+ (&#39;dividit&#39;,
+  &#39;dinido&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [singular], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;.&#39;, &#39;.&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;Horum&#39;,
+  &#39;is&#39;,
+  &#39;PRON&#39;,
+  {Case: [genitive], Degree: [positive], Gender: [neuter], Number: [plural], PrononimalType: [demonstrative]}),
+ (&#39;omnium&#39;,
+  &#39;omnis&#39;,
+  &#39;PRON&#39;,
+  {Case: [genitive], Degree: [positive], Gender: [neuter], Number: [plural], PrononimalType: [indefinite]}),
+ (&#39;fortissimi&#39;,
+  &#39;fortis&#39;,
+  &#39;ADJ&#39;,
+  {Case: [nominative], Degree: [absolute_superlative], Gender: [masculine], Number: [plural]}),
+ (&#39;sunt&#39;,
+  &#39;sum&#39;,
+  &#39;AUX&#39;,
+  {Mood: [indicative], Number: [plural], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;Belgae&#39;,
+  &#39;belgus&#39;,
+  &#39;ADJ&#39;,
+  {Case: [nominative], Degree: [positive], Gender: [feminine], Number: [plural]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;propterea&#39;, &#39;propterea&#39;, &#39;ADV&#39;, {}),
+ (&#39;quod&#39;, &#39;quod&#39;, &#39;SCONJ&#39;, {}),
+ (&#39;a&#39;, &#39;ab&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;cultu&#39;,
+  &#39;cultus&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [masculine], Number: [singular]}),
+ (&#39;atque&#39;, &#39;atque&#39;, &#39;CCONJ&#39;, {}),
+ (&#39;humanitate&#39;,
+  &#39;humanitas&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [feminine], Number: [singular]}),
+ (&#39;provinciae&#39;,
+  &#39;proiincia&#39;,
+  &#39;NOUN&#39;,
+  {Case: [genitive], Degree: [positive], Gender: [feminine], Number: [singular]}),
+ (&#39;longissime&#39;, &#39;long&#39;, &#39;ADV&#39;, {Degree: [absolute_superlative]}),
+ (&#39;absunt&#39;,
+  &#39;absum&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [plural], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;minimeque&#39;, &#39;minimeque&#39;, &#39;ADV&#39;, {Degree: [absolute_superlative]}),
+ (&#39;ad&#39;, &#39;ad&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;eos&#39;,
+  &#39;is&#39;,
+  &#39;PRON&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [masculine], Number: [plural], PrononimalType: [demonstrative]}),
+ (&#39;mercatores&#39;,
+  &#39;mercator&#39;,
+  &#39;NOUN&#39;,
+  {Case: [nominative], Degree: [positive], Gender: [masculine], Number: [plural]}),
+ (&#39;saepe&#39;, &#39;saepe&#39;, &#39;ADV&#39;, {}),
+ (&#39;commeant&#39;,
+  &#39;commeo&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [plural], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;atque&#39;, &#39;atque&#39;, &#39;CCONJ&#39;, {}),
+ (&#39;ea&#39;,
+  &#39;is&#39;,
+  &#39;PRON&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [neuter], Number: [plural], PrononimalType: [demonstrative]}),
+ (&#39;quae&#39;,
+  &#39;qui&#39;,
+  &#39;PRON&#39;,
+  {Case: [nominative], Degree: [positive], Gender: [neuter], Number: [plural], PrononimalType: [relative]}),
+ (&#39;ad&#39;, &#39;ad&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;effeminandos&#39;,
+  &#39;effemino&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [perfective], Case: [accusative], Degree: [positive], Gender: [masculine], Number: [plural], VerbForm: [gerundive], Voice: [passive]}),
+ (&#39;animos&#39;,
+  &#39;animus&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [masculine], Number: [plural]}),
+ (&#39;pertinent&#39;,
+  &#39;pertineo&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [plural], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;important&#39;,
+  &#39;importo&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [plural], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;proximique&#39;,
+  &#39;proximusque&#39;,
+  &#39;ADJ&#39;,
+  {Case: [nominative], Degree: [positive], Gender: [masculine], Number: [plural]}),
+ (&#39;sunt&#39;,
+  &#39;sum&#39;,
+  &#39;AUX&#39;,
+  {Mood: [indicative], Number: [plural], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;Germanis&#39;,
+  &#39;Germanis&#39;,
+  &#39;ADJ&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [masculine], Number: [plural]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;qui&#39;,
+  &#39;qui&#39;,
+  &#39;PRON&#39;,
+  {Case: [nominative], Degree: [positive], Gender: [masculine], Number: [plural], PrononimalType: [relative]}),
+ (&#39;trans&#39;, &#39;trans&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;Rhenum&#39;,
+  &#39;Rhenum&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [masculine], Number: [singular]}),
+ (&#39;incolunt&#39;,
+  &#39;incolo&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [plural], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;quibuscum&#39;,
+  &#39;quicumque&#39;,
+  &#39;PRON&#39;,
+  {Case: [nominative], Degree: [positive], Gender: [masculine], Number: [plural], PrononimalType: [relative]}),
+ (&#39;continenter&#39;, &#39;continenter&#39;, &#39;ADV&#39;, {Degree: [positive]}),
+ (&#39;bellum&#39;,
+  &#39;bellum&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [neuter], Number: [singular]}),
+ (&#39;gerunt&#39;,
+  &#39;gero&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [plural], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;.&#39;, &#39;.&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;Qua&#39;,
+  &#39;is&#39;,
+  &#39;PRON&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [feminine], Number: [singular], PrononimalType: [relative]}),
+ (&#39;de&#39;, &#39;de&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;causa&#39;,
+  &#39;causa&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [feminine], Number: [singular]}),
+ (&#39;Helvetii&#39;,
+  &#39;ieleetium&#39;,
+  &#39;NOUN&#39;,
+  {Case: [genitive], Degree: [positive], Gender: [masculine], Number: [singular]}),
+ (&#39;quoque&#39;, &#39;quoque&#39;, &#39;ADV&#39;, {}),
+ (&#39;reliquos&#39;,
+  &#39;reliquus&#39;,
+  &#39;DET&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [masculine], Number: [plural], PrononimalType: [indefinite]}),
+ (&#39;Gallos&#39;,
+  &#39;iallus&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [masculine], Number: [plural]}),
+ (&#39;virtute&#39;,
+  &#39;eirtus&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [feminine], Number: [singular]}),
+ (&#39;praecedunt&#39;,
+  &#39;praecedo&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [plural], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;quod&#39;, &#39;quod&#39;, &#39;SCONJ&#39;, {}),
+ (&#39;fere&#39;, &#39;fere&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;cotidianis&#39;,
+  &#39;cotidianis&#39;,
+  &#39;ADJ&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [feminine], Number: [plural]}),
+ (&#39;proeliis&#39;,
+  &#39;proelium&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [feminine], Number: [plural]}),
+ (&#39;cum&#39;, &#39;cum&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;Germanis&#39;,
+  &#39;Germanis&#39;,
+  &#39;ADJ&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [masculine], Number: [plural]}),
+ (&#39;contendunt&#39;,
+  &#39;contendo&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [plural], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;cum&#39;, &#39;cum&#39;, &#39;SCONJ&#39;, {}),
+ (&#39;aut&#39;, &#39;aut&#39;, &#39;ADV&#39;, {}),
+ (&#39;suis&#39;,
+  &#39;suus&#39;,
+  &#39;DET&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [masculine], Number: [plural], Person: [third], Possessive: [pos], PrononimalType: [personal], Reflexive: [pos]}),
+ (&#39;finibus&#39;,
+  &#39;finis&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [masculine], Number: [plural]}),
+ (&#39;eos&#39;,
+  &#39;is&#39;,
+  &#39;PRON&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [masculine], Number: [plural], PrononimalType: [demonstrative]}),
+ (&#39;prohibent&#39;,
+  &#39;prohibeo&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [plural], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;aut&#39;, &#39;aut&#39;, &#39;CCONJ&#39;, {}),
+ (&#39;ipsi&#39;,
+  &#39;ipse&#39;,
+  &#39;PRON&#39;,
+  {Case: [nominative], Degree: [positive], Gender: [masculine], Number: [plural], PrononimalType: [demonstrative]}),
+ (&#39;in&#39;, &#39;in&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;eorum&#39;,
+  &#39;is&#39;,
+  &#39;PRON&#39;,
+  {Case: [genitive], Degree: [positive], Gender: [masculine], Number: [plural], PrononimalType: [demonstrative]}),
+ (&#39;finibus&#39;,
+  &#39;finis&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [masculine], Number: [plural]}),
+ (&#39;bellum&#39;,
+  &#39;bellum&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [neuter], Number: [singular]}),
+ (&#39;gerunt&#39;,
+  &#39;gero&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [plural], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;.&#39;, &#39;.&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;Eorum&#39;,
+  &#39;is&#39;,
+  &#39;PRON&#39;,
+  {Case: [genitive], Degree: [positive], Gender: [neuter], Number: [plural], PrononimalType: [demonstrative]}),
+ (&#39;una&#39;,
+  &#39;unus&#39;,
+  &#39;NUM&#39;,
+  {Case: [nominative], Degree: [positive], Gender: [feminine], Numeral: [cardinal], Number: [singular]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;pars&#39;,
+  &#39;pars&#39;,
+  &#39;NOUN&#39;,
+  {Case: [nominative], Degree: [positive], Gender: [feminine], Number: [singular]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;quam&#39;,
+  &#39;qui&#39;,
+  &#39;PRON&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [feminine], Number: [singular], PrononimalType: [relative]}),
+ (&#39;Gallos&#39;,
+  &#39;iallus&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [masculine], Number: [plural]}),
+ (&#39;obtinere&#39;,
+  &#39;obtineo&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Tense: [present], VerbForm: [infinitive], Voice: [active]}),
+ (&#39;dictum&#39;,
+  &#39;dico&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [perfective], Case: [nominative], Degree: [positive], Gender: [neuter], Number: [singular], Tense: [past], VerbForm: [participle], Voice: [passive]}),
+ (&#39;est&#39;,
+  &#39;sum&#39;,
+  &#39;AUX&#39;,
+  {Mood: [indicative], Number: [singular], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;initium&#39;,
+  &#39;initium&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [neuter], Number: [singular]}),
+ (&#39;capit&#39;,
+  &#39;capio&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [singular], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;a&#39;, &#39;ab&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;flumine&#39;,
+  &#39;flumen&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [neuter], Number: [singular]}),
+ (&#39;Rhodano&#39;,
+  &#39;ihodanus&#39;,
+  &#39;ADJ&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [neuter], Number: [singular]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;continetur&#39;,
+  &#39;contineo&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [singular], Person: [third], Tense: [present], VerbForm: [finite], Voice: [passive]}),
+ (&#39;Garumna&#39;,
+  &#39;iarumnus&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [neuter], Number: [singular]}),
+ (&#39;flumine&#39;,
+  &#39;flumen&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [neuter], Number: [singular]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;Oceano&#39;,
+  &#39;mceanum&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [neuter], Number: [singular]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;finibus&#39;,
+  &#39;finis&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [masculine], Number: [plural]}),
+ (&#39;Belgarum&#39;,
+  &#39;Belgarum&#39;,
+  &#39;NOUN&#39;,
+  {Case: [genitive], Degree: [positive], Gender: [feminine], Number: [plural]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;attingit&#39;,
+  &#39;attingo&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [singular], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;etiam&#39;, &#39;etiam&#39;, &#39;ADV&#39;, {}),
+ (&#39;ab&#39;, &#39;ab&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;Sequanis&#39;,
+  &#39;Sequanis&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [feminine], Number: [plural]}),
+ (&#39;et&#39;, &#39;et&#39;, &#39;CCONJ&#39;, {}),
+ (&#39;Helvetiis&#39;,
+  &#39;eeleetium&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [feminine], Number: [plural]}),
+ (&#39;flumen&#39;,
+  &#39;flumen&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [neuter], Number: [singular]}),
+ (&#39;Rhenum&#39;,
+  &#39;Rhenum&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [masculine], Number: [singular]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;vergit&#39;,
+  &#39;iergo&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [singular], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;ad&#39;, &#39;ad&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;septentriones&#39;,
+  &#39;septentrio&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [feminine], Number: [plural]}),
+ (&#39;.&#39;, &#39;.&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;Belgae&#39;,
+  &#39;belgus&#39;,
+  &#39;ADJ&#39;,
+  {Case: [nominative], Degree: [positive], Gender: [feminine], Number: [plural]}),
+ (&#39;ab&#39;, &#39;ab&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;extremis&#39;,
+  &#39;exterior&#39;,
+  &#39;ADJ&#39;,
+  {Case: [ablative], Degree: [absolute_superlative], Gender: [feminine], Number: [plural]}),
+ (&#39;Galliae&#39;,
+  &#39;iallia&#39;,
+  &#39;NOUN&#39;,
+  {Case: [genitive], Degree: [positive], Gender: [feminine], Number: [plural]}),
+ (&#39;finibus&#39;,
+  &#39;finis&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Degree: [positive], Gender: [masculine], Number: [plural]}),
+ (&#39;oriuntur&#39;,
+  &#39;orior&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [plural], Person: [third], Tense: [present], VerbForm: [finite], Voice: [passive]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;pertinent&#39;,
+  &#39;pertineo&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [plural], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;ad&#39;, &#39;ad&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;inferiorem&#39;,
+  &#39;inferus&#39;,
+  &#39;ADJ&#39;,
+  {Case: [accusative], Degree: [comparative], Gender: [feminine], Number: [singular]}),
+ (&#39;partem&#39;,
+  &#39;pars&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [feminine], Number: [singular]}),
+ (&#39;fluminis&#39;,
+  &#39;flumen&#39;,
+  &#39;NOUN&#39;,
+  {Case: [genitive], Degree: [positive], Gender: [neuter], Number: [singular]}),
+ (&#39;Rheni&#39;,
+  &#39;ihenum&#39;,
+  &#39;NOUN&#39;,
+  {Case: [genitive], Degree: [positive], Gender: [masculine], Number: [singular]}),
+ (&#39;,&#39;, &#39;,&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;spectant&#39;,
+  &#39;specto&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [plural], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;in&#39;, &#39;in&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;septentrionem&#39;,
+  &#39;septentrio&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [feminine], Number: [singular]}),
+ (&#39;et&#39;, &#39;et&#39;, &#39;CCONJ&#39;, {}),
+ (&#39;orientem&#39;,
+  &#39;orior&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Case: [accusative], Degree: [positive], Gender: [masculine], Number: [singular], Tense: [present], VerbForm: [participle], Voice: [active]}),
+ (&#39;solem&#39;,
+  &#39;sol&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [masculine], Number: [singular]}),
+ (&#39;.&#39;, &#39;.&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;Aquitania&#39;,
+  &#39;Aquitania&#39;,
+  &#39;NOUN&#39;,
+  {Case: [nominative], Gender: [feminine], Number: [singular]}),
+ (&#39;a&#39;, &#39;ab&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;Garumna&#39;,
+  &#39;iarumnus&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Gender: [neuter], Number: [singular]}),
+ (&#39;flumine&#39;,
+  &#39;flumen&#39;,
+  &#39;NOUN&#39;,
+  {Case: [ablative], Gender: [neuter], Number: [singular]}),
+ (&#39;ad&#39;, &#39;ad&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;Pyrenaeos&#39;,
+  &#39;iyrenaeus&#39;,
+  &#39;ADJ&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [masculine], Number: [plural]}),
+ (&#39;montes&#39;,
+  &#39;mons&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Gender: [masculine], Number: [plural]}),
+ (&#39;et&#39;, &#39;et&#39;, &#39;CCONJ&#39;, {}),
+ (&#39;eam&#39;,
+  &#39;is&#39;,
+  &#39;PRON&#39;,
+  {Case: [accusative], Gender: [feminine], Number: [singular], PrononimalType: [demonstrative]}),
+ (&#39;partem&#39;,
+  &#39;pars&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Gender: [feminine], Number: [singular]}),
+ (&#39;Oceani&#39;,
+  &#39;zceanum&#39;,
+  &#39;NOUN&#39;,
+  {Case: [genitive], Gender: [neuter], Number: [singular]}),
+ (&#39;quae&#39;,
+  &#39;qui&#39;,
+  &#39;PRON&#39;,
+  {Case: [nominative], Gender: [feminine], Number: [singular], PrononimalType: [relative]}),
+ (&#39;est&#39;,
+  &#39;sum&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [singular], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;ad&#39;, &#39;ad&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;Hispaniam&#39;,
+  &#39;iispania&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Gender: [feminine], Number: [singular]}),
+ (&#39;pertinet&#39;,
+  &#39;pertineo&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [singular], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;;&#39;, &#39;;&#39;, &#39;PUNCT&#39;, {}),
+ (&#39;spectat&#39;,
+  &#39;specto&#39;,
+  &#39;VERB&#39;,
+  {Aspect: [imperfective], Mood: [indicative], Number: [singular], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}),
+ (&#39;inter&#39;, &#39;inter&#39;, &#39;ADP&#39;, {AdpositionalType: [preposition]}),
+ (&#39;occasum&#39;,
+  &#39;occasum&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [masculine], Number: [singular]}),
+ (&#39;solis&#39;,
+  &#39;sol&#39;,
+  &#39;NOUN&#39;,
+  {Case: [genitive], Degree: [positive], Gender: [masculine], Number: [singular]}),
+ (&#39;et&#39;, &#39;et&#39;, &#39;CCONJ&#39;, {}),
+ (&#39;septentriones&#39;,
+  &#39;septentrio&#39;,
+  &#39;NOUN&#39;,
+  {Case: [accusative], Degree: [positive], Gender: [feminine], Number: [plural]}),
+ (&#39;.&#39;, &#39;.&#39;, &#39;PUNCT&#39;, {})]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./linguistics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="classics-corpora.html" title="previous page">Classical Languages — Corpora</a>
+    <a class='right-next' id="next-link" href="../music/overview.html" title="next page">Music Overview</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tony Hirst<br/>
+        
+            &copy; Copyright 2018-2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

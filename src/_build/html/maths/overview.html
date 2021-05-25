@@ -58,7 +58,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Art Overview" href="../art/overview.html" />
+    <link rel="next" title="Networks and Graphs" href="networks-and-graphs.html" />
     <link rel="prev" title="Engineering Overview" href="../engineering/overview.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -181,6 +181,11 @@
    Maths Overview
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="networks-and-graphs.html">
+   Networks and Graphs
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -199,8 +204,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../linguistics/classics.html">
-   Classical Languages
+  <a class="reference internal" href="../linguistics/classics-corpora.html">
+   Classical Languages — Corpora
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linguistics/classics-grammar.html">
+   Classics — Grammar
   </a>
  </li>
  <li class="toctree-l1">
@@ -254,15 +264,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../image/overview.html">
    Image Generation and Manipulation Overview
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../image/overview.html#opencv">
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     OpenCV
-    </span>
-   </code>
   </a>
  </li>
 </ul>
@@ -371,6 +372,26 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rendering-equations-using-mathjax">
+   Rendering equations Using MathJax
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#embedding-latex-tikz-graphical-outputs">
+   Embedding LaTex / TikZ Graphical Outputs
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -381,6 +402,73 @@
                 
   <div class="section" id="maths-overview">
 <h1>Maths Overview<a class="headerlink" href="#maths-overview" title="Permalink to this headline">¶</a></h1>
+<p>Trivially, notebooks provide us with a simple editing environment for combining markdown text, simple inline LaTeX and LateX blocks, and code cells prefixed with the <code class="docutils literal notranslate"><span class="pre">%%latex</span></code> block cell magic.</p>
+<p>This also us to notebooks a medium for creating content blends narrative text with mathematical notation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Within a notebook user interface, native support for LaTeX inline in markdown cells is limited to that subset of LaTeX that can be parsed by the MathJax parser.</p>
+<p>LaTeX parsing magics and code output transclusion can be used to provide access to a full featured LaTeX parser.</p>
+</div>
+<p>In addition, code cells allow us to perform mathematical computations and generate graphical outputs.</p>
+<p>In a complete one piece generative document flow publishing system where we guarantee the correctness of calculations and formal arguments, as wel as the correctness of output graphics in relation to the body of the content, we ideally need to find a way to relate the (symobolic) mathematical content to the code that is executed.</p>
+<p>Using a symbolic maths package such as <code class="docutils literal notranslate"><span class="pre">sympy</span></code>, we can create symbolic computational expressions that can be used to calculate (compute) expressions at a symbolic level as well as rendering those expressions in mathematical form using LaTeX (Mathjax). For rendering integrated one piece content in Jupyter book, the Python <code class="docutils literal notranslate"><span class="pre">myst_nb.glue()</span></code> provides a means for inline code outputs, biut this requires a Pyhton kernel. For bookdown workflows, outputs from all supported languages can be inlined [ <em>TO DO — CHECK</em> ].</p>
+<p>If tight integration with the text is not required, or if markdown output can be generated from code, computation using a wide range of other languages can is enabled by isntallig the appropriate Jupyter kernel (<a class="reference external" href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">curated list of Jupyter kernels</a>). For example, several kernels are avaialble that are particularly suited to a rand of mathematics related activities such as statistical computing, symbolic maths and numerical computation. For example:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://irkernel.github.io/"><code class="docutils literal notranslate"><span class="pre">R</span></code></a> statistical computing and graphics;</p></li>
+<li><p><a class="reference external" href="https://github.com/TiesdeKok/ipystata"><code class="docutils literal notranslate"><span class="pre">Stata</span></code></a> statistical computing;</p></li>
+<li><p><a class="reference external" href="https://doc.sagemath.org/html/en/installation/launching.html#setting-up-sagemath-as-a-jupyter-kernel-in-an-existing-jupyter-notebook-or-jupyterlab-installation"><code class="docutils literal notranslate"><span class="pre">SageMath</span></code></a> computer algebra system;</p></li>
+<li><p><a class="reference external" href="https://github.com/robert-dodier/maxima-jupyter"><code class="docutils literal notranslate"><span class="pre">Maxima</span></code></a> computer algebra system;</p></li>
+<li><p><a class="reference external" href="https://github.com/Calysto/octave_kernel"><code class="docutils literal notranslate"><span class="pre">Octave</span></code></a> numerical computation;</p></li>
+<li><p><a class="reference external" href="https://github.com/calysto/scilab_kernel"><code class="docutils literal notranslate"><span class="pre">SciLab</span></code></a> numerical computation;</p></li>
+<li><p><a class="reference external" href="https://github.com/calysto/matlab_kernel"><em>Matlab</em></a> mathematical computing;</p></li>
+<li><p><a class="reference external" href="https://github.com/WolframResearch/WolframLanguageForJupyter"><em>Wolfram Language</em></a> mathematical computing;</p></li>
+<li><p><a class="reference external" href="https://github.com/has2k1/gnuplot_kernel"><code class="docutils literal notranslate"><span class="pre">Gnuplot</span></code></a> charts.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We can also write markdown in a code cell by converting to the code cell to a <em>de facto</em> markdown cell using the <code class="docutils literal notranslate"><span class="pre">%%markdown</span></code> block magic.</p>
+</div>
+<div class="section" id="rendering-equations-using-mathjax">
+<h2>Rendering equations Using MathJax<a class="headerlink" href="#rendering-equations-using-mathjax" title="Permalink to this headline">¶</a></h2>
+<p>Equations can be rendered as a block using MathJax in a markdown cell.</p>
+<p>\begin{align}
+\sqrt{3x-1}+(1+x^2)
+\end{align}</p>
+<p>See this third party <a class="reference external" href="https://nbviewer.jupyter.org/github/ipython/ipython/blob/4.0.x/examples/Notebook/Typesetting%20Equations.ipynb">Typesetting Equations</a> demonstration notebook for further examples.</p>
+<p>MathJax content can also be rendered inline. For example, we can include the expression  <span class="math notranslate nohighlight">\(\sqrt{3x-1}+(1+x^2)\)</span> embedded <em>within</em> a line of text.</p>
+</div>
+<div class="section" id="embedding-latex-tikz-graphical-outputs">
+<h2>Embedding LaTex / TikZ Graphical Outputs<a class="headerlink" href="#embedding-latex-tikz-graphical-outputs" title="Permalink to this headline">¶</a></h2>
+<p>We can use the <a class="reference external" href="https://github.com/innovationOUtside/ipython_magic_tikz"><code class="docutils literal notranslate"><span class="pre">ipython_magic_tikz</span></code></a> magic to provide access to a TikZ/LaTeX parser to allow us to generate diagrams from <a class="reference external" href="https://www.overleaf.com/learn/latex/TikZ_package">TikZ</a>) scripts.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%pip install git+https://github.com/innovationOUtside/ipython_magic_tikz.git</span>
+<span class="o">%</span><span class="k">load_ext</span> tikz_magic
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span>
+\usetikzlibrary{shapes.geometric, calc}
+\def\numsides{7} % regular polygon sides
+\node (a) 
+[draw,  blue!0!black,rotate=90,minimum size=3cm,regular polygon, regular polygon sides=\numsides] at (0, 0) {}; 
+
+\foreach \x in {1,2,...,\numsides}
+  \fill (a.corner \x) circle[radius=.5pt];
+  \foreach \x in {1,2,...,\numsides}{
+  \draw [red,dashed, shorten &lt;=-0.5cm,shorten &gt;=-0.5cm](a.center) -- (a.side \x);
+  \draw [red,dashed, shorten &lt;=-0.5cm,shorten &gt;=-0.5cm](a.center) -- (a.corner \x);}
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_5_02.png" src="../_images/overview_5_02.png" />
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -409,7 +497,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="../engineering/overview.html" title="previous page">Engineering Overview</a>
-    <a class='right-next' id="next-link" href="../art/overview.html" title="next page">Art Overview</a>
+    <a class='right-next' id="next-link" href="networks-and-graphs.html" title="next page">Networks and Graphs</a>
 
         </div>
         

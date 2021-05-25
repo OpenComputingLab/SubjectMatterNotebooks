@@ -1,0 +1,50 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 1087, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/usr/local/lib/python3.9/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/usr/local/lib/python3.9/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/local/Cellar/python@3.9/3.9.5/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 540, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 832, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 740, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+#Lemmatizer - find root of a word
+from cltk.stem.lemma import LemmaReplacer
+
+from cltk.stem.latin.j_v import JVReplacer
+
+#Lemmatizer requires the following
+CorpusImporter('latin').import_corpus('latin_pos_lemmata_cltk')
+CorpusImporter('latin').import_corpus('latin_models_cltk')
+
+
+sentence = 'Progeniem sed enim Troiano a sanguine duci audierat'
+
+sentence = sentence.lower()
+
+lemmatizer = LemmaReplacer('latin')
+
+lemmatizer.lemmatize(sentence)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-8-02294ae87891>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m#Lemmatizer - find root of a word[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mfrom[0m [0mcltk[0m[0;34m.[0m[0mstem[0m[0;34m.[0m[0mlemma[0m [0;32mimport[0m [0mLemmaReplacer[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0mcltk[0m[0;34m.[0m[0mstem[0m[0;34m.[0m[0mlatin[0m[0;34m.[0m[0mj_v[0m [0;32mimport[0m [0mJVReplacer[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'cltk.stem.lemma'
+ModuleNotFoundError: No module named 'cltk.stem.lemma'
+

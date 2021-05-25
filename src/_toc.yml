@@ -20,11 +20,13 @@
   chapters:
     - file: engineering/overview
     - file: maths/overview
+    - file: maths/networks-and-graphs
 - part: Arts & Humanities
   chapters: 
     - file: art/overview
     - file: linguistics/overview
-    - file: linguistics/classics
+    - file: linguistics/classics-corpora
+    - file: linguistics/classics-grammar
     - file: music/overview
 - part: Map Generation
   chapters:

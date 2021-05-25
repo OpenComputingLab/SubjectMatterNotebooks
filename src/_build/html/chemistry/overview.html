@@ -181,6 +181,11 @@
    Maths Overview
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/networks-and-graphs.html">
+   Networks and Graphs
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -199,8 +204,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../linguistics/classics.html">
-   Classical Languages
+  <a class="reference internal" href="../linguistics/classics-corpora.html">
+   Classical Languages — Corpora
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linguistics/classics-grammar.html">
+   Classics — Grammar
   </a>
  </li>
  <li class="toctree-l1">
@@ -254,15 +264,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../image/overview.html">
    Image Generation and Manipulation Overview
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../image/overview.html#opencv">
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     OpenCV
-    </span>
-   </code>
   </a>
  </li>
 </ul>
@@ -457,8 +458,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="3dmolviewer_16218850973797061"  style="position: relative; width: 640px; height: 480px">
-        <p id="3dmolwarning_16218850973797061" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
+<div class="output text_html"><div id="3dmolviewer_1621936231360062"  style="position: relative; width: 640px; height: 480px">
+        <p id="3dmolwarning_1621936231360062" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
         <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
         </div>
 <script>
@@ -481,17 +482,17 @@ $3Dmolpromise = null;
   $3Dmolpromise = loadScriptAsync('https://3dmol.org/build/3Dmol.js');
 }
 
-var viewer_16218850973797061 = null;
-var warn = document.getElementById("3dmolwarning_16218850973797061");
+var viewer_1621936231360062 = null;
+var warn = document.getElementById("3dmolwarning_1621936231360062");
 if(warn) {
     warn.parentNode.removeChild(warn);
 }
 $3Dmolpromise.then(function() {
-viewer_16218850973797061 = $3Dmol.createViewer($("#3dmolviewer_16218850973797061"),{backgroundColor:"white"});
-$3Dmol.download("cid:702", viewer_16218850973797061, {}, function() {
-viewer_16218850973797061.zoomTo();
-	viewer_16218850973797061.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.25}});
-viewer_16218850973797061.render();
+viewer_1621936231360062 = $3Dmol.createViewer($("#3dmolviewer_1621936231360062"),{backgroundColor:"white"});
+$3Dmol.download("cid:702", viewer_1621936231360062, {}, function() {
+viewer_1621936231360062.zoomTo();
+	viewer_1621936231360062.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.25}});
+viewer_1621936231360062.render();
 })
 });
 </script></div></div>

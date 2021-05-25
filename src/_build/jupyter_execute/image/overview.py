@@ -121,7 +121,7 @@ plt.show()
 #Other sets of image processing examples to try:
 #https://auth0.com/blog/image-processing-in-python-with-pillow/
 
-# `OpenCV`
+## `OpenCV`
 
 The [`OpenCV`](https://opencv.org/) package is a very powerfl image processing toolkit.
 
