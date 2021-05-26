@@ -39,7 +39,7 @@ import cltk
 
 cltk.languages.utils.find_iso_name('Middle English')
 
-We can also get a full list of languages:
+We can also get a full list of languages, including a general indication of original locale of each language using metadata from the [Glottolog project](https://glottolog.org/glottolog/language).
 
 from cltk.languages.glottolog import LANGUAGES
 

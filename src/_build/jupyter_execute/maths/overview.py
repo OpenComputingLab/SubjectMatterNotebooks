@@ -36,9 +36,11 @@ We can also write markdown in a code cell by converting to the code cell to a *d
 ## Rendering equations Using MathJax
 Equations can be rendered as a block using MathJax in a markdown cell.
 
+$$
 \begin{align}
 \sqrt{3x-1}+(1+x^2)
 \end{align}
+$$
 
 See this third party [Typesetting Equations](https://nbviewer.jupyter.org/github/ipython/ipython/blob/4.0.x/examples/Notebook/Typesetting%20Equations.ipynb) demonstration notebook for further examples.
 

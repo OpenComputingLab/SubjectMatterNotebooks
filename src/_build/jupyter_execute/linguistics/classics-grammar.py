@@ -302,7 +302,7 @@ cltk_nlp = NLP(language="lat")
 # Also Lewis's *An Elementary Latin Dictionary* (1890)
 cltk_doc = cltk_nlp.analyze(text=example_lat)
 
-cltk_doc.stanza_doc
+cltk_doc.stanza_doc.to_dict()[0][:3]
 
 # Also: cltk_doc.raw
 cltk_doc.normalized_text
