@@ -20,6 +20,7 @@
   chapters:
     - file: engineering/overview
     - file: maths/overview
+    - file: maths/r-statistics
     - file: maths/networks-and-graphs
 - part: Arts & Humanities
   chapters: 

@@ -1,4 +1,31 @@
 {
+  ".jupyter_cache/executed/e2601af04018d7a4dce7128ea2bbabc2/base": {
+    "compound_latex": {
+      "data": {
+        "application/papermill.record/text/latex": "$\\ce{C2H6O}$",
+        "application/papermill.record/text/plain": "<IPython.core.display.Latex object>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "compound_latex"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "compound": {
+      "data": {
+        "application/papermill.record/text/plain": "'ethanol'"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "compound"
+        }
+      },
+      "output_type": "display_data"
+    }
+  },
   "chemistry/compound_lookups": {
     "g_ethanol": {
       "data": {
@@ -20,33 +47,6 @@
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
           "name": "g_mol_formula"
-        }
-      },
-      "output_type": "display_data"
-    }
-  },
-  "chemistry/overview": {
-    "compound": {
-      "data": {
-        "application/papermill.record/text/plain": "'ethanol'"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "compound"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "compound_latex": {
-      "data": {
-        "application/papermill.record/text/latex": "$\\ce{C2H6O}$",
-        "application/papermill.record/text/plain": "<IPython.core.display.Latex object>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "compound_latex"
         }
       },
       "output_type": "display_data"

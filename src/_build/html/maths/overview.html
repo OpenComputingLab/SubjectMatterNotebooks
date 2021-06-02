@@ -58,7 +58,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Networks and Graphs" href="networks-and-graphs.html" />
+    <link rel="next" title="Statistics in R" href="r-statistics.html" />
     <link rel="prev" title="Engineering Overview" href="../engineering/overview.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -179,6 +179,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Maths Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="r-statistics.html">
+   Statistics in R
   </a>
  </li>
  <li class="toctree-l1">
@@ -411,7 +416,7 @@
 </div>
 <p>In addition, code cells allow us to perform mathematical computations and generate graphical outputs.</p>
 <p>In a complete one piece generative document flow publishing system where we guarantee the correctness of calculations and formal arguments, as wel as the correctness of output graphics in relation to the body of the content, we ideally need to find a way to relate the (symobolic) mathematical content to the code that is executed.</p>
-<p>Using a symbolic maths package such as <code class="docutils literal notranslate"><span class="pre">sympy</span></code>, we can create symbolic computational expressions that can be used to calculate (compute) expressions at a symbolic level as well as rendering those expressions in mathematical form using LaTeX (Mathjax). For rendering integrated one piece content in Jupyter book, the Python <code class="docutils literal notranslate"><span class="pre">myst_nb.glue()</span></code> provides a means for inline code outputs, biut this requires a Pyhton kernel. For bookdown workflows, outputs from all supported languages can be inlined [ <em>TO DO — CHECK</em> ].</p>
+<p>Using a symbolic maths package such as <code class="docutils literal notranslate"><span class="pre">sympy</span></code>, we can create symbolic computational expressions that can be used to calculate (compute) expressions at a symbolic level as well as rendering those expressions in mathematical form using LaTeX (Mathjax). For rendering integrated one piece content in Jupyter book, the Python <code class="docutils literal notranslate"><span class="pre">myst_nb.glue()</span></code> provides a means for inline code outputs, biut this requires a Python kernel. For bookdown workflows, outputs from all supported languages can be inlined [ <em>TO DO — CHECK</em> ].</p>
 <p>If tight integration with the text is not required, or if markdown output can be generated from code, computation using a wide range of other languages can is enabled by isntallig the appropriate Jupyter kernel (<a class="reference external" href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">curated list of Jupyter kernels</a>). For example, several kernels are avaialble that are particularly suited to a rand of mathematics related activities such as statistical computing, symbolic maths and numerical computation. For example:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://irkernel.github.io/"><code class="docutils literal notranslate"><span class="pre">R</span></code></a> statistical computing and graphics;</p></li>
@@ -461,7 +466,8 @@
 
 \foreach \x in {1,2,...,\numsides}
   \fill (a.corner \x) circle[radius=.5pt];
-  \foreach \x in {1,2,...,\numsides}{
+
+\foreach \x in {1,2,...,\numsides}{
   \draw [red,dashed, shorten &lt;=-0.5cm,shorten &gt;=-0.5cm](a.center) -- (a.side \x);
   \draw [red,dashed, shorten &lt;=-0.5cm,shorten &gt;=-0.5cm](a.center) -- (a.corner \x);}
 </pre></div>
@@ -500,7 +506,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="../engineering/overview.html" title="previous page">Engineering Overview</a>
-    <a class='right-next' id="next-link" href="networks-and-graphs.html" title="next page">Networks and Graphs</a>
+    <a class='right-next' id="next-link" href="r-statistics.html" title="next page">Statistics in R</a>
 
         </div>
         

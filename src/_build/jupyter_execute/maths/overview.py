@@ -14,7 +14,7 @@ In addition, code cells allow us to perform mathematical computations and genera
 
 In a complete one piece generative document flow publishing system where we guarantee the correctness of calculations and formal arguments, as wel as the correctness of output graphics in relation to the body of the content, we ideally need to find a way to relate the (symobolic) mathematical content to the code that is executed.
 
-Using a symbolic maths package such as `sympy`, we can create symbolic computational expressions that can be used to calculate (compute) expressions at a symbolic level as well as rendering those expressions in mathematical form using LaTeX (Mathjax). For rendering integrated one piece content in Jupyter book, the Python `myst_nb.glue()` provides a means for inline code outputs, biut this requires a Pyhton kernel. For bookdown workflows, outputs from all supported languages can be inlined [ *TO DO — CHECK* ].
+Using a symbolic maths package such as `sympy`, we can create symbolic computational expressions that can be used to calculate (compute) expressions at a symbolic level as well as rendering those expressions in mathematical form using LaTeX (Mathjax). For rendering integrated one piece content in Jupyter book, the Python `myst_nb.glue()` provides a means for inline code outputs, biut this requires a Python kernel. For bookdown workflows, outputs from all supported languages can be inlined [ *TO DO — CHECK* ].
 
 If tight integration with the text is not required, or if markdown output can be generated from code, computation using a wide range of other languages can is enabled by isntallig the appropriate Jupyter kernel ([curated list of Jupyter kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)). For example, several kernels are avaialble that are particularly suited to a rand of mathematics related activities such as statistical computing, symbolic maths and numerical computation. For example:
 
@@ -61,6 +61,7 @@ We can use the [`ipython_magic_tikz`](https://github.com/innovationOUtside/ipyth
 
 \foreach \x in {1,2,...,\numsides}
   \fill (a.corner \x) circle[radius=.5pt];
-  \foreach \x in {1,2,...,\numsides}{
+
+\foreach \x in {1,2,...,\numsides}{
   \draw [red,dashed, shorten <=-0.5cm,shorten >=-0.5cm](a.center) -- (a.side \x);
   \draw [red,dashed, shorten <=-0.5cm,shorten >=-0.5cm](a.center) -- (a.corner \x);}
