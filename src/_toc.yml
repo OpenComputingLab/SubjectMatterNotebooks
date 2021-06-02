@@ -21,6 +21,7 @@
     - file: engineering/overview
     - file: maths/overview
     - file: maths/r-statistics
+    - file: maths/r-3d
     - file: maths/networks-and-graphs
 - part: Arts & Humanities
   chapters: 
