@@ -1,3 +1,6 @@
 .DS_Store
 .ipynb_checkpoints
-src/.jupyter_cache
+.jupyter_cache
+jupyter_execute
+src/_build/.jupyter_cache
+src/_build/jupyter_execute

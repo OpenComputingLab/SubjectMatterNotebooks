@@ -388,6 +388,11 @@
    An Example in R
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#symbolic-computation-in-r">
+   Symbolic Computation in R
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -429,6 +434,101 @@
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/r-statistics_4_0.png" src="../_images/r-statistics_4_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="symbolic-computation-in-r">
+<h2>Symbolic Computation in R<a class="headerlink" href="#symbolic-computation-in-r" title="Permalink to this headline">¶</a></h2>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">Ryacas</span></code> package to proivide us with a symbolic computational environment based on <a class="reference external" href="https://yacas.readthedocs.io/en/latest/"><em>Yacas</em></a>, although inlining items using glue is not possible becuase we aren’t working in a Python environment.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The R <code class="docutils literal notranslate"><span class="pre">knitr</span></code>/<code class="docutils literal notranslate"><span class="pre">bookdown</span></code> workflow currently provides a much simpler route to producing texts with inlined code output.</p>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">Ryacas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create some objects and a function around them:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">ysym</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">ysym</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="m">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">^</span><span class="m">2</span> <span class="o">+</span> <span class="m">100</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="o">^</span><span class="m">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And render the function as LaTeX:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="s">&#39;IRdisplay&#39;</span><span class="p">)</span>
+
+<span class="nf">display_latex</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#39;$$&#39;</span><span class="p">,</span> <span class="nf">tex</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="s">&#39;$$&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\left( 1 - x\right)  ^{2} + 100 \left( y - x ^{2}\right)  ^{2}\]</div>
+</div>
+</div>
+<p>We can evaulate the function by casting the sumbolic expression to R and setting the variables:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">eval</span><span class="p">(</span><span class="nf">as_r</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="nf">list</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="m">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">401</div></div>
+</div>
+<p>Do some sums, such as find the derivative with respect to <span class="math notranslate nohighlight">\(x\)</span>, or <span class="math notranslate nohighlight">\(y\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">s</span><span class="p">){</span>
+        <span class="nf">display_latex</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#39;$$&#39;</span><span class="p">,</span> <span class="nf">tex</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="s">&#39;$$&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="n">g</span> <span class="o">&lt;-</span> <span class="nf">deriv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">,</span> <span class="s">&quot;y&quot;</span><span class="p">))</span>
+<span class="nf">l</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\left( -2 \left( 1 - x\right)  - 400 x \left( y - x ^{2}\right) , 200 \left( y - x ^{2}\right) \right)\]</div>
+</div>
+</div>
+<p>We can assign values into the expression:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">yac_assign</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">)</span>
+
+<span class="nf">l</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[100 \left( y - 9\right)  ^{2} + 4\]</div>
+</div>
+</div>
+<p>And reset the symbolic variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">yac_silent</span><span class="p">(</span><span class="s">&quot;Clear(x)&quot;</span><span class="p">)</span>
+
+<span class="nf">l</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\left( 1 - x\right)  ^{2} + 100 \left( y - x ^{2}\right)  ^{2}\]</div>
 </div>
 </div>
 </div>
