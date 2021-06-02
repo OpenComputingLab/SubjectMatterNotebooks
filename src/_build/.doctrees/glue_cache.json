@@ -1,5 +1,17 @@
 {
   ".jupyter_cache/executed/e2601af04018d7a4dce7128ea2bbabc2/base": {
+    "compound": {
+      "data": {
+        "application/papermill.record/text/plain": "'ethanol'"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "compound"
+        }
+      },
+      "output_type": "display_data"
+    },
     "compound_latex": {
       "data": {
         "application/papermill.record/text/latex": "$\\ce{C2H6O}$",
@@ -9,18 +21,6 @@
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
           "name": "compound_latex"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "compound": {
-      "data": {
-        "application/papermill.record/text/plain": "'ethanol'"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "compound"
         }
       },
       "output_type": "display_data"

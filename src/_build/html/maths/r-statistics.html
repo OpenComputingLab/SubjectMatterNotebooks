@@ -411,9 +411,10 @@
 <p>For the author, this means that a single authoring environment, such as the classic Jupyter notebook interface, can be used to author documents whose outputs may be generated from a wide range of programming languages.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Typically, all the code cells will be run against a single langiage kernel.</p>
+<p>Typically, all the code cells will be run against a single language kernel.</p>
 <p>However, various workarounds are possible that support polyglot notebooks that allow multiple languages to be used across different cells.</p>
 </div>
+<p>This notebook, for example, is associated with an R kernel rather than a Python kernel.</p>
 <div class="section" id="an-example-in-r">
 <h2>An Example in R<a class="headerlink" href="#an-example-in-r" title="Permalink to this headline">¶</a></h2>
 <p>The following code cell shows how we can load in an R library to a native R environment:</p>
@@ -489,12 +490,12 @@
 <p>Do some sums, such as find the derivative with respect to <span class="math notranslate nohighlight">\(x\)</span>, or <span class="math notranslate nohighlight">\(y\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">s</span><span class="p">){</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">Latex</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">s</span><span class="p">){</span>
         <span class="nf">display_latex</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#39;$$&#39;</span><span class="p">,</span> <span class="nf">tex</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="s">&#39;$$&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="n">g</span> <span class="o">&lt;-</span> <span class="nf">deriv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">,</span> <span class="s">&quot;y&quot;</span><span class="p">))</span>
-<span class="nf">l</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="nf">Latex</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -508,7 +509,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">yac_assign</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">)</span>
 
-<span class="nf">l</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="nf">Latex</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -522,7 +523,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">yac_silent</span><span class="p">(</span><span class="s">&quot;Clear(x)&quot;</span><span class="p">)</span>
 
-<span class="nf">l</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="nf">Latex</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
