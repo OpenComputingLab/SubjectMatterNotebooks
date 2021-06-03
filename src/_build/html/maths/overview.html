@@ -58,7 +58,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Statistics in R" href="r-statistics.html" />
+    <link rel="next" title="Worked Equations and Equations With Units" href="worked-equations.html" />
     <link rel="prev" title="Engineering Overview" href="../engineering/overview.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -179,6 +179,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Maths Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="worked-equations.html">
+   Worked Equations and Equations With Units
   </a>
  </li>
  <li class="toctree-l1">
@@ -398,21 +403,6 @@
    Embedding LaTex / TikZ Graphical Outputs
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#handcalcs-equations">
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     handcalcs
-    </span>
-   </code>
-   Equations
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#working-with-dimensions">
-   Working with Dimensions
-  </a>
- </li>
 </ul>
 
         </nav>
@@ -498,209 +488,6 @@
 </div>
 </div>
 </div>
-<div class="section" id="handcalcs-equations">
-<h2><code class="docutils literal notranslate"><span class="pre">handcalcs</span></code> Equations<a class="headerlink" href="#handcalcs-equations" title="Permalink to this headline">¶</a></h2>
-<p>The  <a class="reference external" href="https://github.com/connorferster/handcalcs"><code class="docutils literal notranslate"><span class="pre">handcalcs</span></code></a> package provides a simple way for writing mathematical equations using simple text and then rendering them using LaTeX equation style layout.</p>
-<p>If the full power of <code class="docutils literal notranslate"><span class="pre">sympy</span></code> is not required, <code class="docutils literal notranslate"><span class="pre">handcalcs</span></code> may provide all the manipulation we need:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">handcalcs.render</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can easily write equations that reference greek letters and subscripted values, expanding on a symbolic equation using some provided magic:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">render</span>
-t = 1
-theta = pi / 2
-omega_t =  2 * pi / t
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-t &amp;= 1 \; 
-\\[10pt]
-\theta &amp;= \frac{ \pi }{ 2 }  = \frac{ 3.142 }{ 2 } &amp;= 1.571  
-\\[10pt]
-\omega_{t} &amp;= 2 \cdot \frac{ \pi }{ t }  = 2 \cdot \frac{ 3.142 }{ 1 } &amp;= 6.283  
-\end{aligned}
-\end{split}\]</div>
-</div>
-</div>
-<p>We can prevent the magic from evaluating the expression by telling it we want the expression to remian a symbolic one:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">render</span> symbolic
-
-a = 2
-b = 3
-c = 2*a + b/3
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-a &amp;= 2 \; 
-\\[10pt]
-b &amp;= 3 \; 
-\\[10pt]
-c &amp;= 2 \cdot a + \frac{ b }{ 3 } \; 
-\end{aligned}
-\end{split}\]</div>
-</div>
-</div>
-<p>If the expression is evaluated, elements will be expanded along a single line, unless we force a “long” format output which splits the output over several lines:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">render</span> long
-a = 2
-b = 3
-c = 2*a + b/3
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-a &amp;= 2 \; 
-\\[10pt]
-b &amp;= 3 \; 
-\\[10pt]
-c &amp;= 2 \cdot a + \frac{ b }{ 3 } \\&amp;= 2 \cdot 2 + \frac{ 3 }{ 3 } \\&amp;= 5.0  \\
-\end{aligned}
-\end{split}\]</div>
-</div>
-</div>
-<p>We can use a decorator rather than magic to expand various expressions contained within a function.</p>
-<p>For example, suppose we want to calculate the two roots of a quadratic equation. We can define a function containing an expression for each solution, and decorate it appropriately:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
-<span class="kn">from</span> <span class="nn">handcalcs</span> <span class="kn">import</span> <span class="n">handcalc</span>
-
-<span class="nd">@handcalc</span><span class="p">(</span><span class="n">override</span><span class="o">=</span><span class="s1">&#39;long&#39;</span><span class="p">,</span> <span class="n">jupyter_display</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">quadratic</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
-    <span class="n">a</span>
-    <span class="n">b</span>
-    <span class="n">c</span>
-    <span class="n">x_1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
-    <span class="n">x_2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can now present the worked solution directly:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quadratic</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-a &amp;= 3 \; 
-\\[10pt]
-b &amp;= 4 \; 
-\\[10pt]
-c &amp;= -5 \; 
-\\[10pt]
-x_{1} &amp;= \frac{ \left( - b \right) + \sqrt { \left( b \right) ^{ 2 } - 4 \cdot a \cdot c } }{ 2 \cdot a } \\&amp;= \frac{ \left( - 4 \right) + \sqrt { \left( 4 \right) ^{ 2 } - 4 \cdot 3 \cdot -5 } }{ 2 \cdot 3 } \\&amp;= 7.863 \times 10 ^ {-1 }  \\
-\\[10pt]
-x_{2} &amp;= \frac{ \left( - b \right) - \sqrt { \left( b \right) ^{ 2 } - 4 \cdot a \cdot c } }{ 2 \cdot a } \\&amp;= \frac{ \left( - 4 \right) - \sqrt { \left( 4 \right) ^{ 2 } - 4 \cdot 3 \cdot -5 } }{ 2 \cdot 3 } \\&amp;= -2.12  \\
-\end{aligned}
-\end{split}\]</div>
-</div>
-</div>
-</div>
-<div class="section" id="working-with-dimensions">
-<h2>Working with Dimensions<a class="headerlink" href="#working-with-dimensions" title="Permalink to this headline">¶</a></h2>
-<p>In some situations, such as physics or engineering calculations, it might be important to make use of dimensioned quantities. The <a class="reference external" href="https://github.com/connorferster/forallpeople"><code class="docutils literal notranslate"><span class="pre">forallpeople</span></code></a> package is one of several packages that provides dimensional units. Conveniently, it also works with the <code class="docutils literal notranslate"><span class="pre">handcalcs</span></code> package.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">forallpeople</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">forallpeople</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>By default, we can load a particular measurement framework, such as the SI units of measurement. (Alternatives inclue things like Imperial measurements.)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">forallpeople</span> <span class="k">as</span> <span class="nn">si</span>
-
-<span class="n">si</span><span class="o">.</span><span class="n">environment</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1">#, top_level=True)</span>
-<span class="c1"># Describes the SI derived units</span>
-<span class="c1"># Units are created by compounding the base units (e.g. Newton, Pascal, Celsius, Watt, Joule, etc.)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Calculated quantities have a value and a dimension. An appropriate magnitude prefix is determined automatically:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">force</span> <span class="o">=</span> <span class="mi">20000</span> <span class="o">*</span> <span class="n">si</span><span class="o">.</span><span class="n">N</span>
-<span class="n">area</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">si</span><span class="o">.</span><span class="n">m</span><span class="o">**</span><span class="mi">2</span>
-<span class="n">pressure</span> <span class="o">=</span> <span class="n">force</span> <span class="o">/</span> <span class="n">area</span>
-
-<span class="n">pressure</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">10.000 kPa</div></div>
-</div>
-<p>Small units are also determined correctly:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">2e-6</span> <span class="o">*</span> <span class="n">si</span><span class="o">.</span><span class="n">F</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">2.000 μF</div></div>
-</div>
-<p>Dimensional values can be associated with terms in expressions rendered using <code class="docutils literal notranslate"><span class="pre">handcalcs</span></code> magic, with appropriate units being displayed as part of a rendered calculation:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">render</span>
-
-# We need to bracket the terms to not expand the units equation
-I = (3e-3 * si.A) #  set the current
-V = (20 * si.V) # set the voltage
-
-R = V/I
-# Incorrect omega, issue: https://github.com/connorferster/handcalcs/issues/76
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-I &amp;= 3.000\ \text{mA} \; \;\textrm{(set the current)}
-\\[10pt]
-V &amp;= 20.000\ \text{V} \; \;\textrm{(set the voltage)}
-\\[10pt]
-R &amp;= \frac{ V }{ I }  = \frac{ 20.000\ \text{V} }{ 3.000\ \text{mA} } &amp;= 6.667\ \text{k\Omega}  
-\end{aligned}
-\end{split}\]</div>
-</div>
-</div>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -729,7 +516,7 @@ R &amp;= \frac{ V }{ I }  = \frac{ 20.000\ \text{V} }{ 3.000\ \text{mA} } &amp;=
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="../engineering/overview.html" title="previous page">Engineering Overview</a>
-    <a class='right-next' id="next-link" href="r-statistics.html" title="next page">Statistics in R</a>
+    <a class='right-next' id="next-link" href="worked-equations.html" title="next page">Worked Equations and Equations With Units</a>
 
         </div>
         

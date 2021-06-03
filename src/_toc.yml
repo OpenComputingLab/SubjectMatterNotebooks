@@ -20,6 +20,7 @@
   chapters:
     - file: engineering/overview
     - file: maths/overview
+    - file: maths/worked-equations
     - file: maths/r-statistics
     - file: maths/r-3d
     - file: maths/networks-and-graphs
