@@ -27,18 +27,6 @@
     }
   },
   "chemistry/compound_lookups": {
-    "g_mol_formula": {
-      "data": {
-        "application/papermill.record/text/plain": "'C2H6O'"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "g_mol_formula"
-        }
-      },
-      "output_type": "display_data"
-    },
     "g_ethanol": {
       "data": {
         "application/papermill.record/text/plain": "'ethanol'"
@@ -47,6 +35,18 @@
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
           "name": "g_ethanol"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "g_mol_formula": {
+      "data": {
+        "application/papermill.record/text/plain": "'C2H6O'"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "g_mol_formula"
         }
       },
       "output_type": "display_data"
