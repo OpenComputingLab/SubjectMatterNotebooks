@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maths Overview &#8212; Subject Matter Authoring Using Jupyter Notebooks</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,11 +41,9 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -60,14 +55,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Worked Equations and Equations With Units" href="worked-equations.html" />
     <link rel="prev" title="Engineering Overview" href="../engineering/overview.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -76,30 +71,30 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Subject Matter Authoring Using Jupyter Notebooks</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Subject Matter Authoring Using Jupyter Notebooks</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
    Introduction
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Astronomy
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../astronomy/overview.html">
    Astronomy Overview
@@ -121,12 +116,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Chemistry
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../chemistry/overview.html">
    Chemistry Overview
@@ -148,12 +143,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Electronics
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../electronics/overview.html">
    Electronics Overview
@@ -165,12 +160,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Other STEM
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../engineering/overview.html">
    Engineering Overview
@@ -202,12 +197,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Arts &amp; Humanities
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../art/overview.html">
    Art Overview
@@ -234,72 +229,72 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Map Generation
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../geo/overview.html">
    Geo Overview
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Chart Generation
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../chart/overview.html">
    Chart Overview
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Diagram Generation
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../diagram/overview.html">
    Diagrams Overview
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Image Generation and Manipulation
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../image/overview.html">
    Image Generation and Manipulation Overview
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Audio Generation and Manipulation
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../audio/overview.html">
    Audio Overview
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   LaTeX
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../latex/overview.html">
    LaTeX Overview
@@ -307,6 +302,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -356,12 +352,12 @@
 
             <!-- Source interaction buttons -->
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -387,15 +383,24 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#rendering-equations-using-mathjax">
    Rendering equations Using MathJax
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rendering-equations-from-sympy">
+   Rendering equations from
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     sympy
+    </span>
+   </code>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -405,8 +410,7 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -427,7 +431,7 @@
 <p>In addition, code cells allow us to perform mathematical computations and generate graphical outputs.</p>
 <p>In a complete one piece generative document flow publishing system where we guarantee the correctness of calculations and formal arguments, as wel as the correctness of output graphics in relation to the body of the content, we ideally need to find a way to relate the (symobolic) mathematical content to the code that is executed.</p>
 <p>Using a symbolic maths package such as <code class="docutils literal notranslate"><span class="pre">sympy</span></code>, we can create symbolic computational expressions that can be used to calculate (compute) expressions at a symbolic level as well as rendering those expressions in mathematical form using LaTeX (Mathjax). For rendering integrated one piece content in Jupyter book, the Python <code class="docutils literal notranslate"><span class="pre">myst_nb.glue()</span></code> provides a means for inline code outputs, biut this requires a Python kernel. For bookdown workflows, outputs from all supported languages can be inlined [ <em>TO DO — CHECK</em> ].</p>
-<p>If tight integration with the text is not required, or if markdown output can be generated from code, computation using a wide range of other languages can is enabled by isntallig the appropriate Jupyter kernel (<a class="reference external" href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">curated list of Jupyter kernels</a>). For example, several kernels are avaialble that are particularly suited to a rand of mathematics related activities such as statistical computing, symbolic maths and numerical computation. For example:</p>
+<p>If tight integration with the text is not required, or if markdown output can be generated from code, computation using a wide range of other languages can is enabled by isntallig the appropriate Jupyter kernel (<a class="reference external" href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">curated list of Jupyter kernels</a>). For example, several kernels are avaialble that are particularly suited to a range of mathematics related activities such as statistical computing, symbolic maths and numerical computation. For example:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://irkernel.github.io/"><code class="docutils literal notranslate"><span class="pre">R</span></code></a> statistical computing and graphics;</p></li>
 <li><p><a class="reference external" href="https://github.com/TiesdeKok/ipystata"><code class="docutils literal notranslate"><span class="pre">Stata</span></code></a> statistical computing;</p></li>
@@ -454,6 +458,45 @@
 \]</div>
 <p>See this third party <a class="reference external" href="https://nbviewer.jupyter.org/github/ipython/ipython/blob/4.0.x/examples/Notebook/Typesetting%20Equations.ipynb">Typesetting Equations</a> demonstration notebook for further examples.</p>
 <p>MathJax content can also be rendered inline. For example, we can include the expression  <span class="math notranslate nohighlight">\(\sqrt{3x-1}+(1+x^2)\)</span> embedded <em>within</em> a line of text.</p>
+</div>
+<div class="section" id="rendering-equations-from-sympy">
+<h2>Rendering equations from <code class="docutils literal notranslate"><span class="pre">sympy</span></code><a class="headerlink" href="#rendering-equations-from-sympy" title="Permalink to this headline">¶</a></h2>
+<p>Guaranteeing the truth of a derived mathematical expression is often difficult if multiple steps of working are required and is further complicated particulalry if the expression is a complicated one.</p>
+<p>Using a symbolic maths package such as <code class="docutils literal notranslate"><span class="pre">sympy</span></code> allows derived expressions to be generated automatically and then embedded into book output.</p>
+<p><em>The following example is taken from <a class="reference external" href="https://nicoguaro.github.io/posts/tech_writing_math/">“Technical writing: using math”, Nicolás Guarín-Zapata</a>.</em></p>
+<p>Given the expression:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">sin</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="n">f</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle e^{- x^{2}} \sin{\left(3 x \right)}\]</div>
+</div>
+</div>
+<p>we can find it’s second derivative as:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">diff</span>
+
+<span class="n">fxx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">fxx</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left(- 12 x \cos{\left(3 x \right)} + 2 \left(2 x^{2} - 1\right) \sin{\left(3 x \right)} - 9 \sin{\left(3 x \right)}\right) e^{- x^{2}}\]</div>
+</div>
+</div>
+<p>Since the second derivative is calculated, and the equation is then rendered to a <em>LaTeX</em> form automatically, we know that the expression is correct (although it may not be in the form we require).</p>
 </div>
 <div class="section" id="embedding-latex-tikz-graphical-outputs">
 <h2>Embedding LaTex / TikZ Graphical Outputs<a class="headerlink" href="#embedding-latex-tikz-graphical-outputs" title="Permalink to this headline">¶</a></h2>
@@ -484,7 +527,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_5_02.png" src="../_images/overview_5_02.png" />
+<img alt="../_images/overview_10_0.png" src="../_images/overview_10_0.png" />
 </div>
 </div>
 </div>
@@ -537,11 +580,9 @@
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>

@@ -1,53 +1,52 @@
-- file: intro
-  numbered: false 
-- part: Astronomy
+format: jb-book
+root: intro
+parts:
+- caption: Astronomy
   chapters:
-    - file: astronomy/overview
-    - file: astronomy/fits-images
-    - file: astronomy/ephemeris-and-orbits
-    - file: astronomy/interactive-astronomy-viewers
-- part: Chemistry
+  - file: astronomy/overview
+  - file: astronomy/fits-images
+  - file: astronomy/ephemeris-and-orbits
+  - file: astronomy/interactive-astronomy-viewers
+- caption: Chemistry
   chapters:
-    - file: chemistry/overview
-    - file: chemistry/compound_lookups
-    - file: chemistry/material_properties
-    - file: chemistry/visualising-compounds
-- part: Electronics
+  - file: chemistry/overview
+  - file: chemistry/compound_lookups
+  - file: chemistry/material_properties
+  - file: chemistry/visualising-compounds
+- caption: Electronics
   chapters:
-    - file: electronics/overview
-    - file: electronics/worked-example
-- part: Other STEM
+  - file: electronics/overview
+  - file: electronics/worked-example
+- caption: Other STEM
   chapters:
-    - file: engineering/overview
-    - file: maths/overview
-    - file: maths/worked-equations
-    - file: maths/r-statistics
-    - file: maths/r-3d
-    - file: maths/networks-and-graphs
-- part: Arts & Humanities
-  chapters: 
-    - file: art/overview
-    - file: linguistics/overview
-    - file: linguistics/classics-corpora
-    - file: linguistics/classics-grammar
-    - file: music/overview
-- part: Map Generation
+  - file: engineering/overview
+  - file: maths/overview
+  - file: maths/worked-equations
+  - file: maths/r-statistics
+  - file: maths/r-3d
+  - file: maths/networks-and-graphs
+- caption: Arts & Humanities
   chapters:
-    - file: geo/overview
-- part: Chart Generation
+  - file: art/overview
+  - file: linguistics/overview
+  - file: linguistics/classics-corpora
+  - file: linguistics/classics-grammar
+  - file: music/overview
+- caption: Map Generation
   chapters:
-    - file: chart/overview
-- part: Diagram Generation
+  - file: geo/overview
+- caption: Chart Generation
   chapters:
-    - file: diagram/overview
-- part: Image Generation and Manipulation
+  - file: chart/overview
+- caption: Diagram Generation
   chapters:
-    - file: image/overview
-- part: Audio Generation and Manipulation
+  - file: diagram/overview
+- caption: Image Generation and Manipulation
   chapters:
-    - file: audio/overview
-- part: LaTeX
+  - file: image/overview
+- caption: Audio Generation and Manipulation
   chapters:
-    - file: latex/overview
-
-    
+  - file: audio/overview
+- caption: LaTeX
+  chapters:
+  - file: latex/overview
