@@ -402,6 +402,13 @@
     </span>
    </code>
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rendering-matrices">
+     Rendering Matrices
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#embedding-latex-tikz-graphical-outputs">
@@ -481,7 +488,7 @@
 \[\displaystyle e^{- x^{2}} \sin{\left(3 x \right)}\]</div>
 </div>
 </div>
-<p>we can find it’s second derivative as:</p>
+<p>we can find its second derivative as:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">diff</span>
@@ -497,6 +504,73 @@
 </div>
 </div>
 <p>Since the second derivative is calculated, and the equation is then rendered to a <em>LaTeX</em> form automatically, we know that the expression is correct (although it may not be in the form we require).</p>
+<div class="section" id="rendering-matrices">
+<h3>Rendering Matrices<a class="headerlink" href="#rendering-matrices" title="Permalink to this headline">¶</a></h3>
+<p>If we have a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> matrix, we can render it as a LaTeX styled matrix using a Python package such as <code class="docutils literal notranslate"><span class="pre">numpyarray_to_latex</span></code>.</p>
+<p>For example, here’s a random 4 x 5 matrix with round brackets (the default, although other bracket styles are customisable):</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#https://github.com/benmaier/numpyarray_to_latex</span>
+<span class="c1">#%pip install --upgrade numpyarray_to_latex</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpyarray_to_latex.jupyter</span> <span class="kn">import</span> <span class="n">to_jup</span>
+
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">to_jup</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left(
+\begin{array}{}
+    1.03 &amp;  -0.76 &amp;  -0.65 &amp;    0.43 &amp;  -0.27\\
+    1.06 &amp;  -0.13 &amp;    1.33 &amp;  -0.19 &amp;  -1.87\\
+    1.68 &amp;    0.41 &amp;    0.01 &amp;    0.31 &amp;  -0.54\\
+  -0.22 &amp;  -0.24 &amp;  -0.56 &amp;    0.64 &amp;    1.26
+\end{array}
+\right)\end{split}\]</div>
+</div>
+</div>
+<p>We can access the raw LaTeX if required:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpyarray_to_latex</span> <span class="kn">import</span> <span class="n">to_ltx</span>
+
+<span class="n">latex_txt</span> <span class="o">=</span> <span class="n">to_ltx</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">latex_txt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\left(
+\begin{array}{}
+  1.0274 &amp; -0.7639 &amp; -0.6493 &amp;  0.4319 &amp; -0.2665\\
+  1.0639 &amp; -0.1294 &amp;  1.3318 &amp; -0.1948 &amp; -1.8740\\
+  1.6760 &amp;  0.4122 &amp;  0.0144 &amp;  0.3144 &amp; -0.5408\\
+ -0.2231 &amp; -0.2374 &amp; -0.5573 &amp;  0.6371 &amp;  1.2561
+\end{array}
+\right)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Matrices can also be rendered via <code class="docutils literal notranslate"><span class="pre">sympy</span></code> (using square brackets), as can the results of matrix calculations. For example, let’s cast the above matrix as a <code class="docutils literal notranslate"><span class="pre">sympy.Matrix</span></code> and add it to itself:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">Matrix</span>
+
+<span class="n">Matrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span> <span class="o">+</span> <span class="n">Matrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}2.05474022379721 &amp; -1.52783889034103 &amp; -1.29866725909604 &amp; 0.863787574107947 &amp; -0.53303048892217\\2.12779543022178 &amp; -0.258819465356656 &amp; 2.66362835416464 &amp; -0.389532297979241 &amp; -3.74794411526771\\3.3519660880396 &amp; 0.82432617649046 &amp; 0.0288457152020042 &amp; 0.628815910071243 &amp; -1.08169175839088\\-0.446142815060314 &amp; -0.474711009260098 &amp; -1.11467909314324 &amp; 1.27415732762588 &amp; 2.51214112020317\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="embedding-latex-tikz-graphical-outputs">
 <h2>Embedding LaTex / TikZ Graphical Outputs<a class="headerlink" href="#embedding-latex-tikz-graphical-outputs" title="Permalink to this headline">¶</a></h2>
@@ -527,7 +601,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_10_0.png" src="../_images/overview_10_0.png" />
+<img alt="../_images/overview_16_0.png" src="../_images/overview_16_0.png" />
 </div>
 </div>
 </div>
