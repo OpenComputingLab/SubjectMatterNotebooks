@@ -210,7 +210,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../linguistics/overview.html">
-   Linguistics Overview
+   Linguistics &amp; Text Processing Overview
   </a>
  </li>
  <li class="toctree-l1">
@@ -627,7 +627,8 @@ browser &lt;-- webserver;
 <div class="section" id="flow-charts">
 <h2>Flow Charts<a class="headerlink" href="#flow-charts" title="Permalink to this headline">¶</a></h2>
 <p>To render a flowchart, we can use the <code class="docutils literal notranslate"><span class="pre">flowchart.js</span></code> Javascript package wrapped as an <code class="docutils literal notranslate"><span class="pre">ipywidget</span></code> using the <a class="reference external" href="https://github.com/innovationOUtside/flowchart_js_jp_proxy_widget"><code class="docutils literal notranslate"><span class="pre">flowchart_js_jp_proxy_widget</span></code></a> package which is capable of generating SVG output image files.</p>
-<p>In an interactive notebook, we can simply use the <code class="docutils literal notranslate"><span class="pre">%%flowchart_magic</span></code> block magic to render a flowchart from a flowchart definition. The process is slightly more laboured when generating flowcharts for use in a static Jupyter Book output format, since we must create an initial output file from an interactive notebook running in a browser before then rendering that saved data in the Jupyter Book output generating run.</p>
+<p>In an interactive notebook, we can simply use the <code class="docutils literal notranslate"><span class="pre">%%flowchart_magic</span></code> block magic to render a flowchart from a flowchart definition.</p>
+<p>The process is slightly more laboured when generating flowcharts for use in a static Jupyter Book output format, since we must create an initial output file from an interactive notebook running in a browser before then rendering that saved data in the Jupyter Book output generating run.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jp_flowchartjs.jp_flowchartjs</span> <span class="kn">import</span> <span class="n">FlowchartWidget</span>
@@ -679,7 +680,7 @@ browser &lt;-- webserver;
 <div class="cell_output docutils container">
 <img alt="../_images/overview_21_0.svg" src="../_images/overview_21_0.svg" /></div>
 </div>
-<p>It is also possible to generate a flowchart based on the contents of a code cell. In an interactive notebook, we can do this directly using the <code class="docutils literal notranslate"><span class="pre">%%pyflowchart_magic</span></code> block magic:</p>
+<p>It is also possible to generate a flowchart based on the contents of a code cell (in an interactive notebook, we can do this directly using the <code class="docutils literal notranslate"><span class="pre">%%pyflowchart_magic</span></code> block magic):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>

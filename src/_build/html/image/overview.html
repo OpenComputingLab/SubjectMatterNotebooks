@@ -44,8 +44,6 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -212,7 +210,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../linguistics/overview.html">
-   Linguistics Overview
+   Linguistics &amp; Text Processing Overview
   </a>
  </li>
  <li class="toctree-l1">
@@ -394,6 +392,13 @@
   <a class="reference internal nav-link" href="#generating-images">
    Generating Images
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-svg-images">
+     Creating SVG Images
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#manipulating-images">
@@ -442,6 +447,60 @@
 <p>Where this is done <em>in situ</em>, the local context should help the relationship between text and image to remain consistent.</p>
 <div class="section" id="generating-images">
 <h2>Generating Images<a class="headerlink" href="#generating-images" title="Permalink to this headline">¶</a></h2>
+<p>One of the advantages of generating diagrams from scripts is that it can make them easier to maintain.</p>
+<div class="section" id="creating-svg-images">
+<h3>Creating SVG Images<a class="headerlink" href="#creating-svg-images" title="Permalink to this headline">¶</a></h3>
+<p>Various tools exist that support the creation of SVG images from high level diagramming packages. We can also create SVG images at a lower, directly scripted level:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">drawSvg</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">drawSvg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">drawSvg</span> <span class="k">as</span> <span class="nn">draw</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">draw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">displayInline</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Draw an irregular polygon</span>
+<span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">draw</span><span class="o">.</span><span class="n">Lines</span><span class="p">(</span><span class="o">-</span><span class="mi">80</span><span class="p">,</span> <span class="o">-</span><span class="mi">45</span><span class="p">,</span>
+                    <span class="mi">70</span><span class="p">,</span> <span class="o">-</span><span class="mi">49</span><span class="p">,</span>
+                    <span class="mi">95</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span>
+                    <span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span>
+                    <span class="n">close</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;#eeee00&#39;</span><span class="p">,</span>
+            <span class="n">stroke</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">))</span>
+
+<span class="c1"># Draw a rectangle</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">draw</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span><span class="o">-</span><span class="mi">80</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;#1248ff&#39;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">appendTitle</span><span class="p">(</span><span class="s2">&quot;Our first rectangle&quot;</span><span class="p">)</span>  <span class="c1"># Add a tooltip</span>
+<span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+<span class="c1"># Image size</span>
+<span class="c1">#d.setPixelScale(2)  # Set number of pixels per geometry unit</span>
+<span class="n">d</span><span class="o">.</span><span class="n">setRenderSize</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>  <span class="c1"># Alternative to setPixelScale</span>
+
+<span class="c1"># Save image to file</span>
+<span class="c1">#d.saveSvg(&#39;example.svg&#39;)</span>
+<span class="c1">#d.savePng(&#39;example.png&#39;)</span>
+
+
+<span class="n">d</span>  <span class="c1"># Display as SVG</span>
+
+<span class="c1">#d.rasterize()  # Display as PNG</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIgogICAgIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSItMTAwLjAgLTUwLjAgMjAwIDEwMCI+CjxkZWZzPgo8L2RlZnM+CjxwYXRoIGQ9Ik0tODAsNDUgTDcwLDQ5IEw5NSwtNDkgTC05MCwtNDAiIGZpbGw9IiNlZWVlMDAiIHN0cm9rZT0iYmxhY2siIC8+CjxyZWN0IHg9Ii04MCIgeT0iLTUwIiB3aWR0aD0iNDAiIGhlaWdodD0iNTAiIGZpbGw9IiMxMjQ4ZmYiPgo8dGl0bGU+T3VyIGZpcnN0IHJlY3RhbmdsZTwvdGl0bGU+CjwvcmVjdD4KPC9zdmc+"></div></div>
+</div>
+</div>
 </div>
 <div class="section" id="manipulating-images">
 <h2>Manipulating Images<a class="headerlink" href="#manipulating-images" title="Permalink to this headline">¶</a></h2>
@@ -497,7 +556,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_6_0.png" src="../_images/overview_6_0.png" />
+<img alt="../_images/overview_9_0.png" src="../_images/overview_9_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -524,7 +583,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_7_0.png" src="../_images/overview_7_0.png" />
+<img alt="../_images/overview_10_0.png" src="../_images/overview_10_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -540,7 +599,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_8_0.png" src="../_images/overview_8_0.png" />
+<img alt="../_images/overview_11_0.png" src="../_images/overview_11_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -551,7 +610,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_9_01.png" src="../_images/overview_9_01.png" />
+<img alt="../_images/overview_12_0.png" src="../_images/overview_12_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -564,7 +623,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_10_0.png" src="../_images/overview_10_0.png" />
+<img alt="../_images/overview_13_0.png" src="../_images/overview_13_0.png" />
 </div>
 </div>
 <p>A wide range of filtering opportunities exist. For example, edge detection:</p>
@@ -596,7 +655,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_12_01.png" src="../_images/overview_12_01.png" />
+<img alt="../_images/overview_15_0.png" src="../_images/overview_15_0.png" />
 </div>
 </div>
 </div>
@@ -619,7 +678,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_15_01.png" src="../_images/overview_15_01.png" />
+<img alt="../_images/overview_18_0.png" src="../_images/overview_18_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -669,7 +728,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_18_01.png" src="../_images/overview_18_01.png" />
+<img alt="../_images/overview_21_0.png" src="../_images/overview_21_0.png" />
 </div>
 </div>
 <p>We can look at a colour histogram:</p>
@@ -680,7 +739,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_20_01.png" src="../_images/overview_20_01.png" />
+<img alt="../_images/overview_23_0.png" src="../_images/overview_23_0.png" />
 </div>
 </div>
 <p>One possible problem with the chart is that we don’t know whether the separate high RGB channel values are at the same pixel (eg a white pixel) or spread across pixels.</p>
@@ -699,8 +758,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_22_02.png" src="../_images/overview_22_02.png" />
-<img alt="../_images/overview_22_11.png" src="../_images/overview_22_11.png" />
+<img alt="../_images/overview_25_0.png" src="../_images/overview_25_0.png" />
+<img alt="../_images/overview_25_1.png" src="../_images/overview_25_1.png" />
 </div>
 </div>
 <p>How about a blue themed image - can we learn anything from the RGB plot about that?</p>
@@ -716,7 +775,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_24_01.png" src="../_images/overview_24_01.png" />
+<img alt="../_images/overview_27_0.png" src="../_images/overview_27_0.png" />
 </div>
 </div>
 <p>Here’s the colour histogram:</p>
@@ -727,7 +786,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_26_01.png" src="../_images/overview_26_01.png" />
+<img alt="../_images/overview_29_0.png" src="../_images/overview_29_0.png" />
 </div>
 </div>
 <p>And the greyscale brightness:</p>
@@ -743,8 +802,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_28_01.png" src="../_images/overview_28_01.png" />
-<img alt="../_images/overview_28_1.png" src="../_images/overview_28_1.png" />
+<img alt="../_images/overview_31_0.png" src="../_images/overview_31_0.png" />
+<img alt="../_images/overview_31_1.png" src="../_images/overview_31_1.png" />
 </div>
 </div>
 </div>
