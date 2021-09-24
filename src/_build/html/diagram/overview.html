@@ -403,6 +403,11 @@
      Network Diagrams
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rack-diagrams">
+     Rack Diagrams
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -464,12 +469,11 @@ B -&gt; D;
 </div>
 <div class="section" id="network-diagrams">
 <h3>Network Diagrams<a class="headerlink" href="#network-diagrams" title="Permalink to this headline">¶</a></h3>
-<p>TO DO</p>
-<p>In the following diagram, we save the SVG image to an explicit file as an additional output. (The direct output is hidden using a publishing system tag in the original soruce document.)</p>
+<p>The <em>network diagram</em> type can be used to demonstrate the connectivity of nodes to different IP (internet protocol) network ranges.</p>
+<p>In the following diagram, we save the SVG image to an explicit file as an additional output. (The direct output is hidden using a publishing system tag in the original source document.)</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">nwdiag</span> --outfile demo1.svg
-{
   network dmz {
       address = &quot;210.x.x.x/24&quot;
 
@@ -483,7 +487,6 @@ B -&gt; D;
       db01;
       app01;
   }
-}
 </pre></div>
 </div>
 </div>
@@ -500,6 +503,113 @@ B -&gt; D;
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/overview_9_0.svg" src="../_images/overview_9_0.svg" /></div>
+</div>
+<p>Nodes can also be grouped in coloured blocks.</p>
+<p>The network diagram type can also be used to sketch higher level network diagrams:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">nwdiag</span>
+
+  inet [shape = cloud];
+  inet -- router;
+
+  network {
+    router;
+    web01;
+    web02;
+  }
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_11_0.svg" src="../_images/overview_11_0.svg" /></div>
+</div>
+</div>
+<div class="section" id="rack-diagrams">
+<h3>Rack Diagrams<a class="headerlink" href="#rack-diagrams" title="Permalink to this headline">¶</a></h3>
+<p>The rack diagram (<code class="docutils literal notranslate"><span class="pre">rackdiag</span></code>) type is useful for generating diagrams that illustrate the different components that might be present in a physical rack server cabinet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">actdiag</span> --outfile delme1.svg
+  write -&gt; convert -&gt; image
+
+  lane user {
+     label = &quot;User&quot;
+     write [label = &quot;Writing reST&quot;];
+     image [label = &quot;Get diagram IMAGE&quot;];
+  }
+  lane actdiag {
+     convert [label = &quot;Convert reST to Image&quot;];
+  }
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_13_0.svg" src="../_images/overview_13_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">rackdiag</span> --outfile delme2.svg
+
+12U
+
+1: UPS [2U];
+3: DB Server
+4: Web Server 1 
+4: Web Server 2
+5: Web Server 3
+5: Web Server 4
+7: Load Balancer
+8: L3 Switch
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_14_0.svg" src="../_images/overview_14_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">packetdiag</span>
+  colwidth = 32
+  node_height = 72
+
+  0-15: Source Port
+  16-31: Destination Port
+  32-63: Sequence Number
+  64-95: Acknowledgment Number
+  96-99: Data Offset
+  100-105: Reserved
+  106: URG [rotate = 270]
+  107: ACK [rotate = 270]
+  108: PSH [rotate = 270]
+  109: RST [rotate = 270]
+  110: SYN [rotate = 270]
+  111: FIN [rotate = 270]
+  112-127: Window
+  128-143: Checksum
+  144-159: Urgent Pointer
+  160-191: (Options and Padding)
+  192-223: data [colheight = 3]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_15_0.svg" src="../_images/overview_15_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">seqdiag</span>
+browser  -&gt; webserver [label = &quot;GET /index.html&quot;];
+browser &lt;-- webserver;
+browser  -&gt; webserver [label = &quot;POST /blog/comment&quot;];
+          webserver  -&gt; database [label = &quot;INSERT comment&quot;];
+          webserver &lt;-- database;
+browser &lt;-- webserver;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_16_0.svg" src="../_images/overview_16_0.svg" /></div>
 </div>
 </div>
 </div>
@@ -556,7 +666,7 @@ B -&gt; D;
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_13_0.svg" src="../_images/overview_13_0.svg" /></div>
+<img alt="../_images/overview_20_0.svg" src="../_images/overview_20_0.svg" /></div>
 </div>
 <p>It is also possible to generate a flowchart based on the contents of a code cell. In an interactive notebook, we can do this directly using the <code class="docutils literal notranslate"><span class="pre">%%pyflowchart_magic</span></code> block magic:</p>
 <div class="cell docutils container">
@@ -601,7 +711,7 @@ B -&gt; D;
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_18_0.svg" src="../_images/overview_18_0.svg" /></div>
+<img alt="../_images/overview_25_0.svg" src="../_images/overview_25_0.svg" /></div>
 </div>
 </div>
 <div class="section" id="other-js-diagramming-tools">
