@@ -17,16 +17,27 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-#https://github.com/akaihola/jupyter_abc
-%%capture
-try:
-    %load_ext jupyter_abc
-except:
-    %pip install git+https://github.com/akaihola/jupyter_abc.git
+from IPython.display import SVG
 
-%reload_ext jupyter_abc
+def svg_hack(dummy, test_file = "test.svg"):
+    svg_data = dummy.get_svg()
+
+    if svg_data:
+        with open(test_file, "w") as f:
+            f.write(svg_data)
+
+    return SVG(test_file)
+
+svg_hack(dummy_output)
 ------------------
 
-
-UsageError: Line magic function `%%capture` not found.
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-6-0165486b58eb>[0m in [0;36m<module>[0;34m[0m
+[1;32m     10[0m     [0;32mreturn[0m [0mSVG[0m[0;34m([0m[0mtest_file[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m [0;34m[0m[0m
+[0;32m---> 12[0;31m [0msvg_hack[0m[0;34m([0m[0mdummy_output[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'dummy_output' is not defined
+NameError: name 'dummy_output' is not defined
 

@@ -1,0 +1,6 @@
+import time
+
+def demo(msg='demo'):
+    for i in range(10):
+        print(f'{msg} loopcount is {i}')
+        time.sleep(i)

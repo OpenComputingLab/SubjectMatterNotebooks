@@ -44,8 +44,6 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -408,6 +406,11 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flow-charts">
+   Flow Charts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#other-js-diagramming-tools">
    Other js Diagramming Tools
   </a>
@@ -498,65 +501,107 @@ B -&gt; D;
 <div class="cell_output docutils container">
 <img alt="../_images/overview_9_0.svg" src="../_images/overview_9_0.svg" /></div>
 </div>
-<div class="cell docutils container">
+</div>
+</div>
+<div class="section" id="flow-charts">
+<h2>Flow Charts<a class="headerlink" href="#flow-charts" title="Permalink to this headline">¶</a></h2>
+<p>To render a flowchart, we can use the <code class="docutils literal notranslate"><span class="pre">flowchart.js</span></code> Javascript package wrapped as an <code class="docutils literal notranslate"><span class="pre">ipywidget</span></code> using the <a class="reference external" href="https://github.com/innovationOUtside/flowchart_js_jp_proxy_widget"><code class="docutils literal notranslate"><span class="pre">flowchart_js_jp_proxy_widget</span></code></a> package which is capable of generating SVG output image files.</p>
+<p>In an interactive notebook, we can simply use the <code class="docutils literal notranslate"><span class="pre">%%flowchart_magic</span></code> block magic to render a flowchart from a flowchart definition. The process is slightly more laboured when generating flowcharts for use in a static Jupyter Book output format, since we must create an initial output file from an interactive notebook running in a browser before then rendering that saved data in the Jupyter Book output generating run.</p>
+<div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jp_flowchartjs.jp_flowchartjs</span> <span class="kn">import</span> <span class="n">FlowchartWidget</span>
 
-<span class="c1">#%pip install git+https://github.com/innovationOUtside/flowchart_js_jp_proxy_widget</span>
+<span class="c1"># The flowchart defintin script</span>
+<span class="n">code</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">st=&gt;start: Start</span>
+<span class="s2">e=&gt;end: End</span>
+<span class="s2">op1=&gt;operation: Set counter to 0</span>
+<span class="s2">op2=&gt;operation: Draw side code</span>
+<span class="s2">op3=&gt;operation: Turn ninety degrees code</span>
+<span class="s2">op4=&gt;operation: Add 1 to counter</span>
+<span class="s2">cond=&gt;condition: Is counter &lt; 4?</span>
+<span class="s2">st(right)-&gt;op1(right)-&gt;op2-&gt;op3-&gt;cond</span>
+<span class="s2">cond(yes, right)-&gt;op2</span>
+<span class="s2">cond(no, bottom)-&gt;e</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">dummy_flowcharter</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
+    <span class="c1"># Generate an output widget to generate SVG code</span>
+    <span class="n">dummy_output</span> <span class="o">=</span> <span class="n">FlowchartWidget</span><span class="p">()</span>
+    <span class="n">dummy_output</span><span class="o">.</span><span class="n">charter</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dummy_output</span>
+    
+<span class="n">dummy_flowcharter</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Import the <code class="docutils literal notranslate"><span class="pre">jp_flowchartjs</span></code> package, which automatically registers the magic:</p>
-<div class="cell docutils container">
+<p><em>Note that this currently requires running the notebook in a browser interface and saving the SVG to an output file that can then be loaded in an rendered. The direct Jupyer Book build approach does not ncessarily generate the required image data.</em></p>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jp_flowchartjs.jp_flowchartjs</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can now create simpe description of the flow chart and render it directly:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">flowchart_magic</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">SVG</span>
 
-st=&gt;start: Start
-e=&gt;end: End
-op1=&gt;operation: Generate
-op2=&gt;parallel: Evaluate
-st(right)-&gt;op1(right)-&gt;op2
-op2(path1, top)-&gt;op1
-op2(path2, right)-&gt;e
+<span class="k">def</span> <span class="nf">svg_hack</span><span class="p">(</span><span class="n">dummy</span><span class="p">,</span> <span class="n">test_file</span> <span class="o">=</span> <span class="s2">&quot;test.svg&quot;</span><span class="p">):</span>
+    <span class="n">svg_data</span> <span class="o">=</span> <span class="n">dummy</span><span class="o">.</span><span class="n">get_svg</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">svg_data</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">test_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">svg_data</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">SVG</span><span class="p">(</span><span class="n">test_file</span><span class="p">)</span>
+
+<span class="n">svg_hack</span><span class="p">(</span><span class="n">dummy_output</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "79ec41029ffe43c38e8e28d638bcdef0", "version_major": 2, "version_minor": 0}
-</script></div>
+<img alt="../_images/overview_13_0.svg" src="../_images/overview_13_0.svg" /></div>
 </div>
-<p>We can also create more complext flowcharts:</p>
+<p>It is also possible to generate a flowchart based on the contents of a code cell. In an interactive notebook, we can do this directly using the <code class="docutils literal notranslate"><span class="pre">%%pyflowchart_magic</span></code> block magic:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">flowchart_magic</span>
-st=&gt;start: Start
-e=&gt;end: End
-op1=&gt;operation: Set counter to 0
-op2=&gt;operation: Draw side code
-op3=&gt;operation: Turn ninety degrees code
-op4=&gt;operation: Add 1 to counter
-cond=&gt;condition: Is counter &lt; 4?
-st(right)-&gt;op1(right)-&gt;op2-&gt;op3-&gt;cond
-cond(yes, right)-&gt;op2
-cond(no, bottom)-&gt;e
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">demo</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;demo&#39;</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s1"> loopcount is </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span> code
+<span class="c1"># This gets the content of the previous cell</span>
+<span class="o">%</span><span class="n">history</span> <span class="o">-</span><span class="n">l</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyflowchart</span> <span class="kn">import</span> <span class="n">Flowchart</span>
+
+<span class="c1"># Generate a flowchart from the grabbed code</span>
+<span class="n">fc</span> <span class="o">=</span> <span class="n">Flowchart</span><span class="o">.</span><span class="n">from_code</span><span class="p">(</span><span class="n">code</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<span class="n">fc_text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">fc</span><span class="o">.</span><span class="n">flowchart</span><span class="p">())</span>
+
+<span class="c1"># Render</span>
+<span class="n">dummy_flowcharter</span><span class="p">(</span><span class="n">fc_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svg_hack</span><span class="p">(</span><span class="n">code_flowchart</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "861c733f53a74849a39c20a1de4e47a8", "version_major": 2, "version_minor": 0}
-</script></div>
-</div>
+<img alt="../_images/overview_18_0.svg" src="../_images/overview_18_0.svg" /></div>
 </div>
 </div>
 <div class="section" id="other-js-diagramming-tools">
@@ -570,12 +615,6 @@ cond(no, bottom)-&gt;e
 </ul>
 </div>
 </div>
-
-
-<script type="application/vnd.jupyter.widget-state+json">
-{"state": {"20c56a132d2f4e3eac4c5e6ac4d03edf": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "58feff78be0e4076834af7f45fb5f63f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "79ec41029ffe43c38e8e28d638bcdef0": {"model_module": "jp_proxy_widget", "model_module_version": "^1.0.8", "model_name": "JSProxyModel", "state": {"_dom_classes": [], "_model_module": "jp_proxy_widget", "_model_module_version": "^1.0.8", "_model_name": "JSProxyModel", "_send_counter": 0, "_view_count": null, "_view_module": "jp_proxy_widget", "_view_module_version": "^1.0.8", "_view_name": "JSProxyView", "error_msg": "No error", "layout": "IPY_MODEL_20c56a132d2f4e3eac4c5e6ac4d03edf", "rendered": false, "status": "deferring flush until render"}}, "861c733f53a74849a39c20a1de4e47a8": {"model_module": "jp_proxy_widget", "model_module_version": "^1.0.8", "model_name": "JSProxyModel", "state": {"_dom_classes": [], "_model_module": "jp_proxy_widget", "_model_module_version": "^1.0.8", "_model_name": "JSProxyModel", "_send_counter": 0, "_view_count": null, "_view_module": "jp_proxy_widget", "_view_module_version": "^1.0.8", "_view_name": "JSProxyView", "error_msg": "No error", "layout": "IPY_MODEL_58feff78be0e4076834af7f45fb5f63f", "rendered": false, "status": "deferring flush until render"}}}, "version_major": 2, "version_minor": 0}
-</script>
-
 
     <script type="text/x-thebe-config">
     {
