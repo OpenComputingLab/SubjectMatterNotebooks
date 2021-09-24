@@ -44,8 +44,6 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -406,6 +404,21 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activity-diagrams">
+     Activity Diagrams
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequence-diagram">
+     Sequence Diagram
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#packet-diagram">
+     Packet Diagram
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#rack-diagrams">
      Rack Diagrams
     </a>
@@ -551,9 +564,9 @@ B -&gt; D;
 <img alt="../_images/overview_12_0.svg" src="../_images/overview_12_0.svg" /></div>
 </div>
 </div>
-<div class="section" id="rack-diagrams">
-<h3>Rack Diagrams<a class="headerlink" href="#rack-diagrams" title="Permalink to this headline">¶</a></h3>
-<p>The rack diagram (<code class="docutils literal notranslate"><span class="pre">rackdiag</span></code>) type is useful for generating diagrams that illustrate the different components that might be present in a physical rack server cabinet.</p>
+<div class="section" id="activity-diagrams">
+<h3>Activity Diagrams<a class="headerlink" href="#activity-diagrams" title="Permalink to this headline">¶</a></h3>
+<p>The activity diagram type can be used to describe a linear series of activities carried out by one or more actors:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">actdiag</span> --outfile delme1.svg
@@ -573,26 +586,29 @@ B -&gt; D;
 <div class="cell_output docutils container">
 <img alt="../_images/overview_14_0.svg" src="../_images/overview_14_0.svg" /></div>
 </div>
+</div>
+<div class="section" id="sequence-diagram">
+<h3>Sequence Diagram<a class="headerlink" href="#sequence-diagram" title="Permalink to this headline">¶</a></h3>
+<p>A sequence diagran can be used to visualise the message passing sequence used by a communication protocol.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">rackdiag</span> --outfile delme2.svg
-
-12U
-
-1: UPS [2U];
-3: DB Server
-4: Web Server 1 
-4: Web Server 2
-5: Web Server 3
-5: Web Server 4
-7: Load Balancer
-8: L3 Switch
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">seqdiag</span>
+browser  -&gt; webserver [label = &quot;GET /index.html&quot;];
+browser &lt;-- webserver;
+browser  -&gt; webserver [label = &quot;POST /blog/comment&quot;];
+          webserver  -&gt; database [label = &quot;INSERT comment&quot;];
+          webserver &lt;-- database;
+browser &lt;-- webserver;
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_15_0.svg" src="../_images/overview_15_0.svg" /></div>
+<img alt="../_images/overview_16_0.svg" src="../_images/overview_16_0.svg" /></div>
 </div>
+</div>
+<div class="section" id="packet-diagram">
+<h3>Packet Diagram<a class="headerlink" href="#packet-diagram" title="Permalink to this headline">¶</a></h3>
+<p>The packaet diagram type can be used to illustrate the bit an bytewise structure of a data packaet:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">packetdiag</span>
@@ -620,22 +636,31 @@ B -&gt; D;
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_16_0.svg" src="../_images/overview_16_0.svg" /></div>
+<img alt="../_images/overview_18_0.svg" src="../_images/overview_18_0.svg" /></div>
 </div>
+</div>
+<div class="section" id="rack-diagrams">
+<h3>Rack Diagrams<a class="headerlink" href="#rack-diagrams" title="Permalink to this headline">¶</a></h3>
+<p>The rack diagram (<code class="docutils literal notranslate"><span class="pre">rackdiag</span></code>) type is useful for generating diagrams that illustrate the different components that might be present in a physical rack server cabinet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">seqdiag</span>
-browser  -&gt; webserver [label = &quot;GET /index.html&quot;];
-browser &lt;-- webserver;
-browser  -&gt; webserver [label = &quot;POST /blog/comment&quot;];
-          webserver  -&gt; database [label = &quot;INSERT comment&quot;];
-          webserver &lt;-- database;
-browser &lt;-- webserver;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">rackdiag</span> --outfile delme2.svg
+
+12U
+
+1: UPS [2U];
+3: DB Server
+4: Web Server 1 
+4: Web Server 2
+5: Web Server 3
+5: Web Server 4
+7: Load Balancer
+8: L3 Switch
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_17_0.svg" src="../_images/overview_17_0.svg" /></div>
+<img alt="../_images/overview_20_0.svg" src="../_images/overview_20_0.svg" /></div>
 </div>
 </div>
 </div>
@@ -693,7 +718,7 @@ browser &lt;-- webserver;
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_21_0.svg" src="../_images/overview_21_0.svg" /></div>
+<img alt="../_images/overview_24_0.svg" src="../_images/overview_24_0.svg" /></div>
 </div>
 <p>It is also possible to generate a flowchart based on the contents of a code cell (in an interactive notebook, we can do this directly using the <code class="docutils literal notranslate"><span class="pre">%%pyflowchart_magic</span></code> block magic):</p>
 <div class="cell docutils container">
@@ -738,7 +763,7 @@ browser &lt;-- webserver;
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_26_0.svg" src="../_images/overview_26_0.svg" /></div>
+<img alt="../_images/overview_29_0.svg" src="../_images/overview_29_0.svg" /></div>
 </div>
 <div class="section" id="rendering-svg-schematic-diagrams-from-a-yosys-json-netlist">
 <h3>Rendering SVG Schematic Diagrams from a <code class="docutils literal notranslate"><span class="pre">yosys</span></code> JSON netlist<a class="headerlink" href="#rendering-svg-schematic-diagrams-from-a-yosys-json-netlist" title="Permalink to this headline">¶</a></h3>
@@ -1204,7 +1229,7 @@ fn_svg = &quot;netlist.svg&quot;
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_30_0.svg" src="../_images/overview_30_0.svg" /></div>
+<img alt="../_images/overview_33_0.svg" src="../_images/overview_33_0.svg" /></div>
 </div>
 </div>
 </div>

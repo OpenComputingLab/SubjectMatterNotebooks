@@ -1,180 +1,52 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkspace="http://www.inkscape.org/namespaces/inkscape" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 896 768">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkspace="http://www.inkscape.org/namespaces/inkscape" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 640 492">
   <defs id="defs_block">
     <filter height="1.504" id="filter_blur" inkspace:collect="always" width="1.1575" x="-0.07875" y="-0.252">
       <feGaussianBlur id="feGaussianBlur3780" inkspace:collect="always" stdDeviation="4.2"/>
     </filter>
   </defs>
   <title>blockdiag</title>
-  <desc>packetdiag {   colwidth = 32
-  node_height = 72
+  <desc>seqdiag { browser  -&gt; webserver [label = &quot;GET /index.html&quot;];
+browser &lt;-- webserver;
+browser  -&gt; webserver [label = &quot;POST /blog/comment&quot;];
+          webserver  -&gt; database [label = &quot;INSERT comment&quot;];
+          webserver &lt;-- database;
+browser &lt;-- webserver;
 
-  0-15: Source Port
-  16-31: Destination Port
-  32-63: Sequence Number
-  64-95: Acknowledgment Number
-  96-99: Data Offset
-  100-105: Reserved
-  106: URG [rotate = 270]
-  107: ACK [rotate = 270]
-  108: PSH [rotate = 270]
-  109: RST [rotate = 270]
-  110: SYN [rotate = 270]
-  111: FIN [rotate = 270]
-  112-127: Window
-  128-143: Checksum
-  144-159: Urgent Pointer
-  160-191: (Options and Padding)
-  192-223: data [colheight = 3]
  }
 </desc>
-  <path d="M 64 48 L 64 80" fill="none" stroke="rgb(0,0,0)"/>
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="7" x="64.5" y="42">0</text>
-  <path d="M 88 64 L 88 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 112 64 L 112 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 136 64 L 136 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 160 64 L 160 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 184 64 L 184 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 208 64 L 208 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 232 64 L 232 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 256 48 L 256 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 280 64 L 280 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 304 64 L 304 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 328 64 L 328 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 352 64 L 352 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 376 64 L 376 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 400 64 L 400 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 424 64 L 424 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 448 48 L 448 80" fill="none" stroke="rgb(0,0,0)"/>
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="14" x="448.0" y="42">16</text>
-  <path d="M 472 64 L 472 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 496 64 L 496 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 520 64 L 520 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 544 64 L 544 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 568 64 L 568 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 592 64 L 592 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 616 64 L 616 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 640 48 L 640 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 664 64 L 664 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 688 64 L 688 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 712 64 L 712 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 736 64 L 736 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 760 64 L 760 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 784 64 L 784 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 808 64 L 808 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 832 48 L 832 80" fill="none" stroke="rgb(0,0,0)"/>
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="14" x="832.0" y="42">32</text>
-  <rect fill="rgb(255,255,255)" height="72" stroke="rgb(255,255,255)" width="384" x="64" y="80"/>
-  <path d="M 64 80 L 448 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 448 80 L 448 152" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 448 152 L 64 152" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 64 152 L 64 80" fill="none" stroke="rgb(0,0,0)"/>
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="60" x="256.0" y="122">Source Port</text>
-  <rect fill="rgb(255,255,255)" height="72" stroke="rgb(255,255,255)" width="384" x="448" y="80"/>
-  <path d="M 448 80 L 832 80" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 832 80 L 832 152" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 832 152 L 448 152" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 448 152 L 448 80" fill="none" stroke="rgb(0,0,0)"/>
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="80" x="640.0" y="122">Destination Port</text>
-  <rect fill="rgb(255,255,255)" height="72" stroke="rgb(255,255,255)" width="768" x="64" y="152"/>
-  <path d="M 64 152 L 832 152" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 832 152 L 832 224" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 832 224 L 64 224" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 64 224 L 64 152" fill="none" stroke="rgb(0,0,0)"/>
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="93" x="448.5" y="194">Sequence Number</text>
-  <rect fill="rgb(255,255,255)" height="72" stroke="rgb(255,255,255)" width="768" x="64" y="224"/>
-  <path d="M 64 224 L 832 224" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 832 224 L 832 296" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 832 296 L 64 296" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 64 296 L 64 224" fill="none" stroke="rgb(0,0,0)"/>
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="131" x="448.5" y="267">Acknowledgment Number</text>
-  <rect fill="rgb(255,255,255)" height="72" stroke="rgb(255,255,255)" width="96" x="64" y="296"/>
-  <path d="M 64 296 L 160 296" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 160 296 L 160 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 160 368 L 64 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 64 368 L 64 296" fill="none" stroke="rgb(0,0,0)"/>
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="60" x="112.0" y="338">Data Offset</text>
-  <rect fill="rgb(255,255,255)" height="72" stroke="rgb(255,255,255)" width="144" x="160" y="296"/>
-  <path d="M 160 296 L 304 296" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 304 296 L 304 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 304 368 L 160 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 160 368 L 160 296" fill="none" stroke="rgb(0,0,0)"/>
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="46" x="232.0" y="338">Reserved</text>
-  <rect fill="rgb(255,255,255)" height="72" stroke="rgb(255,255,255)" width="24" x="304" y="296"/>
-  <path d="M 304 296 L 328 296" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 328 296 L 328 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 328 368 L 304 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 304 368 L 304 296" fill="none" stroke="rgb(0,0,0)"/>
-  <g transform="rotate(270,304,368)">
-    <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="23" x="340.5" y="386">URG</text>
-  </g>
-  <rect fill="rgb(255,255,255)" height="72" stroke="rgb(255,255,255)" width="24" x="328" y="296"/>
-  <path d="M 328 296 L 352 296" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 352 296 L 352 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 352 368 L 328 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 328 368 L 328 296" fill="none" stroke="rgb(0,0,0)"/>
-  <g transform="rotate(270,328,368)">
-    <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="23" x="364.5" y="386">ACK</text>
-  </g>
-  <rect fill="rgb(255,255,255)" height="72" stroke="rgb(255,255,255)" width="24" x="352" y="296"/>
-  <path d="M 352 296 L 376 296" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 376 296 L 376 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 376 368 L 352 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 352 368 L 352 296" fill="none" stroke="rgb(0,0,0)"/>
-  <g transform="rotate(270,352,368)">
-    <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="22" x="388.0" y="386">PSH</text>
-  </g>
-  <rect fill="rgb(255,255,255)" height="72" stroke="rgb(255,255,255)" width="24" x="376" y="296"/>
-  <path d="M 376 296 L 400 296" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 400 296 L 400 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 400 368 L 376 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 376 368 L 376 296" fill="none" stroke="rgb(0,0,0)"/>
-  <g transform="rotate(270,376,368)">
-    <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="21" x="412.5" y="386">RST</text>
-  </g>
-  <rect fill="rgb(255,255,255)" height="72" stroke="rgb(255,255,255)" width="24" x="400" y="296"/>
-  <path d="M 400 296 L 424 296" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 424 296 L 424 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 424 368 L 400 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 400 368 L 400 296" fill="none" stroke="rgb(0,0,0)"/>
-  <g transform="rotate(270,400,368)">
-    <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="23" x="436.5" y="386">SYN</text>
-  </g>
-  <rect fill="rgb(255,255,255)" height="72" stroke="rgb(255,255,255)" width="24" x="424" y="296"/>
-  <path d="M 424 296 L 448 296" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 448 296 L 448 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 448 368 L 424 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 424 368 L 424 296" fill="none" stroke="rgb(0,0,0)"/>
-  <g transform="rotate(270,424,368)">
-    <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="16" x="460.0" y="385">FIN</text>
-  </g>
-  <rect fill="rgb(255,255,255)" height="72" stroke="rgb(255,255,255)" width="384" x="448" y="296"/>
-  <path d="M 448 296 L 832 296" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 832 296 L 832 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 832 368 L 448 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 448 368 L 448 296" fill="none" stroke="rgb(0,0,0)"/>
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="40" x="640.0" y="338">Window</text>
-  <rect fill="rgb(255,255,255)" height="72" stroke="rgb(255,255,255)" width="384" x="64" y="368"/>
-  <path d="M 64 368 L 448 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 448 368 L 448 440" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 448 440 L 64 440" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 64 440 L 64 368" fill="none" stroke="rgb(0,0,0)"/>
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="53" x="256.5" y="410">Checksum</text>
-  <rect fill="rgb(255,255,255)" height="72" stroke="rgb(255,255,255)" width="384" x="448" y="368"/>
-  <path d="M 448 368 L 832 368" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 832 368 L 832 440" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 832 440 L 448 440" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 448 440 L 448 368" fill="none" stroke="rgb(0,0,0)"/>
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="73" x="640.5" y="411">Urgent Pointer</text>
-  <rect fill="rgb(255,255,255)" height="72" stroke="rgb(255,255,255)" width="768" x="64" y="440"/>
-  <path d="M 64 440 L 832 440" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 832 440 L 832 512" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 832 512 L 64 512" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 64 512 L 64 440" fill="none" stroke="rgb(0,0,0)"/>
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="115" x="448.5" y="483">(Options and Padding)</text>
-  <rect fill="rgb(255,255,255)" height="216" stroke="rgb(255,255,255)" width="768" x="64" y="512"/>
-  <path d="M 64 512 L 832 512" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 832 512 L 832 728" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 832 728 L 64 728" fill="none" stroke="rgb(0,0,0)"/>
-  <path d="M 64 728 L 64 512" fill="none" stroke="rgb(0,0,0)"/>
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="22" x="448.0" y="626">data</text>
+  <rect fill="rgb(0,0,0)" height="328" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="8" x="127" y="142"/>
+  <rect fill="rgb(0,0,0)" height="50" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="8" x="319" y="142"/>
+  <rect fill="rgb(0,0,0)" height="165" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="8" x="319" y="259"/>
+  <rect fill="rgb(0,0,0)" height="50" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="8" x="511" y="324"/>
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="67" y="46"/>
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="259" y="46"/>
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="451" y="46"/>
+  <path d="M 128 80 L 128 480" fill="none" stroke="rgb(0,0,0)" stroke-dasharray="8 4"/>
+  <rect fill="moccasin" height="328" stroke="rgb(0,0,0)" width="8" x="124" y="136"/>
+  <path d="M 320 80 L 320 480" fill="none" stroke="rgb(0,0,0)" stroke-dasharray="8 4"/>
+  <rect fill="moccasin" height="50" stroke="rgb(0,0,0)" width="8" x="316" y="136"/>
+  <rect fill="moccasin" height="165" stroke="rgb(0,0,0)" width="8" x="316" y="253"/>
+  <path d="M 512 80 L 512 480" fill="none" stroke="rgb(0,0,0)" stroke-dasharray="8 4"/>
+  <rect fill="moccasin" height="50" stroke="rgb(0,0,0)" width="8" x="508" y="318"/>
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="128" x="64" y="40"/>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="40" x="128.0" y="66">browser</text>
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="128" x="256" y="40"/>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="52" x="320.0" y="66">webserver</text>
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="128" x="448" y="40"/>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="45" x="512.5" y="66">database</text>
+  <path d="M 136 136 L 312 136" fill="none" stroke="rgb(0,0,0)"/>
+  <polygon fill="rgb(0,0,0)" points="304,132 312,136 304,140" stroke="rgb(0,0,0)"/>
+  <path d="M 136 186 L 312 186" fill="none" stroke="rgb(0,0,0)" stroke-dasharray="4"/>
+  <polygon fill="rgb(0,0,0)" points="144,182 136,186 144,190" stroke="rgb(0,0,0)"/>
+  <path d="M 136 253 L 312 253" fill="none" stroke="rgb(0,0,0)"/>
+  <polygon fill="rgb(0,0,0)" points="304,249 312,253 304,257" stroke="rgb(0,0,0)"/>
+  <path d="M 328 318 L 504 318" fill="none" stroke="rgb(0,0,0)"/>
+  <polygon fill="rgb(0,0,0)" points="496,314 504,318 496,322" stroke="rgb(0,0,0)"/>
+  <path d="M 328 368 L 504 368" fill="none" stroke="rgb(0,0,0)" stroke-dasharray="4"/>
+  <polygon fill="rgb(0,0,0)" points="336,364 328,368 336,372" stroke="rgb(0,0,0)"/>
+  <path d="M 136 418 L 312 418" fill="none" stroke="rgb(0,0,0)" stroke-dasharray="4"/>
+  <polygon fill="rgb(0,0,0)" points="144,414 136,418 144,422" stroke="rgb(0,0,0)"/>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="83" x="181.5" y="134">GET /index.html</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="114" x="197.0" y="251">POST /blog/comment</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="89" x="376.5" y="316">INSERT comment</text>
 </svg>
