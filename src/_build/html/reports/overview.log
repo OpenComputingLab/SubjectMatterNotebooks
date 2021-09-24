@@ -40,12 +40,12 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 [0;32m--> 107[0;31m             [0;32mwith[0m [0mio[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mdraw_name[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m    108[0m                 [0mdata[0m [0;34m=[0m [0mf[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/var/folders/l8/qg6m44156_l6bzv_cbkk7bf00000gn/T/tmp3ptnsz4_/tmpplmqp3a2.svg'
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/var/folders/l8/qg6m44156_l6bzv_cbkk7bf00000gn/T/tmpneicp6vf/tmp9vqs7t2_.svg'
 
 During handling of the above exception, another exception occurred:
 
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[0;32m<ipython-input-3-c11343990708>[0m in [0;36m<module>[0;34m[0m
+[0;32m<ipython-input-4-c11343990708>[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_cell_magic[0m[0;34m([0m[0;34m'nwdiag'[0m[0;34m,[0m [0;34m'--outfile demo1.svg'[0m[0;34m,[0m [0;34m'  network dmz {\n      address = "210.x.x.x/24"\n\n      web01 [address = "210.x.x.1"];\n      web02 [address = "210.x.x.2"];\n  }\n  network internal {\n      address = "172.x.x.x/24";\n\n      web01 [address = "172.x.x.1"];\n      db01;\n      app01;\n  }\n'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m
 [0;32m/usr/local/lib/python3.9/site-packages/IPython/core/interactiveshell.py[0m in [0;36mrun_cell_magic[0;34m(self, magic_name, line, cell)[0m
@@ -85,6 +85,6 @@ During handling of the above exception, another exception occurred:
 [0m[1;32m    265[0m             [0;31m# macOS[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
 [1;32m    266[0m             [0;32mif[0m [0m_HAS_FCOPYFILE[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/var/folders/l8/qg6m44156_l6bzv_cbkk7bf00000gn/T/tmp3ptnsz4_/tmpplmqp3a2.svg'
-FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/l8/qg6m44156_l6bzv_cbkk7bf00000gn/T/tmp3ptnsz4_/tmpplmqp3a2.svg'
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/var/folders/l8/qg6m44156_l6bzv_cbkk7bf00000gn/T/tmpneicp6vf/tmp9vqs7t2_.svg'
+FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/l8/qg6m44156_l6bzv_cbkk7bf00000gn/T/tmpneicp6vf/tmp9vqs7t2_.svg'
 
