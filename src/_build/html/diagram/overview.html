@@ -44,6 +44,8 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -414,6 +416,19 @@
   <a class="reference internal nav-link" href="#flow-charts">
    Flow Charts
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rendering-svg-schematic-diagrams-from-a-yosys-json-netlist">
+     Rendering SVG Schematic Diagrams from a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       yosys
+      </span>
+     </code>
+     JSON netlist
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#other-js-diagramming-tools">
@@ -724,6 +739,473 @@ browser &lt;-- webserver;
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/overview_26_0.svg" src="../_images/overview_26_0.svg" /></div>
+</div>
+<div class="section" id="rendering-svg-schematic-diagrams-from-a-yosys-json-netlist">
+<h3>Rendering SVG Schematic Diagrams from a <code class="docutils literal notranslate"><span class="pre">yosys</span></code> JSON netlist<a class="headerlink" href="#rendering-svg-schematic-diagrams-from-a-yosys-json-netlist" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://github.com/nturley/netlistsvg"><code class="docutils literal notranslate"><span class="pre">netlistsvg</span></code></a> package can generate and render an SVG schematic diagram from a netlist.</p>
+<details>
+  <summary>JSON Source (click here to reveal)</summary>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;modules&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;up3down5&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;ports&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;clock&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;data_in&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;up&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">12</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;down&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;carry_out&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">14</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;borrow_out&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">15</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;count_out&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;parity_out&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">25</span> <span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;cells&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;$add$input.v:17$3&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$add&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">],</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span> <span class="p">],</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">35</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$and$input.v:28$5&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$and&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">12</span> <span class="p">],</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">35</span> <span class="p">],</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">36</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$and$input.v:29$6&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$and&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span> <span class="p">],</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">37</span> <span class="p">],</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">38</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$procdff$40&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$dff&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;CLK&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Q&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;CLK&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">],</span>
+            <span class="nt">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">47</span> <span class="p">],</span>
+            <span class="nt">&quot;Q&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$procdff$41&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$dff&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;CLK&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Q&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;CLK&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">],</span>
+            <span class="nt">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">36</span> <span class="p">],</span>
+            <span class="nt">&quot;Q&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">14</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$procdff$42&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$dff&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;CLK&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Q&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;CLK&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">],</span>
+            <span class="nt">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">38</span> <span class="p">],</span>
+            <span class="nt">&quot;Q&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">15</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$procdff$43&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$dff&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;CLK&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Q&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;CLK&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">],</span>
+            <span class="nt">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">48</span> <span class="p">],</span>
+            <span class="nt">&quot;Q&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">25</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$procmux$36&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$pmux&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;S&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">],</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span> <span class="p">],</span>
+            <span class="nt">&quot;S&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">60</span> <span class="p">],</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">47</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$procmux$37_CMP0&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$eq&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">12</span> <span class="p">],</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span> <span class="p">],</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">58</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$procmux$38_CMP0&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$eq&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">12</span> <span class="p">],</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span> <span class="p">],</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">59</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$procmux$39_CMP0&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$eq&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">12</span> <span class="p">],</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span> <span class="p">],</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">60</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$reduce_xor$input.v:27$4&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$reduce_xor&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">47</span> <span class="p">],</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">48</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$sub$input.v:16$2&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$sub&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">],</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span> <span class="p">],</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">37</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details><div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">netlist</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;modules&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;up3down5&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;ports&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;clock&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;data_in&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;up&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">12</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;down&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;carry_out&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">14</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;borrow_out&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">15</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;count_out&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;parity_out&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">25</span> <span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;cells&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;$add$input.v:17$3&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$add&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">],</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span> <span class="p">],</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">35</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$and$input.v:28$5&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$and&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">12</span> <span class="p">],</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">35</span> <span class="p">],</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">36</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$and$input.v:29$6&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$and&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span> <span class="p">],</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">37</span> <span class="p">],</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">38</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$procdff$40&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$dff&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;CLK&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;CLK&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">],</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">47</span> <span class="p">],</span>
+            <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$procdff$41&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$dff&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;CLK&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;CLK&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">],</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">36</span> <span class="p">],</span>
+            <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">14</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$procdff$42&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$dff&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;CLK&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;CLK&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">],</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">38</span> <span class="p">],</span>
+            <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">15</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$procdff$43&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$dff&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;CLK&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;CLK&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">],</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">48</span> <span class="p">],</span>
+            <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">25</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$procmux$36&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$pmux&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;S&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">],</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span> <span class="p">],</span>
+            <span class="s2">&quot;S&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">60</span> <span class="p">],</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">47</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$procmux$37_CMP0&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$eq&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">12</span> <span class="p">],</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span> <span class="p">],</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">58</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$procmux$38_CMP0&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$eq&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">12</span> <span class="p">],</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span> <span class="p">],</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">59</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$procmux$39_CMP0&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$eq&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">12</span> <span class="p">],</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span> <span class="p">],</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">60</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$reduce_xor$input.v:27$4&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$reduce_xor&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">47</span> <span class="p">],</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">48</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$sub$input.v:16$2&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$sub&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">],</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span> <span class="p">],</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">37</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">fn</span> <span class="o">=</span> <span class="s1">&#39;netlist.json&#39;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">netlist</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture 
+
+fn_svg = &quot;netlist.svg&quot;
+
+# Install the netlistsvg package (requires node)
+#!npm install -g netlistsvg
+!netlistsvg $fn -o $fn_svg
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">SVG</span>
+
+<span class="n">SVG</span><span class="p">(</span><span class="n">fn_svg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_30_0.svg" src="../_images/overview_30_0.svg" /></div>
+</div>
 </div>
 </div>
 <div class="section" id="other-js-diagramming-tools">
