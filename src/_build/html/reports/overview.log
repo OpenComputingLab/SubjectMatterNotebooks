@@ -40,7 +40,7 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 [0;32m--> 107[0;31m             [0;32mwith[0m [0mio[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0mdraw_name[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m [0;32mas[0m [0mf[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m    108[0m                 [0mdata[0m [0;34m=[0m [0mf[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/var/folders/l8/qg6m44156_l6bzv_cbkk7bf00000gn/T/tmpj3ciqhra/tmp0z3vh1qm.svg'
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/var/folders/l8/qg6m44156_l6bzv_cbkk7bf00000gn/T/tmpmexx1ys1/tmpotv51o2e.svg'
 
 During handling of the above exception, another exception occurred:
 
@@ -85,6 +85,6 @@ During handling of the above exception, another exception occurred:
 [0m[1;32m    265[0m             [0;31m# macOS[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
 [1;32m    266[0m             [0;32mif[0m [0m_HAS_FCOPYFILE[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/var/folders/l8/qg6m44156_l6bzv_cbkk7bf00000gn/T/tmpj3ciqhra/tmp0z3vh1qm.svg'
-FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/l8/qg6m44156_l6bzv_cbkk7bf00000gn/T/tmpj3ciqhra/tmp0z3vh1qm.svg'
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/var/folders/l8/qg6m44156_l6bzv_cbkk7bf00000gn/T/tmpmexx1ys1/tmpotv51o2e.svg'
+FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/l8/qg6m44156_l6bzv_cbkk7bf00000gn/T/tmpmexx1ys1/tmpotv51o2e.svg'
 

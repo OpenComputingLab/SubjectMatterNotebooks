@@ -1,6 +1,11 @@
 format: jb-book
 root: intro
 parts:
+- caption: Production
+  chapters:
+  - file: production/production-methods
+  - file: production/relationship-to-OERs
+  - file: production/relationship-to-worksheets-and-assessment
 - caption: Astronomy
   chapters:
   - file: astronomy/overview
@@ -25,13 +30,15 @@ parts:
   - file: maths/r-statistics
   - file: maths/r-3d
   - file: maths/networks-and-graphs
-- caption: Arts & Humanities
+- caption: Arts
   chapters:
   - file: art/overview
+  - file: music/overview
+- caption: Humanities
+  chapters:
   - file: linguistics/overview
   - file: linguistics/classics-corpora
   - file: linguistics/classics-grammar
-  - file: music/overview
 - caption: Map Generation
   chapters:
   - file: geo/overview
