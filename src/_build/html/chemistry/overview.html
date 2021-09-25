@@ -456,7 +456,7 @@
 </div>
 </div>
 <p>At the current time, whilst R based <code class="docutils literal notranslate"><span class="pre">bookdown</span></code> worfklows <em>do</em> support inline embedding of code variables in markdown text, interactive Jupyter notebook markdown cells don’t support such a feature (although there is ongoing work to provide this sort of support) other than by extension.</p>
-<p>However, it is possible to embed variables into markdown text in Jupyter Book workflows using <a class="reference external" href="https://jupyterbook.org/content/executable/output-insert.html"><code class="docutils literal notranslate"><span class="pre">jupyter-glue</span></code></a>:</p>
+<p>However, it is possible to embed variables into markdown text in Jupyter Book workflows using <a class="reference external" href="https://jupyterbook.org/content/executable/output-insert.html"><code class="docutils literal notranslate"><span class="pre">jupyter-glue</span></code></a>.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
@@ -471,20 +471,16 @@
 </div>
 <p>Having declared the compound we want to investigate in code, we can refer to it directly inline in our text using a <code class="docutils literal notranslate"><span class="pre">{glue:}`compound`</span> </code> reference: <span class="pasted-text">ethanol</span>.</p>
 <p>We can also automatically look-up various properties associated with the compound, such as its chemical formula or a universal compound identifier.</p>
-<p>The formula can be rendered in an appropriate typographical form from a LaTeX representation of the formula.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pubchempy</span> <span class="k">as</span> <span class="nn">pcp</span>
 
 <span class="n">_compound</span> <span class="o">=</span> <span class="n">pcp</span><span class="o">.</span><span class="n">get_compounds</span><span class="p">(</span><span class="n">compound_name</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">_compound_latex</span> <span class="o">=</span> <span class="s1">&#39;$\ce{&#39;</span><span class="o">+</span><span class="n">_compound</span><span class="o">.</span><span class="n">molecular_formula</span><span class="o">+</span><span class="s1">&#39;}$&#39;</span> 
 </pre></div>
 </div>
 </div>
 </div>
-<div class="math notranslate nohighlight">
-\[\require{mhchem}\]</div>
-<p>Using the <code class="docutils literal notranslate"><span class="pre">mhchem</span></code> MathJax package, we easily add support for rendering of chemical equations, just as we can rendered mathematical equations:</p>
+<p>The formula can be rendered in an appropriate typographical form from a LaTeX representation of the formula.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Latex</span>
@@ -498,12 +494,16 @@
 \[\ce{C2H6O}\]</div>
 </div>
 </div>
+<div class="math notranslate nohighlight">
+\[\require{mhchem}\]</div>
 <p>It is also possible to create <code class="docutils literal notranslate"><span class="pre">glue</span></code> references to things like the compound LaTeX equation.</p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">mhchem</span></code> <em>MathJax</em> package, we easily add support for inline rendering of chemical equations, just as we can rendered mathematical equations:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save a reference to the Latex equivalent of the compound formula</span>
-<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;compoundLatex&quot;</span><span class="p">,</span> <span class="n">Latex</span><span class="p">(</span><span class="s1">&#39;$\ce{&#39;</span><span class="o">+</span><span class="n">_compound</span><span class="o">.</span><span class="n">molecular_formula</span><span class="o">+</span><span class="s1">&#39;}$&#39;</span><span class="p">),</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;compoundLatex2&quot;</span><span class="p">,</span> <span class="s1">&#39;$\ce{&#39;</span><span class="o">+</span><span class="n">_compound</span><span class="o">.</span><span class="n">molecular_formula</span><span class="o">+</span><span class="s1">&#39;}$&#39;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_compound_latex</span> <span class="o">=</span> <span class="s1">&#39;$\ce{&#39;</span><span class="o">+</span><span class="n">_compound</span><span class="o">.</span><span class="n">molecular_formula</span><span class="o">+</span><span class="s1">&#39;}$&#39;</span> 
+
+<span class="c1"># Save a reference to the Latex equivalent of the compound formula</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;compoundLatex&quot;</span><span class="p">,</span> <span class="n">Latex</span><span class="p">(</span><span class="n">_compound_latex</span><span class="p">),</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -514,7 +514,7 @@
 <div class="pasted-math math notranslate nohighlight" id="equation-eq-sym">
 <span class="eqno">()<a class="headerlink" href="#equation-eq-sym" title="Permalink to this equation">¶</a></span>\[\ce{C2H6O}\]</div>
 <p>We can also render a free standing HTML+JS 3D interactive version of the molecule into the page from the previously retrieved universal compound ID:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">py3Dmol</span>
 
@@ -528,8 +528,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="3dmolviewer_1632568877139657"  style="position: relative; width: 640px; height: 480px">
-        <p id="3dmolwarning_1632568877139657" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
+<div class="output text_html"><div id="3dmolviewer_16325717941799"  style="position: relative; width: 640px; height: 480px">
+        <p id="3dmolwarning_16325717941799" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
         <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
         </div>
 <script>
@@ -552,17 +552,17 @@ $3Dmolpromise = null;
   $3Dmolpromise = loadScriptAsync('https://3dmol.org/build/3Dmol.js');
 }
 
-var viewer_1632568877139657 = null;
-var warn = document.getElementById("3dmolwarning_1632568877139657");
+var viewer_16325717941799 = null;
+var warn = document.getElementById("3dmolwarning_16325717941799");
 if(warn) {
     warn.parentNode.removeChild(warn);
 }
 $3Dmolpromise.then(function() {
-viewer_1632568877139657 = $3Dmol.createViewer($("#3dmolviewer_1632568877139657"),{backgroundColor:"white"});
-$3Dmol.download("cid:702", viewer_1632568877139657, {}, function() {
-viewer_1632568877139657.zoomTo();
-	viewer_1632568877139657.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.25}});
-viewer_1632568877139657.render();
+viewer_16325717941799 = $3Dmol.createViewer($("#3dmolviewer_16325717941799"),{backgroundColor:"white"});
+$3Dmol.download("cid:702", viewer_16325717941799, {}, function() {
+viewer_16325717941799.zoomTo();
+	viewer_16325717941799.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.25}});
+viewer_16325717941799.render();
 })
 });
 </script></div></div>
