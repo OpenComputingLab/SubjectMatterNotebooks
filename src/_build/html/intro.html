@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -40,18 +40,18 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Astronomy Overview" href="astronomy/overview.html" />
@@ -74,13 +74,14 @@
     <a class="navbar-brand text-wrap" href="index.html">
       
       
+      
       <h1 class="site-logo" id="site-title">Subject Matter Authoring Using Jupyter Notebooks</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1 current">
@@ -386,7 +387,7 @@
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#single-piece-generative-document-workflow">
@@ -416,11 +417,11 @@
                 
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>This online interactive books reviews some of the wide range of Python packages that can be used to create rich and interactive media outputs as part of a one piece geenerative document Jupyter publishing system.</p>
-<p>Whilst Python programming used may be used to generate the various outputs, the code is not required in order to view the outputs.</p>
-<p>In this way, the publishing system may be used to provide an environment in which asset generation is scripted and reproducible, as well as providing “source code” documents that can be updated and modified in order to update original assets or generate further assets derived from or inspired by them.</p>
-<p>However, the publishing system becomes even more powerful if scripts are used inline in a document to create document assets (even if the scripts are hidden or removed from the final document). This allows assets to be created <em>in context</em> as part of the execution of the original document. In this way, we can produce publications where there is a very high degree of coupling between each component of the original document. Updating one part of the source code in the document and then reflowing the document will all dependent outputs in the document to be updated automatically.</p>
-<p>Note that there is no need for the originating code to be included in the published work. Whilst the originating code can be revealed and made explicit in the rendered work, it might also be hidden but still available in a collapsed view be made or removed entirely from the final rendered page view.</p>
+<p>This online interactive books reviews some of the wide range of Python packages in particular, but also some R packages, that can be used to create rich and interactive media outputs as part of a one piece generative document Jupyter publishing system.</p>
+<p>Whilst Python (and R) programming used may be used to generate the various outputs, the code is <em>not required</em> in order to view the outputs.</p>
+<p>In this way, the publishing system may be used to provide an environment in which asset generation is <em>scripted</em> and <em>reproducible</em>, as well as providing “source code” documents that can be updated and modified in order to update original assets or generate further assets derived from or inspired by them.</p>
+<p>The publishing system is at its most powerful when scripts are used inline in a document to create document assets (even if the scripts are hidden or removed from the final document). This allows assets to be created <em>in context</em> as part of the execution of the original document. In this way, we can produce publications where there is a very high degree of coupling between each component of the original document. Updating one part of the source code in the document and then reflowing the document will all dependent outputs in the document to be updated automatically.</p>
+<p>Note that there is no need for the originating code to be included in the final rendered published work. If the originating code s retained in the final work, it may be revealed and made explicit to help explain how the asset was created, or to contextualise it, or the code might be hidden but still available in a collapsed view that can be revelaed by the user if they so desire. Howeber, it is also quite possible for the asset originating code to be removed entirely from the final rendered page view.</p>
 <p>As well as generating “static” assests such as images, or assets that require some sort of player, such as audio or video files, the publishing system can also generate and embed interactive HTML and Javascript applications. Some HTML/JS applications may run independently, others may require the presence of a Jupyter kernel backend.</p>
 <div class="tip admonition">
 <p class="admonition-title">Generating Alternative Output Formats</p>
@@ -431,7 +432,7 @@
 <blockquote>
 <div><p>[F]or many years, [Taiichi Ohno] would not allow anything to be recorded about [the Toyota Production System]. He claimed it was because improvement is never-ending — and by writing it down, the process would become crystallized.</p>
 </div></blockquote>
-<p>The same is true of the examples herein: they show <em>how not to do it</em>. For each block of code provided to demonstrate and example, in many cases that code should be further abstracted into a single line callable function so that <em>the next time</em> a similar effect is required, it can be achieved more simply with just a line at a time, or the invocation of a simple bit of (new) magic.</p>
+<p>The same is true of the examples herein: they often show <em>how not to do it</em>. For each block of code provided to demonstrate and example, in many cases that code should be further abstracted into a single line callable function so that <em>the next time</em> a similar effect is required, it can be achieved more simply with just a line at a time, or the invocation of a simple bit of (new) magic.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If anyone were to comment that “the code gets in the way” of the presentation, they have missed two foundational points about this book.</p>
@@ -500,15 +501,27 @@
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='right-next' id="next-link" href="astronomy/overview.html" title="next page">Astronomy Overview</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+     <div id="next">
+        <a class="right-next" href="astronomy/overview.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Astronomy Overview</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

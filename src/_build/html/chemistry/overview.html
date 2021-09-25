@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -40,18 +40,20 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Chemistry — Compound Lookups" href="compound_lookups.html" />
@@ -75,13 +77,14 @@
     <a class="navbar-brand text-wrap" href="../index.html">
       
       
+      
       <h1 class="site-logo" id="site-title">Subject Matter Authoring Using Jupyter Notebooks</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -442,9 +445,11 @@
 \[\ce{C2H6O}\]</div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glue</span><span class="p">(</span><span class="s2">&quot;compound_latex&quot;</span><span class="p">,</span> <span class="n">Latex</span><span class="p">(</span><span class="s1">&#39;$\ce{&#39;</span><span class="o">+</span><span class="n">_compound</span><span class="o">.</span><span class="n">molecular_formula</span><span class="o">+</span><span class="s1">&#39;}$&#39;</span><span class="p">),</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save a reference to the Latex equivalent of the compound formula</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;compoundLatex&quot;</span><span class="p">,</span> <span class="n">Latex</span><span class="p">(</span><span class="s1">&#39;$\ce{&#39;</span><span class="o">+</span><span class="n">_compound</span><span class="o">.</span><span class="n">molecular_formula</span><span class="o">+</span><span class="s1">&#39;}$&#39;</span><span class="p">),</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;compoundLatex2&quot;</span><span class="p">,</span> <span class="s1">&#39;$\ce{&#39;</span><span class="o">+</span><span class="n">_compound</span><span class="o">.</span><span class="n">molecular_formula</span><span class="o">+</span><span class="s1">&#39;}$&#39;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -452,9 +457,8 @@
 </div>
 </div>
 <p>Let’s start with something simple: a rendering of the chemical equation for <span class="pasted-text">ethanol</span>:</p>
-<div class="highlight-{glue:math}compound_latex notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
+<div class="pasted-math math notranslate nohighlight" id="equation-eq-sym">
+<span class="eqno">()<a class="headerlink" href="#equation-eq-sym" title="Permalink to this equation">¶</a></span>\[\ce{C2H6O}\]</div>
 <p>We can render a free standing HTML+JS 3D interactive version of the molecule into the page:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -470,8 +474,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="3dmolviewer_1621986866638431"  style="position: relative; width: 640px; height: 480px">
-        <p id="3dmolwarning_1621986866638431" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
+<div class="output text_html"><div id="3dmolviewer_1632565667404321"  style="position: relative; width: 640px; height: 480px">
+        <p id="3dmolwarning_1632565667404321" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
         <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
         </div>
 <script>
@@ -494,17 +498,17 @@ $3Dmolpromise = null;
   $3Dmolpromise = loadScriptAsync('https://3dmol.org/build/3Dmol.js');
 }
 
-var viewer_1621986866638431 = null;
-var warn = document.getElementById("3dmolwarning_1621986866638431");
+var viewer_1632565667404321 = null;
+var warn = document.getElementById("3dmolwarning_1632565667404321");
 if(warn) {
     warn.parentNode.removeChild(warn);
 }
 $3Dmolpromise.then(function() {
-viewer_1621986866638431 = $3Dmol.createViewer($("#3dmolviewer_1621986866638431"),{backgroundColor:"white"});
-$3Dmol.download("cid:702", viewer_1621986866638431, {}, function() {
-viewer_1621986866638431.zoomTo();
-	viewer_1621986866638431.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.25}});
-viewer_1621986866638431.render();
+viewer_1632565667404321 = $3Dmol.createViewer($("#3dmolviewer_1632565667404321"),{backgroundColor:"white"});
+$3Dmol.download("cid:702", viewer_1632565667404321, {}, function() {
+viewer_1632565667404321.zoomTo();
+	viewer_1632565667404321.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.25}});
+viewer_1632565667404321.render();
 })
 });
 </script></div></div>
@@ -539,16 +543,36 @@ viewer_1621986866638431.render();
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../astronomy/interactive-astronomy-viewers.html" title="previous page">Astronomy — Interactive Viewers</a>
-    <a class='right-next' id="next-link" href="compound_lookups.html" title="next page">Chemistry — Compound Lookups</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../astronomy/interactive-astronomy-viewers.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Astronomy — Interactive Viewers</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="compound_lookups.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Chemistry — Compound Lookups</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
