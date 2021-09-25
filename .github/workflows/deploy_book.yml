@@ -1,5 +1,10 @@
 name: renderbook
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - _build/html/**
   release:
     types: [published]
   workflow_dispatch:
