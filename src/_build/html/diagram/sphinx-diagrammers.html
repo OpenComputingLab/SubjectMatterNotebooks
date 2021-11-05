@@ -42,6 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://wavedrom.com/skins/default.js"></script>
+    <script src="https://wavedrom.com/wavedrom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -51,6 +53,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script >mermaid.initialize({startOnLoad:true});</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -458,7 +462,24 @@
 </pre></div>
 </div>
 <p>On inspection of the source document, the following diagram (as rendered by Jupyter Book) is actually a markdown cell containing a <code class="docutils literal notranslate"><span class="pre">{mermaid}</span></code> labeled fenced code block and appropriate diagram source script:</p>
-<p>On inspection of the source document, the following diagram (as rendered by Jupyter Book) is actually a markdown cell containing a <code class="docutils literal notranslate"><span class="pre">{wavedrom}</span></code> labeled fenced code block and appropriate diagram source script:</p>
+<div class="mermaid">
+            flowchart TD
+    A[Start] --&gt; B{Is it?};
+    B --&gt;|Yes| C[OK];
+    C --&gt; D[Rethink];
+    D --&gt; B;
+    B ----&gt;|No| E[End];
+        </div><p>On inspection of the source document, the following diagram (as rendered by Jupyter Book) is actually a markdown cell containing a <code class="docutils literal notranslate"><span class="pre">{wavedrom}</span></code> labeled fenced code block and appropriate diagram source script:</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{ signal : [
+  { name: "clk",  wave: "p......" },
+  { name: "bus",  wave: "x.34.5x",   data: "head body tail" },
+  { name: "wire", wave: "0.1..0." },
+]}
+</script>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>See also: <a class="reference external" href="https://blog.ouseful.info/2021/11/02/previewing-sphinx-and-jupyter-book-rendered-mermaid-and-wavedrom-diagrams-in-vs-code/">Previewing Sphinx and Jupyter Book Rendered Mermaid and Wavedrom Diagrams in VS Code</a></p>
@@ -484,6 +505,12 @@
     }
     </script>
     <script>kernelName = 'python3'</script>
+    <script type="text/javascript">
+        function init() {
+            WaveDrom.ProcessAll();
+        }
+        window.onload = init;
+    </script>
 
               </div>
               

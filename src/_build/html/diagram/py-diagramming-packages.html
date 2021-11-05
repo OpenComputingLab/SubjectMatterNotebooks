@@ -42,6 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://wavedrom.com/skins/default.js"></script>
+    <script src="https://wavedrom.com/wavedrom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -51,6 +53,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script >mermaid.initialize({startOnLoad:true});</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -546,7 +550,7 @@
 <iframe
     width="100%"
     height="100"
-    src="5c79f62d-7152-4573-9ea2-9f8b04c7e9b9.html"
+    src="85809989-5713-4ac4-82e8-ac140ca72a05.html"
     frameborder="0"
     allowfullscreen
 
@@ -576,7 +580,7 @@ flowchart TD
 <iframe
     width="100%"
     height="500"
-    src="972ff077-c676-4db6-9269-1cbefa95289d.html"
+    src="8da086d4-fe12-4e9b-bf29-9e61e9aff7b9.html"
     frameborder="0"
     allowfullscreen
 
@@ -601,7 +605,7 @@ graph TD;
 <iframe
     width="100%"
     height="250"
-    src="6ba88aeb-fb5c-4fe0-814e-fca5c455e418.html"
+    src="3ada2ed6-5f35-4ad6-9dad-97542685051b.html"
     frameborder="0"
     allowfullscreen
 
@@ -625,7 +629,7 @@ sequenceDiagram
 <iframe
     width="100%"
     height="350"
-    src="bd07c5eb-bff2-4748-b8a1-38e58678e2db.html"
+    src="33ead9fa-8718-4230-9bb5-2f6d12d85635.html"
     frameborder="0"
     allowfullscreen
 
@@ -656,7 +660,7 @@ erDiagram
 <iframe
     width="100%"
     height="330"
-    src="55a4fcae-41f7-4598-b331-5dcb2e4f7f4d.html"
+    src="297f4c8c-c16d-4f9e-85a8-bad6b3ceb66b.html"
     frameborder="0"
     allowfullscreen
 
@@ -678,7 +682,7 @@ erDiagram
 <iframe
     width="100%"
     height="200"
-    src="c3043d93-3021-4c85-8191-7af6984fe167.html"
+    src="8141ecb8-bc3d-46db-ae2c-66529acb2b92.html"
     frameborder="0"
     allowfullscreen
 
@@ -713,7 +717,7 @@ op2(path2, right)-&gt;e
 <iframe
     width="100%"
     height="100"
-    src="b439c260-ae80-4c52-bf05-53ccf5648459.html"
+    src="be7ee2ea-2e76-43b3-8df6-215183652688.html"
     frameborder="0"
     allowfullscreen
 
@@ -750,27 +754,6 @@ op2(path2, right)-&gt;e
 </div>
 </div>
 </div>
-<p><em>Note that this currently requires running the notebook in a browser interface and saving the SVG to an output file that can then be loaded in an rendered. The direct Jupyer Book build approach does not ncessarily generate the required image data.</em></p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">SVG</span>
-
-<span class="k">def</span> <span class="nf">svg_hack</span><span class="p">(</span><span class="n">dummy</span><span class="p">,</span> <span class="n">test_file</span> <span class="o">=</span> <span class="s2">&quot;test.svg&quot;</span><span class="p">):</span>
-    <span class="n">svg_data</span> <span class="o">=</span> <span class="n">dummy</span><span class="o">.</span><span class="n">get_svg</span><span class="p">()</span>
-
-    <span class="k">if</span> <span class="n">svg_data</span><span class="p">:</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">test_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">svg_data</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">SVG</span><span class="p">(</span><span class="n">test_file</span><span class="p">)</span>
-
-<span class="n">svg_hack</span><span class="p">(</span><span class="n">dummy_output</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/py-diagramming-packages_22_0.svg" src="../_images/py-diagramming-packages_22_0.svg" /></div>
-</div>
 <p>It is also possible to generate a flowchart based on the contents of a code cell (in an interactive notebook, we can do this directly using the <code class="docutils literal notranslate"><span class="pre">%%pyflowchart_magic</span></code> block magic):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -785,16 +768,9 @@ def demo(msg=&#39;demo&#39;):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="100%"
-    height="800"
-    src="3ae30b63-aaa4-47c6-ab8d-4dcd62ba6202.html"
-    frameborder="0"
-    allowfullscreen
-
-></iframe>
-</div></div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "62fcbe8b2aa342efb585115b639895f2", "version_major": 2, "version_minor": 0}
+</script></div>
 </div>
 <p>Using this approach <em>does not</em> run the code however.</p>
 <p>Another approach is to have a normal code cell:</p>
@@ -840,7 +816,7 @@ def demo(msg=&#39;demo&#39;):
 <iframe
     width="100%"
     height="800"
-    src="6e865698-d10f-496f-83d2-a609105fd1f3.html"
+    src="5936dbb4-6a33-4d64-bead-f8907c5e0a0b.html"
     frameborder="0"
     allowfullscreen
 
@@ -1312,10 +1288,16 @@ fn_svg = &quot;netlist.svg&quot;
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/py-diagramming-packages_33_0.svg" src="../_images/py-diagramming-packages_33_0.svg" /></div>
+<img alt="../_images/py-diagramming-packages_31_0.svg" src="../_images/py-diagramming-packages_31_0.svg" /></div>
 </div>
 </div>
 </div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"31f82b4e75f541a7afa0f04ded3a845b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "62fcbe8b2aa342efb585115b639895f2": {"model_module": "jp_proxy_widget", "model_module_version": "^1.0.8", "model_name": "JSProxyModel", "state": {"_dom_classes": [], "_model_module": "jp_proxy_widget", "_model_module_version": "^1.0.8", "_model_name": "JSProxyModel", "_send_counter": 0, "_view_count": null, "_view_module": "jp_proxy_widget", "_view_module_version": "^1.0.8", "_view_name": "JSProxyView", "error_msg": "No error", "layout": "IPY_MODEL_31f82b4e75f541a7afa0f04ded3a845b", "rendered": false, "status": "deferring flush until render"}}, "c4c1dedafd6e4c7db065710a97855330": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "cb48b1e64f6d45aaaa3aaf22040ea15a": {"model_module": "jp_proxy_widget", "model_module_version": "^1.0.8", "model_name": "JSProxyModel", "state": {"_dom_classes": [], "_model_module": "jp_proxy_widget", "_model_module_version": "^1.0.8", "_model_name": "JSProxyModel", "_send_counter": 0, "_view_count": null, "_view_module": "jp_proxy_widget", "_view_module_version": "^1.0.8", "_view_name": "JSProxyView", "error_msg": "No error", "layout": "IPY_MODEL_c4c1dedafd6e4c7db065710a97855330", "rendered": false, "status": "deferring flush until render"}}}, "version_major": 2, "version_minor": 0}
+</script>
+
 
     <script type="text/x-thebe-config">
     {
@@ -1336,6 +1318,12 @@ fn_svg = &quot;netlist.svg&quot;
     }
     </script>
     <script>kernelName = 'python3'</script>
+    <script type="text/javascript">
+        function init() {
+            WaveDrom.ProcessAll();
+        }
+        window.onload = init;
+    </script>
 
               </div>
               

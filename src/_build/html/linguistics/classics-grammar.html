@@ -42,8 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script src="https://wavedrom.com/skins/default.js"></script>
+    <script src="https://wavedrom.com/wavedrom.min.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -51,6 +51,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script >mermaid.initialize({startOnLoad:true});</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -1004,61 +1006,87 @@ appellantur [&#39;ap&#39;, &#39;pel&#39;, &#39;lan&#39;, &#39;tur&#39;]
 <h2>Pipeline processing<a class="headerlink" href="#pipeline-processing" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk</span> <span class="kn">import</span> <span class="n">NLP</span>
-<span class="n">cltk_nlp</span> <span class="o">=</span> <span class="n">NLP</span><span class="p">(</span><span class="n">language</span><span class="o">=</span><span class="s2">&quot;lat&quot;</span><span class="p">)</span>
-
-<span class="c1"># This can be slow</span>
-<span class="c1"># First run, prompts to allow download of Stanza NLP library models</span>
-<span class="c1"># to ~/stanza_resources/la/ (~250MB)</span>
-<span class="c1"># Also word embedding models from the Fasttext project to</span>
-<span class="c1"># ~/cltk_data/lat/embeddings/fasttext 365MB</span>
-<span class="c1"># Also Lewis&#39;s *An Elementary Latin Dictionary* (1890)</span>
-<span class="n">cltk_doc</span> <span class="o">=</span> <span class="n">cltk_nlp</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">example_lat</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_lat</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>‎𐤀 CLTK version &#39;1.0.14&#39;.
-Pipeline for language &#39;Latin&#39; (ISO: &#39;lat&#39;): `LatinNormalizeProcess`, `LatinStanzaProcess`, `LatinEmbeddingsProcess`, `StopsProcess`, `LatinNERProcess`, `LatinLexiconProcess`.
-From `from_ud():` Number[psor]: Unrecognized UD feature name
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Gallia est omnis divisa in partes tres, quarum unam incolunt Belgae, aliam Aquitani, tertiam qui ipsorum lingua Celtae, nostra Galli appellantur. Hi omnes lingua, institutis, legibus inter se differunt. Gallos ab Aquitanis Garumna flumen, a Belgis Matrona et Sequana dividit. Horum omnium fortissimi sunt Belgae, propterea quod a cultu atque humanitate provinciae longissime absunt, minimeque ad eos mercatores saepe commeant atque ea quae ad effeminandos animos pertinent important, proximique sunt Germanis, qui trans Rhenum incolunt, quibuscum continenter bellum gerunt. Qua de causa Helvetii quoque reliquos Gallos virtute praecedunt, quod fere cotidianis proeliis cum Germanis contendunt, cum aut suis finibus eos prohibent aut ipsi in eorum finibus bellum gerunt. Eorum una, pars, quam Gallos obtinere dictum est, initium capit a flumine Rhodano, continetur Garumna flumine, Oceano, finibus Belgarum, attingit etiam ab Sequanis et Helvetiis flumen Rhenum, vergit ad septentriones. Belgae ab extremis Galliae finibus oriuntur, pertinent ad inferiorem partem fluminis Rheni, spectant in septentrionem et orientem solem. Aquitania a Garumna flumine ad Pyrenaeos montes et eam partem Oceani quae est ad Hispaniam pertinet; spectat inter occasum solis et septentriones.&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cltk_doc</span><span class="o">.</span><span class="n">stanza_doc</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">3</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.languages.pipelines</span> <span class="kn">import</span> <span class="n">LatinPipeline</span>
+
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">LatinPipeline</span><span class="p">()</span>
+
+<span class="n">pipeline</span><span class="o">.</span><span class="n">description</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;id&#39;: 1,
-  &#39;text&#39;: &#39;Gallia&#39;,
-  &#39;lemma&#39;: &#39;iallius&#39;,
-  &#39;upos&#39;: &#39;NOUN&#39;,
-  &#39;xpos&#39;: &#39;A1|grn1|casA|gen2&#39;,
-  &#39;feats&#39;: &#39;Case=Nom|Gender=Fem|Number=Sing&#39;,
-  &#39;head&#39;: 0,
-  &#39;deprel&#39;: &#39;root&#39;,
-  &#39;misc&#39;: &#39;start_char=0|end_char=6&#39;},
- {&#39;id&#39;: 2,
-  &#39;text&#39;: &#39;est&#39;,
-  &#39;lemma&#39;: &#39;sum&#39;,
-  &#39;upos&#39;: &#39;AUX&#39;,
-  &#39;xpos&#39;: &#39;N3|modA|tem1|gen6&#39;,
-  &#39;feats&#39;: &#39;Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act&#39;,
-  &#39;head&#39;: 1,
-  &#39;deprel&#39;: &#39;cop&#39;,
-  &#39;misc&#39;: &#39;start_char=7|end_char=10&#39;},
- {&#39;id&#39;: 3,
-  &#39;text&#39;: &#39;omnis&#39;,
-  &#39;lemma&#39;: &#39;omnis&#39;,
-  &#39;upos&#39;: &#39;DET&#39;,
-  &#39;xpos&#39;: &#39;C1|grn1|casA|gen2&#39;,
-  &#39;feats&#39;: &#39;Case=Nom|Gender=Fem|Number=Sing|PronType=Ind&#39;,
-  &#39;head&#39;: 1,
-  &#39;deprel&#39;: &#39;det&#39;,
-  &#39;misc&#39;: &#39;start_char=11|end_char=16&#39;}]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Pipeline for the Latin language&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span><span class="o">.</span><span class="n">language</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Language(name=&#39;Latin&#39;, glottolog_id=&#39;lati1261&#39;, latitude=41.9026, longitude=12.4502, dates=[], family_id=&#39;indo1319&#39;, parent_id=&#39;impe1234&#39;, level=&#39;language&#39;, iso_639_3_code=&#39;lat&#39;, type=&#39;a&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span><span class="o">.</span><span class="n">language</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Latin&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span><span class="o">.</span><span class="n">processes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[cltk.alphabet.processes.LatinNormalizeProcess,
+ cltk.dependency.processes.LatinStanzaProcess,
+ cltk.embeddings.processes.LatinEmbeddingsProcess,
+ cltk.stops.processes.StopsProcess,
+ cltk.ner.processes.LatinNERProcess,
+ cltk.lexicon.processes.LatinLexiconProcess]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This doesn&#39;t work?</span>
+<span class="c1">#cltk_nlp = NLP(language=&#39;lat&#39;)</span>
+<span class="c1">#cltk_doc = cltk_nlp.analyze(text=example_lat)</span>
+
+<span class="c1"># Absolutely no idea what to do here...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#cltk_doc.stanza_doc.to_dict()[0][:3]</span>
 </pre></div>
 </div>
 </div>
@@ -1066,29 +1094,29 @@ From `from_ud():` Number[psor]: Unrecognized UD feature name
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Also: cltk_doc.raw</span>
-<span class="n">cltk_doc</span><span class="o">.</span><span class="n">normalized_text</span>
+<span class="c1">#cltk_doc.normalized_text</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cltk_doc</span><span class="o">.</span><span class="n">sentences_strings</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#cltk_doc.sentences_strings</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cltk_doc</span><span class="o">.</span><span class="n">sentences_tokens</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#cltk_doc.sentences_tokens</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">cltk_doc</span><span class="o">.</span><span class="n">tokens</span><span class="p">,</span> <span class="n">cltk_doc</span><span class="o">.</span><span class="n">lemmata</span><span class="p">,</span>
-                 <span class="n">cltk_doc</span><span class="o">.</span><span class="n">pos</span><span class="p">,</span> <span class="n">cltk_doc</span><span class="o">.</span><span class="n">morphosyntactic_features</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#[ p for p in zip(cltk_doc.tokens, cltk_doc.lemmata,</span>
+<span class="c1">#                 cltk_doc.pos, cltk_doc.morphosyntactic_features)]</span>
 </pre></div>
 </div>
 </div>
@@ -1115,6 +1143,12 @@ From `from_ud():` Number[psor]: Unrecognized UD feature name
     }
     </script>
     <script>kernelName = 'python3'</script>
+    <script type="text/javascript">
+        function init() {
+            WaveDrom.ProcessAll();
+        }
+        window.onload = init;
+    </script>
 
               </div>
               

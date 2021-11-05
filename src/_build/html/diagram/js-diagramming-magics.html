@@ -42,8 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script src="https://wavedrom.com/skins/default.js"></script>
+    <script src="https://wavedrom.com/wavedrom.min.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -51,6 +51,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script >mermaid.initialize({startOnLoad:true});</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -439,34 +441,27 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   JavaScript Rendered Diagramming
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generating-timing-diagrams-with-wavedrom">
+   Generating Timing Diagrams With
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     wavedrom
+    </span>
+   </code>
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#generating-timing-diagrams-with-wavedrom">
-     Generating Timing Diagrams With
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       wavedrom
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#generating-diagrams-using-mermaid-js">
-     Generating Diagrams Using
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       mermaid.js
-      </span>
-     </code>
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generating-diagrams-using-mermaid-js">
+   Generating Diagrams Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     mermaid.js
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#visualising-audio-files-with-wavesurfer">
    Visualising Audio Files with
    <code class="docutils literal notranslate">
@@ -476,7 +471,7 @@
    </code>
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#flow-charts">
    Flow Charts
   </a>
@@ -492,7 +487,7 @@
         
               <div>
                 
-  <div class="section" id="javascript-rendered-diagramming">
+  <div class="tex2jax_ignore mathjax_ignore section" id="javascript-rendered-diagramming">
 <h1>JavaScript Rendered Diagramming<a class="headerlink" href="#javascript-rendered-diagramming" title="Permalink to this headline">¶</a></h1>
 <p>A variety of JavaScript based text to diagram tools exist that can be used to render diagrams from simple text based source scripts. Examples include:</p>
 <ul class="simple">
@@ -517,7 +512,7 @@
 <h2>Generating Timing Diagrams With <code class="docutils literal notranslate"><span class="pre">wavedrom</span></code><a class="headerlink" href="#generating-timing-diagrams-with-wavedrom" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">wavedrom_magic</span> -h 100
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">wavedrom_magic</span> -h 100 -o wavedrom.html
 
 { signal : [
   { name: &quot;clk&quot;,  wave: &quot;p......&quot; },
@@ -532,7 +527,7 @@
 <iframe
     width="100%"
     height="100"
-    src="e38d8151-f109-4f74-9f28-451179e88b18.html"
+    src="wavedrom.html"
     frameborder="0"
     allowfullscreen
 
@@ -546,7 +541,7 @@
 <p>For example, we can generate simple flow charts:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 500
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 500 -o mermaid-flowchart.html
 
 flowchart TD
     A[Start] --&gt; B{Is it?};
@@ -562,7 +557,7 @@ flowchart TD
 <iframe
     width="100%"
     height="500"
-    src="923ca8ad-95e8-46cd-8e99-54d9ba3749ae.html"
+    src="mermaid-flowchart.html"
     frameborder="0"
     allowfullscreen
 
@@ -572,7 +567,7 @@ flowchart TD
 <p>More generally, we can also create simple graph diagrams:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 250
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 250 -o mermaid-graph.html
 
 graph TD;
     A--&gt;B;
@@ -587,7 +582,7 @@ graph TD;
 <iframe
     width="100%"
     height="250"
-    src="051931d5-6ba7-4e4a-a1ab-1c4f15b38353.html"
+    src="mermaid-graph.html"
     frameborder="0"
     allowfullscreen
 
@@ -597,7 +592,7 @@ graph TD;
 <p>We can also generate sequence diagrams:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 350
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 350 -o mermaid-sequence.html
 
 sequenceDiagram
     Alice-&gt;&gt;John: Hello John, how are you?
@@ -611,7 +606,7 @@ sequenceDiagram
 <iframe
     width="100%"
     height="350"
-    src="7744b6a1-65e9-41b6-be26-9397faf67e81.html"
+    src="mermaid-sequence.html"
     frameborder="0"
     allowfullscreen
 
@@ -621,7 +616,7 @@ sequenceDiagram
 <p>And entity relationship diagrams:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 330
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 330 -o mermaid-er.html
 
 erDiagram
     CUSTOMER ||--o{ ORDER : places
@@ -642,7 +637,7 @@ erDiagram
 <iframe
     width="100%"
     height="330"
-    src="e84e6650-bd6d-4d26-8ff2-8ebcb1a2f566.html"
+    src="mermaid-er.html"
     frameborder="0"
     allowfullscreen
 
@@ -650,12 +645,11 @@ erDiagram
 </div></div>
 </div>
 </div>
-</div>
 <div class="section" id="visualising-audio-files-with-wavesurfer">
-<h1>Visualising Audio Files with <code class="docutils literal notranslate"><span class="pre">wavesurfer</span></code><a class="headerlink" href="#visualising-audio-files-with-wavesurfer" title="Permalink to this headline">¶</a></h1>
+<h2>Visualising Audio Files with <code class="docutils literal notranslate"><span class="pre">wavesurfer</span></code><a class="headerlink" href="#visualising-audio-files-with-wavesurfer" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">wavesurfer_magic</span> -f https://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">wavesurfer_magic</span> -o wavesurfer.html -f https://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3
 </pre></div>
 </div>
 </div>
@@ -664,7 +658,7 @@ erDiagram
 <iframe
     width="100%"
     height="200"
-    src="410db9eb-a843-4717-9743-73c01848d4a3.html"
+    src="wavesurfer.html"
     frameborder="0"
     allowfullscreen
 
@@ -673,7 +667,7 @@ erDiagram
 </div>
 </div>
 <div class="section" id="flow-charts">
-<h1>Flow Charts<a class="headerlink" href="#flow-charts" title="Permalink to this headline">¶</a></h1>
+<h2>Flow Charts<a class="headerlink" href="#flow-charts" title="Permalink to this headline">¶</a></h2>
 <p>As well as flow charts generated using <code class="docutils literal notranslate"><span class="pre">mermaid.js</span></code> we can also use the <code class="docutils literal notranslate"><span class="pre">flowchart.js</span></code> package.</p>
 <p>In an interactive notebook, we can simply use the <code class="docutils literal notranslate"><span class="pre">%%flowchart_magic</span></code> block magic to render a flowchart from a flowchart definition.</p>
 <div class="admonition note">
@@ -682,7 +676,7 @@ erDiagram
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">flowchart_magic</span> -h 100
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">flowchart_magic</span> -h 100 -o flowchart.html
 
 st=&gt;start: Start
 e=&gt;end: End
@@ -699,7 +693,7 @@ op2(path2, right)-&gt;e
 <iframe
     width="100%"
     height="100"
-    src="74fbd8b7-c731-43f9-8415-e1e820863a87.html"
+    src="flowchart.html"
     frameborder="0"
     allowfullscreen
 
@@ -709,7 +703,7 @@ op2(path2, right)-&gt;e
 <p>It is also possible to generate a flowchart based on the contents of a code cell (in an interactive notebook, we can do this directly using the <code class="docutils literal notranslate"><span class="pre">%%pyflowchart_magic</span></code> block magic):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">pyflowchart_magic</span> -h 800
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">pyflowchart_magic</span> -h 800 -o pyflowchart.html
 import time
 
 def demo(msg=&#39;demo&#39;):
@@ -724,7 +718,7 @@ def demo(msg=&#39;demo&#39;):
 <iframe
     width="100%"
     height="800"
-    src="567966ea-f71c-4291-b70b-1587fee52d9d.html"
+    src="pyflowchart.html"
     frameborder="0"
     allowfullscreen
 
@@ -750,6 +744,7 @@ def demo(msg=&#39;demo&#39;):
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span> code
 <span class="c1"># This gets the content of the previous cell</span>
+<span class="c1"># and stores it in the variable: code</span>
 <span class="o">%</span><span class="n">history</span> <span class="o">-</span><span class="n">l</span> <span class="mi">1</span>
 </pre></div>
 </div>
@@ -766,7 +761,8 @@ def demo(msg=&#39;demo&#39;):
 <span class="n">fc</span> <span class="o">=</span> <span class="n">Flowchart</span><span class="o">.</span><span class="n">from_code</span><span class="p">(</span><span class="n">code</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
 
 <span class="c1"># Render the flowchart</span>
-<span class="n">js_ui</span><span class="p">({</span><span class="s2">&quot;src&quot;</span><span class="p">:</span><span class="n">fc</span><span class="o">.</span><span class="n">flowchart</span><span class="p">()},</span> <span class="n">TEMPLATE_FLOWCHARTJS</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+<span class="n">js_ui</span><span class="p">({</span><span class="s2">&quot;src&quot;</span><span class="p">:</span><span class="n">fc</span><span class="o">.</span><span class="n">flowchart</span><span class="p">()},</span> <span class="n">TEMPLATE_FLOWCHARTJS</span><span class="p">,</span>
+      <span class="n">out_fn</span><span class="o">=</span><span class="s1">&#39;pyflowchart_grab.html&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -775,12 +771,13 @@ def demo(msg=&#39;demo&#39;):
 <iframe
     width="100%"
     height="800"
-    src="5f1f94d8-2558-4c0b-8549-d83059330af3.html"
+    src="pyflowchart_grab.html"
     frameborder="0"
     allowfullscreen
 
 ></iframe>
 </div></div>
+</div>
 </div>
 </div>
 
@@ -803,6 +800,12 @@ def demo(msg=&#39;demo&#39;):
     }
     </script>
     <script>kernelName = 'python3'</script>
+    <script type="text/javascript">
+        function init() {
+            WaveDrom.ProcessAll();
+        }
+        window.onload = init;
+    </script>
 
               </div>
               
