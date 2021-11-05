@@ -703,7 +703,7 @@ op2(path2, right)-&gt;e
 <p>It is also possible to generate a flowchart based on the contents of a code cell (in an interactive notebook, we can do this directly using the <code class="docutils literal notranslate"><span class="pre">%%pyflowchart_magic</span></code> block magic):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">pyflowchart_magic</span> -h 800 -o pyflowchart.html
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">pyflowchart_magic</span> -h 800 -o pyflowchart.html -x
 import time
 
 def demo(msg=&#39;demo&#39;):
@@ -725,8 +725,8 @@ def demo(msg=&#39;demo&#39;):
 ></iframe>
 </div></div>
 </div>
-<p>Using this approach <em>does not</em> run the code however.</p>
-<p>Another approach is to have a normal code cell:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-x</span> <span class="pre">/</span> <span class="pre">--execute</span></code> flag executes the code in the current notebook scope. <em>Without the flag, the code is not executed.</em></p>
+<p>Another, lett friendly approach, is to have a normal code cell:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
