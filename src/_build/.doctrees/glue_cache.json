@@ -1,17 +1,5 @@
 {
   "chemistry/compound_lookups": {
-    "compoundName": {
-      "data": {
-        "application/papermill.record/text/plain": "'ethanol'"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "compoundName"
-        }
-      },
-      "output_type": "display_data"
-    },
     "g_ethanol": {
       "data": {
         "application/papermill.record/text/plain": "'ethanol'"
@@ -20,6 +8,18 @@
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
           "name": "g_ethanol"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "compoundName": {
+      "data": {
+        "application/papermill.record/text/plain": "'ethanol'"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "compoundName"
         }
       },
       "output_type": "display_data"

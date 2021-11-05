@@ -461,13 +461,8 @@
 </div>
 <p>On inspection of the source document, the following diagram (as rendered by Jupyter Book) is actually a markdown cell containing a <code class="docutils literal notranslate"><span class="pre">{mermaid}</span></code> labeled fenced code block and appropriate diagram source script:</p>
 <div class="mermaid">
-            flowchart TD
-    A[Start] --&gt; B{Is it?};
-    B --&gt;|Yes| C[OK];
-    C --&gt; D[Rethink];
-    D --&gt; B;
-    B ----&gt;|No| E[End];
-    
+            flowchart LR
+    .ipynb --jupytext--&gt; .md--&gt; id1{{process Markdown}}--jupytext--&gt; ipynb2[.ipynb]
         </div><p>On inspection of the source document, the following diagram (as rendered by Jupyter Book) is actually a markdown cell containing a <code class="docutils literal notranslate"><span class="pre">{wavedrom}</span></code> labeled fenced code block and appropriate diagram source script:</p>
 
 <div style="overflow-x:auto">
