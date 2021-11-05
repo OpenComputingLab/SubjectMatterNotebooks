@@ -153,7 +153,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../chemistry/compound_lookups.html">
-   Chemistry — Compound Lookups
+   Chemistry – Compound Lookups
   </a>
  </li>
  <li class="toctree-l1">
@@ -293,6 +293,26 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../diagram/overview.html">
    Diagrams Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/blockdiag.html">
+   Blockdiag Package Diagrams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/js-diagramming-magics.html">
+   JavaScript Rendered Diagramming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/py-diagramming-packages.html">
+   Python Script Diagramming Packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/sphinx-diagrammers.html">
+   Sphinx / Jupyter Book Diagramming Plugins
   </a>
  </li>
 </ul>
@@ -475,14 +495,14 @@
         
               <div>
                 
-  <div class="section" id="astronomy-working-with-fits-images">
+  <div class="tex2jax_ignore mathjax_ignore section" id="astronomy-working-with-fits-images">
 <h1>Astronomy - Working with FITS Images<a class="headerlink" href="#astronomy-working-with-fits-images" title="Permalink to this headline">¶</a></h1>
 <p>FITS, the <a class="reference external" href="https://fits.gsfc.nasa.gov/">Flexible Image Transport System</a>, is an open standard digital file format widely used in astronomy for representing and working with 2D images.</p>
 <p>This section demonstrates a range of tools for accessing and working with FITS image data.</p>
 <div class="section" id="astropy">
 <h2><code class="docutils literal notranslate"><span class="pre">astropy</span></code><a class="headerlink" href="#astropy" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://www.astropy.org/"><code class="docutils literal notranslate"><span class="pre">astropy</span></code></a> package provides <em>“a common core package for Astronomy in Python”</em> with the intention of fostering <em>“an ecosystem of interoperable astronomy packages”</em>.</p>
-<p>Let’s start with an example of dowloading an image file in the FITS format from an known location:</p>
+<p>Let’s start with an example of downloading an image file in the FITS format from an known location:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.utils.data</span> <span class="kn">import</span> <span class="n">download_file</span>
@@ -769,7 +789,7 @@ INFO: Auto-setting vmax to  5.508e+02 [aplpy.core]
 {"model_id": "24f55f0a87454c9cacfb5016bec9b2b0", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
-<p>And then load an image into that widget at a particular zoom level and a centered on location cordinates grabbed from a co-oordinate lookup:</p>
+<p>And then load an image into that widget at a particular zoom level and a centered on location co-ordinates grabbed from a co-ordinate lookup:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">.</span><span class="n">load_fits</span><span class="p">(</span><span class="n">out_file</span><span class="p">)</span>

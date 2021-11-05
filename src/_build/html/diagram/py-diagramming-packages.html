@@ -1,0 +1,1392 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Script Diagramming Packages &#8212; Subject Matter Authoring Using Jupyter Notebooks</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sphinx / Jupyter Book Diagramming Plugins" href="sphinx-diagrammers.html" />
+    <link rel="prev" title="JavaScript Rendered Diagramming" href="js-diagramming-magics.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Subject Matter Authoring Using Jupyter Notebooks</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Production
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../production/production-methods.html">
+   Production Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../production/relationship-to-OERs.html">
+   Relationship to OERs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../production/relationship-to-worksheets-and-assessment.html">
+   Relationship to Worksheets and Assessment
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Astronomy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/overview.html">
+   Astronomy Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/fits-images.html">
+   Astronomy - Working with FITS Images
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/ephemeris-and-orbits.html">
+   Astronomy — Ephemeris Data and Orbital Calculations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/interactive-astronomy-viewers.html">
+   Astronomy — Interactive Viewers
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chemistry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/overview.html">
+   Chemistry Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/compound_lookups.html">
+   Chemistry – Compound Lookups
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/material_properties.html">
+   Chemical Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/visualising-compounds.html">
+   Chemistry — Visualising Chemical Structures
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Electronics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../electronics/overview.html">
+   Electronics Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../electronics/worked-example.html">
+   Electronics Worked Example
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Other STEM
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../engineering/overview.html">
+   Engineering Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/overview.html">
+   Maths Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/worked-equations.html">
+   Worked Equations and Equations With Units
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/r-statistics.html">
+   Statistics in R
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/r-3d.html">
+   Generating 3D Interactive Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/networks-and-graphs.html">
+   Networks and Graphs
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Arts
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../art/overview.html">
+   Art Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../music/overview.html">
+   Music Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Humanities
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linguistics/overview.html">
+   Linguistics &amp; Text Processing Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linguistics/classics-corpora.html">
+   Classical Languages — Corpora
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linguistics/classics-grammar.html">
+   Classical Languages — Grammar
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Map Generation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../geo/overview.html">
+   Geo Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chart Generation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chart/overview.html">
+   Chart Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Diagram Generation
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Diagrams Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="blockdiag.html">
+   Blockdiag Package Diagrams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="js-diagramming-magics.html">
+   JavaScript Rendered Diagramming
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Python Script Diagramming Packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sphinx-diagrammers.html">
+   Sphinx / Jupyter Book Diagramming Plugins
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Image Generation and Manipulation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../image/overview.html">
+   Image Generation and Manipulation Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Audio Generation and Manipulation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../audio/overview.html">
+   Audio Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  LaTeX
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../latex/overview.html">
+   LaTeX Overview
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/diagram/py-diagramming-packages.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/diagram/py-diagramming-packages.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#javascript-rendered-diagramming">
+   JavaScript Rendered Diagramming
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generating-timing-diagrams-with-wavedrom">
+     Generating Timing Diagrams With
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       wavedrom
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generating-diagrams-using-mermaid-js">
+     Generating Diagrams Using
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       mermaid.js
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualising-audio-files-with-wavesurfer">
+   Visualising Audio Files with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     wavesurfer
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flow-charts">
+   Flow Charts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rendering-svg-schematic-diagrams-from-a-yosys-json-netlist">
+   Rendering SVG Schematic Diagrams from a
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     yosys
+    </span>
+   </code>
+   JSON netlist
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="python-script-diagramming-packages">
+<h1>Python Script Diagramming Packages<a class="headerlink" href="#python-script-diagramming-packages" title="Permalink to this headline">¶</a></h1>
+<p>Several Python packages support diagram generation from simple textual diagram definition scripts.</p>
+<div class="section" id="javascript-rendered-diagramming">
+<h2>JavaScript Rendered Diagramming<a class="headerlink" href="#javascript-rendered-diagramming" title="Permalink to this headline">¶</a></h2>
+<p>A variety of JavaScript based text to diagram tools exist that can be used to render diagrams from simple text based source scripts. Examples include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://bramp.github.io/js-sequence-diagrams/"><code class="docutils literal notranslate"><span class="pre">js-sequence-diagrams</span></code></a>;</p></li>
+<li><p><a class="reference external" href="https://mermaid-js.github.io/mermaid/#/"><code class="docutils literal notranslate"><span class="pre">mermaid.js</span></code></a></p></li>
+<li><p><a class="reference external" href="https://wavedrom.com/">timing diagrams (<code class="docutils literal notranslate"><span class="pre">wavedrom</span></code>)</a></p></li>
+</ul>
+<p>The <a class="reference external" href="https://github.com/innovationOUtside/nb_js_diagrammers"><code class="docutils literal notranslate"><span class="pre">innovationOUtside/nb_js_diagrammers</span></code></a> Python package provides a range of IPyhton magics for supporting the generation of diagrams using all these packages using simple cell block magics.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <a class="reference external" href="https://shd101wyy.github.io/markdown-preview-enhanced/#/"><em>Markdown preview enhanced</em></a> VS Code extension provides a wide range of power tools to support the editing and previewing of native markdown documents. Among other things, the extension will offer rendered previews of diagrams from appropriate scripts using the <code class="docutils literal notranslate"><span class="pre">mermaid</span></code> and <code class="docutils literal notranslate"><span class="pre">wavedrom</span></code> JavaScript packages.</p>
+<p>See also: <a class="reference external" href="https://blog.ouseful.info/2021/11/02/previewing-sphinx-and-jupyter-book-rendered-mermaid-and-wavedrom-diagrams-in-vs-code/"><em>Previewing Sphinx and Jupyter Book Rendered Mermaid and Wavedrom Diagrams in VS Code</em></a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> nb_js_diagrammers
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="generating-timing-diagrams-with-wavedrom">
+<h3>Generating Timing Diagrams With <code class="docutils literal notranslate"><span class="pre">wavedrom</span></code><a class="headerlink" href="#generating-timing-diagrams-with-wavedrom" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">wavedrom_magic</span> -h 100
+
+{ signal : [
+  { name: &quot;clk&quot;,  wave: &quot;p......&quot; },
+  { name: &quot;bus&quot;,  wave: &quot;x.34.5x&quot;,   data: &quot;head body tail&quot; },
+  { name: &quot;wire&quot;, wave: &quot;0.1..0.&quot; },
+]}
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="100%"
+    height="100"
+    src="5c79f62d-7152-4573-9ea2-9f8b04c7e9b9.html"
+    frameborder="0"
+    allowfullscreen
+
+></iframe>
+</div></div>
+</div>
+</div>
+<div class="section" id="generating-diagrams-using-mermaid-js">
+<h3>Generating Diagrams Using <code class="docutils literal notranslate"><span class="pre">mermaid.js</span></code><a class="headerlink" href="#generating-diagrams-using-mermaid-js" title="Permalink to this headline">¶</a></h3>
+<p>Several diagram types can be generated using the <code class="docutils literal notranslate"><span class="pre">mermaid.js</span></code> package.</p>
+<p>For example, we can generate simple flow charts:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 500
+
+flowchart TD
+    A[Start] --&gt; B{Is it?};
+    B --&gt;|Yes| C[OK];
+    C --&gt; D[Rethink];
+    D --&gt; B;
+    B ----&gt;|No| E[End];
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="100%"
+    height="500"
+    src="972ff077-c676-4db6-9269-1cbefa95289d.html"
+    frameborder="0"
+    allowfullscreen
+
+></iframe>
+</div></div>
+</div>
+<p>More generally, we can also create simple graph diagrams:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 250
+
+graph TD;
+    A--&gt;B;
+    A--&gt;C;
+    B--&gt;D;
+    C--&gt;D;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="100%"
+    height="250"
+    src="6ba88aeb-fb5c-4fe0-814e-fca5c455e418.html"
+    frameborder="0"
+    allowfullscreen
+
+></iframe>
+</div></div>
+</div>
+<p>We can also generate sequence diagrams:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 350
+
+sequenceDiagram
+    Alice-&gt;&gt;John: Hello John, how are you?
+    John--&gt;&gt;Alice: Great!
+    Alice-)John: See you later!
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="100%"
+    height="350"
+    src="bd07c5eb-bff2-4748-b8a1-38e58678e2db.html"
+    frameborder="0"
+    allowfullscreen
+
+></iframe>
+</div></div>
+</div>
+<p>And entity relationship diagrams:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 330
+
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    CUSTOMER {
+        string name
+        string custNumber
+        string sector
+    }
+    ORDER {
+        int orderNumber
+        string deliveryAddress
+    }
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="100%"
+    height="330"
+    src="55a4fcae-41f7-4598-b331-5dcb2e4f7f4d.html"
+    frameborder="0"
+    allowfullscreen
+
+></iframe>
+</div></div>
+</div>
+</div>
+</div>
+<div class="section" id="visualising-audio-files-with-wavesurfer">
+<h2>Visualising Audio Files with <code class="docutils literal notranslate"><span class="pre">wavesurfer</span></code><a class="headerlink" href="#visualising-audio-files-with-wavesurfer" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">wavesurfer_magic</span> -f https://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="100%"
+    height="200"
+    src="c3043d93-3021-4c85-8191-7af6984fe167.html"
+    frameborder="0"
+    allowfullscreen
+
+></iframe>
+</div></div>
+</div>
+</div>
+<div class="section" id="flow-charts">
+<h2>Flow Charts<a class="headerlink" href="#flow-charts" title="Permalink to this headline">¶</a></h2>
+<p>As well as flow charts generated using <code class="docutils literal notranslate"><span class="pre">mermaid.js</span></code> we can also use the <code class="docutils literal notranslate"><span class="pre">flowchart.js</span></code> package.</p>
+<p>In an interactive notebook, we can simply use the <code class="docutils literal notranslate"><span class="pre">%%flowchart_magic</span></code> block magic to render a flowchart from a flowchart definition.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For an earlier attempt at embedding <code class="docutils literal notranslate"><span class="pre">flowchart.js</span></code> diagrams in notebooks as an <code class="docutils literal notranslate"><span class="pre">ipywidget</span></code>, see <a class="reference external" href="https://github.com/innovationOUtside/flowchart_js_jp_proxy_widget"><code class="docutils literal notranslate"><span class="pre">flowchart_js_jp_proxy_widget</span></code></a>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">flowchart_magic</span> -h 100
+
+st=&gt;start: Start
+e=&gt;end: End
+op1=&gt;operation: Generate
+op2=&gt;parallel: Evaluate
+st(right)-&gt;op1(right)-&gt;op2
+op2(path1, top)-&gt;op1
+op2(path2, right)-&gt;e
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="100%"
+    height="100"
+    src="b439c260-ae80-4c52-bf05-53ccf5648459.html"
+    frameborder="0"
+    allowfullscreen
+
+></iframe>
+</div></div>
+</div>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jp_flowchartjs.jp_flowchartjs</span> <span class="kn">import</span> <span class="n">FlowchartWidget</span>
+
+<span class="c1"># The flowchart definition script</span>
+<span class="n">code</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">st=&gt;start: Start</span>
+<span class="s2">e=&gt;end: End</span>
+<span class="s2">op1=&gt;operation: Set counter to 0</span>
+<span class="s2">op2=&gt;operation: Draw side code</span>
+<span class="s2">op3=&gt;operation: Turn ninety degrees code</span>
+<span class="s2">op4=&gt;operation: Add 1 to counter</span>
+<span class="s2">cond=&gt;condition: Is counter &lt; 4?</span>
+<span class="s2">st(right)-&gt;op1(right)-&gt;op2-&gt;op3-&gt;cond</span>
+<span class="s2">cond(yes, right)-&gt;op2</span>
+<span class="s2">cond(no, bottom)-&gt;e</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">dummy_flowcharter</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
+    <span class="c1"># Generate an output widget to generate SVG code</span>
+    <span class="n">dummy_output</span> <span class="o">=</span> <span class="n">FlowchartWidget</span><span class="p">()</span>
+    <span class="n">dummy_output</span><span class="o">.</span><span class="n">charter</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dummy_output</span>
+    
+<span class="n">dummy_flowcharter</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Note that this currently requires running the notebook in a browser interface and saving the SVG to an output file that can then be loaded in an rendered. The direct Jupyer Book build approach does not ncessarily generate the required image data.</em></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">SVG</span>
+
+<span class="k">def</span> <span class="nf">svg_hack</span><span class="p">(</span><span class="n">dummy</span><span class="p">,</span> <span class="n">test_file</span> <span class="o">=</span> <span class="s2">&quot;test.svg&quot;</span><span class="p">):</span>
+    <span class="n">svg_data</span> <span class="o">=</span> <span class="n">dummy</span><span class="o">.</span><span class="n">get_svg</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">svg_data</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">test_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">svg_data</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">SVG</span><span class="p">(</span><span class="n">test_file</span><span class="p">)</span>
+
+<span class="n">svg_hack</span><span class="p">(</span><span class="n">dummy_output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/py-diagramming-packages_22_0.svg" src="../_images/py-diagramming-packages_22_0.svg" /></div>
+</div>
+<p>It is also possible to generate a flowchart based on the contents of a code cell (in an interactive notebook, we can do this directly using the <code class="docutils literal notranslate"><span class="pre">%%pyflowchart_magic</span></code> block magic):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">pyflowchart_magic</span> -h 800
+import time
+
+def demo(msg=&#39;demo&#39;):
+    for i in range(10):
+        print(f&#39;{msg} loopcount is {i}&#39;)
+        time.sleep(i)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="100%"
+    height="800"
+    src="3ae30b63-aaa4-47c6-ab8d-4dcd62ba6202.html"
+    frameborder="0"
+    allowfullscreen
+
+></iframe>
+</div></div>
+</div>
+<p>Using this approach <em>does not</em> run the code however.</p>
+<p>Another approach is to have a normal code cell:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">demo</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;demo&#39;</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s1"> loopcount is </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And then capture the code from this code cell and render it.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span> code
+<span class="c1"># This gets the content of the previous cell</span>
+<span class="o">%</span><span class="n">history</span> <span class="o">-</span><span class="n">l</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyflowchart</span> <span class="kn">import</span> <span class="n">Flowchart</span>
+
+<span class="kn">from</span> <span class="nn">nb_js_diagrammers.flowchartjs</span> <span class="kn">import</span> <span class="n">TEMPLATE_FLOWCHARTJS</span>
+<span class="kn">from</span> <span class="nn">nb_js_diagrammers.magics</span> <span class="kn">import</span> <span class="n">js_ui</span>
+
+<span class="c1"># Generate a flowchart from the grabbed code</span>
+<span class="n">fc</span> <span class="o">=</span> <span class="n">Flowchart</span><span class="o">.</span><span class="n">from_code</span><span class="p">(</span><span class="n">code</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+
+<span class="c1"># Render the flowchart</span>
+<span class="n">js_ui</span><span class="p">({</span><span class="s2">&quot;src&quot;</span><span class="p">:</span><span class="n">fc</span><span class="o">.</span><span class="n">flowchart</span><span class="p">()},</span> <span class="n">TEMPLATE_FLOWCHARTJS</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="100%"
+    height="800"
+    src="6e865698-d10f-496f-83d2-a609105fd1f3.html"
+    frameborder="0"
+    allowfullscreen
+
+></iframe>
+</div></div>
+</div>
+</div>
+<div class="section" id="rendering-svg-schematic-diagrams-from-a-yosys-json-netlist">
+<h2>Rendering SVG Schematic Diagrams from a <code class="docutils literal notranslate"><span class="pre">yosys</span></code> JSON netlist<a class="headerlink" href="#rendering-svg-schematic-diagrams-from-a-yosys-json-netlist" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://github.com/nturley/netlistsvg"><code class="docutils literal notranslate"><span class="pre">netlistsvg</span></code></a> package can generate and render an SVG schematic diagram from a netlist.</p>
+<details>
+  <summary>JSON Source (click here to reveal)</summary>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;modules&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;up3down5&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;ports&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;clock&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;data_in&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;up&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">12</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;down&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;carry_out&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">14</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;borrow_out&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">15</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;count_out&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;parity_out&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">25</span> <span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;cells&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;$add$input.v:17$3&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$add&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">],</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span> <span class="p">],</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">35</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$and$input.v:28$5&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$and&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">12</span> <span class="p">],</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">35</span> <span class="p">],</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">36</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$and$input.v:29$6&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$and&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span> <span class="p">],</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">37</span> <span class="p">],</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">38</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$procdff$40&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$dff&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;CLK&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Q&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;CLK&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">],</span>
+            <span class="nt">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">47</span> <span class="p">],</span>
+            <span class="nt">&quot;Q&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$procdff$41&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$dff&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;CLK&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Q&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;CLK&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">],</span>
+            <span class="nt">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">36</span> <span class="p">],</span>
+            <span class="nt">&quot;Q&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">14</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$procdff$42&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$dff&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;CLK&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Q&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;CLK&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">],</span>
+            <span class="nt">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">38</span> <span class="p">],</span>
+            <span class="nt">&quot;Q&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">15</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$procdff$43&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$dff&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;CLK&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Q&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;CLK&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">],</span>
+            <span class="nt">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">48</span> <span class="p">],</span>
+            <span class="nt">&quot;Q&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">25</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$procmux$36&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$pmux&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;S&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">],</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span> <span class="p">],</span>
+            <span class="nt">&quot;S&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">60</span> <span class="p">],</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">47</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$procmux$37_CMP0&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$eq&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">12</span> <span class="p">],</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span> <span class="p">],</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">58</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$procmux$38_CMP0&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$eq&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">12</span> <span class="p">],</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span> <span class="p">],</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">59</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$procmux$39_CMP0&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$eq&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">12</span> <span class="p">],</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span> <span class="p">],</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">60</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$reduce_xor$input.v:27$4&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$reduce_xor&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">47</span> <span class="p">],</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">48</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;$sub$input.v:16$2&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$sub&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">],</span>
+            <span class="nt">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span> <span class="p">],</span>
+            <span class="nt">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">37</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details><div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">netlist</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;modules&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;up3down5&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;ports&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;clock&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;data_in&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;up&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">12</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;down&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;carry_out&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">14</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;borrow_out&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">15</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;count_out&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;parity_out&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">25</span> <span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;cells&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;$add$input.v:17$3&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$add&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">],</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span> <span class="p">],</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">35</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$and$input.v:28$5&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$and&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">12</span> <span class="p">],</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">35</span> <span class="p">],</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">36</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$and$input.v:29$6&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$and&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span> <span class="p">],</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">37</span> <span class="p">],</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">38</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$procdff$40&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$dff&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;CLK&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;CLK&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">],</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">47</span> <span class="p">],</span>
+            <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$procdff$41&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$dff&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;CLK&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;CLK&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">],</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">36</span> <span class="p">],</span>
+            <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">14</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$procdff$42&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$dff&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;CLK&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;CLK&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">],</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">38</span> <span class="p">],</span>
+            <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">15</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$procdff$43&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$dff&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;CLK&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;CLK&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">],</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">48</span> <span class="p">],</span>
+            <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">25</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$procmux$36&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$pmux&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;S&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">],</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span> <span class="p">],</span>
+            <span class="s2">&quot;S&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">60</span> <span class="p">],</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">47</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$procmux$37_CMP0&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$eq&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">12</span> <span class="p">],</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span> <span class="p">],</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">58</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$procmux$38_CMP0&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$eq&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">12</span> <span class="p">],</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span> <span class="p">],</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">59</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$procmux$39_CMP0&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$eq&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">12</span> <span class="p">],</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span> <span class="p">],</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">60</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$reduce_xor$input.v:27$4&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$reduce_xor&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">47</span> <span class="p">],</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">48</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;$sub$input.v:16$2&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;$sub&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span> <span class="p">],</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span> <span class="p">],</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">37</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">fn</span> <span class="o">=</span> <span class="s1">&#39;netlist.json&#39;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">netlist</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture 
+
+fn_svg = &quot;netlist.svg&quot;
+
+# Install the netlistsvg package (requires node)
+#!npm install -g netlistsvg
+!netlistsvg $fn -o $fn_svg
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">SVG</span>
+
+<span class="n">SVG</span><span class="p">(</span><span class="n">fn_svg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/py-diagramming-packages_33_0.svg" src="../_images/py-diagramming-packages_33_0.svg" /></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./diagram"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="js-diagramming-magics.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">JavaScript Rendered Diagramming</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="sphinx-diagrammers.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Sphinx / Jupyter Book Diagramming Plugins</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Tony Hirst<br/>
+        
+            &copy; Copyright 2018-2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -7,7 +7,7 @@ Traceback (most recent call last):
     return just_run(coro(*args, **kwargs))
   File "/usr/local/lib/python3.9/site-packages/nbclient/util.py", line 53, in just_run
     return loop.run_until_complete(coro)
-  File "/usr/local/Cellar/python@3.9/3.9.5/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+  File "/usr/local/Cellar/python@3.9/3.9.7_1/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
     return future.result()
   File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 540, in async_execute
     await self.async_execute_cell(
@@ -27,7 +27,7 @@ quadratic(a, b, c)
 [0m
 [0;32m/usr/local/lib/python3.9/site-packages/handcalcs/decorator.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
 [1;32m     18[0m             [0mcell_source[0m [0;34m=[0m [0m_func_source_to_cell[0m[0;34m([0m[0mfunc_source[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     19[0m             [0;31m# use innerscope to get the values of locals, closures, and globals when calling func[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     19[0m             [0;31m# use innerscope to get the values of locals, closures, and globals when calling func[0m[0;34m[0m[0;34m[0m[0m
 [0;32m---> 20[0;31m             [0mscope[0m [0;34m=[0m [0minnerscope[0m[0;34m.[0m[0mcall[0m[0;34m([0m[0mfunc[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m     21[0m             [0mLatexRenderer[0m[0;34m.[0m[0mdec_sep[0m [0;34m=[0m [0mdecimal_separator[0m[0;34m[0m[0;34m[0m[0m
 [1;32m     22[0m             [0mrenderer[0m [0;34m=[0m [0mLatexRenderer[0m[0;34m([0m[0mcell_source[0m[0;34m,[0m [0mscope[0m[0;34m,[0m [0mline_args[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m

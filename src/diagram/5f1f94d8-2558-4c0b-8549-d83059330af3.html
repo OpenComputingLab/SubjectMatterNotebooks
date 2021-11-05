@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Flowchart.js</title>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.14.1/flowchart.js"></script>
+        </head>
+        <body>
+         
+        <div id="diagram"></div>
+<script>
+  var diagram = flowchart.parse(`op4479841712=>operation: import time
+st4479843104=>start: start demo
+io4479842192=>inputoutput: input: msg
+cond4479996256=>condition: for i in range(10)
+sub4479997744=>subroutine: print(f'{msg} loopcount is {i}')
+sub4479997696=>subroutine: time.sleep(i)
+e4479840464=>end: end demo
+
+op4479841712->st4479843104
+st4479843104->io4479842192
+io4479842192->cond4479996256
+cond4479996256(yes)->sub4479997744
+sub4479997744->sub4479997696
+sub4479997696(left)->cond4479996256
+cond4479996256(no)->e4479840464
+`);
+  diagram.drawSVG('diagram');
+</script>
+ 
+        </body>
+</html>

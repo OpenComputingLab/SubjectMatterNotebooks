@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Flowchart.js</title>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.14.1/flowchart.js"></script>
+        </head>
+        <body>
+         
+        <div id="diagram"></div>
+<script>
+  var diagram = flowchart.parse(`
+st=>start: Start
+e=>end: End
+op1=>operation: Generate
+op2=>parallel: Evaluate
+st(right)->op1(right)->op2
+op2(path1, top)->op1
+op2(path2, right)->e
+`);
+  diagram.drawSVG('diagram');
+</script>
+ 
+        </body>
+</html>

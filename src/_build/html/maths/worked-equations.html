@@ -45,7 +45,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -155,7 +155,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../chemistry/compound_lookups.html">
-   Chemistry — Compound Lookups
+   Chemistry – Compound Lookups
   </a>
  </li>
  <li class="toctree-l1">
@@ -295,6 +295,26 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../diagram/overview.html">
    Diagrams Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/blockdiag.html">
+   Blockdiag Package Diagrams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/js-diagramming-magics.html">
+   JavaScript Rendered Diagramming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/py-diagramming-packages.html">
+   Python Script Diagramming Packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/sphinx-diagrammers.html">
+   Sphinx / Jupyter Book Diagramming Plugins
   </a>
  </li>
 </ul>
@@ -447,7 +467,7 @@
         
               <div>
                 
-  <div class="section" id="worked-equations-and-equations-with-units">
+  <div class="tex2jax_ignore mathjax_ignore section" id="worked-equations-and-equations-with-units">
 <h1>Worked Equations and Equations With Units<a class="headerlink" href="#worked-equations-and-equations-with-units" title="Permalink to this headline">¶</a></h1>
 <p>One of the common refrains in maths, physics and engineering education is to “show your working” and “check your working”.</p>
 <p>In a one piece generative production workflow, various tools are available that support the creation of simple worked examples. By using a <em>generative</em> approach, the working is guaranteed to be correct (even if the style of presentation may not be <em>exactly</em> as desired) which provides a great benefit in terms of material production.</p>
@@ -489,7 +509,7 @@ t &amp;= 1 \;
 \end{split}\]</div>
 </div>
 </div>
-<p>We can prevent the magic from evaluating the expression by telling it we want the expression to remian a symbolic one:</p>
+<p>We can prevent the magic from evaluating the expression by telling it we want the expression to remain a symbolic one:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">render</span> symbolic
@@ -539,7 +559,7 @@ c &amp;= 2 \cdot a + \frac{ b }{ 3 } \\&amp;= 2 \cdot 2 + \frac{ 3 }{ 3 } \\&amp
 <p>If the output isn’t to your liking, <code class="docutils literal notranslate"><span class="pre">handcalcs</span></code> might still help accelerate authoring by providing a <em>draft</em> of some raw laTeX that you could copy and edit by hand and then render by other means.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In single piece generative document workflow terms, the <code class="docutils literal notranslate"><span class="pre">%%tex</span></code> magic cell could be removed from a rendered version of the notebook and yet still be used to create raw TeX that might be manually copied intom, edited and redered from a <code class="docutils literal notranslate"><span class="pre">%%latex</span></code> magicked cell with a hidden input.</p>
+<p>In single piece generative document workflow terms, the <code class="docutils literal notranslate"><span class="pre">%%tex</span></code> magic cell could be removed from a rendered version of the notebook and yet still be used to create raw TeX that might be manually copied into, edited and rendered from a <code class="docutils literal notranslate"><span class="pre">%%latex</span></code> magicked cell with a hidden input.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -640,7 +660,7 @@ x_{2} &amp;= \frac{ \left( - b \right) - \sqrt { \left( b \right) ^{ 2 } - 4 \cd
 <div class="section" id="working-with-dimensions">
 <h2>Working with Dimensions<a class="headerlink" href="#working-with-dimensions" title="Permalink to this headline">¶</a></h2>
 <p>In some situations, such as physics or engineering calculations, it might be important to make use of dimensioned quantities. The <a class="reference external" href="https://github.com/connorferster/forallpeople"><code class="docutils literal notranslate"><span class="pre">forallpeople</span></code></a> package is one of several packages that provides dimensional units. Conveniently, it also works with the <code class="docutils literal notranslate"><span class="pre">handcalcs</span></code> package.</p>
-<p>By default, we can load a particular measurement framework, such as the SI units of measurement. (Alternatives inclue things like Imperial measurements.)</p>
+<p>By default, we can load a particular measurement framework, such as the SI units of measurement. (Alternatives include things like Imperial measurements.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">forallpeople</span> <span class="k">as</span> <span class="nn">si</span>

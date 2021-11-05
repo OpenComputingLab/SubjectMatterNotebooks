@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+ 
+        <div class="mermaid">
+            
+flowchart TD
+    A[Start] --> B{Is it?};
+    B -->|Yes| C[OK];
+    C --> D[Rethink];
+    D --> B;
+    B ---->|No| E[End];
+
+        </div>
+ 
+    </body>
+</html>

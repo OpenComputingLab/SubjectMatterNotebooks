@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chemistry — Compound Lookups &#8212; Subject Matter Authoring Using Jupyter Notebooks</title>
+    <title>Chemistry – Compound Lookups &#8212; Subject Matter Authoring Using Jupyter Notebooks</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -42,8 +42,10 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -153,7 +155,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Chemistry — Compound Lookups
+   Chemistry – Compound Lookups
   </a>
  </li>
  <li class="toctree-l1">
@@ -293,6 +295,26 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../diagram/overview.html">
    Diagrams Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/blockdiag.html">
+   Blockdiag Package Diagrams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/js-diagramming-magics.html">
+   JavaScript Rendered Diagramming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/py-diagramming-packages.html">
+   Python Script Diagramming Packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/sphinx-diagrammers.html">
+   Sphinx / Jupyter Book Diagramming Plugins
   </a>
  </li>
 </ul>
@@ -457,13 +479,13 @@
         
               <div>
                 
-  <div class="section" id="chemistry-compound-lookups">
-<h1>Chemistry — Compound Lookups<a class="headerlink" href="#chemistry-compound-lookups" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="chemistry-compound-lookups">
+<h1>Chemistry – Compound Lookups<a class="headerlink" href="#chemistry-compound-lookups" title="Permalink to this headline">¶</a></h1>
 <p>Several Python packages exist that simplify the process of looking compounds and their chemical structure.</p>
 <p>This means that we can look-up compounds by name or structure and create a generative sequence of steps that allows us obtain the structure of a compound, and various properties of it, simply by starting with its common name.</p>
 <p>With a representation of the structure to hand, we can then visualise its structure as demonstrated in a later section.</p>
 <p>This allows us in part to create one-piece generative document workflows where <em>information rich</em> outputs, as well as rich media outputs, can be generated from (potentially hidden) generative scripts contained within the source document.</p>
-<p>For creators of educational materials, this means we can create narratives where a compuns is identified by name, a lookup is made, and informational descriptions can then be generated from the looked up object.</p>
+<p>For creators of educational materials, this means we can create narratives where a compound is identified by name, a lookup is made, and informational descriptions can then be generated from the looked up object.</p>
 <p>This means that the materials will be factually correct as the informational properties will be rendered directly from the retrieved object.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -471,10 +493,10 @@
 <p>It is therefore recommended that generative documents should be saved in an archived form with all cells run.</p>
 <p>Using a “loop back” generative method, where assets are created, saved to disk, and then loaded back in is another approach that can be used to generate assets that can be persisted for local use by the generating document, or even reused elsewhere.</p>
 </div>
-<p>Through being able to look up properties of materials, we can also generate factual statements about them or generate quizzes or opportunities for self-text activities around them.</p>
+<p>Through being able to look up properties of materials, we can also generate factual statements about them or generate quizzes or opportunities for self-test activities around them.</p>
 <div class="section" id="pubchempy">
 <h2><code class="docutils literal notranslate"><span class="pre">pubchempy</span></code><a class="headerlink" href="#pubchempy" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference external" href="https://pubchempy.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">pubchempy</span></code></a> package provides a Python interface to <a class="reference external" href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a>, a  freely accessible chemical information lookup service. <em>PubChem</em> allows for the searching of chemicals by name, lookups of molecular formulas and structures using conventional representations such as a SMILES representation. (Chemicals can also be looked up via their SMILES string.)</p>
+<p>The <a class="reference external" href="https://pubchempy.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">pubchempy</span></code></a> package provides a Python interface to <a class="reference external" href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a>, a freely accessible chemical information lookup service. <em>PubChem</em> allows for the searching of chemicals by name and lookups of molecular formulas and structures using conventional representations such as a SMILES representation.</p>
 <div class="tip admonition">
 <p class="admonition-title">SMILES</p>
 <p>SMILES (<a class="reference external" href="https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system"><em>Simplified molecular-input line-entry system</em></a>) is a simple text format for desctibing molecular structure.</p>
@@ -588,7 +610,7 @@
 </table>
 </div></div></div>
 </div>
-<p>Round tripping of looking up a compound by name, obtaining its SMILES representation, looking the compound by SMILES representation, and then displaying the name of the final object retrieved, is also supported and can be used as an integrity check:</p>
+<p>Round tripping of looking up a compound by name, obtaining its SMILES representation, looking the compound by SMILES representation, and then displaying the name of the final object retrieved, is also possible and can be used as an integrity check:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Look up by SMILES string</span>
@@ -603,7 +625,7 @@
 </div>
 </div>
 </div>
-<p>We can also use other chemcial reference codes for the lookup, such as an <code class="docutils literal notranslate"><span class="pre">InChI</span></code> identifier:</p>
+<p>We can also use other chemical reference codes for the lookup, such as an <code class="docutils literal notranslate"><span class="pre">InChI</span></code> identifier:</p>
 <div class="tip admonition">
 <p class="admonition-title">InChI</p>
 <p><code class="docutils literal notranslate"><span class="pre">InChI</span></code>, the IUPAC (<a class="reference external" href="https://en.wikipedia.org/wiki/International_Chemical_Identifier"><em>International Chemical Identifier</em></a>) is a  standardised textual identifier for chemical substances.</p>
@@ -623,7 +645,7 @@
 </div>
 </div>
 <p>The retrieved object stores a wide range of useful informational properties associated with the compound.</p>
-<p>For example, looking up the chemical formula (this is described as the <em>molecular formula</em> altough I think it’s actually the <em>empirical formula</em>?):</p>
+<p>For example, looking up the chemical formula (this is described as the <em>molecular formula</em> although I think it’s actually the <em>empirical formula</em>?):</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Latex</span>
@@ -644,7 +666,7 @@
 </div>
 </div>
 </div>
-<p>A simple, literally stated formula can be rendered using MathJax if the <code class="docutils literal notranslate"><span class="pre">mhchem</span></code> package is imported.</p>
+<p>A simple, literally stated formula can be rendered using <em>MathJax</em> if the <code class="docutils literal notranslate"><span class="pre">mhchem</span></code> package is imported.</p>
 <div class="math notranslate nohighlight">
 \[\require{mhchem}\]</div>
 <div class="admonition note">
@@ -796,7 +818,7 @@ ASPIRIN EUGENOL ESTER
 <div class="cell_output docutils container">
 <div class="output text_html">Name: <strong>ASPIRIN</strong><br/>Common Wikipedia (common) name: <strong>Aspirin</strong><br/>Formula: <strong>C9H8O4</strong><br/>Species: <strong>ACID</strong><br/>SMILES: <strong>CC(=O)Oc1ccccc1C(=O)O</strong><br/>inchi:  <strong>InChI=1S/C9H8O4/c1-6(10)13-8-5-3-2-4-7(8)9(11)12/h2-5H,1H3,(H,11,12)</strong><br/>CHEMBL id:  <strong>CHEMBL25</strong><br/>Therapeutic flag: <strong>True</strong><br/>First approval: <strong>1950</strong></div></div>
 </div>
-<p>As ewll as looking up compunds by name, we can lookup a molecules more specifically from a SMILES string:</p>
+<p>As well as looking up compounds by name, we can lookup a molecules more specifically from a SMILES string:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">chembl_webresource_client.new_client</span> <span class="kn">import</span> <span class="n">new_client</span>

@@ -45,7 +45,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -155,7 +155,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../chemistry/compound_lookups.html">
-   Chemistry — Compound Lookups
+   Chemistry – Compound Lookups
   </a>
  </li>
  <li class="toctree-l1">
@@ -295,6 +295,26 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../diagram/overview.html">
    Diagrams Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/blockdiag.html">
+   Blockdiag Package Diagrams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/js-diagramming-magics.html">
+   JavaScript Rendered Diagramming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/py-diagramming-packages.html">
+   Python Script Diagramming Packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/sphinx-diagrammers.html">
+   Sphinx / Jupyter Book Diagramming Plugins
   </a>
  </li>
 </ul>
@@ -442,7 +462,7 @@
         
               <div>
                 
-  <div class="section" id="statistics-in-r">
+  <div class="tex2jax_ignore mathjax_ignore section" id="statistics-in-r">
 <h1>Statistics in R<a class="headerlink" href="#statistics-in-r" title="Permalink to this headline">¶</a></h1>
 <p>The code that can be executed in Jupyter notebook code cells is determined by the Jupyter kernel with which the notebook is associated and against which it is run.</p>
 <p>For the author, this means that a single authoring environment, such as the classic Jupyter notebook interface, can be used to author documents whose outputs may be generated from a wide range of programming languages.</p>
@@ -477,7 +497,7 @@
 </div>
 <div class="section" id="symbolic-computation-in-r">
 <h2>Symbolic Computation in R<a class="headerlink" href="#symbolic-computation-in-r" title="Permalink to this headline">¶</a></h2>
-<p>We can use the <code class="docutils literal notranslate"><span class="pre">Ryacas</span></code> package to proivide us with a symbolic computational environment based on <a class="reference external" href="https://yacas.readthedocs.io/en/latest/"><em>Yacas</em></a>, although inlining items using glue is not possible becuase we aren’t working in a Python environment.</p>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">Ryacas</span></code> package to provide us with a symbolic computational environment based on <a class="reference external" href="https://yacas.readthedocs.io/en/latest/"><em>Yacas</em></a>, although inlining items using glue is not possible because we aren’t working in a Python environment.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The R <code class="docutils literal notranslate"><span class="pre">knitr</span></code>/<code class="docutils literal notranslate"><span class="pre">bookdown</span></code> workflow currently provides a much simpler route to producing texts with inlined code output.</p>
@@ -514,7 +534,7 @@
 \[\left( 1 - x\right)  ^{2} + 100 \left( y - x ^{2}\right)  ^{2}\]</div>
 </div>
 </div>
-<p>We can evaulate the function by casting the sumbolic expression to R and setting the variables:</p>
+<p>We can evaluate the function by casting the symbolic expression to R and setting the variables:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">eval</span><span class="p">(</span><span class="nf">as_r</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="nf">list</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="m">2</span><span class="p">))</span>

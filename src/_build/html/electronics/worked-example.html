@@ -45,7 +45,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -155,7 +155,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../chemistry/compound_lookups.html">
-   Chemistry — Compound Lookups
+   Chemistry – Compound Lookups
   </a>
  </li>
  <li class="toctree-l1">
@@ -295,6 +295,26 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../diagram/overview.html">
    Diagrams Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/blockdiag.html">
+   Blockdiag Package Diagrams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/js-diagramming-magics.html">
+   JavaScript Rendered Diagramming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/py-diagramming-packages.html">
+   Python Script Diagramming Packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/sphinx-diagrammers.html">
+   Sphinx / Jupyter Book Diagramming Plugins
   </a>
  </li>
 </ul>
@@ -465,7 +485,7 @@
         
               <div>
                 
-  <div class="section" id="electronics-worked-example">
+  <div class="tex2jax_ignore mathjax_ignore section" id="electronics-worked-example">
 <h1>Electronics Worked Example<a class="headerlink" href="#electronics-worked-example" title="Permalink to this headline">¶</a></h1>
 <p>This notebook starts to explore a worked example of how we can use a package like <code class="docutils literal notranslate"><span class="pre">lcapy</span></code> to support the production of technical eductional materials in a way that guarantees correctness and provides opportunities to developing self-text activities.</p>
 <p>The aim is to be able to generate a set of materials where all the equations and all the calculations are rendered mechanically from a original circuit description. This would then guarantee their correctness relative to the original circuit.</p>
@@ -479,8 +499,8 @@
 <h2><code class="docutils literal notranslate"><span class="pre">lcapy</span></code><a class="headerlink" href="#lcapy" title="Permalink to this headline">¶</a></h2>
 <p>As described elsewhere, <code class="docutils literal notranslate"><span class="pre">lcapy</span></code> is a linear circuit analysis package that can be used to describe, display and analyse the behaviour of a wide range of linear analogue electrical circuits.</p>
 <p><code class="docutils literal notranslate"><span class="pre">lcapy</span></code> use a circuit description that can be used to generate an circuit diagram as the basis for a wide range of analyses.</p>
-<p>Circuits are defined by generating a graph that connects numbered nodes with edges representating a particular component. Layout instructions describe the orientation of the edge, and labels can be added as required.</p>
-<p>In actual use, it would make sense to build up a lirary of comment circuit blocks that can be visually reviewed, and then the corresponding definition copited and reused, with modification as required.</p>
+<p>Circuits are defined by generating a graph that connects numbered nodes with edges representing a particular component. Layout instructions describe the orientation of the edge, and labels can be added as required.</p>
+<p>In actual use, it would make sense to build up a library of comment circuit blocks that can be visually reviewed, and then the corresponding definition copied and reused, with modification as required.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lcapy</span> <span class="kn">import</span> <span class="n">Circuit</span>
@@ -967,7 +987,7 @@ W 4 0; left
 </div>
 </div>
 </div>
-<p>With these pieces in place, we can also consider how we might automatically generate circuit diagrams with specifed component values, and then perform, or check, calculations against them.</p>
+<p>With these pieces in place, we can also consider how we might automatically generate circuit diagrams with specified component values, and then perform, or check, calculations against them.</p>
 <p>For example, the following function wraps a specific circuit definition and allows specific component values to be passed in:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

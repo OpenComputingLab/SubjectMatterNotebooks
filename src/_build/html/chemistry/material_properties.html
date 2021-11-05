@@ -55,7 +55,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Chemistry — Visualising Chemical Structures" href="visualising-compounds.html" />
-    <link rel="prev" title="Chemistry — Compound Lookups" href="compound_lookups.html" />
+    <link rel="prev" title="Chemistry – Compound Lookups" href="compound_lookups.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -153,7 +153,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="compound_lookups.html">
-   Chemistry — Compound Lookups
+   Chemistry – Compound Lookups
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -293,6 +293,26 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../diagram/overview.html">
    Diagrams Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/blockdiag.html">
+   Blockdiag Package Diagrams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/js-diagramming-magics.html">
+   JavaScript Rendered Diagramming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/py-diagramming-packages.html">
+   Python Script Diagramming Packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/sphinx-diagrammers.html">
+   Sphinx / Jupyter Book Diagramming Plugins
   </a>
  </li>
 </ul>
@@ -462,9 +482,9 @@
         
               <div>
                 
-  <div class="section" id="chemical-properties">
+  <div class="tex2jax_ignore mathjax_ignore section" id="chemical-properties">
 <h1>Chemical Properties<a class="headerlink" href="#chemical-properties" title="Permalink to this headline">¶</a></h1>
-<p>Several packages exist that allow us to automatically retrieve material properties of particlar elments and compounds as well as relating them to the periodic table.</p>
+<p>Several packages exist that allow us to automatically retrieve material properties of particular elements and compounds as well as relating them to the periodic table.</p>
 <p>Being able to look up the material properties of chemicals in a one piece generative document workflow allows creators of materials to generate factually correct statements directly from looked up object properties and present those as part of the materials.</p>
 <p>For learners in an interactive notebook, the ability to lookup and reference elements allows them to check their understanding and explore the properties of elements that have not been directly referenced in the materials.</p>
 <p>The availability of a Periodic Table display with scripted styling means that authors can easily create views over the periodic table that highlight specific concerns, and learners can visually explore properties and patterns of elements in the periodic table context for themselves.</p>
@@ -948,7 +968,7 @@ reduced_composition: Fe2 O3
 </div>
 </div>
 </div>
-<p>We can also lookup the compostion of the compund:</p>
+<p>We can also lookup the compostion of the compound:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">comp</span><span class="o">.</span><span class="n">fractional_composition</span><span class="p">,</span>  <span class="n">comp</span><span class="o">.</span><span class="n">get_atomic_fraction</span><span class="p">(</span><span class="s1">&#39;Fe&#39;</span><span class="p">),</span>  <span class="n">comp</span><span class="o">.</span><span class="n">get_atomic_fraction</span><span class="p">(</span><span class="s1">&#39;O&#39;</span><span class="p">)</span>
@@ -1011,8 +1031,8 @@ Fr  Ra      Rf  Db  Sg  Bh  Hs  Mt  Ds  Rg  Cn  Nh  Fl  Mc  Lv  Ts  Og
 </div>
 <div class="section" id="periodic-table">
 <h2>Periodic Table<a class="headerlink" href="#periodic-table" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference external" href="https://github.com/osscar-org/widget-periodictable/"><code class="docutils literal notranslate"><span class="pre">widget_periodictable</span></code></a> is an interactive periodic table widget that allows particular elements to be highlighted and identifers for selected elements to be retrieved.</p>
-<p>As such, wthe widget could form part of a simple end user application for looking up properties of selected elements, or highlighting elements within the table based on an analysis of a simple compound.</p>
+<p>The <a class="reference external" href="https://github.com/osscar-org/widget-periodictable/"><code class="docutils literal notranslate"><span class="pre">widget_periodictable</span></code></a> is an interactive periodic table widget that allows particular elements to be highlighted and identifiers for selected elements to be retrieved.</p>
+<p>As such, the widget could form part of a simple end user application for looking up properties of selected elements, or highlighting elements within the table based on an analysis of a simple compound.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">widget_periodictable</span> <span class="kn">import</span> <span class="n">PTableWidget</span>
@@ -1623,7 +1643,7 @@ O&#39;s atomic weight:  15.999
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Chemistry — Compound Lookups</p>
+                <p class="prevnext-title">Chemistry – Compound Lookups</p>
             </div>
         </a>
     </div>

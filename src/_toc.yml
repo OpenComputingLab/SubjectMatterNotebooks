@@ -48,6 +48,10 @@ parts:
 - caption: Diagram Generation
   chapters:
   - file: diagram/overview
+  - file: diagram/blockdiag
+  - file: diagram/js-diagramming-magics
+  - file: diagram/py-diagramming-packages
+  - file: diagram/sphinx-diagrammers
 - caption: Image Generation and Manipulation
   chapters:
   - file: image/overview

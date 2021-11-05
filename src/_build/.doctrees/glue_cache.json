@@ -26,7 +26,7 @@
       "output_type": "display_data"
     }
   },
-  "chemistry/overview": {
+  "chemistry/compound_lookups": {
     "compoundLatex": {
       "data": {
         "application/papermill.record/text/latex": "$\\ce{C2H6O}$",
@@ -39,9 +39,7 @@
         }
       },
       "output_type": "display_data"
-    }
-  },
-  "chemistry/compound_lookups": {
+    },
     "compoundName": {
       "data": {
         "application/papermill.record/text/plain": "'ethanol'"

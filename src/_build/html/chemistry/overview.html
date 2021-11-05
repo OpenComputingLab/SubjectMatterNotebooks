@@ -42,8 +42,10 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -54,7 +56,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chemistry — Compound Lookups" href="compound_lookups.html" />
+    <link rel="next" title="Chemistry – Compound Lookups" href="compound_lookups.html" />
     <link rel="prev" title="Astronomy — Interactive Viewers" href="../astronomy/interactive-astronomy-viewers.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -153,7 +155,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="compound_lookups.html">
-   Chemistry — Compound Lookups
+   Chemistry – Compound Lookups
   </a>
  </li>
  <li class="toctree-l1">
@@ -293,6 +295,26 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../diagram/overview.html">
    Diagrams Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/blockdiag.html">
+   Blockdiag Package Diagrams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/js-diagramming-magics.html">
+   JavaScript Rendered Diagramming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/py-diagramming-packages.html">
+   Python Script Diagramming Packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/sphinx-diagrammers.html">
+   Sphinx / Jupyter Book Diagramming Plugins
   </a>
  </li>
 </ul>
@@ -435,13 +457,13 @@
         
               <div>
                 
-  <div class="section" id="chemistry-overview">
+  <div class="tex2jax_ignore mathjax_ignore section" id="chemistry-overview">
 <h1>Chemistry Overview<a class="headerlink" href="#chemistry-overview" title="Permalink to this headline">¶</a></h1>
 <p>A wide range of tools exist that support workflows in Chemistry, from looking up the structure and properties of a wide variety of elements and compounds, to visualising their structure using interactive HTML widgets.</p>
-<p>Using automation to help us generate the the lookup of compund structures from their names allows us to create narratives where correctness is guaranteed when moving from one consideration, such as the formula for a particular compound given its common name, to the visualisation of that structure, or to a consideration of its physical, structural or chemical properties.</p>
+<p>Using automation to help us generate the the lookup of compound structures from their names allows us to create narratives where correctness is guaranteed when moving from one consideration, such as the formula for a particular compound given its common name, to the visualisation of that structure, or to a consideration of its physical, structural or chemical properties.</p>
 <div class="tip admonition">
 <p class="admonition-title">Hiding Code</p>
-<p>The following example includes the code inline to show how the automation proceeds. In a finished would the code could be hidden but revealable, for eample in collapsed code cells, or have all mention of the code removed from the final output document.</p>
+<p>The following example includes the code inline to show how the automation proceeds. In a finished would the code could be hidden but revealable, for example in collapsed code cells, or have all mention of the code removed from the final output document.</p>
 </div>
 <div class="section" id="example-describing-a-compound">
 <h2>Example - Describing a Compound<a class="headerlink" href="#example-describing-a-compound" title="Permalink to this headline">¶</a></h2>
@@ -455,7 +477,7 @@
 </div>
 </div>
 </div>
-<p>At the current time, whilst R based <code class="docutils literal notranslate"><span class="pre">bookdown</span></code> worfklows <em>do</em> support inline embedding of code variables in markdown text, interactive Jupyter notebook markdown cells don’t support such a feature (although there is ongoing work to provide this sort of support) other than by extension.</p>
+<p>At the current time, whilst R based <code class="docutils literal notranslate"><span class="pre">bookdown</span></code> workflows <em>do</em> support inline embedding of code variables in markdown text, interactive Jupyter notebook markdown cells don’t support such a feature (although there is ongoing work to provide this sort of support) other than by extension.</p>
 <p>However, it is possible to embed variables into markdown text in Jupyter Book workflows using <a class="reference external" href="https://jupyterbook.org/content/executable/output-insert.html"><code class="docutils literal notranslate"><span class="pre">jupyter-glue</span></code></a>.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -618,7 +640,7 @@ viewer_16325717941799.render();
         <a class="right-next" href="compound_lookups.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Chemistry — Compound Lookups</p>
+                <p class="prevnext-title">Chemistry – Compound Lookups</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
