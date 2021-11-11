@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -33,26 +33,26 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script src="https://wavedrom.com/skins/default.js"></script>
     <script src="https://wavedrom.com/wavedrom.min.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-    <script >mermaid.initialize({startOnLoad:true});</script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -93,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Production
  </span>
@@ -115,7 +115,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Astronomy
  </span>
@@ -142,7 +142,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chemistry
  </span>
@@ -169,7 +169,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Electronics
  </span>
@@ -186,7 +186,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Other STEM
  </span>
@@ -223,7 +223,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Arts
  </span>
@@ -240,7 +240,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Humanities
  </span>
@@ -262,7 +262,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Map Generation
  </span>
@@ -274,7 +274,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chart Generation
  </span>
@@ -286,7 +286,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Diagram Generation
  </span>
@@ -318,7 +318,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Image Generation and Manipulation
  </span>
@@ -330,7 +330,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Audio Generation and Manipulation
  </span>
@@ -342,7 +342,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   LaTeX
  </span>
@@ -449,14 +449,21 @@
 <p>Several Sphinx plugins exist that can be used to generate diagrams from simple text descriptions wrapped in appropriately labeled fenced code blocks.</p>
 <p>For example:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/mgaitan/sphinxcontrib-mermaid#markdown-support"><code class="docutils literal notranslate"><span class="pre">mgaitan/sphinxcontrib-mermaid</span></code></a>, and</p></li>
-<li><p><a class="reference external" href="https://github.com/bavovanachte/sphinx-wavedrom"><code class="docutils literal notranslate"><span class="pre">bavovanachte/sphinx-wavedrom</span></code></a></p></li>
+<li><p><a class="reference external" href="https://github.com/mgaitan/sphinxcontrib-mermaid#markdown-support"><code class="docutils literal notranslate"><span class="pre">mgaitan/sphinxcontrib-mermaid</span></code></a>: a wide range of diagram types rendered using <code class="docutils literal notranslate"><span class="pre">mermaid.js</span></code>;</p></li>
+<li><p><a class="reference external" href="https://github.com/bavovanachte/sphinx-wavedrom"><code class="docutils literal notranslate"><span class="pre">bavovanachte/sphinx-wavedrom</span></code></a>: timing diagrams rendered using <code class="docutils literal notranslate"><span class="pre">wavedrom</span></code>;</p></li>
+<li><p><a class="reference external" href="https://github.com/sphinx-contrib/plantuml/"><code class="docutils literal notranslate"><span class="pre">sphinx-contrib/plantuml</span></code></a>: a wide range of diagram types rendered using the <a class="reference external" href="https://plantuml.com/"><em>PlantUML</em></a> Java package;
+= <a class="reference external" href="https://github.com/sphinx-contrib/tikz"><code class="docutils literal notranslate"><span class="pre">sphinx-contrib/tikz</span></code></a>: renderer for LaTeX/<code class="docutils literal notranslate"><span class="pre">tikz</span></code> diagram scripts;</p></li>
+<li><p><a class="reference external" href="https://github.com/blockdiag/sphinxcontrib-blockdiag"><code class="docutils literal notranslate"><span class="pre">blockdiag/sphinxcontrib-blockdiag</span></code></a>: renderer for <code class="docutils literal notranslate"><span class="pre">blockdiag</span></code> diagrams.</p></li>
 </ul>
-<p>After installing the packages from PyPi, these extensions are enabled in a Jupyter Book workflow by adding the following to the <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> file:</p>
+<p>In many cases, Jupyter notebook extensions also exist that provide magics that can render equivalent scripts in block magicked cells to render corresponding diagrams as part of the magicked cell output.</p>
+<p>After installing the packages from PyPi, these extensions are enabled in a Jupyter Book workflow by adding the following sort of configuration data to the <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> file:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sphinx</span><span class="p">:</span>
   <span class="nt">extra_extensions</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">sphinxcontrib.mermaid</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">sphinxcontrib.wavedrom</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">sphinxcontrib.plantuml</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">sphinxcontrib.tikz</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">sphinxcontrib.blockdiag</span>
 </pre></div>
 </div>
 <p>On inspection of the source document, the following diagram (as rendered by Jupyter Book) is actually a markdown cell containing a <code class="docutils literal notranslate"><span class="pre">{mermaid}</span></code> labeled fenced code block and appropriate diagram source script:</p>
@@ -474,7 +481,20 @@
 ]}
 </script>
 </div>
-<div class="admonition note">
+<p>On inspection of the source document, the following diagram (as rendered by Jupyter Book) is actually a markdown cell containing a <code class="docutils literal notranslate"><span class="pre">{uml}</span></code> (<em>PlantUML</em>) labeled fenced code block and appropriate diagram source script:</p>
+<p class="plantuml">
+<img src="../_images/plantuml-b93bf93cc1760bd890759d607db6116e4930619b.png" alt="&#64;startuml
+Alice -&gt; Bob: Authentication Request
+Bob --&gt; Alice: Authentication Response
+
+Alice -&gt; Bob: Another authentication Request
+Alice &lt;-- Bob: Another authentication Response
+&#64;enduml"/>
+</p>
+<p>On inspection of the source document, the following diagram (as rendered by Jupyter Book) is actually a markdown cell containing a <code class="docutils literal notranslate"><span class="pre">{tikz}</span></code> labeled fenced code block and appropriate diagram source script:</p>
+<div class="figure" style="text-align: center"><p><img  src="../_images/tikz-ec9aa759a1c3585e79932d982682f650c097e4c3.svg" alt="Figure made with TikZ" /></p>
+</div><p>On inspection of the source document, the following diagram (as rendered by Jupyter Book) is actually a markdown cell containing a <code class="docutils literal notranslate"><span class="pre">{blockdiag}</span></code> labeled fenced code block and appropriate diagram source script:</p>
+<div><img height="120" src="../_images/blockdiag-f84595999daa5c0bc9ce6fca2e57d895d77bf604.png" width="448" /></div><div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>See also: <a class="reference external" href="https://blog.ouseful.info/2021/11/02/previewing-sphinx-and-jupyter-book-rendered-mermaid-and-wavedrom-diagrams-in-vs-code/">Previewing Sphinx and Jupyter Book Rendered Mermaid and Wavedrom Diagrams in VS Code</a></p>
 </div>
