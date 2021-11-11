@@ -44,8 +44,8 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script src="https://wavedrom.com/skins/default.js"></script>
     <script src="https://wavedrom.com/wavedrom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -437,6 +437,25 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rendering-tikz-diagrams">
+   Rendering
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     tikz
+    </span>
+   </code>
+   Diagrams
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -447,6 +466,34 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="latex-overview">
 <h1>LaTeX Overview<a class="headerlink" href="#latex-overview" title="Permalink to this headline">¶</a></h1>
+<p>Rendering of inline <code class="docutils literal notranslate"><span class="pre">LaTex</span></code> is supportedly natively within Jupyter notebooks and Jupyter Book publishing workflows.</p>
+<div class="math notranslate nohighlight">
+\[f(x) = x^2 +x - \sin(x)\]</div>
+<div class="section" id="rendering-tikz-diagrams">
+<h2>Rendering <code class="docutils literal notranslate"><span class="pre">tikz</span></code> Diagrams<a class="headerlink" href="#rendering-tikz-diagrams" title="Permalink to this headline">¶</a></h2>
+<p>In a Jupyter Book workflow, the <a class="reference external" href="https://github.com/sphinx-contrib/tikz"><code class="docutils literal notranslate"><span class="pre">sphinx-contrib/tikz</span></code></a> renderer can be used to render <code class="docutils literal notranslate"><span class="pre">tikz</span></code> diagrams from <code class="docutils literal notranslate"><span class="pre">tikz</span></code> scripts in appropriately labeled fenced code blocks.</p>
+<div class="figure" style="text-align: center"><p><img  src="../_images/tikz-a2b4cec0987802fd3f9b5d9d1fbdd64020e114cb.svg" alt="Figure made with TikZ" /></p>
+</div><p>The <a class="reference external" href="https://github.com/innovationOUtside/ipython_magic_tikz"><code class="docutils literal notranslate"><span class="pre">innovationOUtside/ipython_magic_tikz</span></code></a> IPython magic can also be used to render <code class="docutils literal notranslate"><span class="pre">tikz</span></code> defined diagrams inside a notebook from an appropriately magicked code cell:</p>
+<div class="cell tag_render-tikz docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> tikz_magic
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span>
+\draw[thick,rounded corners=8pt]
+(0,0)--(0,2)--(1,3.25)--(2,2)--(2,0)--(0,2)--(2,2)--(0,0)--(2,0);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/overview_5_0.png" src="../_images/overview_5_0.png" />
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
