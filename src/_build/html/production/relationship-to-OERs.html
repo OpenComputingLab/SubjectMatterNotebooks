@@ -44,8 +44,6 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script src="https://wavedrom.com/skins/default.js"></script>
     <script src="https://wavedrom.com/wavedrom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -449,6 +447,16 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="relationship-to-oers">
 <h1>Relationship to OERs<a class="headerlink" href="#relationship-to-oers" title="Permalink to this headline">¶</a></h1>
 <p>What then is the relationship between generative documents and open educational resources (OERs)?</p>
+<p>Part of the promise of open educational resources is that they provide resources that are <em>licensed</em> in such a way that the resources are <em>legally</em> <strong>reusable with modification</strong>.</p>
+<p>However, just because a resource is made available under such legal terms doesn’t make it reusable <em>in practice</em>.</p>
+<p>For resources that are intended to be reusable at a micro-level, such as a diagram that could be reused as part of a presentation, (compared to <em>macro</em> style reuse), if you want to make a minor modification to the diagram, such as changing a label on it, you might end up having to redraw the complete diagram from scratch.</p>
+<p>In a generative workflow, where the diagram is generated from a text based source description, modifying the diagram then becomes a process of:</p>
+<ul class="simple">
+<li><p>modify the source;</p></li>
+<li><p>(re)generate the (modified) diagram from the (modified) source.</p></li>
+</ul>
+<p><em>If</em> the means of production is made available, as well as a the source script, then modifying the diagram simply becomes a matter of updating the generative description and regenerating the asset.</p>
+<p>This ability to modify and update resources from source descriptions lays at the heart of the processes described in this document. The provision of the means of production is also key: <em>without</em> the ability to convert to the text description to the generated asset, the person wanting to reuse the asset, with modification, there is no asset to be reused. <em>With</em> the means of production available, the user is free to modify and regenerate assets, from source, as required.</p>
 </div>
 
     <script type="text/x-thebe-config">
