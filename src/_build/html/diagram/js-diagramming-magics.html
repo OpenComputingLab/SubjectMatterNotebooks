@@ -512,7 +512,8 @@
 <li><p><a class="reference external" href="https://mermaid-js.github.io/mermaid/#/"><code class="docutils literal notranslate"><span class="pre">mermaid.js</span></code></a></p></li>
 <li><p><a class="reference external" href="https://wavedrom.com/">timing diagrams (<code class="docutils literal notranslate"><span class="pre">wavedrom</span></code>)</a></p></li>
 </ul>
-<p>The <a class="reference external" href="https://github.com/innovationOUtside/nb_js_diagrammers"><code class="docutils literal notranslate"><span class="pre">innovationOUtside/nb_js_diagrammers</span></code></a> Python package provides a range of IPyhton magics for supporting the generation of diagrams using all these packages using simple cell block magics.</p>
+<p>The <a class="reference external" href="https://github.com/innovationOUtside/nb_js_diagrammers"><code class="docutils literal notranslate"><span class="pre">innovationOUtside/nb_js_diagrammers</span></code></a> Python package provides a range of IPython magics for supporting the generation of diagrams using all these packages using simple cell block magics.</p>
+<p>The generated assets are rendered into the <code class="docutils literal notranslate"><span class="pre">srcdoc</span></code> attribute of an embedded IFrame returned via the <code class="docutils literal notranslate"><span class="pre">_repr_html_</span></code> method on the diagram generator object.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <a class="reference external" href="https://shd101wyy.github.io/markdown-preview-enhanced/#/"><em>Markdown preview enhanced</em></a> VS Code extension provides a wide range of power tools to support the editing and previewing of native markdown documents. Among other things, the extension will offer rendered previews of diagrams from appropriate scripts using the <code class="docutils literal notranslate"><span class="pre">mermaid</span></code> and <code class="docutils literal notranslate"><span class="pre">wavedrom</span></code> JavaScript packages.</p>
@@ -540,16 +541,27 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="100%"
-    height="100"
-    src="wavedrom.html"
-    frameborder="0"
-    allowfullscreen
+<div class="output text_html"><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;wavedrom.js&lt;/title&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/skins/default.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/wavedrom.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+        &lt;body onload=&quot;WaveDrom.ProcessAll()&quot;&gt;
+&lt;script type=&quot;WaveDrom&quot;&gt;
 
-></iframe>
-</div></div>
+{ signal : [
+  { name: &quot;clk&quot;,  wave: &quot;p......&quot; },
+  { name: &quot;bus&quot;,  wave: &quot;x.34.5x&quot;,   data: &quot;head body tail&quot; },
+  { name: &quot;wire&quot;, wave: &quot;0.1..0.&quot; },
+]}
+
+&lt;/script&gt;
+        &lt;/body&gt;
+&lt;/html&gt;
+" width="100%" height="100"style="border:none !important;" "allowfullscreen" "webkitallowfullscreen" "mozallowfullscreen"></iframe></div></div>
 </div>
 </div>
 <div class="section" id="generating-diagrams-using-mermaid-js">
@@ -558,11 +570,11 @@
 <p>For example, we can generate simple flow charts:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 500 -o mermaid-flowchart.html
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 500
 
 flowchart TD
     A[Start] --&gt; B{Is it?};
-    B --&gt;|Yes| C[OK];
+    B --&gt;|Yes|C[OK];
     C --&gt; D[Rethink];
     D --&gt; B;
     B ----&gt;|No| E[End];
@@ -570,21 +582,32 @@ flowchart TD
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="100%"
-    height="500"
-    src="mermaid-flowchart.html"
-    frameborder="0"
-    allowfullscreen
+<div class="output text_html"><iframe srcdoc="&lt;html&gt;
+    &lt;body&gt;
+        &lt;script src=&quot;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script&gt;
+            mermaid.initialize({ startOnLoad: true });
+        &lt;/script&gt;
 
-></iframe>
-</div></div>
+        &lt;div class=&quot;mermaid&quot;&gt;
+
+flowchart TD
+    A[Start] --&gt; B{Is it?};
+    B --&gt;|Yes|C[OK];
+    C --&gt; D[Rethink];
+    D --&gt; B;
+    B ----&gt;|No| E[End];
+
+        &lt;/div&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;
+" width="100%" height="500"style="border:none !important;" "allowfullscreen" "webkitallowfullscreen" "mozallowfullscreen"></iframe></div></div>
 </div>
 <p>More generally, we can also create simple graph diagrams:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 250 -o mermaid-graph.html
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 250
 
 graph TD;
     A--&gt;B;
@@ -595,21 +618,31 @@ graph TD;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="100%"
-    height="250"
-    src="mermaid-graph.html"
-    frameborder="0"
-    allowfullscreen
+<div class="output text_html"><iframe srcdoc="&lt;html&gt;
+    &lt;body&gt;
+        &lt;script src=&quot;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script&gt;
+            mermaid.initialize({ startOnLoad: true });
+        &lt;/script&gt;
 
-></iframe>
-</div></div>
+        &lt;div class=&quot;mermaid&quot;&gt;
+
+graph TD;
+    A--&gt;B;
+    A--&gt;C;
+    B--&gt;D;
+    C--&gt;D;
+
+        &lt;/div&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;
+" width="100%" height="250"style="border:none !important;" "allowfullscreen" "webkitallowfullscreen" "mozallowfullscreen"></iframe></div></div>
 </div>
 <p>We can also generate sequence diagrams:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 350 -o mermaid-sequence.html
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 350
 
 sequenceDiagram
     Alice-&gt;&gt;John: Hello John, how are you?
@@ -619,21 +652,30 @@ sequenceDiagram
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="100%"
-    height="350"
-    src="mermaid-sequence.html"
-    frameborder="0"
-    allowfullscreen
+<div class="output text_html"><iframe srcdoc="&lt;html&gt;
+    &lt;body&gt;
+        &lt;script src=&quot;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script&gt;
+            mermaid.initialize({ startOnLoad: true });
+        &lt;/script&gt;
 
-></iframe>
-</div></div>
+        &lt;div class=&quot;mermaid&quot;&gt;
+
+sequenceDiagram
+    Alice-&gt;&gt;John: Hello John, how are you?
+    John--&gt;&gt;Alice: Great!
+    Alice-)John: See you later!
+
+        &lt;/div&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;
+" width="100%" height="350"style="border:none !important;" "allowfullscreen" "webkitallowfullscreen" "mozallowfullscreen"></iframe></div></div>
 </div>
 <p>And entity relationship diagrams:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 330 -o mermaid-er.html
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mermaid_magic</span> -h 330
 
 erDiagram
     CUSTOMER ||--o{ ORDER : places
@@ -650,37 +692,120 @@ erDiagram
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="100%"
-    height="330"
-    src="mermaid-er.html"
-    frameborder="0"
-    allowfullscreen
+<div class="output text_html"><iframe srcdoc="&lt;html&gt;
+    &lt;body&gt;
+        &lt;script src=&quot;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script&gt;
+            mermaid.initialize({ startOnLoad: true });
+        &lt;/script&gt;
 
-></iframe>
-</div></div>
+        &lt;div class=&quot;mermaid&quot;&gt;
+
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    CUSTOMER {
+        string name
+        string custNumber
+        string sector
+    }
+    ORDER {
+        int orderNumber
+        string deliveryAddress
+    }
+
+        &lt;/div&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;
+" width="100%" height="330"style="border:none !important;" "allowfullscreen" "webkitallowfullscreen" "mozallowfullscreen"></iframe></div></div>
 </div>
 </div>
 <div class="section" id="visualising-audio-files-with-wavesurfer">
 <h2>Visualising Audio Files with <code class="docutils literal notranslate"><span class="pre">wavesurfer</span></code><a class="headerlink" href="#visualising-audio-files-with-wavesurfer" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">wavesurfer_magic</span> -o wavesurfer.html -f https://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">wavesurfer_magic</span> -o wavesurfer.html -f https://ia802606.us.archive.org/35/items/shortpoetry_047_librivox/abou_ben_adhem_hunt_mlb.mp3
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="100%"
-    height="200"
-    src="wavesurfer.html"
-    frameborder="0"
-    allowfullscreen
+<div class="output text_html"><iframe srcdoc="&lt;html&gt;
+    &lt;body&gt;
+        &lt;script src=&quot;https://unpkg.com/wavesurfer.js/dist/wavesurfer.js&quot;&gt;&lt;/script&gt;
+        &lt;div id=&quot;wavesurfer&quot;&gt;
+            &lt;div id=&quot;waveform&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;controls&quot;&gt;
+                &lt;button class=&quot;btn btn-primary&quot; data-action=&quot;play&quot;&gt;
+                    &lt;i class=&quot;glyphicon glyphicon-play&quot;&gt;&lt;/i&gt;
+                    Play
+                    /
+                    &lt;i class=&quot;glyphicon glyphicon-pause&quot;&gt;&lt;/i&gt;
+                    Pause
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;script&gt;
+            var GLOBAL_ACTIONS = { // eslint-disable-line
+                play: function() {
+                    window.wavesurfer.playPause();
+                },
 
-></iframe>
-</div></div>
+                back: function() {
+                    window.wavesurfer.skipBackward();
+                },
+
+                forth: function() {
+                    window.wavesurfer.skipForward();
+                },
+
+                &#x27;toggle-mute&#x27;: function() {
+                    window.wavesurfer.toggleMute();
+                }
+            };
+
+            // Bind actions to buttons and keypresses
+            document.addEventListener(&#x27;DOMContentLoaded&#x27;, function() {
+                document.addEventListener(&#x27;keydown&#x27;, function(e) {
+                    let map = {
+                        32: &#x27;play&#x27;, // space
+                        37: &#x27;back&#x27;, // left
+                        39: &#x27;forth&#x27; // right
+                    };
+                    let action = map[e.keyCode];
+                    if (action in GLOBAL_ACTIONS) {
+                        if (document == e.target || document.body == e.target || e.target.attributes[&quot;data-action&quot;]) {
+                            e.preventDefault();
+                        }
+                        GLOBAL_ACTIONS[action](e);
+                    }
+                });
+
+                [].forEach.call(document.querySelectorAll(&#x27;[data-action]&#x27;), function(el) {
+                    el.addEventListener(&#x27;click&#x27;, function(e) {
+                        let action = e.currentTarget.dataset.action;
+                        if (action in GLOBAL_ACTIONS) {
+                            e.preventDefault();
+                            GLOBAL_ACTIONS[action](e);
+                        }
+                    });
+                });
+            });
+        &lt;/script&gt;
+
+        &lt;script&gt;
+            var wavesurfer = WaveSurfer.create({
+                container: &#x27;#waveform&#x27;,
+                waveColor: &#x27;violet&#x27;,
+                backend: &#x27;MediaElement&#x27;,
+                progressColor: &#x27;purple&#x27;
+            });
+        &lt;/script&gt;
+        &lt;script&gt;
+            wavesurfer.load(&quot;https://ia802606.us.archive.org/35/items/shortpoetry_047_librivox/abou_ben_adhem_hunt_mlb.mp3&quot;);
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+" width="100%" height="200"style="border:none !important;" "allowfullscreen" "webkitallowfullscreen" "mozallowfullscreen"></iframe></div></div>
 </div>
 </div>
 <div class="section" id="flow-charts">
@@ -693,7 +818,7 @@ erDiagram
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">flowchart_magic</span> -h 100 -o flowchart.html
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">flowchart_magic</span> -h 100
 
 st=&gt;start: Start
 e=&gt;end: End
@@ -706,21 +831,38 @@ op2(path2, right)-&gt;e
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="100%"
-    height="100"
-    src="flowchart.html"
-    frameborder="0"
-    allowfullscreen
+<div class="output text_html"><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;Flowchart.js&lt;/title&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.14.1/flowchart.js&quot;&gt;&lt;/script&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
 
-></iframe>
-</div></div>
+        &lt;div id=&quot;diagram&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var diagram = flowchart.parse(`
+st=&gt;start: Start
+e=&gt;end: End
+op1=&gt;operation: Generate
+op2=&gt;parallel: Evaluate
+st(right)-&gt;op1(right)-&gt;op2
+op2(path1, top)-&gt;op1
+op2(path2, right)-&gt;e
+`);
+  diagram.drawSVG(&#x27;diagram&#x27;);
+&lt;/script&gt;
+
+        &lt;/body&gt;
+&lt;/html&gt;
+" width="100%" height="100"style="border:none !important;" "allowfullscreen" "webkitallowfullscreen" "mozallowfullscreen"></iframe></div></div>
 </div>
 <p>It is also possible to generate a flowchart based on the contents of a code cell (in an interactive notebook, we can do this directly using the <code class="docutils literal notranslate"><span class="pre">%%pyflowchart_magic</span></code> block magic):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">pyflowchart_magic</span> -h 800 -o pyflowchart.html -x
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">pyflowchart_magic</span> -h 800 -x
 import time
 
 def demo(msg=&#39;demo&#39;):
@@ -731,19 +873,43 @@ def demo(msg=&#39;demo&#39;):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="100%"
-    height="800"
-    src="pyflowchart.html"
-    frameborder="0"
-    allowfullscreen
+<div class="output text_html"><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;Flowchart.js&lt;/title&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.14.1/flowchart.js&quot;&gt;&lt;/script&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
 
-></iframe>
-</div></div>
+        &lt;div id=&quot;diagram&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var diagram = flowchart.parse(`op4410288640=&gt;operation: import time
+st4410289312=&gt;start: start demo
+io4410289264=&gt;inputoutput: input: msg
+cond4410287536=&gt;condition: for i in range(10)
+sub4410289696=&gt;subroutine: print(f&#x27;{msg} loopcount is {i}&#x27;)
+sub4410288448=&gt;subroutine: time.sleep(i)
+e4410288592=&gt;end: end demo
+
+op4410288640-&gt;st4410289312
+st4410289312-&gt;io4410289264
+io4410289264-&gt;cond4410287536
+cond4410287536(yes)-&gt;sub4410289696
+sub4410289696-&gt;sub4410288448
+sub4410288448(left)-&gt;cond4410287536
+cond4410287536(no)-&gt;e4410288592
+`);
+  diagram.drawSVG(&#x27;diagram&#x27;);
+&lt;/script&gt;
+
+        &lt;/body&gt;
+&lt;/html&gt;
+" width="100%" height="800"style="border:none !important;" "allowfullscreen" "webkitallowfullscreen" "mozallowfullscreen"></iframe></div></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">-x</span> <span class="pre">/</span> <span class="pre">--execute</span></code> flag executes the code in the current notebook scope. <em>Without the flag, the code is not executed.</em></p>
-<p>Another, lett friendly approach, is to have a normal code cell:</p>
+<p>Another, less friendly approach, is to have a normal code cell:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
@@ -772,28 +938,54 @@ def demo(msg=&#39;demo&#39;):
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyflowchart</span> <span class="kn">import</span> <span class="n">Flowchart</span>
 
 <span class="kn">from</span> <span class="nn">nb_js_diagrammers.flowchartjs</span> <span class="kn">import</span> <span class="n">TEMPLATE_FLOWCHARTJS</span>
-<span class="kn">from</span> <span class="nn">nb_js_diagrammers.magics</span> <span class="kn">import</span> <span class="n">js_ui</span>
+<span class="kn">from</span> <span class="nn">nb_js_diagrammers.magics</span> <span class="kn">import</span> <span class="n">js_ui</span><span class="p">,</span> <span class="n">JSDiagram</span>
 
 <span class="c1"># Generate a flowchart from the grabbed code</span>
 <span class="n">fc</span> <span class="o">=</span> <span class="n">Flowchart</span><span class="o">.</span><span class="n">from_code</span><span class="p">(</span><span class="n">code</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
 
 <span class="c1"># Render the flowchart</span>
-<span class="n">js_ui</span><span class="p">({</span><span class="s2">&quot;src&quot;</span><span class="p">:</span><span class="n">fc</span><span class="o">.</span><span class="n">flowchart</span><span class="p">()},</span> <span class="n">TEMPLATE_FLOWCHARTJS</span><span class="p">,</span>
-      <span class="n">out_fn</span><span class="o">=</span><span class="s1">&#39;pyflowchart_grab.html&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+<span class="c1">#js_ui({&quot;src&quot;:fc.flowchart()}, TEMPLATE_FLOWCHARTJS,</span>
+<span class="c1">#      out_fn=&#39;pyflowchart_grab.html&#39;, height=800)</span>
+<span class="n">diagram</span> <span class="o">=</span> <span class="n">JSDiagram</span><span class="p">({</span><span class="s2">&quot;src&quot;</span><span class="p">:</span><span class="n">fc</span><span class="o">.</span><span class="n">flowchart</span><span class="p">()},</span> <span class="n">TEMPLATE_FLOWCHARTJS</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+<span class="n">diagram</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="100%"
-    height="800"
-    src="pyflowchart_grab.html"
-    frameborder="0"
-    allowfullscreen
+<div class="output text_html"><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;Flowchart.js&lt;/title&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.14.1/flowchart.js&quot;&gt;&lt;/script&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
 
-></iframe>
-</div></div>
+        &lt;div id=&quot;diagram&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var diagram = flowchart.parse(`op4410688752=&gt;operation: import time
+st4410687792=&gt;start: start demo
+io4410688176=&gt;inputoutput: input: msg
+cond4410690000=&gt;condition: for i in range(10)
+sub4410690096=&gt;subroutine: print(f&#x27;{msg} loopcount is {i}&#x27;)
+sub4410690048=&gt;subroutine: time.sleep(i)
+e4410688992=&gt;end: end demo
+
+op4410688752-&gt;st4410687792
+st4410687792-&gt;io4410688176
+io4410688176-&gt;cond4410690000
+cond4410690000(yes)-&gt;sub4410690096
+sub4410690096-&gt;sub4410690048
+sub4410690048(left)-&gt;cond4410690000
+cond4410690000(no)-&gt;e4410688992
+`);
+  diagram.drawSVG(&#x27;diagram&#x27;);
+&lt;/script&gt;
+
+        &lt;/body&gt;
+&lt;/html&gt;
+" width="100%" height="800"style="border:none !important;" "allowfullscreen" "webkitallowfullscreen" "mozallowfullscreen"></iframe></div></div>
 </div>
 </div>
 </div>
