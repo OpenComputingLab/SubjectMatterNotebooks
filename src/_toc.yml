@@ -6,6 +6,10 @@ parts:
   - file: production/production-methods
   - file: production/relationship-to-OERs
   - file: production/relationship-to-worksheets-and-assessment
+- caption: Generic
+  chapters:
+  - file: generic/overview
+  - file: generic/quizzes
 - caption: Astronomy
   chapters:
   - file: astronomy/overview
