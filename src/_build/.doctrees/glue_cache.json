@@ -1,5 +1,17 @@
 {
   "chemistry/compound_lookups": {
+    "g_ethanol": {
+      "data": {
+        "application/papermill.record/text/plain": "'ethanol'"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "g_ethanol"
+        }
+      },
+      "output_type": "display_data"
+    },
     "compoundLatex": {
       "data": {
         "application/papermill.record/text/latex": "$\\ce{C2H6O}$",
@@ -21,18 +33,6 @@
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
           "name": "compoundName"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "g_ethanol": {
-      "data": {
-        "application/papermill.record/text/plain": "'ethanol'"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "g_ethanol"
         }
       },
       "output_type": "display_data"
