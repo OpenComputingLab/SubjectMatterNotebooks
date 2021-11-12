@@ -1,0 +1,1003 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt; &#8212; Subject Matter Authoring Using Jupyter Notebooks</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://wavedrom.com/skins/default.js"></script>
+    <script src="https://wavedrom.com/wavedrom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script >mermaid.initialize({startOnLoad:true});</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Subject Matter Authoring Using Jupyter Notebooks</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Production
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../production/production-methods.html">
+   Production Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../production/relationship-to-OERs.html">
+   Relationship to OERs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../production/relationship-to-worksheets-and-assessment.html">
+   Relationship to Worksheets and Assessment
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Astronomy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../astronomy/overview.html">
+   Astronomy Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../astronomy/fits-images.html">
+   Astronomy - Working with FITS Images
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../astronomy/ephemeris-and-orbits.html">
+   Astronomy — Ephemeris Data and Orbital Calculations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../astronomy/interactive-astronomy-viewers.html">
+   Astronomy — Interactive Viewers
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chemistry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../chemistry/overview.html">
+   Chemistry Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../chemistry/compound_lookups.html">
+   Chemistry – Compound Lookups
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../chemistry/material_properties.html">
+   Chemical Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../chemistry/visualising-compounds.html">
+   Chemistry — Visualising Chemical Structures
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Electronics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../electronics/overview.html">
+   Electronics Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../electronics/worked-example.html">
+   Electronics Worked Example
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Other STEM
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../engineering/overview.html">
+   Engineering Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../maths/overview.html">
+   Maths Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../maths/worked-equations.html">
+   Worked Equations and Equations With Units
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../maths/r-statistics.html">
+   Statistics in R
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../maths/r-3d.html">
+   Generating 3D Interactive Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../maths/networks-and-graphs.html">
+   Networks and Graphs
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Arts
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../art/overview.html">
+   Art Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../music/overview.html">
+   Music Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Humanities
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../linguistics/overview.html">
+   Linguistics &amp; Text Processing Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../linguistics/classics-corpora.html">
+   Classical Languages — Corpora
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../linguistics/classics-grammar.html">
+   Classical Languages — Grammar
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Map Generation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../geo/overview.html">
+   Geo Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chart Generation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../chart/overview.html">
+   Chart Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Diagram Generation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../diagram/overview.html">
+   Diagrams Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../diagram/blockdiag.html">
+   Blockdiag Package Diagrams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../diagram/js-diagramming-magics.html">
+   JavaScript Rendered Diagramming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../diagram/py-diagramming-packages.html">
+   Python Script Diagramming Packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../diagram/sphinx-diagrammers.html">
+   Sphinx / Jupyter Book Diagramming Plugins
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Image Generation and Manipulation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../image/overview.html">
+   Image Generation and Manipulation Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Audio Generation and Manipulation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../audio/overview.html">
+   Audio Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  LaTeX
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../latex/overview.html">
+   LaTeX Overview
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/.jupyter_cache/executed/b48443ccad8dda97a3434a05f201e2c3/base.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/.jupyter_cache/executed/b48443ccad8dda97a3434a05f201e2c3/base.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lcapy</span> <span class="kn">import</span> <span class="n">Circuit</span>
+
+<span class="n">cct</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">V1 1 0; down</span>
+<span class="s2">R1 1 2; left=2, i=I_1, v=V_</span><span class="si">{R_1}</span><span class="s2"></span>
+<span class="s2">R2 1 3; right=2, i=I_2, v=V_</span><span class="si">{R_2}</span><span class="s2"></span>
+<span class="s2">L1 2 0_1; down, i=I_1, v=V_</span><span class="si">{L_1}</span><span class="s2"></span>
+<span class="s2">L2 3 0_3; down, i=I_1, v=V_</span><span class="si">{L_2}</span><span class="s2"></span>
+<span class="s2">W 0 0_3; right</span>
+<span class="s2">W 0 0_1; left&quot;&quot;&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Render the circuit</span>
+<span class="n">cct</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># We can also save a generated circuit diagram to an image file</span>
+<span class="c1">#cct.draw(scale=3, filename=&#39;circuit_diagram.svg&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_1_03.png" src="../../../_images/base_1_03.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lcapy</span>
+<span class="kn">from</span> <span class="nn">lcapy</span> <span class="kn">import</span> <span class="n">Circuit</span>
+
+<span class="c1">#We can create a schematic for the voltage divider using lcapy</span>
+<span class="c1">#This has the advantage that circuit description is also a model </span>
+<span class="c1">#The model can be analysed and used to calculate voltages and currents, for example,</span>
+<span class="c1">#  across components if component values and the source voltage are defined</span>
+
+<span class="c1">#Figure:  A voltage divider circuit</span>
+<span class="n">sch</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">VS 1 0 ; down</span>
+<span class="s1">W 1 2 ;  right, size=2</span>
+<span class="s1">R1 2 3 ; down</span>
+<span class="s1">R2 3 4; down</span>
+<span class="s1">W 3 5; right</span>
+<span class="s1">P1 5 6; down,v=V_</span><span class="si">{out}</span><span class="s1"></span>
+<span class="s1">W 4 6; right</span>
+<span class="s1">W 4 0; left</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="c1">#Demonstrate thate we can write the descriptioon to a file </span>
+<span class="n">fn</span><span class="o">=</span><span class="s2">&quot;voltageDivider.sch&quot;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">text_file</span><span class="p">:</span>
+    <span class="n">text_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">sch</span><span class="p">)</span>
+
+<span class="c1">#  and then create the circuit model from the (persisted) file    </span>
+<span class="n">cct</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cct</span><span class="o">.</span><span class="n">sch</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VS 1 0 ; down
+W 1 2 ;  right, size=2
+R1 2 3 ; down
+R2 3 4; down
+W 3 5; right
+P1 5 6; down,v=V_{out}
+W 4 6; right
+W 4 0; left
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Draw the circuit diagram that corresponds to the schematic description</span>
+<span class="n">cct</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;american&#39;</span><span class="p">,</span> <span class="n">draw_nodes</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">label_nodes</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#american, british, european</span>
+<span class="c1">#Draw function is defined in https://github.com/mph-/lcapy/blob/master/lcapy/schematic.py</span>
+<span class="c1">#The styles need tweaking to suit OU convention - this requires a minor patch to lcapy</span>
+<span class="c1">#Styles defined in https://github.com/mph-/lcapy/blob/master/lcapy/schematic.py#Schematic.tikz_draw</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_4_01.png" src="../../../_images/base_4_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cct</span><span class="o">.</span><span class="n">R1</span><span class="o">.</span><span class="n">v</span>
+
+<span class="c1">#We can&#39;t do anything about the order of the variables in the output expression, unfortunately</span>
+<span class="c1">#It would be neater if sympy sorted fractional terms last but it doesn&#39;t...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_5_01.png" src="../../../_images/base_5_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cct</span><span class="o">.</span><span class="n">Voc</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_6_02.png" src="../../../_images/base_6_02.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cct</span><span class="o">.</span><span class="n">R2</span><span class="o">.</span><span class="n">v</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_7_0.png" src="../../../_images/base_7_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#sympy is a symbolic maths package</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">Symbol</span><span class="p">,</span> <span class="n">Eq</span>
+
+<span class="c1">#If we add .expr to the voltages, we can get the sympy representation of voltage and current equations</span>
+<span class="c1"># that are automatically derived from the model.</span>
+<span class="n">vout_expr</span> <span class="o">=</span> <span class="n">cct</span><span class="o">.</span><span class="n">R2</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">expr</span>
+
+<span class="n">vout_expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_8_01.png" src="../../../_images/base_8_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out_component</span> <span class="o">=</span> <span class="s1">&#39;R2&#39;</span>
+
+<span class="n">cct</span><span class="p">[</span><span class="n">out_component</span><span class="p">]</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_9_01.png" src="../../../_images/base_9_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cct</span><span class="o">.</span><span class="n">R2</span><span class="o">.</span><span class="n">relname</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;R2&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v_r1_expr</span> <span class="o">=</span> <span class="n">cct</span><span class="o">.</span><span class="n">R1</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">expr</span>
+
+<span class="n">v_r1_expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_11_01.png" src="../../../_images/base_11_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vout</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;V_out&#39;</span><span class="p">)</span>
+
+<span class="n">v_r1_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">vout_expr</span><span class="p">,</span> <span class="n">vout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_12_01.png" src="../../../_images/base_12_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#I don&#39;t know how to get the symbols from the circuit as sympy symbols</span>
+<span class="c1"># so create them explicitly</span>
+
+<span class="n">v_r1</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;V_</span><span class="si">{R_1}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define the equation</span>
+<span class="n">Eq</span><span class="p">(</span> <span class="n">v_r1</span><span class="p">,</span> <span class="n">v_r1_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">vout_expr</span><span class="p">,</span> <span class="n">vout</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_13_02.png" src="../../../_images/base_13_02.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#We can find this from quantities we have derived through analysis of the presented circuit</span>
+<span class="n">Eq</span><span class="p">(</span><span class="n">vout</span><span class="p">,</span> <span class="n">vout_expr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_14_01.png" src="../../../_images/base_14_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Eq</span><span class="p">(</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;I_</span><span class="si">{R_1}</span><span class="s1">&#39;</span><span class="p">),</span> <span class="n">cct</span><span class="o">.</span><span class="n">R1</span><span class="o">.</span><span class="n">i</span><span class="o">.</span><span class="n">expr</span><span class="p">)</span>
+
+<span class="c1"># The following equation is generated by the symbolic analysis...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_15_01.png" src="../../../_images/base_15_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#We get the following from the circuit analysis, as above...</span>
+<span class="n">cct</span><span class="o">.</span><span class="n">R2</span><span class="o">.</span><span class="n">i</span><span class="o">.</span><span class="n">expr</span>
+
+<span class="c1"># We note that the circuit analysis returns equal expressions for I_R_1 and I_R_2</span>
+<span class="c1"># which gives some sort of reinforcement to the idea of Kirchoff&#39;s Law...</span>
+
+<span class="c1"># The following equation is generated by the symbolic analysis...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_16_01.png" src="../../../_images/base_16_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Eq</span><span class="p">(</span><span class="n">vout</span><span class="p">,</span> <span class="n">vout_expr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_17_01.png" src="../../../_images/base_17_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">sympify</span>
+
+<span class="c1">#This is clunky - is there a proper way of substituting values into lcapy expressions?</span>
+<span class="n">Eq</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">sympify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">vout_expr</span><span class="p">))</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="s1">&#39;VS&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;R2&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_18_0.png" src="../../../_images/base_18_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Eq</span><span class="p">(</span><span class="n">vout_expr</span> <span class="o">-</span> <span class="n">vout</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_19_01.png" src="../../../_images/base_19_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">solve</span>
+
+<span class="n">Eq</span><span class="p">(</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;R1&#39;</span><span class="p">),</span><span class="n">solve</span><span class="p">(</span><span class="n">sympify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">vout_expr</span><span class="o">-</span><span class="n">vout</span><span class="p">)),</span><span class="s1">&#39;R1&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1">#The following equation is generated by the symbolic analysis...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_20_01.png" src="../../../_images/base_20_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solve</span><span class="p">(</span><span class="n">sympify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">vout_expr</span><span class="o">-</span><span class="n">vout</span><span class="p">))</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="s1">&#39;VS&#39;</span><span class="p">,</span><span class="mi">24</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;R2&#39;</span><span class="p">,</span><span class="mi">100</span><span class="p">),(</span><span class="s1">&#39;V_out&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">)]),</span><span class="s1">&#39;R1&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_21_0.png" src="../../../_images/base_21_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">VALUES</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;VS&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span>
+          <span class="p">(</span><span class="s1">&#39;R2&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+          <span class="p">(</span><span class="s1">&#39;V_out&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span>
+
+<span class="n">SOLVE_FOR</span> <span class="o">=</span> <span class="s1">&#39;R1&#39;</span>
+
+<span class="n">Eq</span><span class="p">(</span><span class="n">Symbol</span><span class="p">(</span><span class="n">SOLVE_FOR</span><span class="p">),</span> <span class="n">solve</span><span class="p">(</span><span class="n">sympify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">vout_expr</span><span class="o">-</span><span class="n">vout</span><span class="p">)),</span> <span class="n">SOLVE_FOR</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">VALUES</span><span class="p">))</span>
+
+<span class="c1">#The following result is calculated by the symbolic analysis...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_22_01.png" src="../../../_images/base_22_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Vs</span><span class="o">=</span><span class="mi">20</span><span class="p">;</span> <span class="n">Vout</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">R1</span><span class="o">=</span><span class="n">solve</span><span class="p">(</span><span class="n">sympify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">vout_expr</span><span class="o">-</span><span class="n">vout</span><span class="p">)),</span><span class="s1">&#39;R1&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="s1">&#39;VS&#39;</span><span class="p">,</span><span class="n">Vs</span><span class="p">),(</span><span class="s1">&#39;V_out&#39;</span><span class="p">,</span><span class="n">Vout</span><span class="p">)])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;For V_S=</span><span class="si">{Vs}</span><span class="s1">V and V_out=</span><span class="si">{Vout}</span><span class="s1">V, we need R1=</span><span class="si">{R1}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Vs</span><span class="o">=</span><span class="n">Vs</span><span class="p">,</span><span class="n">Vout</span><span class="o">=</span><span class="n">Vout</span><span class="p">,</span><span class="n">R1</span><span class="o">=</span><span class="n">R1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For V_S=20V and V_out=5V, we need R1=3*R2.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">soln</span><span class="p">(</span><span class="n">cct</span><span class="p">,</span> <span class="n">out_component</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">values</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">values</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;VS&#39;</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span> <span class="s1">&#39;R1&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;R2&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;V_out&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">}</span>
+    <span class="n">outval</span><span class="o">=</span><span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">values</span><span class="p">[</span><span class="n">v</span><span class="p">]]</span>
+    <span class="n">invals</span><span class="o">=</span><span class="p">[(</span><span class="n">v</span><span class="p">,</span> <span class="n">values</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span> <span class="k">if</span> <span class="n">values</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">outval</span><span class="p">)</span><span class="o">!=</span><span class="mi">1</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">invals</span><span class="p">)</span><span class="o">!=</span><span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;oops&#39;</span>
+    
+    <span class="n">outval</span> <span class="o">=</span> <span class="n">outval</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">out_component</span> <span class="o">=</span> <span class="n">out_component</span> <span class="k">if</span> <span class="n">out_component</span> <span class="k">else</span> <span class="n">outval</span>
+    <span class="n">vout_expr</span> <span class="o">=</span> <span class="n">cct</span><span class="p">[</span><span class="n">out_component</span><span class="p">]</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">expr</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">vout_expr</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">invals</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">&#39;Value of </span><span class="si">{}</span><span class="s1"> is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">outval</span><span class="p">,</span>
+                                      <span class="n">solve</span><span class="p">(</span><span class="n">sympify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">vout_expr</span><span class="o">-</span><span class="n">vout</span><span class="p">))</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">invals</span><span class="p">),</span> <span class="n">outval</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soln</span><span class="p">(</span><span class="n">cct</span><span class="p">,</span> <span class="s1">&#39;R2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2*VS/(R1 + R2)
+[(&#39;VS&#39;, 24), (&#39;R2&#39;, 100), (&#39;V_out&#39;, 6)]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Value of R1 is 300&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soln</span><span class="p">(</span><span class="n">cct</span><span class="p">,</span> <span class="s1">&#39;R2&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;VS&#39;</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span> <span class="s1">&#39;R2&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;R1&#39;</span><span class="p">:</span><span class="mi">300</span><span class="p">,</span> <span class="s1">&#39;V_out&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2*VS/(R1 + R2)
+[(&#39;VS&#39;, 24), (&#39;R1&#39;, 300), (&#39;V_out&#39;, 6)]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Value of R2 is 100&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#We can also explore a simple thing to check the value from a circuit analysis</span>
+<span class="k">def</span> <span class="nf">cct1</span><span class="p">(</span><span class="n">V</span><span class="o">=</span><span class="s1">&#39;24&#39;</span><span class="p">,</span><span class="n">R1</span><span class="o">=</span><span class="s1">&#39;100&#39;</span><span class="p">,</span><span class="n">R2</span><span class="o">=</span><span class="s1">&#39;100&#39;</span><span class="p">):</span>
+    <span class="n">R1</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">R1</span> <span class="ow">and</span> <span class="nb">float</span><span class="p">(</span><span class="n">R1</span><span class="p">)</span> <span class="o">&lt;=</span><span class="mi">0</span> <span class="k">else</span> <span class="n">R1</span>
+    <span class="n">sch</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">    VS 1 0 </span><span class="si">{V}</span><span class="s1">; down</span>
+<span class="s1">    W 1 2 ;  right, size=2</span>
+<span class="s1">    R1 2 3 </span><span class="si">{R1}</span><span class="s1">; down</span>
+<span class="s1">    R2 3 4 </span><span class="si">{R2}</span><span class="s1">; down</span>
+<span class="s1">    W 3 5; right, size=2</span>
+<span class="s1">    P1 5 6; down,v=V_{{out}}</span>
+<span class="s1">    W 4 6; right, size=2</span>
+<span class="s1">    W 4 0; left</span>
+<span class="s1">    &#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V</span><span class="o">=</span><span class="n">V</span><span class="p">,</span><span class="n">R1</span><span class="o">=</span><span class="n">R1</span><span class="p">,</span><span class="n">R2</span><span class="o">=</span><span class="n">R2</span><span class="p">)</span>
+    
+    <span class="n">cct</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">()</span>
+    <span class="n">cct</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sch</span><span class="p">)</span>
+    <span class="n">cct</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">label_nodes</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="c1">#The output voltage, V_out is the voltage across R2</span>
+    <span class="n">txt</span><span class="o">=</span><span class="s1">&#39;The output voltage, $V_{{out}}$ across $R_2$ is </span><span class="si">{}</span><span class="s1">V.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cct</span><span class="o">.</span><span class="n">R2</span><span class="o">.</span><span class="n">v</span> <span class="k">if</span> <span class="n">R1</span> <span class="k">else</span> <span class="n">V</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cct</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">cct1</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_28_0.png" src="../../../_images/base_28_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact_manual</span>
+<span class="n">cct_w</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="nd">@interact_manual</span>
+<span class="k">def</span> <span class="nf">i_cct1</span><span class="p">(</span><span class="n">V</span><span class="o">=</span><span class="s1">&#39;24&#39;</span><span class="p">,</span> <span class="n">R1</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">R2</span><span class="o">=</span><span class="s1">&#39;100&#39;</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">cct_w</span>
+    <span class="n">cct_w</span> <span class="o">=</span> <span class="n">cct1</span><span class="p">(</span><span class="n">V</span><span class="o">=</span><span class="n">V</span><span class="p">,</span><span class="n">R1</span><span class="o">=</span><span class="n">R1</span><span class="p">,</span><span class="n">R2</span><span class="o">=</span><span class="n">R2</span><span class="p">)</span>
+    
+<span class="c1">#We could then select R and V values and extend the function</span>
+<span class="c1"># to calculate V_out automatically</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "22149512a3664437bf8269573e3b29b0", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i_cct1</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/base_30_01.png" src="../../../_images/base_30_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We could also plot V_out vs R_1 for given V_S and R_2?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cct_w</span><span class="o">.</span><span class="n">sch</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VS 1 0 24; down
+W 1 2 ;  right, size=2
+R1 2 3 ; down
+R2 3 4 100; down
+W 3 5; right, size=2
+P1 5 6; down,v=V_{out}
+W 4 6; right, size=2
+W 4 0; left
+</pre></div>
+</div>
+</div>
+</div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"017d97a3d0ab43efa3f6595c2734ba25": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_54e8e0c22760439b8a34e13103570a2f", "msg_id": "", "outputs": []}}, "0253781d7b0a4dd295901c741b5a2577": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ButtonStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ButtonStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "button_color": null, "font_weight": ""}}, "0a26abe1a9344f63a5f3fccee8db03cd": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "138e7858c9a54043b709de4213860ea9": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "22149512a3664437bf8269573e3b29b0": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_52c22c550a1e40298deed20b2d4c2b1a", "IPY_MODEL_35f86456a3584978b79fc7ccb3946d87", "IPY_MODEL_8a023d2470fa4247b2d5861ecc2daa57", "IPY_MODEL_2d2d8e38063341729bcb2b3d6b080ef3", "IPY_MODEL_017d97a3d0ab43efa3f6595c2734ba25"], "layout": "IPY_MODEL_138e7858c9a54043b709de4213860ea9"}}, "2d2d8e38063341729bcb2b3d6b080ef3": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ButtonModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ButtonModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ButtonView", "button_style": "", "description": "Run Interact", "disabled": false, "icon": "", "layout": "IPY_MODEL_fed9e6b12bd54d2da2aa49f109c9ca29", "style": "IPY_MODEL_0253781d7b0a4dd295901c741b5a2577", "tooltip": ""}}, "35f86456a3584978b79fc7ccb3946d87": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "R1", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_ab1f0abd94e64eab8b0af4e1870da019", "placeholder": "\u200b", "style": "IPY_MODEL_0a26abe1a9344f63a5f3fccee8db03cd", "value": ""}}, "52c22c550a1e40298deed20b2d4c2b1a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "V", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_8ee0bc1268664c42ab5cc87a494b4372", "placeholder": "\u200b", "style": "IPY_MODEL_c140399761374377b7f651bacaf64aab", "value": "24"}}, "54e8e0c22760439b8a34e13103570a2f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "8a023d2470fa4247b2d5861ecc2daa57": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "R2", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_b34a7de8f77f47439f1f59e4ed251745", "placeholder": "\u200b", "style": "IPY_MODEL_db5929eb054b4d5cbeca7171e8e65df3", "value": "100"}}, "8ee0bc1268664c42ab5cc87a494b4372": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ab1f0abd94e64eab8b0af4e1870da019": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b34a7de8f77f47439f1f59e4ed251745": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "c140399761374377b7f651bacaf64aab": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "db5929eb054b4d5cbeca7171e8e65df3": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "fed9e6b12bd54d2da2aa49f109c9ca29": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./.jupyter_cache/executed/b48443ccad8dda97a3434a05f201e2c3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+    <script type="text/javascript">
+        function init() {
+            WaveDrom.ProcessAll();
+        }
+        window.onload = init;
+    </script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Tony Hirst<br/>
+        
+            &copy; Copyright 2018-2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

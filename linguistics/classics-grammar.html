@@ -1,0 +1,1222 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classical Languages — Grammar &#8212; Subject Matter Authoring Using Jupyter Notebooks</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://wavedrom.com/skins/default.js"></script>
+    <script src="https://wavedrom.com/wavedrom.min.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Geo Overview" href="../geo/overview.html" />
+    <link rel="prev" title="Classical Languages — Corpora" href="classics-corpora.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Subject Matter Authoring Using Jupyter Notebooks</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Production
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../production/production-methods.html">
+   Production Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../production/relationship-to-OERs.html">
+   Relationship to OERs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../production/relationship-to-worksheets-and-assessment.html">
+   Relationship to Worksheets and Assessment
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Generic
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../generic/overview.html">
+   Generic Items Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../generic/quizzes.html">
+   Creating Quizzes
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Astronomy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/overview.html">
+   Astronomy Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/fits-images.html">
+   Astronomy - Working with FITS Images
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/ephemeris-and-orbits.html">
+   Astronomy — Ephemeris Data and Orbital Calculations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/interactive-astronomy-viewers.html">
+   Astronomy — Interactive Viewers
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Chemistry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/overview.html">
+   Chemistry Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/compound_lookups.html">
+   Chemistry – Compound Lookups
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/material_properties.html">
+   Chemical Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chemistry/visualising-compounds.html">
+   Chemistry — Visualising Chemical Structures
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Electronics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../electronics/overview.html">
+   Electronics Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../electronics/worked-example.html">
+   Electronics Worked Example
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Other STEM
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../engineering/overview.html">
+   Engineering Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/overview.html">
+   Maths Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/worked-equations.html">
+   Worked Equations and Equations With Units
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/r-statistics.html">
+   Statistics in R
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/r-3d.html">
+   Generating 3D Interactive Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/networks-and-graphs.html">
+   Networks and Graphs
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Arts
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../art/overview.html">
+   Art Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../music/overview.html">
+   Music Overview
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Humanities
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Linguistics &amp; Text Processing Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="classics-corpora.html">
+   Classical Languages — Corpora
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Classical Languages — Grammar
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Map Generation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../geo/overview.html">
+   Geo Overview
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Chart Generation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chart/overview.html">
+   Chart Overview
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Diagram Generation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/overview.html">
+   Diagrams Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/blockdiag.html">
+   Blockdiag Package Diagrams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/js-diagramming-magics.html">
+   JavaScript Rendered Diagramming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/py-diagramming-packages.html">
+   Python Script Diagramming Packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/sphinx-diagrammers.html">
+   Sphinx / Jupyter Book Diagramming Plugins
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Image Generation and Manipulation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../image/overview.html">
+   Image Generation and Manipulation Overview
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Audio Generation and Manipulation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../audio/overview.html">
+   Audio Overview
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  LaTeX
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../latex/overview.html">
+   LaTeX Overview
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/linguistics/classics-grammar.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inflection-patterns">
+   Inflection Patterns
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lemmatizing-a-word">
+   Lemmatizing a Word
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#syllables">
+   Syllables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pipeline-processing">
+   Pipeline processing
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="classical-languages-grammar">
+<h1>Classical Languages — Grammar<a class="headerlink" href="#classical-languages-grammar" title="Permalink to this headline">¶</a></h1>
+<p>When discussing and analysing texts in terms of grammar, a one piece generative document workflow provides us with a means for reducing the number of errors in terms of incorrectly presented matters of fact (for example, the analysis of a specific piece of text).</p>
+<p>For example, inflection patterns of arbitrary regular verbs and nouns can be generated directly for a particular root word (lemma), or when analysing the syllabic structure of a piece of text.</p>
+<p>Where the means of production are shared with learners, the ability to check declensions and conjugations for arbitrary words, or analyse a text for its syllabic structure, provides an opportunity to support curiosty driven, self-directed learning.</p>
+<p>To provide a few examples of what’s possible, let’s use the <code class="docutils literal notranslate"><span class="pre">cltk</span></code> package and explore some simple Latin texts.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.data.fetch</span> <span class="kn">import</span> <span class="n">FetchCorpus</span>
+<span class="n">corpus_downloader</span> <span class="o">=</span> <span class="n">FetchCorpus</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/Users/tonyhirst/cltk_data/lat/text/lat_text_latin_library&#39;</span>
+
+<span class="n">corpus_downloader</span><span class="o">.</span><span class="n">import_corpus</span><span class="p">(</span><span class="s1">&#39;lat_models_cltk&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="inflection-patterns">
+<h2>Inflection Patterns<a class="headerlink" href="#inflection-patterns" title="Permalink to this headline">¶</a></h2>
+<p>We can automatically generate the inflection (declension / conjugation) for a given word / lemma.</p>
+<p><em>(Lemma - “the canonical form of an inflected word”.)</em></p>
+<p>The morphological character of a word is encoded using a nine character code string (- is used as the null character):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1: 	part of speech
+	n	noun
+	v	verb
+	t	participle
+	a	adjective
+	d	adverb
+	c	conjunction
+	r	preposition
+	p	pronoun
+	m	numeral
+	i	interjection
+	e	exclamation
+	u	punctuation
+2: 	person
+	1	first person
+	2	second person
+	3	third person
+3: 	number
+	s	singular
+	p	plural
+4: 	tense
+	p	present
+	i	imperfect
+	r	perfect
+	l	pluperfect
+	t	future perfect
+	f	future
+5: 	mood
+	i	indicative
+	s	subjunctive
+	n	infinitive
+	m	imperative
+	p	participle
+	d	gerund
+	g	gerundive
+	u	supine
+6: 	voice
+	a	active
+	p	passive
+7:	gender
+	m	masculine
+	f	feminine
+	n	neuter
+8: 	case
+	n	nominative
+	g	genitive
+	d	dative
+	a	accusative
+	b	ablative
+	v	vocative
+	l	locative
+9: 	degree
+	c	comparative
+	s	superlative
+</pre></div>
+</div>
+<p>Via: <a class="reference external" href="https://github.com/cltk/latin_treebank_perseus#readme">https://github.com/cltk/latin_treebank_perseus#readme</a></p>
+<p>Consider <em>amo</em>. How does it go?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.morphology.lat</span> <span class="kn">import</span> <span class="n">CollatinusDecliner</span>
+<span class="n">decliner</span> <span class="o">=</span> <span class="n">CollatinusDecliner</span><span class="p">()</span>
+
+<span class="n">decliner</span><span class="o">.</span><span class="n">decline</span><span class="p">(</span><span class="s2">&quot;amo&quot;</span><span class="p">)[:</span><span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;amo&#39;, &#39;v1spia---&#39;),
+ (&#39;amas&#39;, &#39;v2spia---&#39;),
+ (&#39;amat&#39;, &#39;v3spia---&#39;),
+ (&#39;amamus&#39;, &#39;v1ppia---&#39;),
+ (&#39;amatis&#39;, &#39;v2ppia---&#39;),
+ (&#39;amant&#39;, &#39;v3ppia---&#39;),
+ (&#39;amabam&#39;, &#39;v1siia---&#39;),
+ (&#39;amabas&#39;, &#39;v2siia---&#39;),
+ (&#39;amabat&#39;, &#39;v3siia---&#39;),
+ (&#39;amabamus&#39;, &#39;v1piia---&#39;),
+ (&#39;amabatis&#39;, &#39;v2piia---&#39;),
+ (&#39;amabant&#39;, &#39;v3piia---&#39;),
+ (&#39;amabo&#39;, &#39;v1sfia---&#39;),
+ (&#39;amabis&#39;, &#39;v2sfia---&#39;),
+ (&#39;amabit&#39;, &#39;v3sfia---&#39;),
+ (&#39;amabimus&#39;, &#39;v1pfia---&#39;),
+ (&#39;amabitis&#39;, &#39;v2pfia---&#39;),
+ (&#39;amabunt&#39;, &#39;v3pfia---&#39;),
+ (&#39;amavi&#39;, &#39;v1sria---&#39;),
+ (&#39;amavisti&#39;, &#39;v2sria---&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or how anout <em>canis</em>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">decliner</span><span class="o">.</span><span class="n">decline</span><span class="p">(</span><span class="s2">&quot;canis&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;canis&#39;, &#39;--s----n-&#39;),
+ (&#39;canis&#39;, &#39;--s----v-&#39;),
+ (&#39;canem&#39;, &#39;--s----a-&#39;),
+ (&#39;canis&#39;, &#39;--s----g-&#39;),
+ (&#39;cani&#39;, &#39;--s----d-&#39;),
+ (&#39;cane&#39;, &#39;--s----b-&#39;),
+ (&#39;canes&#39;, &#39;--p----n-&#39;),
+ (&#39;canes&#39;, &#39;--p----v-&#39;),
+ (&#39;canes&#39;, &#39;--p----a-&#39;),
+ (&#39;canum&#39;, &#39;--p----g-&#39;),
+ (&#39;canibus&#39;, &#39;--p----d-&#39;),
+ (&#39;canibus&#39;, &#39;--p----b-&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can decode the strings to more easily describe the morphological character of a word.</p>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Taken from https://github.com/alpheios-project/pyperseus-treebank/blob/master/pyperseus_treebank/latin.py#L44#</span>
+<span class="c1">#Maybe use https://github.com/jazzband/inflect for natural language code2text description?</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Conversion table for CONLL</span>
+<span class="c1"># Thanks to @epageperron</span>
+<span class="c1">#??Some divergence from README?</span>
+<span class="n">_CONLL_LA_CONV_DICT</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;adjective&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="s2">&quot;conjunction&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="s2">&quot;adverb&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">:</span> <span class="s2">&quot;exclamation&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="s2">&quot;PART&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;i&quot;</span><span class="p">:</span> <span class="s2">&quot;interjection&quot;</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="p">:</span> <span class="s2">&quot;DET&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="s2">&quot;numeral&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="s2">&quot;noun&quot;</span><span class="p">,</span><span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="s2">&quot;pronoun&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="s2">&quot;preposition&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="s2">&quot;VERB&quot;</span><span class="p">,</span> <span class="s2">&quot;u&quot;</span><span class="p">:</span> <span class="s2">&quot;punctuation&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="s2">&quot;verb&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="s2">&quot;X&quot;</span> <span class="p">}</span>
+
+<span class="n">_NUMBER</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="s2">&quot;singular&quot;</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="s2">&quot;plural&quot;</span><span class="p">}</span>
+<span class="n">_TENSE</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="s2">&quot;present&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">:</span> <span class="s2">&quot;future&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="s2">&quot;perfect&quot;</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="p">:</span> <span class="s2">&quot;pluperfect&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;i&quot;</span><span class="p">:</span> <span class="s2">&quot;imperfect&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="s2">&quot;future perfect&quot;</span><span class="p">}</span>
+<span class="n">_MOOD</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;i&quot;</span><span class="p">:</span> <span class="s2">&quot;indicative&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="s2">&quot;subjunctive&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="s2">&quot;imperative&quot;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span><span class="s1">&#39;gerund&#39;</span><span class="p">,</span>
+         <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="s2">&quot;gerundive&quot;</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="s2">&quot;participle&quot;</span><span class="p">,</span> <span class="s2">&quot;u&quot;</span><span class="p">:</span> <span class="s2">&quot;supine&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="s2">&quot;infinitive&quot;</span><span class="p">}</span>
+<span class="n">_VOICE</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;active&quot;</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="s2">&quot;passive&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="s2">&quot;Dep&quot;</span><span class="p">}</span>
+<span class="n">_GENDER</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;f&quot;</span><span class="p">:</span> <span class="s2">&quot;feminine&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="s2">&quot;masculine&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="s2">&quot;neuter&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="s2">&quot;Com&quot;</span><span class="p">}</span>
+<span class="n">_CASE</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="s2">&quot;genitive&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="s2">&quot;dative&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;accusative&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="s2">&quot;vocative&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="s2">&quot;nominative&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="s2">&quot;ablative&quot;</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="p">:</span> <span class="s2">&quot;Ins&quot;</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="p">:</span> <span class="s2">&quot;locative&quot;</span><span class="p">}</span>
+<span class="n">_DEGREE</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="s2">&quot;Pos&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="s2">&quot;comparative&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="s2">&quot;superlative&quot;</span><span class="p">}</span>
+
+<span class="n">_PERSON</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;1&quot;</span><span class="p">:</span><span class="s1">&#39;first person&#39;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span><span class="s1">&#39;second person&#39;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">:</span><span class="s1">&#39;third person&#39;</span><span class="p">}</span>
+
+<span class="n">NOTWORD</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;^\W+$&quot;</span><span class="p">)</span>
+
+<span class="n">_NULL_CHAR</span><span class="o">=</span><span class="s2">&quot;-&quot;</span>
+
+<span class="k">def</span> <span class="nf">parse_features</span><span class="p">(</span><span class="n">features</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Parse features from the POSTAG of Perseus Latin XML</span>
+<span class="sd">    .. example :: self.parse_features(&quot;n-p---na-&quot;)</span>
+<span class="sd">    :param features: A string containing morphological information</span>
+<span class="sd">    :type features: str</span>
+<span class="sd">    :return: Parsed features</span>
+<span class="sd">    :rtype: dict</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">features</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">features</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">==</span><span class="s1">&#39;unk&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{}</span>
+    
+    <span class="n">features</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    
+    <span class="n">feats</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">feats</span><span class="p">[</span><span class="s1">&#39;POS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_CONLL_LA_CONV_DICT</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+
+    <span class="c1"># Person handling : 3 possibilities</span>
+    <span class="k">if</span> <span class="n">features</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">_NULL_CHAR</span><span class="p">:</span>
+        <span class="n">feats</span><span class="p">[</span><span class="s2">&quot;Person&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_PERSON</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+
+    <span class="c1"># Number handling : two possibilities</span>
+    <span class="k">if</span> <span class="n">features</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">!=</span> <span class="n">_NULL_CHAR</span><span class="p">:</span>
+        <span class="n">feats</span><span class="p">[</span><span class="s2">&quot;Number&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_NUMBER</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+
+    <span class="c1"># Tense</span>
+    <span class="k">if</span> <span class="n">features</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">!=</span> <span class="n">_NULL_CHAR</span><span class="p">:</span>
+        <span class="n">feats</span><span class="p">[</span><span class="s2">&quot;Tense&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_TENSE</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span>
+
+    <span class="c1"># Mood</span>
+    <span class="k">if</span> <span class="n">features</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">!=</span> <span class="n">_NULL_CHAR</span><span class="p">:</span>
+        <span class="n">feats</span><span class="p">[</span><span class="s2">&quot;Mood&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_MOOD</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">4</span><span class="p">]]</span>
+
+    <span class="c1"># Voice</span>
+    <span class="k">if</span> <span class="n">features</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="n">_NULL_CHAR</span><span class="p">:</span>
+        <span class="n">feats</span><span class="p">[</span><span class="s2">&quot;Voice&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_VOICE</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">5</span><span class="p">]]</span>
+
+    <span class="c1"># Tense</span>
+    <span class="k">if</span> <span class="n">features</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">!=</span> <span class="n">_NULL_CHAR</span><span class="p">:</span>
+        <span class="n">feats</span><span class="p">[</span><span class="s2">&quot;Gender&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_GENDER</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">6</span><span class="p">]]</span>
+
+    <span class="c1"># Tense</span>
+    <span class="k">if</span> <span class="n">features</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">!=</span> <span class="n">_NULL_CHAR</span><span class="p">:</span>
+        <span class="n">feats</span><span class="p">[</span><span class="s2">&quot;Case&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_CASE</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">7</span><span class="p">]]</span>
+
+    <span class="c1"># Degree</span>
+    <span class="k">if</span> <span class="n">features</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">!=</span> <span class="n">_NULL_CHAR</span><span class="p">:</span>
+        <span class="n">feats</span><span class="p">[</span><span class="s2">&quot;Degree&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_DEGREE</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">8</span><span class="p">]]</span>
+
+    <span class="k">return</span> <span class="n">feats</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For example, how should we interpret the following morphological data feature string?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Example</span>
+<span class="n">parse_features</span><span class="p">(</span><span class="s1">&#39;v3plia---&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;POS&#39;: &#39;verb&#39;,
+ &#39;Person&#39;: &#39;third person&#39;,
+ &#39;Number&#39;: &#39;plural&#39;,
+ &#39;Tense&#39;: &#39;pluperfect&#39;,
+ &#39;Mood&#39;: &#39;indicative&#39;,
+ &#39;Voice&#39;: &#39;active&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looking up words in the decliner provides a way of getting the morphological data for a word. For example, we could look up <em>amabitis</em> and get back something like <code class="docutils literal notranslate"><span class="pre">('amo',</span> <span class="pre">'v2pfia---')</span></code>:</p>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#hacky way that assumes you know the root</span>
+<span class="k">def</span> <span class="nf">lookupInflection</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">lemma</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Find the inflection of a given word, given its lemma. &#39;&#39;&#39;</span>
+    <span class="n">result</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">if</span> <span class="n">lemma</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">result</span>
+    
+    <span class="n">lemma</span> <span class="o">=</span> <span class="p">[</span><span class="n">lemma</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lemma</span><span class="p">,</span><span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">lemma</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lemma</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">words</span> <span class="o">=</span> <span class="n">decliner</span><span class="o">.</span><span class="n">decline</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">([(</span><span class="n">w</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span><span class="o">==</span><span class="n">word</span><span class="p">])</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">l</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we know the root, we can lookup the inflection:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lookupInflection</span><span class="p">(</span><span class="s1">&#39;amabitis&#39;</span><span class="p">,</span> <span class="s1">&#39;amo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[(&#39;amabitis&#39;, &#39;v2pfia---&#39;)]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lemmatizing-a-word">
+<h2>Lemmatizing a Word<a class="headerlink" href="#lemmatizing-a-word" title="Permalink to this headline">¶</a></h2>
+<p>Let’s see if we can find the root of a word with a simple lemmatizer. The lemmatizer works with tokens, so we need a recipe for generating tokens out of words:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.tokenizers.lat.lat</span> <span class="kn">import</span> <span class="n">LatinWordTokenizer</span>
+
+<span class="n">latin_word_tokenizer</span> <span class="o">=</span> <span class="n">LatinWordTokenizer</span><span class="p">()</span>
+
+<span class="n">latin_word_tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s1">&#39;amabitis&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;amabitis&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we create a lemmatizer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.lemmatize.lat</span> <span class="kn">import</span> <span class="n">LatinBackoffLemmatizer</span>
+
+<span class="n">latin_lemmatizer</span> <span class="o">=</span> <span class="n">LatinBackoffLemmatizer</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can then see what it makes of <em>amabitis</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">latin_lemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">latin_word_tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s1">&#39;amabitis&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;amabitis&#39;, &#39;amo&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also lemmatize all the words in a sentence.</p>
+<p>As before, we need to tokenize the words we present to the lemmatizer, so let’s convert our sentence to a list of separate (word) tokens:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s1">&#39;Progeniem sed enim Troiano a sanguine duci audierat&#39;</span>
+
+<span class="n">sentence_tokens</span> <span class="o">=</span> <span class="n">latin_word_tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+<span class="n">sentence_tokens</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;progeniem&#39;, &#39;sed&#39;, &#39;enim&#39;, &#39;troiano&#39;, &#39;a&#39;, &#39;sanguine&#39;, &#39;duci&#39;, &#39;audierat&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we can lemmatize those tokens:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">latin_lemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">sentence_tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;progeniem&#39;, &#39;progenies&#39;),
+ (&#39;sed&#39;, &#39;sed&#39;),
+ (&#39;enim&#39;, &#39;enim&#39;),
+ (&#39;troiano&#39;, &#39;troiano&#39;),
+ (&#39;a&#39;, &#39;ab&#39;),
+ (&#39;sanguine&#39;, &#39;sanguis&#39;),
+ (&#39;duci&#39;, &#39;duco&#39;),
+ (&#39;audierat&#39;, &#39;audio&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also lemmatize Roman numerals:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.lemmatize.lat</span> <span class="kn">import</span> <span class="n">RomanNumeralLemmatizer</span>
+
+<span class="c1">#Lemmatizer for identifying roman numerals in Latin text based on regex.</span>
+<span class="n">lemmatizer</span> <span class="o">=</span> <span class="n">RomanNumeralLemmatizer</span><span class="p">()</span>
+
+<span class="n">lemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;i ii iii iv v vi vii vii ix x xx xxx xl l lx c cc&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;i&#39;, &#39;NUM&#39;),
+ (&#39;ii&#39;, &#39;NUM&#39;),
+ (&#39;iii&#39;, &#39;NUM&#39;),
+ (&#39;iv&#39;, &#39;NUM&#39;),
+ (&#39;v&#39;, &#39;NUM&#39;),
+ (&#39;vi&#39;, &#39;NUM&#39;),
+ (&#39;vii&#39;, &#39;NUM&#39;),
+ (&#39;vii&#39;, &#39;NUM&#39;),
+ (&#39;ix&#39;, &#39;NUM&#39;),
+ (&#39;x&#39;, &#39;NUM&#39;),
+ (&#39;xx&#39;, &#39;NUM&#39;),
+ (&#39;xxx&#39;, &#39;NUM&#39;),
+ (&#39;xl&#39;, &#39;NUM&#39;),
+ (&#39;l&#39;, &#39;NUM&#39;),
+ (&#39;lx&#39;, &#39;NUM&#39;),
+ (&#39;c&#39;, &#39;NUM&#39;),
+ (&#39;cc&#39;, &#39;NUM&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="syllables">
+<h2>Syllables<a class="headerlink" href="#syllables" title="Permalink to this headline">¶</a></h2>
+<p>One way of helping students read a text is to split the syllables out.m</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s1">/vergil/aen1.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">aeneid_1</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Here&#39;s a manual way of doing a concordance, though we need to clean it for the tokeniser?</span>
+<span class="kn">from</span> <span class="nn">cltk.alphabet.text_normalization</span> <span class="kn">import</span> <span class="n">remove_non_ascii</span>
+<span class="kn">from</span> <span class="nn">cltk.alphabet.text_normalization</span> <span class="kn">import</span> <span class="n">remove_non_latin</span>
+
+<span class="n">aen1_clean</span> <span class="o">=</span> <span class="n">remove_non_ascii</span><span class="p">(</span><span class="n">aeneid_1</span><span class="p">)</span>
+<span class="n">aen1_clean</span> <span class="o">=</span> <span class="n">remove_non_latin</span><span class="p">(</span><span class="n">aen1_clean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">aen1_clean</span><span class="p">[:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vergil Aeneid I        P VERGILI MARONIS AENEIDOS LIBER PRIMVS  Arma virumque cano Troiae qui primus ab oris Italiam fato profugus Laviniaque venit litora multum ille et terris iactatus et alto vi superum saevae memorem Iunonis ob iram multa quoque et bello passus dum conderet urbem     inferretque deos Latio genus unde Latinum Albanique patres atque altae moenia Romae  Musa mihi causas memora quo numine laeso quidve dolens regina deum tot volvere casus insignem pietate virum tot adire labores     impulerit Tantaene animis caelestibus irae  Urbs antiqua fuit Tyrii tenuere coloni Karthago Italiam contra Tiberinaque longe ostia dives opum studiisque asperrima belli quam Iuno fertur terris magis omnibus unam     posthabita coluisse Samo hic illius arma hic currus fuit hoc regnum dea gentibus esse si qua fata sinant iam tum tenditque fovetque Progeniem sed enim Troiano a sanguine duci audierat Tyrias olim quae verteret arces     hinc populum late regem belloque superbum venturum excidio Li
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.text</span> <span class="kn">import</span> <span class="n">Text</span>
+
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">latin_word_tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">aen1_clean</span><span class="p">)</span>
+<span class="n">textList</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+<span class="n">textList</span><span class="o">.</span><span class="n">concordance</span><span class="p">(</span><span class="s1">&#39;Libyae&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Displaying 7 of 7 matches:
+ello -que superbum venturum excidio Libyae sic volvere Parcas Id metuens veter
+a litora cursu contendunt petere et Libyae vertuntur ad oras Est in secessu lo
+ulos sic vertice caeli constitit et Libyae defixit lumina regnis Atque illum t
+e per aera magnum remigio alarum ac Libyae citus adstitit oris Et iam iussa fa
+o -que supersunt Ipse ignotus egens Libyae deserta peragro Europa atque Asia p
+e pater optime Teucrum pontus habet Libyae nec spes iam restat Iuli at freta S
+uidem per litora certos dimittam et Libyae lustrare extrema iubebo si quibus e
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.languages.example_texts</span> <span class="kn">import</span> <span class="n">get_example_text</span>
+
+<span class="n">example_lat</span> <span class="o">=</span> <span class="n">get_example_text</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">)</span>
+<span class="n">example_lat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Gallia est omnis divisa in partes tres, quarum unam incolunt Belgae, aliam Aquitani, tertiam qui ipsorum lingua Celtae, nostra Galli appellantur. Hi omnes lingua, institutis, legibus inter se differunt. Gallos ab Aquitanis Garumna flumen, a Belgis Matrona et Sequana dividit. Horum omnium fortissimi sunt Belgae, propterea quod a cultu atque humanitate provinciae longissime absunt, minimeque ad eos mercatores saepe commeant atque ea quae ad effeminandos animos pertinent important, proximique sunt Germanis, qui trans Rhenum incolunt, quibuscum continenter bellum gerunt. Qua de causa Helvetii quoque reliquos Gallos virtute praecedunt, quod fere cotidianis proeliis cum Germanis contendunt, cum aut suis finibus eos prohibent aut ipsi in eorum finibus bellum gerunt. Eorum una, pars, quam Gallos obtinere dictum est, initium capit a flumine Rhodano, continetur Garumna flumine, Oceano, finibus Belgarum, attingit etiam ab Sequanis et Helvetiis flumen Rhenum, vergit ad septentriones. Belgae ab extremis Galliae finibus oriuntur, pertinent ad inferiorem partem fluminis Rheni, spectant in septentrionem et orientem solem. Aquitania a Garumna flumine ad Pyrenaeos montes et eam partem Oceani quae est ad Hispaniam pertinet; spectat inter occasum solis et septentriones.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.sentence.lat</span> <span class="kn">import</span> <span class="n">LatinPunktSentenceTokenizer</span>
+
+<span class="n">latin_splitter</span> <span class="o">=</span> <span class="n">LatinPunktSentenceTokenizer</span><span class="p">()</span>
+
+<span class="n">sentences</span> <span class="o">=</span> <span class="n">latin_splitter</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">example_lat</span><span class="p">)</span>
+
+<span class="n">sentences</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Gallia est omnis divisa in partes tres, quarum unam incolunt Belgae, aliam Aquitani, tertiam qui ipsorum lingua Celtae, nostra Galli appellantur.&#39;,
+ &#39;Hi omnes lingua, institutis, legibus inter se differunt.&#39;,
+ &#39;Gallos ab Aquitanis Garumna flumen, a Belgis Matrona et Sequana dividit.&#39;,
+ &#39;Horum omnium fortissimi sunt Belgae, propterea quod a cultu atque humanitate provinciae longissime absunt, minimeque ad eos mercatores saepe commeant atque ea quae ad effeminandos animos pertinent important, proximique sunt Germanis, qui trans Rhenum incolunt, quibuscum continenter bellum gerunt.&#39;,
+ &#39;Qua de causa Helvetii quoque reliquos Gallos virtute praecedunt, quod fere cotidianis proeliis cum Germanis contendunt, cum aut suis finibus eos prohibent aut ipsi in eorum finibus bellum gerunt.&#39;,
+ &#39;Eorum una, pars, quam Gallos obtinere dictum est, initium capit a flumine Rhodano, continetur Garumna flumine, Oceano, finibus Belgarum, attingit etiam ab Sequanis et Helvetiis flumen Rhenum, vergit ad septentriones.&#39;,
+ &#39;Belgae ab extremis Galliae finibus oriuntur, pertinent ad inferiorem partem fluminis Rheni, spectant in septentrionem et orientem solem.&#39;,
+ &#39;Aquitania a Garumna flumine ad Pyrenaeos montes et eam partem Oceani quae est ad Hispaniam pertinet; spectat inter occasum solis et septentriones.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.prosody.lat.syllabifier</span> <span class="kn">import</span> <span class="n">Syllabifier</span>
+
+<span class="n">syllabifier</span> <span class="o">=</span> <span class="n">Syllabifier</span><span class="p">()</span>
+
+<span class="n">clean_sentence</span> <span class="o">=</span> <span class="n">remove_non_ascii</span><span class="p">(</span><span class="n">remove_non_latin</span><span class="p">(</span><span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+<span class="c1">#Extract syllables for each word</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">latin_word_tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">clean_sentence</span><span class="p">):</span>
+    <span class="n">syllables</span> <span class="o">=</span> <span class="n">syllabifier</span><span class="o">.</span><span class="n">syllabify</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">syllables</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gallia [&#39;gal&#39;, &#39;li&#39;, &#39;a&#39;]
+est [&#39;est&#39;]
+omnis [&#39;om&#39;, &#39;nis&#39;]
+divisa [&#39;di&#39;, &#39;vi&#39;, &#39;sa&#39;]
+in [&#39;in&#39;]
+partes [&#39;par&#39;, &#39;tes&#39;]
+tres [&#39;tres&#39;]
+quarum [&#39;qua&#39;, &#39;rum&#39;]
+unam [&#39;u&#39;, &#39;nam&#39;]
+incolunt [&#39;in&#39;, &#39;co&#39;, &#39;lunt&#39;]
+belgae [&#39;bel&#39;, &#39;gae&#39;]
+aliam [&#39;a&#39;, &#39;li&#39;, &#39;am&#39;]
+aquitani [&#39;a&#39;, &#39;qui&#39;, &#39;ta&#39;, &#39;ni&#39;]
+tertiam [&#39;ter&#39;, &#39;ti&#39;, &#39;am&#39;]
+qui [&#39;qui&#39;]
+ipsorum [&#39;ip&#39;, &#39;so&#39;, &#39;rum&#39;]
+lingua [&#39;lin&#39;, &#39;gua&#39;]
+celtae [&#39;cel&#39;, &#39;tae&#39;]
+nostra [&#39;nos&#39;, &#39;tra&#39;]
+galli [&#39;gal&#39;, &#39;li&#39;]
+appellantur [&#39;ap&#39;, &#39;pel&#39;, &#39;lan&#39;, &#39;tur&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pipeline-processing">
+<h2>Pipeline processing<a class="headerlink" href="#pipeline-processing" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_lat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Gallia est omnis divisa in partes tres, quarum unam incolunt Belgae, aliam Aquitani, tertiam qui ipsorum lingua Celtae, nostra Galli appellantur. Hi omnes lingua, institutis, legibus inter se differunt. Gallos ab Aquitanis Garumna flumen, a Belgis Matrona et Sequana dividit. Horum omnium fortissimi sunt Belgae, propterea quod a cultu atque humanitate provinciae longissime absunt, minimeque ad eos mercatores saepe commeant atque ea quae ad effeminandos animos pertinent important, proximique sunt Germanis, qui trans Rhenum incolunt, quibuscum continenter bellum gerunt. Qua de causa Helvetii quoque reliquos Gallos virtute praecedunt, quod fere cotidianis proeliis cum Germanis contendunt, cum aut suis finibus eos prohibent aut ipsi in eorum finibus bellum gerunt. Eorum una, pars, quam Gallos obtinere dictum est, initium capit a flumine Rhodano, continetur Garumna flumine, Oceano, finibus Belgarum, attingit etiam ab Sequanis et Helvetiis flumen Rhenum, vergit ad septentriones. Belgae ab extremis Galliae finibus oriuntur, pertinent ad inferiorem partem fluminis Rheni, spectant in septentrionem et orientem solem. Aquitania a Garumna flumine ad Pyrenaeos montes et eam partem Oceani quae est ad Hispaniam pertinet; spectat inter occasum solis et septentriones.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cltk.languages.pipelines</span> <span class="kn">import</span> <span class="n">LatinPipeline</span>
+
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">LatinPipeline</span><span class="p">()</span>
+
+<span class="n">pipeline</span><span class="o">.</span><span class="n">description</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Pipeline for the Latin language&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span><span class="o">.</span><span class="n">language</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Language(name=&#39;Latin&#39;, glottolog_id=&#39;lati1261&#39;, latitude=41.9026, longitude=12.4502, dates=[], family_id=&#39;indo1319&#39;, parent_id=&#39;impe1234&#39;, level=&#39;language&#39;, iso_639_3_code=&#39;lat&#39;, type=&#39;a&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span><span class="o">.</span><span class="n">language</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Latin&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span><span class="o">.</span><span class="n">processes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[cltk.alphabet.processes.LatinNormalizeProcess,
+ cltk.dependency.processes.LatinStanzaProcess,
+ cltk.embeddings.processes.LatinEmbeddingsProcess,
+ cltk.stops.processes.StopsProcess,
+ cltk.ner.processes.LatinNERProcess,
+ cltk.lexicon.processes.LatinLexiconProcess]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This doesn&#39;t work?</span>
+<span class="c1">#cltk_nlp = NLP(language=&#39;lat&#39;)</span>
+<span class="c1">#cltk_doc = cltk_nlp.analyze(text=example_lat)</span>
+
+<span class="c1"># Absolutely no idea what to do here...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#cltk_doc.stanza_doc.to_dict()[0][:3]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Also: cltk_doc.raw</span>
+<span class="c1">#cltk_doc.normalized_text</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#cltk_doc.sentences_strings</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#cltk_doc.sentences_tokens</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#[ p for p in zip(cltk_doc.tokens, cltk_doc.lemmata,</span>
+<span class="c1">#                 cltk_doc.pos, cltk_doc.morphosyntactic_features)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./linguistics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+    <script type="text/javascript">
+        function init() {
+            WaveDrom.ProcessAll();
+        }
+        window.onload = init;
+    </script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="classics-corpora.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Classical Languages — Corpora</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../geo/overview.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Geo Overview</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Tony Hirst<br/>
+        
+            &copy; Copyright 2018-2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

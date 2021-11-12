@@ -1,0 +1,97 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 1087, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/usr/local/lib/python3.9/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/usr/local/lib/python3.9/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/local/Cellar/python@3.9/3.9.7_1/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 540, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 832, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 740, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from cltk import NLP
+cltk_nlp = NLP(language="lat")
+
+# This can be slow
+# First run, prompts to allow download of Stanza NLP library models
+# to ~/stanza_resources/la/ (~250MB)
+# Also word embedding models from the Fasttext project to
+# ~/cltk_data/lat/embeddings/fasttext 365MB
+# Also Lewis's *An Elementary Latin Dictionary* (1890)
+cltk_doc = cltk_nlp.analyze(text=example_lat)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOSError[0m                                   Traceback (most recent call last)
+[0;32m<ipython-input-20-1cbf961e2162>[0m in [0;36m<module>[0;34m[0m
+[1;32m      8[0m [0;31m# ~/cltk_data/lat/embeddings/fasttext 365MB[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;31m# Also Lewis's *An Elementary Latin Dictionary* (1890)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m [0mcltk_doc[0m [0;34m=[0m [0mcltk_nlp[0m[0;34m.[0m[0manalyze[0m[0;34m([0m[0mtext[0m[0;34m=[0m[0mexample_lat[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/usr/local/lib/python3.9/site-packages/cltk/nlp.py[0m in [0;36manalyze[0;34m(self, text)[0m
+[1;32m    140[0m         [0;32mfor[0m [0mprocess[0m [0;32min[0m [0mself[0m[0;34m.[0m[0mpipeline[0m[0;34m.[0m[0mprocesses[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    141[0m             [0ma_process[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_get_process_object[0m[0;34m([0m[0mprocess[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 142[0;31m             [0mdoc[0m [0;34m=[0m [0ma_process[0m[0;34m.[0m[0mrun[0m[0;34m([0m[0mdoc[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    143[0m         [0;32mreturn[0m [0mdoc[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    144[0m [0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.9/site-packages/cltk/ner/processes.py[0m in [0;36mrun[0;34m(self, input_doc)[0m
+[1;32m     33[0m [0;34m[0m[0m
+[1;32m     34[0m         [0mner_obj[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0malgorithm[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 35[0;31m         entity_values = ner_obj(
+[0m[1;32m     36[0m             [0miso_code[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0mlanguage[0m[0;34m,[0m [0minput_tokens[0m[0;34m=[0m[0minput_doc[0m[0;34m.[0m[0mtokens[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     37[0m         )  # type: List[Any]
+
+[0;32m/usr/local/lib/python3.9/site-packages/cltk/ner/ner.py[0m in [0;36mtag_ner[0;34m(iso_code, input_tokens)[0m
+[1;32m     84[0m         [0;32mreturn[0m [0mentities_type_list[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     85[0m     [0;32melif[0m [0miso_code[0m [0;32min[0m [0;34m[[0m[0;34m"ang"[0m[0;34m,[0m [0;34m"grc"[0m[0;34m,[0m [0;34m"lat"[0m[0;34m][0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 86[0;31m         return spacy_tag_ner(
+[0m[1;32m     87[0m             [0miso_code[0m[0;34m=[0m[0miso_code[0m[0;34m,[0m [0mtext_tokens[0m[0;34m=[0m[0minput_tokens[0m[0;34m,[0m [0mmodel_path[0m[0;34m=[0m[0mNER_DICT[0m[0;34m[[0m[0miso_code[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m     88[0m         )  # type: List[str, None]
+
+[0;32m/usr/local/lib/python3.9/site-packages/cltk/ner/spacy_ner.py[0m in [0;36mspacy_tag_ner[0;34m(iso_code, text_tokens, model_path)[0m
+[1;32m     72[0m         [0mmodel_url[0m [0;34m=[0m [0;34mf"https://github.com/cltk/{iso_code}_models_cltk"[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     73[0m         [0mdownload_prompt[0m[0;34m([0m[0miso_code[0m[0;34m=[0m[0miso_code[0m[0;34m,[0m [0mmessage[0m[0;34m=[0m[0mdl_msg[0m[0;34m,[0m [0mmodel_url[0m[0;34m=[0m[0mmodel_url[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 74[0;31m     [0mspacy_nlp[0m [0;34m=[0m [0mspacy[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mmodel_path[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     75[0m     [0;31m# Create the tokenizer for the spacy model[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     76[0m     [0mspacy_nlp[0m[0;34m.[0m[0mtokenizer[0m [0;34m=[0m [0mCustomTokenizer[0m[0;34m([0m[0mvocab[0m[0;34m=[0m[0mspacy_nlp[0m[0;34m.[0m[0mvocab[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.9/site-packages/spacy/__init__.py[0m in [0;36mload[0;34m(name, vocab, disable, exclude, config)[0m
+[1;32m     48[0m     [0mRETURNS[0m [0;34m([0m[0mLanguage[0m[0;34m)[0m[0;34m:[0m [0mThe[0m [0mloaded[0m [0mnlp[0m [0mobject[0m[0;34m.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     49[0m     """
+[0;32m---> 50[0;31m     return util.load_model(
+[0m[1;32m     51[0m         [0mname[0m[0;34m,[0m [0mvocab[0m[0;34m=[0m[0mvocab[0m[0;34m,[0m [0mdisable[0m[0;34m=[0m[0mdisable[0m[0;34m,[0m [0mexclude[0m[0;34m=[0m[0mexclude[0m[0;34m,[0m [0mconfig[0m[0;34m=[0m[0mconfig[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     52[0m     )
+
+[0;32m/usr/local/lib/python3.9/site-packages/spacy/util.py[0m in [0;36mload_model[0;34m(name, vocab, disable, exclude, config)[0m
+[1;32m    324[0m             [0;32mreturn[0m [0mload_model_from_package[0m[0;34m([0m[0mname[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    325[0m         [0;32mif[0m [0mPath[0m[0;34m([0m[0mname[0m[0;34m)[0m[0;34m.[0m[0mexists[0m[0;34m([0m[0;34m)[0m[0;34m:[0m  [0;31m# path to model data directory[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 326[0;31m             [0;32mreturn[0m [0mload_model_from_path[0m[0;34m([0m[0mPath[0m[0;34m([0m[0mname[0m[0;34m)[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    327[0m     [0;32melif[0m [0mhasattr[0m[0;34m([0m[0mname[0m[0;34m,[0m [0;34m"exists"[0m[0;34m)[0m[0;34m:[0m  [0;31m# Path or Path-like to model data[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    328[0m         [0;32mreturn[0m [0mload_model_from_path[0m[0;34m([0m[0mname[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.9/site-packages/spacy/util.py[0m in [0;36mload_model_from_path[0;34m(model_path, meta, vocab, disable, exclude, config)[0m
+[1;32m    389[0m     [0mconfig_path[0m [0;34m=[0m [0mmodel_path[0m [0;34m/[0m [0;34m"config.cfg"[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    390[0m     [0moverrides[0m [0;34m=[0m [0mdict_to_dot[0m[0;34m([0m[0mconfig[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 391[0;31m     [0mconfig[0m [0;34m=[0m [0mload_config[0m[0;34m([0m[0mconfig_path[0m[0;34m,[0m [0moverrides[0m[0;34m=[0m[0moverrides[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    392[0m     [0mnlp[0m [0;34m=[0m [0mload_model_from_config[0m[0;34m([0m[0mconfig[0m[0;34m,[0m [0mvocab[0m[0;34m=[0m[0mvocab[0m[0;34m,[0m [0mdisable[0m[0;34m=[0m[0mdisable[0m[0;34m,[0m [0mexclude[0m[0;34m=[0m[0mexclude[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    393[0m     [0;32mreturn[0m [0mnlp[0m[0;34m.[0m[0mfrom_disk[0m[0;34m([0m[0mmodel_path[0m[0;34m,[0m [0mexclude[0m[0;34m=[0m[0mexclude[0m[0;34m,[0m [0moverrides[0m[0;34m=[0m[0moverrides[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.9/site-packages/spacy/util.py[0m in [0;36mload_config[0;34m(path, overrides, interpolate)[0m
+[1;32m    546[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    547[0m         [0;32mif[0m [0;32mnot[0m [0mconfig_path[0m [0;32mor[0m [0;32mnot[0m [0mconfig_path[0m[0;34m.[0m[0mexists[0m[0;34m([0m[0;34m)[0m [0;32mor[0m [0;32mnot[0m [0mconfig_path[0m[0;34m.[0m[0mis_file[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 548[0;31m             [0;32mraise[0m [0mIOError[0m[0;34m([0m[0mErrors[0m[0;34m.[0m[0mE053[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mpath[0m[0;34m=[0m[0mconfig_path[0m[0;34m,[0m [0mname[0m[0;34m=[0m[0;34m"config.cfg"[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    549[0m         return config.from_disk(
+[1;32m    550[0m             [0mconfig_path[0m[0;34m,[0m [0moverrides[0m[0;34m=[0m[0moverrides[0m[0;34m,[0m [0minterpolate[0m[0;34m=[0m[0minterpolate[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mOSError[0m: [E053] Could not read config.cfg from /Users/tonyhirst/cltk_data/lat/model/lat_models_cltk/ner/spacy_model/config.cfg
+OSError: [E053] Could not read config.cfg from /Users/tonyhirst/cltk_data/lat/model/lat_models_cltk/ner/spacy_model/config.cfg
+

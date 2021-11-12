@@ -1,0 +1,965 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chemistry – Compound Lookups &#8212; Subject Matter Authoring Using Jupyter Notebooks</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://wavedrom.com/skins/default.js"></script>
+    <script src="https://wavedrom.com/wavedrom.min.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chemical Properties" href="material_properties.html" />
+    <link rel="prev" title="Chemistry Overview" href="overview.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Subject Matter Authoring Using Jupyter Notebooks</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Production
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../production/production-methods.html">
+   Production Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../production/relationship-to-OERs.html">
+   Relationship to OERs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../production/relationship-to-worksheets-and-assessment.html">
+   Relationship to Worksheets and Assessment
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Generic
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../generic/overview.html">
+   Generic Items Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../generic/quizzes.html">
+   Creating Quizzes
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Astronomy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/overview.html">
+   Astronomy Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/fits-images.html">
+   Astronomy - Working with FITS Images
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/ephemeris-and-orbits.html">
+   Astronomy — Ephemeris Data and Orbital Calculations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../astronomy/interactive-astronomy-viewers.html">
+   Astronomy — Interactive Viewers
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Chemistry
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Chemistry Overview
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Chemistry – Compound Lookups
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="material_properties.html">
+   Chemical Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="visualising-compounds.html">
+   Chemistry — Visualising Chemical Structures
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Electronics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../electronics/overview.html">
+   Electronics Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../electronics/worked-example.html">
+   Electronics Worked Example
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Other STEM
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../engineering/overview.html">
+   Engineering Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/overview.html">
+   Maths Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/worked-equations.html">
+   Worked Equations and Equations With Units
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/r-statistics.html">
+   Statistics in R
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/r-3d.html">
+   Generating 3D Interactive Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../maths/networks-and-graphs.html">
+   Networks and Graphs
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Arts
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../art/overview.html">
+   Art Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../music/overview.html">
+   Music Overview
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Humanities
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linguistics/overview.html">
+   Linguistics &amp; Text Processing Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linguistics/classics-corpora.html">
+   Classical Languages — Corpora
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linguistics/classics-grammar.html">
+   Classical Languages — Grammar
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Map Generation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../geo/overview.html">
+   Geo Overview
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Chart Generation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chart/overview.html">
+   Chart Overview
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Diagram Generation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/overview.html">
+   Diagrams Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/blockdiag.html">
+   Blockdiag Package Diagrams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/js-diagramming-magics.html">
+   JavaScript Rendered Diagramming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/py-diagramming-packages.html">
+   Python Script Diagramming Packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diagram/sphinx-diagrammers.html">
+   Sphinx / Jupyter Book Diagramming Plugins
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Image Generation and Manipulation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../image/overview.html">
+   Image Generation and Manipulation Overview
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Audio Generation and Manipulation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../audio/overview.html">
+   Audio Overview
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  LaTeX
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../latex/overview.html">
+   LaTeX Overview
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/chemistry/compound_lookups.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pubchempy">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pubchempy
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chembl-webresource-client">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     chembl_webresource_client
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pypdb">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pypdb
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="chemistry-compound-lookups">
+<h1>Chemistry – Compound Lookups<a class="headerlink" href="#chemistry-compound-lookups" title="Permalink to this headline">¶</a></h1>
+<p>Several Python packages exist that simplify the process of looking compounds and their chemical structure.</p>
+<p>This means that we can look-up compounds by name or structure and create a generative sequence of steps that allows us obtain the structure of a compound, and various properties of it, simply by starting with its common name.</p>
+<p>With a representation of the structure to hand, we can then visualise its structure as demonstrated in a later section.</p>
+<p>This allows us in part to create one-piece generative document workflows where <em>information rich</em> outputs, as well as rich media outputs, can be generated from (potentially hidden) generative scripts contained within the source document.</p>
+<p>For creators of educational materials, this means we can create narratives where a compound is identified by name, a lookup is made, and informational descriptions can then be generated from the looked up object.</p>
+<p>This means that the materials will be factually correct as the informational properties will be rendered directly from the retrieved object.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>One of the risks associated with generative documents is that if for some reason the generative code cannot be run or fails to execute as intended, the rendered document will be incomplete at best, meaningless at worst.</p>
+<p>It is therefore recommended that generative documents should be saved in an archived form with all cells run.</p>
+<p>Using a “loop back” generative method, where assets are created, saved to disk, and then loaded back in is another approach that can be used to generate assets that can be persisted for local use by the generating document, or even reused elsewhere.</p>
+</div>
+<p>Through being able to look up properties of materials, we can also generate factual statements about them or generate quizzes or opportunities for self-test activities around them.</p>
+<div class="section" id="pubchempy">
+<h2><code class="docutils literal notranslate"><span class="pre">pubchempy</span></code><a class="headerlink" href="#pubchempy" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://pubchempy.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">pubchempy</span></code></a> package provides a Python interface to <a class="reference external" href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a>, a freely accessible chemical information lookup service. <em>PubChem</em> allows for the searching of chemicals by name and lookups of molecular formulas and structures using conventional representations such as a SMILES representation.</p>
+<div class="tip admonition">
+<p class="admonition-title">SMILES</p>
+<p>SMILES (<a class="reference external" href="https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system"><em>Simplified molecular-input line-entry system</em></a>) is a simple text format for desctibing molecular structure.</p>
+<p>Related: [SMILES tutorial](<a class="reference external" href="https://www.epa.gov/sites/production/files/2015-05/documents/appendf.pdf">https://www.epa.gov/sites/production/files/2015-05/documents/appendf.pdf</a>(</p>
+</div>
+<p>Packages like <code class="docutils literal notranslate"><span class="pre">pubchempy</span></code> can be used in conjunction with visualisers such as <code class="docutils literal notranslate"><span class="pre">py3Dmol</span></code> to look up a molecule by name (using <code class="docutils literal notranslate"><span class="pre">pubchempy</span></code>) and then display its structure as an interactive 3D model (using <code class="docutils literal notranslate"><span class="pre">py3Dmol</span></code>).</p>
+<p>Import the base package:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pubchempy</span> <span class="k">as</span> <span class="nn">pcp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can look up a chemical by name, select the first result, and then generate the canonical or isomeric SMILES representation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ethanol</span> <span class="o">=</span> <span class="n">pcp</span><span class="o">.</span><span class="n">get_compounds</span><span class="p">(</span><span class="s1">&#39;ethanol&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">ethanol</span><span class="o">.</span><span class="n">canonical_smiles</span><span class="p">,</span> <span class="n">ethanol</span><span class="o">.</span><span class="n">isomeric_smiles</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;CCO&#39;, &#39;CCO&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we create a reference to the <code class="docutils literal notranslate"><span class="pre">.iupac_name</span></code> of the compound, we can use that in a markdown field.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;g_ethanol&quot;</span><span class="p">,</span> <span class="n">ethanol</span><span class="o">.</span><span class="n">iupac_name</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>Such a reference is embedded in this piece of text: <em>you looked up the compound <span class="pasted-text">ethanol</span></em>.</p>
+<p>We can also look up compounds by formula.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If required, responses from look-ups can be returned as <em>pandas</em> dataframes.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nitric_acid_df</span> <span class="o">=</span> <span class="n">pcp</span><span class="o">.</span><span class="n">get_compounds</span><span class="p">(</span><span class="s1">&#39;HNO3&#39;</span><span class="p">,</span> <span class="s1">&#39;formula&#39;</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">True</span><span class="p">)[:</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="n">nitric_acid_df</span><span class="p">[[</span><span class="s1">&#39;iupac_name&#39;</span><span class="p">,</span> <span class="s1">&#39;molecular_formula&#39;</span><span class="p">,</span> <span class="s1">&#39;canonical_smiles&#39;</span><span class="p">,</span> <span class="s1">&#39;inchi&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>iupac_name</th>
+      <th>molecular_formula</th>
+      <th>canonical_smiles</th>
+      <th>inchi</th>
+    </tr>
+    <tr>
+      <th>cid</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>944</th>
+      <td>nitric acid</td>
+      <td>HNO3</td>
+      <td>[N+](=O)(O)[O-]</td>
+      <td>InChI=1S/HNO3/c2-1(3)4/h(H,2,3,4)</td>
+    </tr>
+    <tr>
+      <th>123349</th>
+      <td>hydroxy nitrite</td>
+      <td>HNO3</td>
+      <td>N(=O)OO</td>
+      <td>InChI=1S/HNO3/c2-1-4-3/h3H</td>
+    </tr>
+    <tr>
+      <th>12025424</th>
+      <td>deuterio nitrate</td>
+      <td>HNO3</td>
+      <td>[N+](=O)(O)[O-]</td>
+      <td>InChI=1S/HNO3/c2-1(3)4/h(H,2,3,4)/i/hD</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Round tripping of looking up a compound by name, obtaining its SMILES representation, looking the compound by SMILES representation, and then displaying the name of the final object retrieved, is also possible and can be used as an integrity check:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Look up by SMILES string</span>
+<span class="n">compound</span> <span class="o">=</span> <span class="n">pcp</span><span class="o">.</span><span class="n">get_compounds</span><span class="p">(</span><span class="s1">&#39;CCO&#39;</span><span class="p">,</span> <span class="s1">&#39;smiles&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">compound</span><span class="o">.</span><span class="n">iupac_name</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ethanol&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also use other chemical reference codes for the lookup, such as an <code class="docutils literal notranslate"><span class="pre">InChI</span></code> identifier:</p>
+<div class="tip admonition">
+<p class="admonition-title">InChI</p>
+<p><code class="docutils literal notranslate"><span class="pre">InChI</span></code>, the IUPAC (<a class="reference external" href="https://en.wikipedia.org/wiki/International_Chemical_Identifier"><em>International Chemical Identifier</em></a>) is a  standardised textual identifier for chemical substances.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">InChIKey</span></code> reference scheme is a condensed 27 character hashed version of the full <code class="docutils literal notranslate"><span class="pre">InChI</span></code> identifier string.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pcp</span><span class="o">.</span><span class="n">get_compounds</span><span class="p">(</span><span class="s2">&quot;InChI=1S/HNO3/c2-1(3)4/h(H,2,3,4)&quot;</span><span class="p">,</span><span class="s2">&quot;inchi&quot;</span><span class="p">,</span>
+                  <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;iupac_name&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;nitric acid&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The retrieved object stores a wide range of useful informational properties associated with the compound.</p>
+<p>For example, looking up the chemical formula (this is described as the <em>molecular formula</em> although I think it’s actually the <em>empirical formula</em>?):</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Latex</span>
+
+<span class="n">_compound_latex</span> <span class="o">=</span> <span class="s1">&#39;$\ce{&#39;</span><span class="o">+</span><span class="n">compound</span><span class="o">.</span><span class="n">molecular_formula</span><span class="o">+</span><span class="s1">&#39;}$&#39;</span> 
+
+<span class="c1"># Save a reference to the Latex equivalent of the compound name and formula</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;compoundName&quot;</span><span class="p">,</span> <span class="n">compound</span><span class="o">.</span><span class="n">iupac_name</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;compoundLatex&quot;</span><span class="p">,</span> <span class="n">Latex</span><span class="p">(</span><span class="n">_compound_latex</span><span class="p">),</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">compound</span><span class="o">.</span><span class="n">molecular_formula</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;C2H6O&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>A simple, literally stated formula can be rendered using <em>MathJax</em> if the <code class="docutils literal notranslate"><span class="pre">mhchem</span></code> package is imported.</p>
+<div class="math notranslate nohighlight">
+\[\require{mhchem}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Support for rendering chemical notation using inline LaTeX markup is enabled by including the following installation requirement into a markdown cell: <code class="docutils literal notranslate"><span class="pre">$$\require{mhchem}$$</span></code>.</p>
+<p>Formulas can then be rendered using the an inline LaTeX invocation of the form <code class="docutils literal notranslate"><span class="pre">$\ce{C2H6O}$</span></code> to give output of the form <span class="math notranslate nohighlight">\(\ce{C2H6O}\)</span> .</p>
+</div>
+<p>Embedding the glued reference for the equation of <span class="pasted-text">ethanol</span> gives us:</p>
+<div class="pasted-math math notranslate nohighlight" id="equation-eq-sym">
+<span class="eqno">()<a class="headerlink" href="#equation-eq-sym" title="Permalink to this equation">¶</a></span>\[\ce{C2H6O}\]</div>
+<p>We can also lookup various properties of the compound and use that as the basis of a custom display outputter for the <code class="docutils literal notranslate"><span class="pre">pubchempy.Compound</span></code> object.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remember, we always collapse or completely remove generator code elements included in the original source document from the rendered text.</p>
+</div>
+<div class="cell tag_hide-cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a function to display compound properties</span>
+<span class="k">def</span> <span class="nf">pcp_compound_properties</span><span class="p">(</span><span class="n">compound</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Display various compound properties.&quot;&quot;&quot;</span>
+    <span class="n">properties</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">properties</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Name: &lt;strong&gt;</span><span class="si">{</span><span class="n">compound</span><span class="o">.</span><span class="n">iupac_name</span><span class="si">}</span><span class="s1">&lt;/strong&gt;&#39;</span><span class="p">)</span>
+    <span class="n">properties</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Formula: &lt;strong&gt;</span><span class="si">{</span><span class="n">compound</span><span class="o">.</span><span class="n">molecular_formula</span><span class="si">}</span><span class="s1">&lt;/strong&gt;&#39;</span><span class="p">)</span>
+    <span class="n">properties</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Common synonyms: &lt;strong&gt;</span><span class="si">{</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">compound</span><span class="o">.</span><span class="n">synonyms</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span><span class="si">}</span><span class="s1">&lt;/strong&gt;&#39;</span><span class="p">)</span>
+    <span class="n">properties</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;SMILES: &lt;strong&gt;</span><span class="si">{</span><span class="n">compound</span><span class="o">.</span><span class="n">canonical_smiles</span><span class="si">}</span><span class="s1">&lt;/strong&gt;&#39;</span><span class="p">)</span>
+    <span class="n">properties</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;cid:  &lt;strong&gt;</span><span class="si">{</span><span class="n">compound</span><span class="o">.</span><span class="n">cid</span><span class="si">}</span><span class="s1">&lt;/strong&gt;&#39;</span><span class="p">)</span>
+    <span class="n">properties</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;inchi:  &lt;strong&gt;</span><span class="si">{</span><span class="n">compound</span><span class="o">.</span><span class="n">inchi</span><span class="si">}</span><span class="s1">&lt;/strong&gt;&#39;</span><span class="p">)</span>
+    <span class="n">properties</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Molecular weight: &lt;strong&gt;</span><span class="si">{</span><span class="n">compound</span><span class="o">.</span><span class="n">molecular_weight</span><span class="si">}</span><span class="s1">&lt;/strong&gt;&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="s1">&#39;&lt;br/&gt;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">properties</span><span class="p">)</span>
+
+<span class="c1"># Get a reference to the Compound class</span>
+<span class="kn">from</span> <span class="nn">pubchempy</span> <span class="kn">import</span> <span class="n">Compound</span>
+
+<span class="c1"># Create a custom formatter for the class</span>
+<span class="c1"># https://ipython.readthedocs.io/en/stable/config/integrating.html </span>
+<span class="n">html_formatter</span> <span class="o">=</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">display_formatter</span><span class="o">.</span><span class="n">formatters</span><span class="p">[</span><span class="s1">&#39;text/html&#39;</span><span class="p">]</span>
+<span class="n">html_formatter</span><span class="o">.</span><span class="n">for_type</span><span class="p">(</span><span class="n">Compound</span><span class="p">,</span> <span class="n">pcp_compound_properties</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That code can easily be added to a package or included and hidden within source document.</p>
+<p>Now if we call the compound we get a prettified, custom output for it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compound</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">Name: <strong>ethanol</strong><br/>Formula: <strong>C2H6O</strong><br/>Common synonyms: <strong>ethanol, ethyl alcohol, alcohol</strong><br/>SMILES: <strong>CCO</strong><br/>cid:  <strong>702</strong><br/>inchi:  <strong>InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3</strong><br/>Molecular weight: <strong>46.07</strong></div></div>
+</div>
+</div>
+<div class="section" id="chembl-webresource-client">
+<h2><code class="docutils literal notranslate"><span class="pre">chembl_webresource_client</span></code><a class="headerlink" href="#chembl-webresource-client" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://github.com/chembl/chembl_webresource_client"> <code class="docutils literal notranslate"><span class="pre">chembl_webresource_client</span></code></a> package provides a Python interface to <a class="reference external" href="https://www.ebi.ac.uk/chembl/">ChEMBL</a>, a “<em>manually curated chemical database of bioactive molecules with drug-like properties maintained by the European Bioinformatics Institute (EBI), of the European Molecular Biology Laboratory (EMBL)</em>” to support the lookup of bioactive chemical compounds by common name.</p>
+<p>Import the package and create a reference for a molecule lookup:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">chembl_webresource_client.new_client</span> <span class="kn">import</span> <span class="n">new_client</span>
+
+<span class="n">molecule</span> <span class="o">=</span> <span class="n">new_client</span><span class="o">.</span><span class="n">molecule</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>From this client, we can look up bioactive compounds in a variety of ways, including by popular name:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aspirin</span> <span class="o">=</span> <span class="n">molecule</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;aspirin&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">aspirin</span><span class="p">:</span>
+    <span class="n">pref_name</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;pref_name&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">pref_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">pref_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ASPIRIN
+ASPIRIN DL-LYSINE
+ASPIRIN EUGENOL ESTER
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also look-up syonyms of the compound, which might include trade names:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aspirin</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">aspirin</span> <span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;pref_name&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;ASPIRIN&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">aspirin</span><span class="p">[</span><span class="s1">&#39;molecule_synonyms&#39;</span><span class="p">][:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;molecule_synonym&#39;: &#39;8-hour bayer&#39;,
+  &#39;syn_type&#39;: &#39;TRADE_NAME&#39;,
+  &#39;synonyms&#39;: &#39;8-HOUR BAYER&#39;},
+ {&#39;molecule_synonym&#39;: &#39;Acetosalic Acid&#39;,
+  &#39;syn_type&#39;: &#39;TRADE_NAME&#39;,
+  &#39;synonyms&#39;: &#39;Acetosalic Acid&#39;},
+ {&#39;molecule_synonym&#39;: &#39;Acetylsalic acid&#39;,
+  &#39;syn_type&#39;: &#39;TRADE_NAME&#39;,
+  &#39;synonyms&#39;: &#39;ACETYLSALIC ACID&#39;},
+ {&#39;molecule_synonym&#39;: &#39;Acetylsalicylic Acid&#39;,
+  &#39;syn_type&#39;: &#39;INN&#39;,
+  &#39;synonyms&#39;: &#39;Acetylsalicylic Acid&#39;},
+ {&#39;molecule_synonym&#39;: &#39;Acetylsalicylic Acid&#39;,
+  &#39;syn_type&#39;: &#39;TRADE_NAME&#39;,
+  &#39;synonyms&#39;: &#39;Acetylsalicylic Acid&#39;}]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As before, we can generae an <code class="docutils literal notranslate"><span class="pre">_repr_</span></code> method on the object to provide us with a summary output from the object in a form we desire:</p>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="c1"># Create a function to display compound properties</span>
+<span class="k">def</span> <span class="nf">chembl_wrc_molecule_properties</span><span class="p">(</span><span class="n">molecule</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Display various compound properties.&quot;&quot;&quot;</span>
+    <span class="n">properties</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">_wikipedia_name</span> <span class="o">=</span>  <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;xref_id&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">molecule</span><span class="p">[</span><span class="s1">&#39;cross_references&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="s2">&quot;xref_src&quot;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Wikipedia&#39;</span><span class="p">]</span>
+    <span class="n">_wikipedia_name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">_wikipedia_name</span> <span class="k">else</span> <span class="n">_wikipedia_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">properties</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Name: &lt;strong&gt;</span><span class="si">{</span><span class="n">molecule</span><span class="p">[</span><span class="s2">&quot;pref_name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&lt;/strong&gt;&#39;</span><span class="p">)</span>
+    <span class="n">properties</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Common Wikipedia (common) name: &lt;strong&gt;</span><span class="si">{</span><span class="n">_wikipedia_name</span><span class="si">}</span><span class="s1">&lt;/strong&gt;&#39;</span><span class="p">)</span>
+    <span class="n">properties</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Formula: &lt;strong&gt;</span><span class="si">{</span><span class="n">molecule</span><span class="p">[</span><span class="s2">&quot;molecule_properties&quot;</span><span class="p">][</span><span class="s2">&quot;full_molformula&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&lt;/strong&gt;&#39;</span><span class="p">)</span>
+    <span class="n">properties</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Species: &lt;strong&gt;</span><span class="si">{</span><span class="n">molecule</span><span class="p">[</span><span class="s2">&quot;molecule_properties&quot;</span><span class="p">][</span><span class="s2">&quot;molecular_species&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&lt;/strong&gt;&#39;</span><span class="p">)</span>
+    <span class="n">properties</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;SMILES: &lt;strong&gt;</span><span class="si">{</span><span class="n">molecule</span><span class="p">[</span><span class="s2">&quot;molecule_structures&quot;</span><span class="p">][</span><span class="s2">&quot;canonical_smiles&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&lt;/strong&gt;&#39;</span><span class="p">)</span>
+    <span class="n">properties</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;inchi:  &lt;strong&gt;</span><span class="si">{</span><span class="n">molecule</span><span class="p">[</span><span class="s2">&quot;molecule_structures&quot;</span><span class="p">][</span><span class="s2">&quot;standard_inchi&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&lt;/strong&gt;&#39;</span><span class="p">)</span>
+    <span class="n">properties</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;CHEMBL id:  &lt;strong&gt;</span><span class="si">{</span><span class="n">molecule</span><span class="p">[</span><span class="s2">&quot;molecule_chembl_id&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&lt;/strong&gt;&#39;</span><span class="p">)</span>
+    <span class="n">properties</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Therapeutic flag: &lt;strong&gt;</span><span class="si">{</span><span class="n">molecule</span><span class="p">[</span><span class="s2">&quot;therapeutic_flag&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&lt;/strong&gt;&#39;</span><span class="p">)</span>
+    <span class="n">properties</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;First approval: &lt;strong&gt;</span><span class="si">{</span><span class="n">molecule</span><span class="p">[</span><span class="s2">&quot;first_approval&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&lt;/strong&gt;&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;br/&gt;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">properties</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we call the object, we get a summary review of it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chembl_wrc_molecule_properties</span><span class="p">(</span><span class="n">aspirin</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">Name: <strong>ASPIRIN</strong><br/>Common Wikipedia (common) name: <strong>Aspirin</strong><br/>Formula: <strong>C9H8O4</strong><br/>Species: <strong>ACID</strong><br/>SMILES: <strong>CC(=O)Oc1ccccc1C(=O)O</strong><br/>inchi:  <strong>InChI=1S/C9H8O4/c1-6(10)13-8-5-3-2-4-7(8)9(11)12/h2-5H,1H3,(H,11,12)</strong><br/>CHEMBL id:  <strong>CHEMBL25</strong><br/>Therapeutic flag: <strong>True</strong><br/>First approval: <strong>1950</strong></div></div>
+</div>
+<p>As well as looking up compounds by name, we can lookup a molecules more specifically from a SMILES string:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">chembl_webresource_client.new_client</span> <span class="kn">import</span> <span class="n">new_client</span>
+
+<span class="n">molecule</span> <span class="o">=</span> <span class="n">new_client</span><span class="o">.</span><span class="n">molecule</span>
+<span class="n">ethanol_chembl</span> <span class="o">=</span> <span class="n">molecule</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ethanol</span><span class="o">.</span><span class="n">canonical_smiles</span><span class="p">)</span>
+
+<span class="n">chembl_wrc_molecule_properties</span><span class="p">(</span><span class="n">ethanol_chembl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">Name: <strong>ALCOHOL</strong><br/>Common Wikipedia (common) name: <strong>Ethanol</strong><br/>Formula: <strong>C2H6O</strong><br/>Species: <strong>NEUTRAL</strong><br/>SMILES: <strong>CCO</strong><br/>inchi:  <strong>InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3</strong><br/>CHEMBL id:  <strong>CHEMBL545</strong><br/>Therapeutic flag: <strong>False</strong><br/>First approval: <strong>None</strong></div></div>
+</div>
+<p>We can also start to visualise the structure of the compound:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">SVG</span>
+<span class="kn">from</span> <span class="nn">chembl_webresource_client.utils</span> <span class="kn">import</span> <span class="n">utils</span>
+
+<span class="n">chembl_smiles</span> <span class="o">=</span> <span class="n">ethanol_chembl</span><span class="p">[</span><span class="s2">&quot;molecule_structures&quot;</span><span class="p">][</span><span class="s2">&quot;canonical_smiles&quot;</span><span class="p">]</span>
+
+<span class="n">SVG</span><span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">smiles2svg</span><span class="p">(</span><span class="n">chembl_smiles</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/compound_lookups_38_0.svg" src="../_images/compound_lookups_38_0.svg" /></div>
+</div>
+</div>
+<div class="section" id="pypdb">
+<h2><code class="docutils literal notranslate"><span class="pre">pypdb</span></code><a class="headerlink" href="#pypdb" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://github.com/williamgilpin/pypdb"><code class="docutils literal notranslate"><span class="pre">pypdb</span></code></a> package provides simple Python API for performing searches with the <em>RCSB (Research Collaboratory for Structural Bioinformatics) Protein Data Bank (PDB)</em> [<a class="reference external" href="https://www.rcsb.org/pages/about-us/index">about</a>].</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pypdb</span>
+
+<span class="c1"># Broken?</span>
+<span class="c1">#pypdb.Query(&#39;aspirin&#39;).search()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chemistry"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+    <script type="text/javascript">
+        function init() {
+            WaveDrom.ProcessAll();
+        }
+        window.onload = init;
+    </script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="overview.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Chemistry Overview</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="material_properties.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Chemical Properties</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Tony Hirst<br/>
+        
+            &copy; Copyright 2018-2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
