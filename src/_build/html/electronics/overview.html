@@ -44,6 +44,8 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script src="https://wavedrom.com/skins/default.js"></script>
     <script src="https://wavedrom.com/wavedrom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -486,6 +488,17 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-control-package">
+   The
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     control
+    </span>
+   </code>
+   Package
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -557,7 +570,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_5_01.png" src="../_images/overview_5_01.png" />
+<img alt="../_images/overview_5_0.png" src="../_images/overview_5_0.png" />
 </div>
 </div>
 <p>We can lookup a netlist description from the circuit object directly:</p>
@@ -625,7 +638,7 @@ W 3 0; right=0.5
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_11_01.png" src="../_images/overview_11_01.png" />
+<img alt="../_images/overview_11_0.png" src="../_images/overview_11_0.png" />
 </div>
 </div>
 <p>The ability to create – and share – circuit diagrams in a Python context that plays nicely with Jupyter notebooks is handy, but the <code class="docutils literal notranslate"><span class="pre">lcapy</span></code> approach becomes really useful if we want to produce other assets around the circuit we’ve just created.</p>
@@ -696,7 +709,7 @@ W 3 0; right=0.5
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_18_01.png" src="../_images/overview_18_01.png" />
+<img alt="../_images/overview_18_0.png" src="../_images/overview_18_0.png" />
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "dfa76b3f855b4e919cc5843467399e48", "version_major": 2, "version_minor": 0}
 </script></div>
@@ -732,7 +745,7 @@ W 3 0; right=0.5
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_22_01.png" src="../_images/overview_22_01.png" />
+<img alt="../_images/overview_22_0.png" src="../_images/overview_22_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Should convert current expression to time-domain first
 </pre></div>
 </div>
@@ -757,8 +770,8 @@ W 3 0; right=0.5
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_24_01.png" src="../_images/overview_24_01.png" />
-<img alt="../_images/overview_24_11.png" src="../_images/overview_24_11.png" />
+<img alt="../_images/overview_24_0.png" src="../_images/overview_24_0.png" />
+<img alt="../_images/overview_24_1.png" src="../_images/overview_24_1.png" />
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "ee2a0cea656846288a9652e4715087d4", "version_major": 2, "version_minor": 0}
 </script></div>
@@ -801,7 +814,7 @@ W 3 0; right=0.5
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/overview_31_01.png" src="../_images/overview_31_01.png" />
+<img alt="../_images/overview_31_0.png" src="../_images/overview_31_0.png" />
 <img alt="../_images/overview_31_1.png" src="../_images/overview_31_1.png" />
 </div>
 </div>
@@ -949,7 +962,10 @@ W 3 0; right=0.5
 </div>
 </div>
 </div>
-<p>## <code class="docutils literal notranslate"><span class="pre">control</span></code> Package</p>
+</div>
+</div>
+<div class="section" id="the-control-package">
+<h2>The <code class="docutils literal notranslate"><span class="pre">control</span></code> Package<a class="headerlink" href="#the-control-package" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://python-control.readthedocs.io/en/0.9.0/"><code class="docutils literal notranslate"><span class="pre">control</span></code></a> package provides a range of tools to support the analysis and design of feedback control system. The API provides compatibility with the MATLAB Control Systems Toolbox.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1046,7 +1062,6 @@ y = C.x + D.u
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mag</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">omega</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">bode</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>
