@@ -44,8 +44,6 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script src="https://wavedrom.com/skins/default.js"></script>
     <script src="https://wavedrom.com/wavedrom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -462,6 +460,55 @@
 <li><p>using hybrid approaches, for example magicked diagram script cells to generate output cells in a live interactive notebook or a Sphinx/Jupyter Book plugin to render the generated diagram in the output document from a code cell script.</p></li>
 </ul>
 <p>In this chapter, we will review the use of magics and also explore how these might integrate with a diagram rendering workflow provided by the Sphinx/Jupyter Book publishing workflow.</p>
+<p>Depending on the editor or environment being used to render to the diagram, the same generator script can be used to generate diagrams in different contexts.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="1747bc87-dc64-4468-9db0-a84fcb122b31" name="4ec73c10-fed8-4769-aef3-7c8796c2590e" type="radio">
+</input><label class="tabbed-label" for="1747bc87-dc64-4468-9db0-a84fcb122b31">
+IPython Magic</label><div class="tabbed-content docutils">
+<p><em>Mermaid.js</em> diagram specified in IPython block magic <em>code</em> cell:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">mermaid_magic</span>
+
+<span class="n">graph</span> <span class="n">TD</span><span class="p">;</span>
+    <span class="n">A</span><span class="o">--&gt;</span><span class="n">B</span><span class="p">;</span>
+    <span class="n">A</span><span class="o">--&gt;</span><span class="n">C</span><span class="p">;</span>
+    <span class="n">B</span><span class="o">--&gt;</span><span class="n">D</span><span class="p">;</span>
+    <span class="n">C</span><span class="o">--&gt;</span><span class="n">D</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><em>Output is rendered as cell output when code cell is run.</em></p>
+</div>
+<input id="812b5936-b6e5-4058-91f3-ab9e9e1b5e94" name="4ec73c10-fed8-4769-aef3-7c8796c2590e" type="radio">
+</input><label class="tabbed-label" for="812b5936-b6e5-4058-91f3-ab9e9e1b5e94">
+Jupyter Book / Sphinx</label><div class="tabbed-content docutils">
+<p><em>Mermaid.js</em> diagram specified in MyST labeled code fenced block in a <em>Markdown</em> cell:</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{mermaid}
+graph TD;
+    A--&gt;B;
+    A--&gt;C;
+    B--&gt;D;
+    C--&gt;D;
+```
+</pre></div>
+</div>
+<p><em>Output is rendered in Sphinx generated output document.</em></p>
+</div>
+<input id="99aea050-63aa-4b7a-9026-cd792df1c5fd" name="4ec73c10-fed8-4769-aef3-7c8796c2590e" type="radio">
+</input><label class="tabbed-label" for="99aea050-63aa-4b7a-9026-cd792df1c5fd">
+VS Code</label><div class="tabbed-content docutils">
+<p><em>Mermaid.js</em> diagram specified with VS Code Makrdown Preview Enhanced detected code fence label in a <em>Markdown</em> cell:</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span><span class="sb">```mermaid</span>
+<span class="s">graph TD;</span>
+<span class="s">    A--&gt;B;</span>
+<span class="s">    A--&gt;C;</span>
+<span class="s">    B--&gt;D;</span>
+<span class="s">    C--&gt;D;</span>
+<span class="sb">```</span>
+</pre></div>
+</div>
+<p><em>Output is previewed in live preview window (when editing Markdown document).</em></p>
+</div>
+</div>
+<p>Ideally, it would make more sense to be able to tag a cell (for example, a raw code cell) with a particular tag (<code class="docutils literal notranslate"><span class="pre">render-mermaid</span></code>) and then just include the raw script in the cell, allowing the UI or processing engine to decide how best to render or preview the generated diagram.</p>
 </div>
 
     <script type="text/x-thebe-config">
