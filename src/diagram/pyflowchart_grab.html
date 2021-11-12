@@ -10,21 +10,21 @@
          
         <div id="diagram"></div>
 <script>
-  var diagram = flowchart.parse(`op4402116736=>operation: import time
-st4402136688=>start: start demo
-io4402136208=>inputoutput: input: msg
-cond4402136736=>condition: for i in range(10)
-sub4402135728=>subroutine: print(f'{msg} loopcount is {i}')
-sub4402137408=>subroutine: time.sleep(i)
-e4402136928=>end: end demo
+  var diagram = flowchart.parse(`op4398110416=>operation: import time
+st4398110752=>start: start demo
+io4398110176=>inputoutput: input: msg
+cond4398109216=>condition: for i in range(10)
+sub4398110848=>subroutine: print(f'{msg} loopcount is {i}')
+sub4398108976=>subroutine: time.sleep(i)
+e4398110128=>end: end demo
 
-op4402116736->st4402136688
-st4402136688->io4402136208
-io4402136208->cond4402136736
-cond4402136736(yes)->sub4402135728
-sub4402135728->sub4402137408
-sub4402137408(left)->cond4402136736
-cond4402136736(no)->e4402136928
+op4398110416->st4398110752
+st4398110752->io4398110176
+io4398110176->cond4398109216
+cond4398109216(yes)->sub4398110848
+sub4398110848->sub4398108976
+sub4398108976(left)->cond4398109216
+cond4398109216(no)->e4398110128
 `);
   diagram.drawSVG('diagram');
 </script>
